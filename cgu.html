@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales & CGU — RESSENTO</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B1F4A;
+  --gold: #D4A017;
+  --bg: #FAFBFF;
+  --border: #D8DFF0;
+  --text: #1a2340;
+  --muted: #6B7A99;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  font-family: 'Fraunces', serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  background: var(--navy);
+  border-bottom: 3px solid var(--gold);
+}
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.nav-ri {
+  width:32px; height:32px; border-radius:7px;
+  background: rgba(212,160,23,0.15);
+  border: 1px solid rgba(212,160,23,0.3);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:1px;
+}
+.nav-ri-t { font-family:'Bebas Neue',sans-serif; font-size:13px; color:var(--gold); line-height:1; }
+.nav-ri-s { font-family:'DM Mono',monospace; font-size:4px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(212,160,23,0.4); }
+.nav-name { font-family:'Bebas Neue',sans-serif; font-size:20px; color:white; letter-spacing:0.1em; }
+.nav-name .g { color:var(--gold); }
+.nav-back {
+  font-family:'DM Mono',monospace; font-size:10px;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(255,255,255,0.4); text-decoration:none;
+  transition:color 0.15s;
+}
+.nav-back:hover { color:var(--gold); }
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 48px 40px 40px;
+  border-bottom: 1px solid rgba(212,160,23,0.15);
+}
+.hero-inner { max-width: 860px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family:'DM Mono',monospace; font-size:10px;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:rgba(212,160,23,0.6); margin-bottom:12px;
+}
+.hero-h {
+  font-family:'Fraunces',serif; font-weight:300;
+  font-size:38px; color:white; line-height:1.1; margin-bottom:12px;
+}
+.hero-h .accent { color:var(--gold); font-style:italic; }
+.hero-date {
+  font-family:'DM Mono',monospace; font-size:11px;
+  color:rgba(255,255,255,0.3);
+}
+
+/* CONTENT */
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 40px 80px;
+}
+
+/* TOC */
+.toc {
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family:'DM Mono',monospace; font-size:10px;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:14px;
+}
+.toc-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.toc-list a {
+  font-family:'DM Mono',monospace; font-size:12px;
+  color:var(--navy); text-decoration:none;
+  display:flex; align-items:center; gap:8px;
+  transition:color 0.15s;
+}
+.toc-list a:hover { color:var(--gold); }
+.toc-list a::before { content:'→'; color:var(--gold); font-size:10px; }
+
+/* SECTIONS */
+.section {
+  margin-bottom: 52px;
+  scroll-margin-top: 80px;
+}
+.section-header {
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom: 2px solid var(--border);
+}
+.section-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px; color:var(--gold); line-height:1;
+  flex-shrink:0;
+}
+.section-title {
+  font-family:'Fraunces',serif; font-weight:400;
+  font-size:22px; color:var(--navy);
+}
+
+.section p {
+  font-family:'Fraunces',serif; font-weight:300;
+  font-size:16px; line-height:1.8; color:#2a3550;
+  margin-bottom:14px;
+}
+.section p:last-child { margin-bottom:0; }
+
+.section ul {
+  list-style:none; margin:14px 0; padding:0;
+  display:flex; flex-direction:column; gap:8px;
+}
+.section ul li {
+  font-family:'DM Mono',monospace; font-size:13px;
+  color:#2a3550; line-height:1.7;
+  display:flex; align-items:flex-start; gap:10px;
+  padding:10px 14px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:6px;
+}
+.section ul li::before { content:'–'; color:var(--gold); font-weight:bold; flex-shrink:0; }
+
+.highlight {
+  background:#FFFBEB;
+  border:1px solid rgba(212,160,23,0.25);
+  border-left:4px solid var(--gold);
+  border-radius:6px;
+  padding:16px 20px;
+  margin:16px 0;
+  font-family:'DM Mono',monospace;
+  font-size:12px; line-height:1.8;
+  color:var(--navy);
+}
+.highlight strong { color:var(--gold); }
+
+.info-box {
+  background:#EEF2FF;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:20px 24px;
+  margin:16px 0;
+}
+.info-box p {
+  font-family:'DM Mono',monospace;
+  font-size:12px; line-height:1.8;
+  color:var(--navy); margin-bottom:6px;
+}
+.info-box p:last-child { margin-bottom:0; }
+.info-box strong { color:var(--navy); font-weight:600; }
+
+/* RGPD BADGE */
+.rgpd-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--navy); color:white;
+  font-family:'DM Mono',monospace; font-size:10px;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:6px 14px; border-radius:4px;
+  margin-bottom:16px;
+}
+.rgpd-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
+
+/* CONTACT BOX */
+.contact-box {
+  background:var(--navy); border-radius:12px;
+  padding:28px 32px; margin-top:40px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:16px;
+}
+.contact-box-left {}
+.contact-box-title {
+  font-family:'Fraunces',serif; font-weight:300;
+  font-size:20px; color:white; margin-bottom:6px;
+}
+.contact-box-sub {
+  font-family:'DM Mono',monospace; font-size:11px;
+  color:rgba(255,255,255,0.4);
+}
+.contact-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold); color:var(--navy);
+  font-family:'DM Mono',monospace; font-size:11px;
+  font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  padding:12px 24px; border-radius:6px;
+  text-decoration:none; flex-shrink:0;
+  transition:background 0.15s;
+}
+.contact-btn:hover { background:#F0C040; }
+
+/* FOOTER */
+footer {
+  background:var(--navy);
+  padding:28px 40px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:12px;
+  border-top:3px solid var(--gold);
+}
+.footer-copy {
+  font-family:'DM Mono',monospace; font-size:10px;
+  color:rgba(255,255,255,0.25);
+}
+.footer-link {
+  font-family:'DM Mono',monospace; font-size:10px;
+  color:rgba(212,160,23,0.5); text-decoration:none;
+}
+
+@media(max-width:640px){
+  nav { padding:0 20px; }
+  .hero { padding:32px 20px 28px; }
+  .content { padding:36px 20px 60px; }
+  .hero-h { font-size:28px; }
+  footer { padding:24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-ri">
+      <div class="nav-ri-t">RI</div>
+      <div class="nav-ri-s">IDX</div>
+    </div>
+    <div class="nav-name">RESS<span class="g">E</span>NTO</div>
+  </a>
+  <a href="/" class="nav-back">← Retour au site</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Informations légales</div>
+    <h1 class="hero-h">Mentions légales, <span class="accent">CGU & RGPD</span></h1>
+    <div class="hero-date">Dernière mise à jour : Mars 2026 · ressento.com</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- TABLE DES MATIÈRES -->
+  <div class="toc">
+    <div class="toc-title">Sommaire</div>
+    <ul class="toc-list">
+      <li><a href="#mentions">Mentions légales</a></li>
+      <li><a href="#collecte">Données collectées</a></li>
+      <li><a href="#rgpd">Vos droits RGPD</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#cgu">Conditions générales d'utilisation</a></li>
+      <li><a href="#hebergement">Hébergement</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- 1. MENTIONS LÉGALES -->
+  <div class="section" id="mentions">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Mentions légales</div>
+    </div>
+    <div class="info-box">
+      <p><strong>Éditeur du site :</strong> RESSENTO</p>
+      <p><strong>Site web :</strong> ressento.com</p>
+      <p><strong>Contact :</strong> contact&#64;ressento.com</p>
+      <p><strong>Statut :</strong> Projet en cours de structuration juridique · France</p>
+    </div>
+    <p>RESSENTO est une plateforme de collecte de données citoyennes économiques produisant des indices en temps réel. Le site ressento.com est édité et géré par l'équipe RESSENTO.</p>
+    <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, les présentes mentions légales sont portées à la connaissance des utilisateurs du site ressento.com.</p>
+  </div>
+
+  <!-- 2. DONNÉES COLLECTÉES -->
+  <div class="section" id="collecte">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Données collectées</div>
+    </div>
+
+    <div class="rgpd-badge">
+      <div class="rgpd-dot"></div>
+      Conformité RGPD
+    </div>
+
+    <p>RESSENTO s'engage à protéger votre vie privée. Voici les données que nous collectons et comment nous les utilisons.</p>
+
+    <p><strong>Données collectées via le formulaire IBM (questionnaire citoyen) :</strong></p>
+    <ul>
+      <li>Type de commune (donnée anonyme, non identifiante)</li>
+      <li>Note globale attribuée au maire (donnée anonyme)</li>
+      <li>Motifs de déception et de satisfaction (données anonymes)</li>
+      <li>Impact financier estimé (donnée anonyme)</li>
+      <li>Intention de vote au 2e tour (donnée anonyme)</li>
+      <li>Adresse email <strong>(optionnelle)</strong> — uniquement pour recevoir l'IBM France le 22 mars</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Important :</strong> Toutes les réponses au questionnaire sont anonymes à l'exception de l'email, dont la collecte est strictement optionnelle. Aucune donnée identifiante n'est collectée sans votre consentement explicite.
+    </div>
+
+    <p><strong>Utilisation des données :</strong></p>
+    <ul>
+      <li>Production des indices citoyens économiques RESSENTO (RI-IBM, RI-IRF, RI-DPA, RI-MOB)</li>
+      <li>Envoi unique de l'IBM France le 22 mars 2026 (si email fourni)</li>
+      <li>Analyse statistique agrégée et anonymisée</li>
+    </ul>
+
+    <p><strong>Ce que nous ne faisons pas :</strong></p>
+    <ul>
+      <li>Nous ne revendons jamais vos données à des tiers</li>
+      <li>Nous n'utilisons pas vos données à des fins publicitaires</li>
+      <li>Nous ne croisons pas vos réponses avec d'autres bases de données</li>
+      <li>Nous ne partageons pas vos emails avec des partenaires commerciaux</li>
+    </ul>
+  </div>
+
+  <!-- 3. RGPD -->
+  <div class="section" id="rgpd">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Vos droits RGPD</div>
+    </div>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+    <ul>
+      <li><strong>Droit d'accès :</strong> vous pouvez demander à consulter les données vous concernant</li>
+      <li><strong>Droit de rectification :</strong> vous pouvez demander la correction de données inexactes</li>
+      <li><strong>Droit à l'effacement :</strong> vous pouvez demander la suppression de vos données (droit à l'oubli)</li>
+      <li><strong>Droit d'opposition :</strong> vous pouvez vous opposer au traitement de vos données</li>
+      <li><strong>Droit à la portabilité :</strong> vous pouvez recevoir vos données dans un format lisible</li>
+      <li><strong>Droit de retrait du consentement :</strong> vous pouvez retirer votre consentement à tout moment</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Pour exercer vos droits :</strong> envoyez un email à contact&#64;ressento.com en précisant votre demande. Nous répondons dans un délai maximum de 30 jours.
+    </div>
+
+    <p>Vous avez également le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) : <strong>cnil.fr</strong></p>
+
+    <p><strong>Durée de conservation :</strong> Les données collectées via le formulaire IBM sont conservées pendant une durée maximale de 24 mois à compter de la date de collecte, puis supprimées ou anonymisées définitivement.</p>
+  </div>
+
+  <!-- 4. COOKIES -->
+  <div class="section" id="cookies">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Cookies</div>
+    </div>
+    <p>Le site ressento.com utilise un nombre minimal de cookies nécessaires au bon fonctionnement du site.</p>
+    <ul>
+      <li><strong>Cookies techniques :</strong> nécessaires au fonctionnement du site (session, sécurité)</li>
+      <li><strong>Aucun cookie publicitaire</strong> n'est utilisé sur ressento.com</li>
+      <li><strong>Aucun tracker tiers</strong> (Google Analytics, Facebook Pixel, etc.) n'est installé</li>
+    </ul>
+    <p>RESSENTO ne place aucun cookie de traçage ou de ciblage publicitaire. Votre navigation sur ressento.com est privée.</p>
+  </div>
+
+  <!-- 5. CGU -->
+  <div class="section" id="cgu">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Conditions générales d'utilisation</div>
+    </div>
+    <p>En accédant et en utilisant le site ressento.com et ses formulaires, vous acceptez les présentes conditions générales d'utilisation.</p>
+
+    <p><strong>Utilisation du service :</strong></p>
+    <ul>
+      <li>Le service RESSENTO est gratuit et accessible à toute personne majeure résidant en France</li>
+      <li>Les déclarations doivent être sincères et refléter votre expérience personnelle réelle</li>
+      <li>Il est interdit de soumettre des réponses multiples pour fausser les indices</li>
+      <li>Il est interdit d'utiliser des outils automatisés pour soumettre des réponses</li>
+    </ul>
+
+    <p><strong>Propriété intellectuelle :</strong></p>
+    <ul>
+      <li>Les indices RESSENTO (RI-IBM, RI-IRF, RI-DPA, RI-MOB) sont la propriété exclusive de RESSENTO</li>
+      <li>La méthodologie, le nom RESSENTO et l'identité visuelle sont protégés</li>
+      <li>Toute reproduction partielle ou totale sans autorisation est interdite</li>
+      <li>La citation des indices RESSENTO avec mention de la source est autorisée</li>
+    </ul>
+
+    <p><strong>Limitation de responsabilité :</strong></p>
+    <ul>
+      <li>Les indices RESSENTO sont produits à partir de données déclaratives citoyennes volontaires</li>
+      <li>Ils constituent des indicateurs de ressenti et non des sondages représentatifs au sens statistique</li>
+      <li>RESSENTO ne peut être tenu responsable de l'utilisation faite des indices par des tiers</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Transparence méthodologique :</strong> La méthodologie de calcul de chaque indice est publique et disponible sur ressento.com/methodologie. Seuil de publication : 500 déclarations minimum par indice.
+    </div>
+  </div>
+
+  <!-- 6. HÉBERGEMENT -->
+  <div class="section" id="hebergement">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Hébergement</div>
+    </div>
+    <div class="info-box">
+      <p><strong>Hébergeur du site :</strong> Netlify, Inc.</p>
+      <p><strong>Adresse :</strong> 512 2nd Street, Suite 200, San Francisco, CA 94107, USA</p>
+      <p><strong>Site :</strong> netlify.com</p>
+    </div>
+    <div class="info-box">
+      <p><strong>Formulaires de collecte :</strong> Tally</p>
+      <p><strong>Site :</strong> tally.so</p>
+      <p><strong>Politique de confidentialité Tally :</strong> tally.so/help/privacy-policy</p>
+    </div>
+    <div class="info-box">
+      <p><strong>Stockage des données :</strong> Google Sheets (Google LLC)</p>
+      <p><strong>Politique de confidentialité Google :</strong> policies.google.com/privacy</p>
+    </div>
+    <p>Les données collectées via le formulaire Tally sont transmises et stockées dans Google Sheets, hébergé sur les serveurs de Google LLC. Ces données sont accessibles uniquement à l'équipe RESSENTO.</p>
+  </div>
+
+  <!-- 7. CONTACT -->
+  <div class="section" id="contact">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Contact</div>
+    </div>
+    <p>Pour toute question relative aux présentes mentions légales, à vos données personnelles ou à l'exercice de vos droits RGPD :</p>
+  </div>
+
+  <div class="contact-box">
+    <div class="contact-box-left">
+      <div class="contact-box-title">Une question légale ou RGPD ?</div>
+      <div class="contact-box-sub">Nous répondons dans les 30 jours · Réponse garantie</div>
+    </div>
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;contact&#64;ressento.com" class="contact-btn">
+      ✉️ &nbsp; contact&#64;ressento.com
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 RESSENTO · ressento.com · Tous droits réservés</div>
+  <a href="/" class="footer-link">← Retour au site</a>
+</footer>
+
+</body>
+</html>
