@@ -31,7 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
   height:64px;
@@ -63,18 +63,18 @@ nav {
 .nav-links a:hover { color:var(--navy); }
 .nav-cta {
   display:flex; align-items:center; gap:6px;
-  background:var(--navy); color:white;
+  background:var(--gold); color:var(--navy);
   font-family:'DM Mono',monospace; font-size:10px;
-  letter-spacing:0.12em; text-transform:uppercase;
+  font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
   padding:8px 18px; border-radius:4px;
   text-decoration:none;
   transition:background 0.15s;
 }
-.nav-cta:hover { background:var(--navy2); }
-.nav-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); animation:pulse 1.4s ease infinite; }
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.2}}
+.nav-cta:hover { background:var(--gold2); }
+.nav-dot { width:5px; height:5px; border-radius:50%; background:var(--navy); animation:pulse 1.4s ease infinite; }
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   min-height:100vh;
   display:grid; grid-template-columns:1fr 1fr;
@@ -99,13 +99,15 @@ nav {
 .hero-left { position:relative; z-index:1; padding-right:60px; }
 .hero-tag {
   display:inline-flex; align-items:center; gap:8px;
-  border:1px solid rgba(212,160,23,0.25);
+  border:1px solid rgba(212,160,23,0.4);
+  background:rgba(212,160,23,0.08);
   padding:6px 14px; border-radius:3px;
   font-family:'DM Mono',monospace; font-size:10px;
   letter-spacing:0.16em; text-transform:uppercase;
-  color:rgba(212,160,23,0.7); margin-bottom:32px;
+  color:var(--gold); margin-bottom:32px;
   animation:fadeUp 0.6s ease both;
 }
+.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 1.4s ease infinite; }
 .hero-h {
   font-family:'Fraunces',serif;
   font-size:clamp(44px,5.5vw,76px);
@@ -170,7 +172,7 @@ nav {
   display:flex; align-items:center; gap:5px;
   font-family:'DM Mono',monospace; font-size:9px;
   letter-spacing:0.12em; text-transform:uppercase;
-  color:rgba(255,255,255,0.3);
+  color:var(--gold);
 }
 .live-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); animation:pulse 1.4s ease infinite; }
 
@@ -186,7 +188,8 @@ nav {
   cursor:pointer;
 }
 .index-item:hover { border-color:rgba(212,160,23,0.2); background:rgba(212,160,23,0.04); }
-.index-item.active { border-color:rgba(212,160,23,0.3); background:rgba(212,160,23,0.06); }
+.index-item.active { border-color:rgba(212,160,23,0.5); background:rgba(212,160,23,0.08); }
+.index-item.active-ivi { border-color:rgba(212,160,23,0.5); background:rgba(212,160,23,0.08); }
 .index-code {
   font-family:'Bebas Neue',sans-serif; font-size:20px;
   color:var(--gold); width:80px; flex-shrink:0; letter-spacing:0.05em;
@@ -200,11 +203,12 @@ nav {
   padding:4px 10px; border-radius:3px;
 }
 .index-status.live { background:rgba(212,160,23,0.15); color:var(--gold); }
+.index-status.live-ivi { background:rgba(212,160,23,0.2); color:var(--gold); border:1px solid rgba(212,160,23,0.4); }
 .index-status.soon { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.25); }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
-/* ── TICKER ── */
+/* TICKER */
 .ticker {
   overflow:hidden; padding:12px 0;
   background:var(--gold);
@@ -219,7 +223,7 @@ nav {
 .tick::before { content:'·'; opacity:0.4; }
 .tick strong { font-weight:500; }
 
-/* ── INDICES SECTION ── */
+/* INDICES SECTION */
 .indices {
   padding:100px 40px;
   background:var(--bg);
@@ -250,6 +254,7 @@ nav {
   transition:transform 0.2s, box-shadow 0.2s;
 }
 .indice-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(11,31,74,0.1); }
+.indice-card.featured { border:2px solid var(--gold); box-shadow:0 0 32px rgba(212,160,23,0.12); }
 .indice-card-top {
   padding:28px 28px 24px;
   background:var(--navy);
@@ -297,6 +302,7 @@ nav {
   padding:4px 10px; border-radius:3px;
 }
 .indice-badge.live { background:#FFFBEB; color:var(--gold); border:1px solid rgba(212,160,23,0.2); }
+.indice-badge.live-now { background:var(--gold); color:var(--navy); font-weight:500; }
 .indice-badge.q2 { background:var(--bg2); color:var(--muted); border:1px solid var(--border); }
 .indice-badge.q3 { background:var(--bg2); color:var(--muted); border:1px solid var(--border); }
 .indice-link {
@@ -308,7 +314,7 @@ nav {
 }
 .indice-link:hover { color:var(--gold); }
 
-/* ── MANIFESTE ── */
+/* MANIFESTE */
 .manifeste {
   padding:100px 40px;
   background:var(--navy);
@@ -324,7 +330,6 @@ nav {
 }
 .manifeste .section-eyebrow { color:rgba(212,160,23,0.6); }
 .manifeste .section-h { color:white; margin-bottom:40px; }
-
 .manifeste-text {
   font-family:'Fraunces',serif; font-weight:300;
   font-size:clamp(18px,2.2vw,26px);
@@ -334,7 +339,6 @@ nav {
 .manifeste-text .em { color:white; font-style:italic; }
 .manifeste-text .gold { color:var(--gold); }
 .manifeste-text .strong { color:white; font-style:normal; }
-
 .manifeste-quote {
   margin:40px 0;
   padding:28px 32px;
@@ -349,14 +353,13 @@ nav {
   line-height:1.5; margin:0;
 }
 .manifeste-quote p .gold { color:var(--gold); }
-
 .manifeste-sig {
   margin-top:40px;
   font-family:'DM Mono',monospace; font-size:11px;
   color:rgba(255,255,255,0.3); letter-spacing:0.1em;
 }
 
-/* ── METHODOLOGIE ── */
+/* METHODOLOGIE */
 .method {
   padding:100px 40px;
   background:var(--bg2);
@@ -385,7 +388,7 @@ nav {
   color:var(--muted); line-height:1.75;
 }
 .method-formula {
-  margin-top:52px;
+  margin-top:32px;
   background:white; border:1px solid var(--border);
   border-radius:12px; padding:32px;
 }
@@ -417,7 +420,7 @@ nav {
   margin-top:-8px;
 }
 
-/* ── PRESSE & B2B ── */
+/* PRESSE & B2B */
 .presse {
   padding:100px 40px;
   background:white;
@@ -427,8 +430,6 @@ nav {
   display:grid; grid-template-columns:1fr 1fr; gap:60px;
   align-items:start;
 }
-.presse-left {}
-.presse-right {}
 .presse-cards { display:flex; flex-direction:column; gap:12px; margin-top:36px; }
 .presse-card {
   border:1px solid var(--border); border-radius:10px; padding:20px 22px;
@@ -447,7 +448,6 @@ nav {
   font-family:'DM Mono',monospace; font-size:10px;
   color:var(--gold); margin-top:6px; font-weight:500;
 }
-
 .contact-box {
   margin-top:36px;
   background:var(--navy); border-radius:12px;
@@ -472,13 +472,13 @@ nav {
 }
 .contact-email:hover { background:rgba(255,255,255,0.1); }
 
-/* ── IBM LIVE BANNER ── */
-.ibm-live {
+/* IVI LIVE BANNER */
+.ivi-live {
   padding:80px 40px;
   background:linear-gradient(135deg, #0B1F4A 0%, #132766 100%);
   position:relative; overflow:hidden;
 }
-.ibm-live-bg {
+.ivi-live-bg {
   position:absolute; inset:0;
   background:conic-gradient(from 0deg at 50% 110%,
     transparent 0deg, rgba(212,160,23,0.03) 15deg,
@@ -490,55 +490,54 @@ nav {
     transparent 180deg
   );
 }
-.ibm-live-inner {
+.ivi-live-inner {
   max-width:1100px; margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr;
   align-items:center; gap:60px;
   position:relative; z-index:1;
 }
-.ibm-live-left {}
-.ibm-live-eyebrow {
+.ivi-live-eyebrow {
   display:inline-flex; align-items:center; gap:7px;
   font-family:'DM Mono',monospace; font-size:10px;
   letter-spacing:0.16em; text-transform:uppercase;
   color:var(--gold); margin-bottom:16px;
 }
-.ibm-live-h {
+.ivi-live-h {
   font-family:'Fraunces',serif; font-weight:300;
   font-size:clamp(28px,3.5vw,46px);
   color:white; line-height:1.1; margin-bottom:16px;
 }
-.ibm-live-h .accent { color:var(--gold); font-style:italic; }
-.ibm-live-p {
+.ivi-live-h .accent { color:var(--gold); font-style:italic; }
+.ivi-live-p {
   font-family:'DM Mono',monospace; font-size:12px;
   color:rgba(255,255,255,0.4); line-height:1.8; margin-bottom:28px;
 }
-.ibm-live-right {
+.ivi-live-right {
   background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
+  border:1px solid rgba(212,160,23,0.3);
   border-radius:14px; padding:28px;
   border-top:3px solid var(--gold);
 }
-.ibm-kpis {
+.ivi-kpis {
   display:grid; grid-template-columns:1fr 1fr; gap:12px;
   margin-bottom:20px;
 }
-.ibm-kpi {
+.ivi-kpi {
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.06);
   border-radius:8px; padding:16px;
 }
-.ibm-kpi-v {
+.ivi-kpi-v {
   font-family:'Bebas Neue',sans-serif;
   font-size:36px; color:white; line-height:1; margin-bottom:4px;
 }
-.ibm-kpi-v.gold { color:var(--gold); }
-.ibm-kpi-l {
+.ivi-kpi-v.gold { color:var(--gold); }
+.ivi-kpi-l {
   font-family:'DM Mono',monospace; font-size:9px;
   letter-spacing:0.1em; text-transform:uppercase;
   color:rgba(255,255,255,0.25);
 }
-.ibm-cta {
+.ivi-cta {
   display:flex; align-items:center; justify-content:center;
   gap:8px; background:var(--gold); color:var(--navy);
   font-family:'DM Mono',monospace; font-size:11px;
@@ -546,9 +545,9 @@ nav {
   padding:14px; border-radius:8px; text-decoration:none;
   transition:background 0.15s;
 }
-.ibm-cta:hover { background:var(--gold2); }
+.ivi-cta:hover { background:var(--gold2); }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
   background:var(--navy); padding:48px 40px 32px;
 }
@@ -558,7 +557,6 @@ footer {
   padding-bottom:40px;
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.footer-brand {}
 .footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
 .footer-ri {
   width:32px; height:32px; border-radius:7px;
@@ -604,7 +602,6 @@ footer {
 }
 .footer-legal a:hover { color:rgba(255,255,255,0.4); }
 
-/* Mobile */
 @media(max-width:900px){
   nav { padding:0 20px; }
   .nav-links { display:none; }
@@ -617,8 +614,8 @@ footer {
   .method-grid { grid-template-columns:1fr; }
   .presse { padding:70px 20px; }
   .presse-inner { grid-template-columns:1fr; gap:40px; }
-  .ibm-live { padding:60px 20px; }
-  .ibm-live-inner { grid-template-columns:1fr; gap:40px; }
+  .ivi-live { padding:60px 20px; }
+  .ivi-live-inner { grid-template-columns:1fr; gap:40px; }
   footer { padding:40px 20px 28px; }
   .footer-top { grid-template-columns:1fr 1fr; }
 }
@@ -641,9 +638,9 @@ footer {
     <a href="#methodologie">Méthodologie</a>
     <a href="#presse">Presse &amp; B2B</a>
   </div>
-  <a href="/ibm" class="nav-cta">
+  <a href="https://tally.so/r/vGLAdQ" target="_blank" class="nav-cta">
     <div class="nav-dot"></div>
-    Résultat IBM · 46/100
+    IVI · Ouverture 9 avril
   </a>
 </nav>
 
@@ -654,8 +651,8 @@ footer {
 
   <div class="hero-left">
     <div class="hero-tag">
-      <div class="nav-dot"></div>
-      RESSENTO Index · Lancé le 16 mars 2026
+      <div class="hero-tag-dot"></div>
+      RI-IVI · Ouverture le 9 avril 2026
     </div>
     <h1 class="hero-h">
       Ce que vous<br>
@@ -668,11 +665,11 @@ footer {
       combien ça vous a coûté, et ce que vous en pensez vraiment.
     </p>
     <div class="hero-btns">
-      <a href="/ibm" class="btn-gold">
-        📊 &nbsp;IBM France 2026 · 46/100
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" class="btn-gold">
+        📊 &nbsp;IVI · Je participe → 9 avril
       </a>
-      <a href="#" class="btn-ghost">
-        🔔 &nbsp;Suivre RESSENTO
+      <a href="/ibm" class="btn-ghost">
+        IBM France 2026 · 46/100 →
       </a>
     </div>
   </div>
@@ -683,11 +680,11 @@ footer {
         <div class="hero-card-label">RESSENTO Index · Résultats &amp; À venir</div>
         <div class="hero-card-live">
           <div class="live-dot"></div>
-          IBM en cours
+          IVI en cours
         </div>
       </div>
       <div class="index-list">
-        <a href="/ibm" class="index-item active">
+        <a href="/ibm" class="index-item">
           <div class="index-code">RI-IBM</div>
           <div class="index-info">
             <div class="index-name">Indice de Bilan Municipal</div>
@@ -695,14 +692,14 @@ footer {
           </div>
           <div class="index-status live">46/100 ✓</div>
         </a>
-        <div class="index-item">
-          <div class="index-code">RI-IRF</div>
+        <a href="https://tally.so/r/vGLAdQ" target="_blank" class="index-item active-ivi">
+          <div class="index-code">RI-IVI</div>
           <div class="index-info">
-            <div class="index-name">Indice de Ressenti Fiscal</div>
-            <div class="index-desc">Perception de l'impôt · Mai 2026</div>
+            <div class="index-name">Indice de Valeur de l'Impôt</div>
+            <div class="index-desc">Pour 100€ payés, combien recevez-vous ? · 9 avril</div>
           </div>
-          <div class="index-status soon">Mai 2026</div>
-        </div>
+          <div class="index-status live-ivi">▶ Ouvert</div>
+        </a>
         <div class="index-item">
           <div class="index-code">RI-MOB</div>
           <div class="index-info">
@@ -727,18 +724,18 @@ footer {
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <div class="tick">RI-IBM · <strong>Municipales 2026</strong> · En cours · 22 mars au soir</div>
-    <div class="tick">RI-IRF · <strong>Ressenti Fiscal</strong> · Lancement mai 2026</div>
-    <div class="tick">RI-DPA · <strong>Pouvoir d'Achat</strong> · Inflation ressentie vs INSEE</div>
-    <div class="tick">RI-DMIF · <strong>Mobilité IDF</strong> · Coût réel des grèves RATP</div>
+    <div class="tick">RI-IVI · <strong>Valeur de l'Impôt</strong> · Ouverture 9 avril 2026</div>
+    <div class="tick">RI-IBM · <strong>Municipales 2026</strong> · Résultat publié · 46/100</div>
+    <div class="tick">RI-IVI · <strong>Pour 100€ payés, combien recevez-vous ?</strong> · 60 secondes</div>
+    <div class="tick">RI-MOB · <strong>Mobilité IDF</strong> · Coût réel des grèves RATP · Mai 2026</div>
     <div class="tick"><strong>Alternative Data</strong> · 11 Mds$ · CAGR 50%</div>
-    <div class="tick">Prochain indice · <strong>RI-MOB &amp; RI-IRF</strong> · Mai 2026</div>
-    <div class="tick">RI-IBM · <strong>Municipales 2026</strong> · En cours · 22 mars au soir</div>
-    <div class="tick">RI-IRF · <strong>Ressenti Fiscal</strong> · Lancement mai 2026</div>
-    <div class="tick">RI-DPA · <strong>Pouvoir d'Achat</strong> · Inflation ressentie vs INSEE</div>
-    <div class="tick">RI-DMIF · <strong>Mobilité IDF</strong> · Coût réel des grèves RATP</div>
+    <div class="tick">Prochain indice · <strong>RI-IVI</strong> · Résultat mai 2026</div>
+    <div class="tick">RI-IVI · <strong>Valeur de l'Impôt</strong> · Ouverture 9 avril 2026</div>
+    <div class="tick">RI-IBM · <strong>Municipales 2026</strong> · Résultat publié · 46/100</div>
+    <div class="tick">RI-IVI · <strong>Pour 100€ payés, combien recevez-vous ?</strong> · 60 secondes</div>
+    <div class="tick">RI-MOB · <strong>Mobilité IDF</strong> · Coût réel des grèves RATP · Mai 2026</div>
     <div class="tick"><strong>Alternative Data</strong> · 11 Mds$ · CAGR 50%</div>
-    <div class="tick">Prochain indice · <strong>RI-MOB &amp; RI-IRF</strong> · Mai 2026</div>
+    <div class="tick">Prochain indice · <strong>RI-IVI</strong> · Résultat mai 2026</div>
   </div>
 </div>
 
@@ -761,24 +758,25 @@ footer {
           <div class="indice-card-trigger">Déclencheur</div>
           <div class="indice-card-trigger-val">Élections municipales · 1er et 2e tour</div>
           <div class="indice-card-footer">
-            <span class="indice-badge live">🟡 Live · Mars 2026</span>
+            <span class="indice-badge live">🟡 Publié · Mars 2026</span>
             <a href="/ibm" target="_blank" class="indice-link">Voir le résultat IBM France →</a>
           </div>
         </div>
       </div>
 
-      <div class="indice-card">
-        <div class="indice-card-top">
-          <div class="indice-card-code">RI-IRF</div>
-          <div class="indice-card-name">Indice de Ressenti Fiscal</div>
+      <div class="indice-card featured">
+        <div class="indice-card-top" style="border-bottom:3px solid var(--gold); position:relative;">
+          <span style="position:absolute;top:20px;right:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:4px 10px;border-radius:3px;font-weight:500;">▶ Ouvert</span>
+          <div class="indice-card-code">RI-IVI</div>
+          <div class="indice-card-name">Indice de Valeur de l'Impôt</div>
         </div>
         <div class="indice-card-body">
-          <p class="indice-card-desc">La perception citoyenne de l'impôt. Ce que ni la DGFiP ni l'INSEE ne mesurent : l'équité fiscale ressentie, le consentement à l'impôt, l'affectation souhaitée.</p>
+          <p class="indice-card-desc">Pour 100€ d'impôts payés, combien les citoyens estiment-ils recevoir en valeur de services publics ? Ce que ni la DGFiP ni l'INSEE ne mesurent : le rendement perçu de la dépense publique.</p>
           <div class="indice-card-trigger">Déclencheur</div>
-          <div class="indice-card-trigger-val">Déclaration revenus · Budget PLF · Taxe foncière</div>
+          <div class="indice-card-trigger-val">Déclaration revenus · 9 avril 2026</div>
           <div class="indice-card-footer">
-            <span class="indice-badge q2">Mai 2026</span>
-            <span class="indice-link" style="color:var(--muted2);cursor:default;">Bientôt disponible</span>
+            <span class="indice-badge live-now">▶ Ouverture 9 avril</span>
+            <a href="https://tally.so/r/vGLAdQ" target="_blank" class="indice-link" style="color:var(--gold);">Participer maintenant →</a>
           </div>
         </div>
       </div>
@@ -825,25 +823,21 @@ footer {
   <div class="manifeste-inner">
     <div class="section-eyebrow">Notre mission</div>
     <h2 class="section-h" style="color:white;">Pourquoi <span class="accent">RESSENTO</span></h2>
-
     <div class="manifeste-text">
       <p>Il y a une chose que les grandes institutions n'ont jamais su mesurer : <span class="em">ce que les citoyens ressentent vraiment.</span></p>
       <p>Ce n'est pas leur opinion sondée dans un panel de 1 000 personnes. C'est leur vécu quotidien — chiffré, déclaré librement, publié de façon transparente.</p>
       <p>La frustration d'un trajet raté. La colère d'une taxe incomprise. La fierté d'un projet de quartier enfin réalisé. L'angoisse d'un budget qui ne suffit plus.</p>
     </div>
-
     <div class="manifeste-quote">
       <p>Une voix seule disparaît.<br><span class="gold">Mille voix ensemble deviennent un indice.</span><br>Et un indice, ça change les décisions.</p>
     </div>
-
     <div class="manifeste-text">
       <p>RESSENTO transforme ces ressentis en données économiques rigoureuses. L'écart entre l'inflation officielle et celle de votre caddie. Le coût réel d'une journée de grève. Le bilan financier d'un mandat municipal.</p>
       <p>Ce sont des données que personne ne produit. <span class="strong">Ni les instituts. Ni l'INSEE. Ni les sondeurs.</span></p>
       <p>Les données alternatives qui font bouger les marchés viennent aujourd'hui des cartes bancaires, des satellites, des réseaux sociaux. <span class="gold">RESSENTO y ajoute la voix directe des citoyens.</span> Déclarée volontairement. Chiffrée rigoureusement. Publiée librement.</p>
       <p>C'est ce que nous construisons — ensemble.</p>
     </div>
-
-    <div class="manifeste-sig">— L'équipe RESSENTO · ressento.com · <a href="#" class="__cf_email__" data-cfemail="d5b6babba1b4b6a195a7b0a6a6b0bba1bafbb6bab8">[email&nbsp;protected]</a></div>
+    <div class="manifeste-sig">— L'équipe RESSENTO · ressento.com · contact@ressento.com</div>
   </div>
 </section>
 
@@ -853,7 +847,6 @@ footer {
     <div class="section-eyebrow">Méthodologie</div>
     <h2 class="section-h">Comment on <span class="accent">calcule</span> les indices</h2>
     <p class="section-p">Une méthodologie publique, transparente, et reproductible. Chaque indice est documenté. Chaque pondération est justifiée.</p>
-
     <div class="method-grid">
       <div class="method-card">
         <div class="method-card-n">01</div>
@@ -875,27 +868,29 @@ footer {
     <div class="method-formula">
       <div class="method-formula-title">Formule IBM — Indice de Bilan Municipal</div>
       <div class="method-formula-eq">
-        <div class="method-eq-part">
-          <div class="method-eq-val" style="color:var(--gold);">IBM</div>
-          <div class="method-eq-label">Score / 100</div>
-        </div>
+        <div class="method-eq-part"><div class="method-eq-val" style="color:var(--gold);">IBM</div><div class="method-eq-label">Score / 100</div></div>
         <div class="method-eq-op">=</div>
-        <div class="method-eq-part">
-          <div class="method-eq-val">50%</div>
-          <div class="method-eq-label">Note globale<br>citoyenne</div>
-        </div>
+        <div class="method-eq-part"><div class="method-eq-val">50%</div><div class="method-eq-label">Note globale<br>citoyenne</div></div>
         <div class="method-eq-op">+</div>
-        <div class="method-eq-part">
-          <div class="method-eq-val">30%</div>
-          <div class="method-eq-label">Impact<br>financier</div>
-        </div>
+        <div class="method-eq-part"><div class="method-eq-val">30%</div><div class="method-eq-label">Impact<br>financier</div></div>
         <div class="method-eq-op">+</div>
-        <div class="method-eq-part">
-          <div class="method-eq-val">20%</div>
-          <div class="method-eq-label">Intention<br>de vote</div>
-        </div>
+        <div class="method-eq-part"><div class="method-eq-val">20%</div><div class="method-eq-label">Intention<br>de vote</div></div>
       </div>
     </div>
+
+    <div class="method-formula" style="margin-top:16px; border-color:rgba(212,160,23,0.3); background:#FFFDF5;">
+      <div class="method-formula-title">Formule IVI — Indice de Valeur de l'Impôt</div>
+      <div class="method-formula-eq">
+        <div class="method-eq-part"><div class="method-eq-val" style="color:var(--gold);">IVI</div><div class="method-eq-label">Score / 100</div></div>
+        <div class="method-eq-op">=</div>
+        <div class="method-eq-part"><div class="method-eq-val">45%</div><div class="method-eq-label">Rendement<br>perçu (curseur)</div></div>
+        <div class="method-eq-op">+</div>
+        <div class="method-eq-part"><div class="method-eq-val">30%</div><div class="method-eq-label">Perception<br>globale</div></div>
+        <div class="method-eq-op">+</div>
+        <div class="method-eq-part"><div class="method-eq-val">25%</div><div class="method-eq-label">Équité<br>perçue</div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -906,14 +901,13 @@ footer {
       <div class="section-eyebrow">Presse &amp; B2B</div>
       <h2 class="section-h">Vous travaillez<br>dans les <span class="accent">médias</span><br>ou les <span class="accent">institutions</span> ?</h2>
       <p class="section-p" style="margin-bottom:0;">RESSENTO produit des données que personne d'autre ne produit. Contactez-nous pour un accès anticipé, une exclusivité ou un partenariat.</p>
-
       <div class="presse-cards">
         <div class="presse-card">
           <div class="presse-card-ic">📰</div>
           <div>
             <div class="presse-card-title">Journalistes &amp; Médias</div>
             <div class="presse-card-desc">Exclusivité 24h sur l'indice avant publication. Accès aux données brutes et verbatims citoyens. Kit presse disponible sur demande.</div>
-            <div class="presse-card-price">Sur demande · <a href="#" class="__cf_email__" data-cfemail="4a2925243e2b293e0a382f39392f243e2564292527">[email&nbsp;protected]</a></div>
+            <div class="presse-card-price">Sur demande · contact@ressento.com</div>
           </div>
         </div>
         <div class="presse-card">
@@ -921,7 +915,7 @@ footer {
           <div>
             <div class="presse-card-title">Institutions &amp; Collectivités</div>
             <div class="presse-card-desc">Accès à l'infrastructure de données citoyennes. Rapports segmentés par territoire, démographie, catégorie socio-professionnelle.</div>
-            <div class="presse-card-price">Sur devis · <a href="#" class="__cf_email__" data-cfemail="80e3efeef4e1e3f4c0f2e5f3f3e5eef4efaee3efed">[email&nbsp;protected]</a></div>
+            <div class="presse-card-price">Sur devis · contact@ressento.com</div>
           </div>
         </div>
         <div class="presse-card">
@@ -929,23 +923,17 @@ footer {
           <div>
             <div class="presse-card-title">Cabinets Conseil &amp; Fintechs</div>
             <div class="presse-card-desc">API segmentée, signal prédictif, données alternatives pour modèles quantitatifs. Le ressenti citoyen comme indicateur avancé.</div>
-            <div class="presse-card-price">Sur devis · <a href="#" class="__cf_email__" data-cfemail="51323e3f253032251123342222343f253e7f323e3c">[email&nbsp;protected]</a></div>
+            <div class="presse-card-price">Sur devis · contact@ressento.com</div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="presse-right">
       <div class="contact-box">
         <div class="contact-box-title">Parlons-en.</div>
-        <div class="contact-box-sub">
-          Que vous soyez journaliste, directeur de données, 
-          responsable d'études ou investisseur — 
-          écrivez-nous. On répond dans les 24h.
-        </div>
-        <a href="#" class="__cf_email__" data-cfemail="83e0ecedf7e2e0f7c3f1e6f0f0e6edf7ecade0ecee">[email&nbsp;protected]</a>
+        <div class="contact-box-sub">Que vous soyez journaliste, directeur de données, responsable d'études ou investisseur — écrivez-nous. On répond dans les 24h.</div>
+        <a href="mailto:contact@ressento.com" class="contact-email">contact@ressento.com</a>
       </div>
-
       <div style="margin-top:20px; background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:24px;">
         <div class="section-eyebrow" style="margin-bottom:16px;">Le marché</div>
         <div style="display:flex; flex-direction:column; gap:12px;">
@@ -967,49 +955,49 @@ footer {
   </div>
 </section>
 
-<!-- IBM LIVE BANNER -->
-<section class="ibm-live">
-  <div class="ibm-live-bg"></div>
-  <div class="ibm-live-inner">
-    <div class="ibm-live-left">
-      <div class="ibm-live-eyebrow">
+<!-- IVI LIVE BANNER -->
+<section class="ivi-live">
+  <div class="ivi-live-bg"></div>
+  <div class="ivi-live-inner">
+    <div>
+      <div class="ivi-live-eyebrow">
         <div class="live-dot"></div>
-        RI-Résultat IBM · 46/100 · Municipales 2026
+        RI-IVI · Indice de Valeur de l'Impôt · Ouverture 9 avril
       </div>
-      <h2 class="ibm-live-h">
-        IBM France 2026 —<br><span class="accent">46/100.</span>
+      <h2 class="ivi-live-h">
+        Vos impôts valent-ils<br><span class="accent">vraiment ce qu'ils coûtent ?</span>
       </h2>
-      <p class="ibm-live-p">
-        60 secondes pour chiffrer votre bilan municipal.
-        L'IBM France sera publié le 22 mars à 20h00 —
-        après la fermeture des bureaux de vote.
+      <p class="ivi-live-p">
+        Pour 100€ d'impôts payés, combien estimez-vous recevoir en retour ?
+        60 secondes. Anonyme. Gratuit.
+        Le résultat IVI France sera publié en mai 2026.
       </p>
-      <a href="/ibm" class="btn-gold" style="display:inline-flex;">
-        📊 &nbsp;Voir le résultat complet →
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" class="btn-gold" style="display:inline-flex;">
+        📊 &nbsp;Participer à l'IVI →
       </a>
     </div>
-    <div class="ibm-live-right">
-      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">IBM France · Données en temps réel</div>
-      <div class="ibm-kpis">
-        <div class="ibm-kpi">
-          <div class="ibm-kpi-v gold">46</div>
-          <div class="ibm-kpi-l">Score /100</div>
+    <div class="ivi-live-right">
+      <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">IVI · Questionnaire ouvert · Résultat mai 2026</div>
+      <div class="ivi-kpis">
+        <div class="ivi-kpi">
+          <div class="ivi-kpi-v gold">10</div>
+          <div class="ivi-kpi-l">Questions</div>
         </div>
-        <div class="ibm-kpi">
-          <div class="ibm-kpi-v">3/5</div>
-          <div class="ibm-kpi-l">Note maires</div>
+        <div class="ivi-kpi">
+          <div class="ivi-kpi-v">60s</div>
+          <div class="ivi-kpi-l">Durée estimée</div>
         </div>
-        <div class="ibm-kpi">
-          <div class="ibm-kpi-v">67%</div>
-          <div class="ibm-kpi-l">Autre candidat</div>
+        <div class="ivi-kpi">
+          <div class="ivi-kpi-v">100%</div>
+          <div class="ivi-kpi-l">Anonyme</div>
         </div>
-        <div class="ibm-kpi">
-          <div class="ibm-kpi-v">Mai</div>
-          <div class="ibm-kpi-l">Prochain indice</div>
+        <div class="ivi-kpi">
+          <div class="ivi-kpi-v">Mai</div>
+          <div class="ivi-kpi-l">Résultat IVI</div>
         </div>
       </div>
-      <a href="/ibm" class="ibm-cta">
-        📊 &nbsp; Résultat IBM France complet
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" class="ivi-cta">
+        📊 &nbsp; Déclarer mon ressenti fiscal
       </a>
     </div>
   </div>
@@ -1018,7 +1006,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <div class="footer-brand">
+    <div>
       <div class="footer-logo">
         <div class="footer-ri">
           <div class="footer-ri-t">RI</div>
@@ -1026,18 +1014,15 @@ footer {
         </div>
         <div class="footer-name">RESS<span class="g">E</span>NTO</div>
       </div>
-      <div class="footer-tagline">
-        Ce que vous ressentez, enfin chiffré.<br>
-        Les premiers indices citoyens économiques en temps réel.
-      </div>
+      <div class="footer-tagline">Ce que vous ressentez, enfin chiffré.<br>Les premiers indices citoyens économiques en temps réel.</div>
     </div>
     <div>
       <div class="footer-col-title">Indices</div>
       <div class="footer-col-links">
-        <a href="/ibm" target="_blank">RI-IBM · Municipal</a>
-        <a href="#">RI-IRF · Fiscal</a>
+        <a href="/ibm">RI-IBM · Municipal</a>
+        <a href="https://tally.so/r/vGLAdQ" target="_blank">RI-IVI · Valeur impôt</a>
+        <a href="#">RI-MOB · Mobilité</a>
         <a href="#">RI-DPA · Prix</a>
-        <a href="#">RI-DMIF · Mobilité</a>
       </div>
     </div>
     <div>
@@ -1046,4 +1031,24 @@ footer {
         <a href="#manifeste">Notre mission</a>
         <a href="#methodologie">Méthodologie</a>
         <a href="#presse">Presse &amp; B2B</a>
-        </div></div></div></footer></body></html>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-col-links">
+        <a href="mailto:contact@ressento.com">contact@ressento.com</a>
+        <a href="/cgu">CGU &amp; Confidentialité</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 RESSENTO · Tous droits réservés</div>
+    <div class="footer-legal">
+      <a href="/cgu">CGU</a>
+      <a href="/cgu">Confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>
