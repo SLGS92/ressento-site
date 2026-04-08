@@ -16,116 +16,153 @@ html{scroll-behavior:smooth;}
 body{background:var(--navy);font-family:'Fraunces',serif;color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:60px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;
-  background:rgba(11,31,74,0.95);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(212,160,23,0.15);
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(11,31,74,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,160,23,0.2);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-ri{width:32px;height:32px;border-radius:7px;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+.nav-ri{width:32px;height:32px;border-radius:7px;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
 .nav-ri-t{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--gold);line-height:1;}
-.nav-ri-s{font-family:'DM Mono',monospace;font-size:4px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(212,160,23,0.4);}
+.nav-ri-s{font-family:'DM Mono',monospace;font-size:4px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(212,160,23,0.7);}
 .nav-name{font-family:'Bebas Neue',sans-serif;font-size:20px;color:white;letter-spacing:0.1em;}
 .nav-name .g{color:var(--gold);}
-.nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.15s;}
+.nav-back{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.15s;}
 .nav-back:hover{color:var(--gold);}
 
 /* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:100px 40px 60px;
-  position:relative;overflow:hidden;
-  text-align:center;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 40px 60px;position:relative;overflow:hidden;text-align:center;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,160,23,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,160,23,0.03) 1px,transparent 1px);background-size:70px 70px;}
 .hero-rays{position:absolute;inset:0;background:conic-gradient(from 0deg at 50% 108%, transparent 0deg,rgba(212,160,23,0.025) 12deg,transparent 24deg,rgba(212,160,23,0.02) 36deg,transparent 48deg,rgba(212,160,23,0.025) 60deg,transparent 72deg,rgba(212,160,23,0.02) 84deg,transparent 96deg,rgba(212,160,23,0.025) 108deg,transparent 120deg,rgba(212,160,23,0.02) 132deg,transparent 144deg,rgba(212,160,23,0.025) 156deg,transparent 168deg,rgba(212,160,23,0.02) 180deg);}
 .hero-glow{position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(212,160,23,0.1) 0%,transparent 65%);}
+.hero-inner{position:relative;z-index:1;max-width:720px;}
 
-.hero-inner{position:relative;z-index:1;max-width:700px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,160,23,0.4);padding:7px 18px;border-radius:3px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,160,23,0.9);margin-bottom:28px;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
 
-.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,160,23,0.25);padding:6px 16px;border-radius:3px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,160,23,0.7);margin-bottom:28px;}
-.badge-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
-
-.hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:16px;}
 
 .hero-score{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,18vw,160px);line-height:0.88;color:white;letter-spacing:-0.02em;margin-bottom:4px;}
-.hero-score span{font-size:clamp(28px,5vw,48px);color:rgba(255,255,255,0.2);}
+.hero-score span{font-size:clamp(28px,5vw,48px);color:rgba(255,255,255,0.45);}
 
-.score-bar-wrap{margin:16px auto 0;width:300px;}
-.score-bar-track{height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;}
+.score-bar-wrap{margin:20px auto 0;width:320px;}
+.score-bar-track{height:6px;background:rgba(255,255,255,0.15);border-radius:3px;overflow:hidden;}
 .score-bar-fill{height:100%;width:46%;background:linear-gradient(90deg,#ef4444,#f97316);border-radius:3px;}
-.score-bar-labels{display:flex;justify-content:space-between;margin-top:6px;font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,0.3);}
+.score-bar-labels{display:flex;justify-content:space-between;margin-top:8px;font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.7);}
 
-.score-formula{margin-top:10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+.score-formula{margin-top:12px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
 
-/* Stats */
-.stats-grid{display:flex;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap;}
-.stat-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px 22px;text-align:center;min-width:140px;}
-.stat-card.gold{background:rgba(212,160,23,0.08);border-color:rgba(212,160,23,0.2);}
-.stat-val{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;color:white;margin-bottom:4px;}
+/* EXPLICATION DU SCORE */
+.score-explain{margin-top:28px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:24px 28px;text-align:left;}
+.score-explain-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.score-explain-text{font-family:'Fraunces',serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.88);line-height:1.8;}
+.score-explain-text strong{color:white;font-weight:400;}
+
+/* STATS */
+.stats-grid{display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;}
+.stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:18px 22px;text-align:center;min-width:140px;}
+.stat-card.gold{background:rgba(212,160,23,0.1);border-color:rgba(212,160,23,0.35);}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;color:white;margin-bottom:6px;}
 .stat-val.gold{color:var(--gold);}
-.stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);line-height:1.5;}
+.stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);line-height:1.6;}
+
+/* IVI BANNER */
+.ivi-banner{margin-top:36px;background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.3);border-top:3px solid var(--gold);border-radius:12px;padding:24px 32px;text-align:center;}
+.ivi-banner-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,160,23,0.9);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 1.5s infinite;}
+.ivi-banner-title{font-family:'Fraunces',serif;font-weight:300;font-size:21px;color:white;margin-bottom:8px;}
+.ivi-banner-title em{color:var(--gold);font-style:italic;}
+.ivi-banner-sub{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.7);line-height:1.9;margin-bottom:18px;}
+.ivi-banner-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:12px 28px;border-radius:6px;text-decoration:none;transition:background 0.15s;}
+.ivi-banner-btn:hover{background:var(--gold2);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+/* METHODOLOGIE */
+.methode{background:#0d2254;padding:80px 40px;border-top:1px solid rgba(212,160,23,0.12);}
+.methode-inner{max-width:900px;margin:0 auto;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(212,160,23,0.9);margin-bottom:12px;}
+.section-h{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(26px,4vw,40px);color:white;margin-bottom:16px;line-height:1.15;}
+.section-h em{color:var(--gold);font-style:italic;}
+.section-intro{font-family:'Fraunces',serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:40px;max-width:680px;}
+
+.methode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.methode-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:24px;}
+.methode-num{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--gold);line-height:1;margin-bottom:2px;}
+.methode-pct{font-family:'DM Mono',monospace;font-size:11px;color:rgba(212,160,23,0.8);margin-bottom:12px;}
+.methode-card-name{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:10px;}
+.methode-card-desc{font-family:'Fraunces',serif;font-weight:300;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.75;}
+
+.methode-formula{background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.22);border-radius:10px;padding:20px 28px;font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,0.8);text-align:center;line-height:2.2;}
+.methode-formula strong{color:var(--gold);}
+.methode-note{margin-top:18px;font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);line-height:1.9;text-align:center;}
 
 /* INSIGHTS */
 .insights{background:var(--bg);padding:80px 40px;}
 .insights-inner{max-width:900px;margin:0 auto;}
-.section-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.section-h{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(28px,4vw,44px);color:var(--navy);margin-bottom:40px;line-height:1.1;}
-.section-h em{color:var(--gold);font-style:italic;}
+.insights .section-eyebrow{color:var(--gold);}
+.insights .section-h{color:var(--navy);}
+.insights .section-h em{color:var(--gold);}
+.insights .section-intro{color:#3a4d6b;margin-bottom:36px;}
 
 .insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .insight-card{background:white;border:1px solid var(--border);border-radius:12px;padding:24px;}
-.insight-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
-.insight-item{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.insight-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.insight-item{display:flex;align-items:center;gap:10px;margin-bottom:13px;}
 .insight-item:last-child{margin-bottom:0;}
-.insight-label{font-family:'DM Mono',monospace;font-size:11px;color:#1a2340;flex:1;}
+.insight-label{font-family:'DM Mono',monospace;font-size:12px;color:#1a2340;flex:1;}
 .insight-bar-wrap{width:80px;flex-shrink:0;}
 .insight-bar-track{height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
 .insight-bar-fill{height:100%;border-radius:2px;}
 .insight-bar-fill.red{background:#ef4444;}
 .insight-bar-fill.green{background:#15803d;}
-.insight-pct{font-family:'Bebas Neue',sans-serif;font-size:20px;flex-shrink:0;width:36px;text-align:right;}
+.insight-pct{font-family:'Bebas Neue',sans-serif;font-size:22px;flex-shrink:0;width:38px;text-align:right;}
 .insight-pct.red{color:#ef4444;}
 .insight-pct.green{color:#15803d;}
+
+/* LECTURE DU SCORE */
+.lecture{background:var(--bg);padding:0 40px 80px;}
+.lecture-inner{max-width:900px;margin:0 auto;}
+.lecture-box{background:white;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:12px;padding:28px 32px;}
+.lecture-box-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.lecture-box-text{font-family:'Fraunces',serif;font-weight:300;font-size:16px;color:#1a2340;line-height:1.9;}
+.lecture-box-text strong{color:var(--navy);font-weight:400;}
 
 /* NEXT */
 .next{background:var(--navy);padding:80px 40px;position:relative;overflow:hidden;}
 .next-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(212,160,23,0.06) 0%,transparent 55%);}
 .next-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
-.next .section-eyebrow{color:rgba(212,160,23,0.6);}
-.next .section-h{color:white;margin-bottom:32px;}
+.next .section-eyebrow{color:rgba(212,160,23,0.9);}
+.next .section-h{color:white;margin-bottom:8px;}
+.next-intro{font-family:'Fraunces',serif;font-weight:300;font-size:16px;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:32px;max-width:600px;}
 
-.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;}
-.next-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px;}
-.next-card.gold{background:rgba(212,160,23,0.08);border-color:rgba(212,160,23,0.2);}
-.next-card-code{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);margin-bottom:6px;}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+.next-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:24px;}
+.next-card.gold{background:rgba(212,160,23,0.08);border-color:rgba(212,160,23,0.28);}
+.next-card-code{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);margin-bottom:6px;}
 .next-card-code.white{color:white;}
-.next-card-name{font-family:'Fraunces',serif;font-weight:300;font-size:17px;color:white;margin-bottom:8px;}
-.next-card-desc{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.7;}
-.next-card-date{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.2);padding:4px 10px;border-radius:3px;}
+.next-card-name{font-family:'Fraunces',serif;font-weight:300;font-size:18px;color:white;margin-bottom:10px;}
+.next-card-desc{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.7);line-height:1.8;}
+.next-card-date{display:inline-block;margin-top:14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.22);padding:5px 12px;border-radius:3px;}
+.next-card-cta{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:11px 22px;border-radius:5px;text-decoration:none;transition:background 0.15s;}
+.next-card-cta:hover{background:var(--gold2);}
+.next-card-live{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(212,160,23,0.9);margin-top:10px;}
 
-/* Waitlist */
-.waitlist{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px 32px;text-align:center;border-top:3px solid var(--gold);}
-.waitlist-title{font-family:'Fraunces',serif;font-weight:300;font-size:22px;color:white;margin-bottom:8px;}
-.waitlist-sub{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:20px;line-height:1.7;}
+.teasing-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,160,23,0.65);margin-bottom:14px;}
+.teasing-pill{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:10px 16px;font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.75);}
+
+/* WAITLIST */
+.waitlist{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:28px 32px;text-align:center;border-top:3px solid var(--gold);}
+.waitlist-title{font-family:'Fraunces',serif;font-weight:300;font-size:23px;color:white;margin-bottom:10px;}
+.waitlist-sub{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.65);margin-bottom:22px;line-height:1.9;}
 .waitlist-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;border-radius:6px;text-decoration:none;transition:background 0.15s;}
 .waitlist-btn:hover{background:var(--gold2);}
 
-/* Footer */
+/* FOOTER */
 footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:3px solid var(--gold);}
 .footer-left{display:flex;align-items:center;gap:10px;}
-.footer-ri{width:28px;height:28px;border-radius:6px;background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+.footer-ri{width:28px;height:28px;border-radius:6px;background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
 .footer-ri-t{font-family:'Bebas Neue',sans-serif;font-size:11px;color:var(--gold);line-height:1;}
-.footer-ri-s{font-family:'DM Mono',monospace;font-size:4px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(212,160,23,0.4);}
+.footer-ri-s{font-family:'DM Mono',monospace;font-size:4px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(212,160,23,0.55);}
 .footer-name{font-family:'Bebas Neue',sans-serif;font-size:17px;color:white;letter-spacing:0.1em;}
 .footer-name .g{color:var(--gold);}
 .footer-right{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-.footer-right a{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.15s;}
+.footer-right a{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.15s;}
 .footer-right a:hover{color:var(--gold);}
 
 @media(max-width:700px){
@@ -133,7 +170,10 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
   .hero{padding:88px 20px 52px;}
   .stats-grid{gap:10px;}
   .stat-card{min-width:120px;padding:14px 16px;}
+  .methode{padding:60px 20px;}
+  .methode-grid{grid-template-columns:1fr;}
   .insights{padding:60px 20px;}
+  .lecture{padding:0 20px 60px;}
   .insights-grid{grid-template-columns:1fr;}
   .next{padding:60px 20px;}
   .next-grid{grid-template-columns:1fr;}
@@ -143,7 +183,6 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
     <div class="nav-ri"><div class="nav-ri-t">RI</div><div class="nav-ri-s">IBM</div></div>
@@ -152,13 +191,12 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
   <a href="/" class="nav-back">← Accueil</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-rays"></div>
   <div class="hero-glow"></div>
-
   <div class="hero-inner">
+
     <div class="hero-badge"><div class="badge-dot"></div>Résultat officiel · 22 Mars 2026</div>
     <div class="hero-eyebrow">RI-IBM · Indice de Bilan Municipal · France entière</div>
     <div class="hero-score">46<span>/100</span></div>
@@ -167,6 +205,13 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
       <div class="score-bar-labels"><span>Déçu</span><span>Satisfait</span></div>
     </div>
     <div class="score-formula">Note citoyenne · Impact financier · Intention de vote</div>
+
+    <div class="score-explain">
+      <div class="score-explain-title">Ce que mesure ce score</div>
+      <p class="score-explain-text">
+        Le score <strong>46/100</strong> est le résultat de l'<strong>Indice de Bilan Municipal (IBM) France 2026</strong> — une mesure du ressenti citoyen sur le mandat municipal en cours. Il agrège trois dimensions : la <strong>note attribuée au maire</strong>, l'<strong>impact financier perçu</strong> des décisions locales, et l'<strong>intention de vote</strong> au prochain scrutin. Le seuil de neutralité est fixé à <strong>50/100</strong>.
+      </p>
+    </div>
 
     <div class="stats-grid">
       <div class="stat-card gold">
@@ -182,15 +227,64 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
         <div class="stat-label">Impact financier<br>négatif</div>
       </div>
     </div>
+
+    <div class="ivi-banner">
+      <div class="ivi-banner-eyebrow"><span class="live-dot"></span>RI-IVI · Questionnaire ouvert depuis le 9 avril 2026</div>
+      <div class="ivi-banner-title">Et si on mesurait la <em>valeur perçue</em> de l'impôt ?</div>
+      <div class="ivi-banner-sub">Pour 100€ d'impôts payés, combien estimez-vous recevoir en retour ?<br>Participez en 60 secondes · Résultats publiés en mai 2026</div>
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" class="ivi-banner-btn">📊 &nbsp;Participer à l'IVI 2026</a>
+    </div>
+
   </div>
 </section>
 
-<!-- INSIGHTS -->
+<section class="methode">
+  <div class="methode-inner">
+    <div class="section-eyebrow">Méthodologie</div>
+    <h2 class="section-h">Comment est <em>calculé</em> ce score ?</h2>
+    <p class="section-intro">
+      L'IBM est un indice composite construit à partir de trois questions posées à des citoyens français, de manière anonyme et volontaire. Chaque dimension est pondérée selon son poids dans la formule de calcul.
+    </p>
+
+    <div class="methode-grid">
+      <div class="methode-card">
+        <div class="methode-num">Q1</div>
+        <div class="methode-pct">Poids : 30 %</div>
+        <div class="methode-card-name">Note citoyenne</div>
+        <div class="methode-card-desc">Comment évaluez-vous l'action de votre maire sur une échelle de 1 à 5 ?</div>
+      </div>
+      <div class="methode-card">
+        <div class="methode-num">Q2</div>
+        <div class="methode-pct">Poids : 45 %</div>
+        <div class="methode-card-name">Impact financier perçu</div>
+        <div class="methode-card-desc">Les décisions municipales ont-elles eu un impact positif, négatif ou neutre sur votre situation financière ?</div>
+      </div>
+      <div class="methode-card">
+        <div class="methode-num">Q3</div>
+        <div class="methode-pct">Poids : 25 %</div>
+        <div class="methode-card-name">Intention de vote</div>
+        <div class="methode-card-desc">Voteriez-vous pour votre maire actuel lors du prochain scrutin municipal ?</div>
+      </div>
+    </div>
+
+    <div class="methode-formula">
+      <strong>IBM = (Q2 × 0,45) + (Q1 × 0,30) + (Q3 × 0,25)</strong><br>
+      Score normalisé de 0 à 100 · Collecte anonyme · Données agrégées uniquement
+    </div>
+    <div class="methode-note">
+      Les réponses individuelles ne sont jamais publiées ni communiquées. Seuls les résultats agrégés sont diffusés.<br>
+      Ressento ne collecte aucune donnée permettant d'identifier les répondants.
+    </div>
+  </div>
+</section>
+
 <section class="insights">
   <div class="insights-inner">
     <div class="section-eyebrow">Analyse</div>
     <h2 class="section-h">Déceptions &amp; <em>satisfactions</em></h2>
-
+    <p class="section-intro">
+      Les répondants ont identifié les domaines contribuant le plus à leur insatisfaction ou à leur satisfaction vis-à-vis de la gestion municipale.
+    </p>
     <div class="insights-grid">
       <div class="insight-card">
         <div class="insight-title">Top déceptions</div>
@@ -232,64 +326,61 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
   </div>
 </section>
 
-<!-- PROCHAINS INDICES -->
+<section class="lecture">
+  <div class="lecture-inner">
+    <div class="lecture-box">
+      <div class="lecture-box-title">Comment lire ce résultat</div>
+      <p class="lecture-box-text">
+        Le score de <strong>46/100</strong> est inférieur au seuil de neutralité fixé à <strong>50</strong>. Parmi les répondants : <strong>48 % déclarent un impact financier négatif</strong> lié aux décisions municipales, <strong>67 % indiquent qu'ils voteraient pour un autre candidat</strong> au prochain scrutin, et la note moyenne attribuée aux maires est de <strong>3/5</strong>. Ces trois données constituent les composantes directes du score IBM.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="next">
   <div class="next-bg"></div>
   <div class="next-inner">
     <div class="section-eyebrow">La suite</div>
     <h2 class="section-h" style="color:white;">Les prochains <em>indices</em></h2>
+    <p class="next-intro">Ressento construit une série d'indices pour mesurer ce que les citoyens ressentent — là où les statistiques officielles ne vont pas.</p>
 
     <div class="next-grid">
       <div class="next-card gold">
-        <div class="next-card-code">RI-MOB</div>
-        <div class="next-card-name">Indice de Mobilité</div>
-        <div class="next-card-desc">Retards, grèves, surcoûts, temps perdu… Les transports en commun impactent votre quotidien. Combien ça vous coûte vraiment ? En euros, en heures, en énergie. Par région.</div>
-        <span class="next-card-date">Mai 2026</span>
+        <div class="next-card-code">RI-IVI</div>
+        <div class="next-card-name">Indice de Valeur de l'Impôt</div>
+        <div class="next-card-desc">Pour 100€ d'impôts versés, combien estimez-vous recevoir en retour sous forme de services publics ? Santé, éducation, sécurité, infrastructures.</div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px;">
+          <a href="https://tally.so/r/vGLAdQ" target="_blank" class="next-card-cta">📊 &nbsp;Participer maintenant</a>
+          <div class="next-card-live"><span class="live-dot"></span>Ouvert</div>
+        </div>
       </div>
       <div class="next-card">
-        <div class="next-card-code white">RI-IRF</div>
-        <div class="next-card-name">Indice de Ressenti Fiscal</div>
-        <div class="next-card-desc">Vous payez des impôts. Mais les services publics sont-ils à la hauteur ? Santé, éducation, sécurité, infrastructures — ressentez-vous un retour sur ce que vous versez à l'État ?</div>
+        <div class="next-card-code white">RI-MOB</div>
+        <div class="next-card-name">Indice de Mobilité</div>
+        <div class="next-card-desc">Retards, grèves, surcoûts, temps perdu… Combien les transports en commun vous coûtent-ils vraiment ? En euros, en heures, en énergie. Par région.</div>
         <span class="next-card-date">Mai 2026</span>
       </div>
     </div>
 
-    <!-- Teasing prochains indices -->
-    <div style="margin-bottom:20px;">
-      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,160,23,0.5);margin-bottom:14px;">Et aussi en construction…</div>
+    <div style="margin-bottom:28px;">
+      <div class="teasing-label">Et aussi en construction…</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 16px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);">🏥 Santé · Oct. 2026</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 16px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);">🏠 Logement · Nov. 2026</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 16px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);">📈 Inflation ressentie</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 16px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);">🎓 Éducation</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 16px;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.5);">··· et d'autres</div>
-        </div>
+        <div class="teasing-pill">🏥 Santé · Oct. 2026</div>
+        <div class="teasing-pill">🏠 Logement · Nov. 2026</div>
+        <div class="teasing-pill">📈 Inflation ressentie</div>
+        <div class="teasing-pill">🎓 Éducation</div>
+        <div class="teasing-pill">··· et d'autres</div>
       </div>
     </div>
 
     <div class="waitlist">
       <div class="waitlist-title">Recevez les prochains indices en avant-première</div>
-      <div class="waitlist-sub">
-        Laissez votre email — vous serez parmi les premiers<br>
-        à recevoir les résultats RI-MOB et RI-IRF.
-      </div>
-      <a href="#" class="waitlist-btn">
-        ✉️ &nbsp;Je veux suivre RESSENTO
-      </a>
+      <div class="waitlist-sub">Laissez votre email — vous serez parmi les premiers<br>à recevoir les résultats RI-IVI, RI-MOB et les suivants.</div>
+      <a href="#" class="waitlist-btn">✉️ &nbsp;Je veux suivre RESSENTO</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-left">
     <div class="footer-ri"><div class="footer-ri-t">RI</div><div class="footer-ri-s">IDX</div></div>
@@ -300,4 +391,8 @@ footer{background:var(--navy);padding:32px 40px;display:flex;justify-content:spa
     <a href="/cgu">CGU &amp; RGPD</a>
     <a href="https://twitter.com/RESSENTO" target="_blank">X · @RESSENTO</a>
     <a href="https://linkedin.com/company/ressento" target="_blank">LinkedIn</a>
-    </div></footer></body></html>
+  </div>
+</footer>
+
+
+</body></html>
