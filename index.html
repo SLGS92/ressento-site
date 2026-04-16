@@ -96,8 +96,17 @@
     .hero-sub{font-size:clamp(1rem,1.8vw,1.22rem);font-weight:300;font-style:italic;color:rgba(240,237,230,.8);max-width:530px;margin:24px 0 40px;line-height:1.6;opacity:0;animation:fadeUp .8s ease .35s forwards}
     .hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s ease .5s forwards}
 
+    /* IVI banner */
+    .ivi-banner{margin-top:32px;background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,rgba(201,168,76,.04) 100%);border:1px solid rgba(201,168,76,.28);border-radius:10px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:660px;opacity:0;animation:fadeUp .8s ease .58s forwards}
+    .ivi-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.2);animation:pulse 2s infinite;flex-shrink:0}
+    .ivi-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+    .ivi-title{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.04em;color:var(--offwhite);line-height:1.15}
+    .ivi-sub{font-size:.78rem;color:rgba(240,237,230,.48);margin-top:3px;font-weight:300}
+    .ivi-btn{display:inline-block;font-family:var(--font-display);font-size:.9rem;letter-spacing:.07em;padding:10px 24px;background:var(--gold);color:var(--navy);border-radius:4px;white-space:nowrap;transition:background .2s,transform .2s}
+    .ivi-btn:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px)}
+
     /* score band */
-    .hero-band{margin-top:64px;padding-top:44px;border-top:1px solid rgba(201,168,76,.15);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:0;opacity:0;animation:fadeUp .8s ease .65s forwards}
+    .hero-band{margin-top:64px;padding-top:44px;border-top:1px solid rgba(201,168,76,.15);display:block;max-width:360px;opacity:0;animation:fadeUp .8s ease .65s forwards}
     .hstat{padding:0 28px 0 0;border-right:1px solid rgba(201,168,76,.1)}
     .hstat:first-child{padding-left:0}
     .hstat:last-child{border-right:none;padding-right:0;padding-left:28px}
@@ -156,7 +165,7 @@
     .iname{font-family:var(--font-display);font-size:clamp(1.65rem,2.7vw,2.3rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.1;margin-bottom:12px}
     .idesc{font-size:.87rem;color:rgba(240,237,230,.5);line-height:1.72;font-weight:300;margin-bottom:26px;flex:1}
 
-    /* score 46/100 redesigned */
+    /* score */
     .score-block{margin-bottom:26px}
     .score-slabel{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
     .score-main{display:flex;align-items:flex-end;gap:10px;margin-bottom:9px}
@@ -327,7 +336,7 @@
     <h1 class="hh">CE QUE LES<br>CITOYENS<br><span class="gold">RESSENTENT</span><br>VRAIMENT</h1>
 
     <p class="hero-sub">
-      Ressento chiffre ce que les Français ressentent vis-à-vis des services publics,
+      Ressento mesure ce que les Français ressentent vis-à-vis des services publics,
       de la fiscalité et des institutions, de façon rigoureuse, anonyme et apolitique.
     </p>
 
@@ -335,131 +344,21 @@
       <a href="#indices" class="btn btn--gold">Voir les indices →</a>
       <a href="#explainer" class="btn btn--outline">Comprendre la démarche</a>
     </div>
-<html><head></head><body><div style="
-  margin-top: 40px;
-  background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.04) 100%);
-  border: 1px solid rgba(201,168,76,0.28);
-  border-radius: 10px;
-  padding: 22px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  max-width: 700px;
-">
-  <div style="display:flex; align-items:center; gap:16px;">
-    <div style="
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
-      animation: pulse 2s infinite;
-      flex-shrink: 0;
-    "></div>
-    <div>
-      <div style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">RI-IVI · Collecte en cours · Avril 2026</div>
-      <div style="font-family:var(--font-display);font-size:1.15rem;letter-spacing:0.04em;color:var(--offwhite);line-height:1.15;">Indice de Valeur de l'Impôt</div>
-      <div style="font-size:0.8rem;color:rgba(240,237,230,0.5);margin-top:3px;font-weight:300;">3 questions · moins de 90 secondes · anonyme</div>
-    </div>
-  </div>
-  <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="
-    display:inline-block;
-    font-family:var(--font-display);
-    font-size:0.95rem;
-    letter-spacing:0.07em;
-    padding:11px 26px;
-    background:var(--gold);
-    color:var(--navy);
-    border-radius:4px;
-    white-space:nowrap;
-    transition:background 0.2s;
-  ">Participer →</a>
-</div>
-</body></html>
-<div class="ivi-banner reveal" style="
-  margin-top: 40px;
-  background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.04) 100%);
-  border: 1px solid rgba(201,168,76,0.28);
-  border-radius: 10px;
-  padding: 22px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  max-width: 700px;
-">
-  <div style="display:flex; align-items:center; gap:16px;">
-    <div style="
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
-      animation: pulse 2s infinite;
-      flex-shrink: 0;
-    "></div>
-    <div>
-      <div style="
-        font-family: var(--font-mono);
-        font-size: 0.62rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 4px;
-      ">RI-IVI · Collecte en cours · Avril 2026</div>
-      <div style="
-        font-family: var(--font-display);
-        font-size: 1.15rem;
-        letter-spacing: 0.04em;
-        color: var(--offwhite);
-        line-height: 1.15;
-      ">Indice de Valeur de l'Impôt</div>
-      <div style="
-        font-size: 0.8rem;
-        color: rgba(240,237,230,0.5);
-        margin-top: 3px;
-        font-weight: 300;
-      ">3 questions · moins de 90 secondes · anonyme</div>
-    </div>
-  </div>
-  <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="display: inline-block; font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.07em; padding: 11px 26px; background: rgb(201, 168, 76); color: var(--navy); border-radius: 4px; white-space: nowrap; transition: background 0.2s, transform 0.2s; transform: none;" onmouseover="this.style.background='#E2C278';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#C9A84C';this.style.transform='none'">
-    Participer →
-  </a>
-</div>
 
-<!-- ─── FIN BANNIÈRE IVI ─── -->
-</div></body></html>
-    <div class="hero-band">
-      <!-- 46/100 — contextualisé -->
-      <div class="hstat hstat-feat">
-        <div class="score-row">
-          <span class="snum">46</span>
-          <div class="sright">
-            <span class="sdenom">/100</span>
-            <span class="sinterpret">⚠ En-dessous du seuil neutre (50)</span>
-          </div>
+    <!-- BANNIÈRE IVI -->
+    <div class="ivi-banner">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="ivi-dot"></div>
+        <div>
+          <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
+          <div class="ivi-title">Indice de Valeur de l'Impôt</div>
+          <div class="ivi-sub">3 questions · moins de 90 secondes · anonyme</div>
         </div>
-        <div class="sbar-wrap"><div class="sbar"></div></div>
-        <div class="sscale"><span>0 · Très négatif</span><span>50 · Neutre</span><span>100 · Très positif</span></div>
-        <div class="hstat-lbl">RI-IBM · Score national</div>
-        <div class="hstat-note">Indice du Bilan Municipal · Mars 2026</div>
       </div>
-
-      <div class="hstat">
-        <div class="hstat-val">3<span style="font-size:1.5rem;color:var(--muted)">/5</span></div>
-        <div class="hstat-lbl">Note moyenne du maire</div>
-        <div class="hstat-note">Médiane nationale</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-val">67<span style="font-size:1.5rem;color:var(--muted)">%</span></div>
-        <div class="hstat-lbl">Auraient voté différemment</div>
-        <div class="hstat-note">2e tour des dernières municipales</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-val">2</div>
-        <div class="hstat-lbl">Indices publiés · 2026</div>
-        <div class="hstat-note">IBM publié · IVI en cours</div>
-      </div>
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="ivi-btn">Participer →</a>
     </div>
+
+
 
   </div>
 </section>
@@ -540,7 +439,6 @@
       <a href="https://ressento.com/ibm" class="btn btn--outline" style="align-self:center">Tous les résultats →</a>
     </div>
 
-    <!-- RI-IBM featured -->
     <div class="icard icard--feat reveal">
       <div class="cleft">
         <div>
@@ -564,7 +462,6 @@
           <a href="https://ressento.com/ibm" class="btn btn--gold" style="margin-top:18px;font-size:.88rem;padding:11px 24px">Voir les résultats complets →</a>
         </div>
       </div>
-
       <div class="cright">
         <div class="score-block">
           <div class="score-slabel">Score national RI-IBM</div>
@@ -576,7 +473,7 @@
             </div>
           </div>
           <div class="score-bar-w"><div class="score-bar"></div></div>
-          <div class="score-scale"><span>0 · Très négatif</span><span>50 · Neutre</span><span>100 · Très positif</span></div>
+          <div class="score-scale"><span>0 · Déçu</span><span>50 · Neutre</span><span>100 · Satisfait</span></div>
         </div>
         <div class="dgrid">
           <div class="ditem"><div class="dval neg">67%</div><div class="dlbl">auraient voté pour un autre candidat au 2e tour</div></div>
@@ -591,9 +488,7 @@
       </div>
     </div>
 
-    <!-- Secondary -->
     <div class="isec reveal">
-      <!-- IVI — bleu nuit discret -->
       <div class="icard icard--sm" style="background:linear-gradient(145deg,rgba(14,40,80,.96) 0%,rgba(22,55,100,.9) 55%,rgba(13,35,72,.96) 100%);border-color:rgba(130,168,228,.2);position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(130,168,228,.38),transparent)"></div>
         <div style="position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:radial-gradient(circle,rgba(70,110,190,.07) 0%,transparent 70%);pointer-events:none"></div>
@@ -609,14 +504,12 @@
           </a>
         </div>
       </div>
-
       <div class="icard icard--sm">
         <div class="icode">RI-MOB · À venir</div>
         <h3 class="iname">Indice de Mobilité Citoyenne</h3>
         <p style="font-size:.83rem;color:rgba(240,237,230,.46);line-height:1.65;font-weight:300">Satisfaction vis-à-vis des transports en commun, de leur accessibilité, fiabilité et rapport qualité/prix perçu.</p>
         <div class="sbadge sbadge--planned"><div class="sdot"></div>À paraître</div>
       </div>
-
       <div class="icard icard--sm">
         <div class="icode">RI-DPA · Sept. 2026</div>
         <h3 class="iname">Transparence Rémunérations Politiques</h3>
@@ -821,7 +714,6 @@
 
 <!-- SCRIPTS -->
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -833,24 +725,14 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
   reveals.forEach(el => obs.observe(el));
 
-  // Nav scroll shadow
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     nav.style.boxShadow = window.scrollY > 40 ? '0 4px 32px rgba(0,0,0,.42)' : 'none';
   }, { passive: true });
 
-  // Active nav link
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-  new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => {
-          a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--offwhite)' : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 }).observe && sections.forEach(s =>
+  sections.forEach(s =>
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) navLinks.forEach(a => {
