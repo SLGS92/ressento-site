@@ -1,15 +1,11 @@
 <html lang="fr"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ─── SEO ─────────────────────────────────────────────── -->
   <title>Ressento — Ce que vous ressentez, enfin chiffré</title>
   <meta name="description" content="Ressento produit des indices citoyens rigoureux sur les services publics, la fiscalité et les institutions françaises. Anonyme, apolitique, en accès libre.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="nYyzdU3Id6cnNel8CyaXZpIdAzAtyIC5rP7whvjxf78">
   <link rel="canonical" href="https://ressento.com/">
-
-  <!-- ─── OPEN GRAPH ───────────────────────────────────────── -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ressento.com/">
   <meta property="og:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
@@ -19,22 +15,14 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Ressento">
-
-  <!-- ─── TWITTER CARD ────────────────────────────────────── -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
   <meta name="twitter:description" content="Indices citoyens indépendants sur les services publics et institutions françaises. RI-IBM : 46/100.">
   <meta name="twitter:image" content="https://ressento.com/og-image.png">
-
-  <!-- ─── FAVICON SVG inline ──────────────────────────────── -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B1F3C'/%3E%3Crect x='5' y='5' width='54' height='54' rx='8' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.35'/%3E%3Ctext x='32' y='33' font-family='Georgia,serif' font-weight='700' font-size='21' fill='%23F0EDE6' text-anchor='middle' dominant-baseline='middle'%3ERI%3C/text%3E%3Ctext x='32' y='50' font-family='monospace' font-size='7.5' fill='%23C9A84C' text-anchor='middle' letter-spacing='2'%3EINDEX%3C/text%3E%3C/svg%3E">
-
-  <!-- ─── SCHEMA.ORG ───────────────────────────────────────── -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Organization","name":"Ressento","url":"https://ressento.com","description":"Plateforme indépendante d'indices citoyens mesurant le ressenti des Français vis-à-vis des services publics et des institutions.","email":"contact@ressento.com","foundingDate":"2026","areaServed":"FR"}
   </script>
-
-  <!-- ─── FONTS ────────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
@@ -42,7 +30,6 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;font-size:16px}
-
     :root{
       --navy:#0B1F3C;--navy-mid:#122347;--navy-light:#1a2e5a;
       --gold:#C9A84C;--gold-light:#E2C278;--gold-pale:#F0E0A8;
@@ -53,25 +40,19 @@
       --r:4px;--rl:10px;
       --shadow-gold:0 2px 24px rgba(201,168,76,0.2);
     }
-
     body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
     a{color:var(--gold);text-decoration:none;transition:color .2s}
     a:hover{color:var(--gold-light)}
-
     .container{max-width:1100px;margin:0 auto;padding:0 28px}
     .container--n{max-width:800px;margin:0 auto;padding:0 28px}
-
     .btn{display:inline-block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;padding:14px 36px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s ease;text-align:center}
     .btn--gold{background:var(--gold);color:var(--navy)}
     .btn--gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
     .btn--outline{background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.3)}
     .btn--outline:hover{border-color:var(--gold);color:var(--gold)}
-
     .divider{width:48px;height:3px;background:var(--gold);margin:18px 0 24px}
     .slabel{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
     .stitle{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.05}
-
-    /* noise */
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
 
     /* NAV */
@@ -95,37 +76,21 @@
     h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--offwhite);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards}
     h1.hh .gold{color:var(--gold)}
     .hero-sub{font-size:clamp(1rem,1.8vw,1.22rem);font-weight:300;font-style:italic;color:rgba(240,237,230,.8);max-width:530px;margin:24px 0 40px;line-height:1.6;opacity:0;animation:fadeUp .8s ease .35s forwards}
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s ease .5s forwards}
 
-    /* IVI banner */
-    .ivi-banner{margin-top:32px;background:linear-gradient(135deg,rgba(201,168,76,.08) 0%,rgba(201,168,76,.04) 100%);border:1px solid rgba(201,168,76,.28);border-radius:10px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:660px;opacity:0;animation:fadeUp .8s ease .58s forwards}
+    /* ── CTA BLOCK : boutons + bannière alignés sur max-width:660px ── */
+    .hero-cta-block{max-width:660px;opacity:0;animation:fadeUp .8s ease .5s forwards}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;width:100%}
+    .hero-actions .btn{flex:1;text-align:center;}
+
+    /* IVI banner — fond bleu distinct, même registre que fbox */
+    .ivi-banner{background:linear-gradient(145deg,rgba(14,38,80,.92) 0%,rgba(18,48,100,.88) 55%,rgba(13,35,72,.92) 100%);border:1px solid rgba(201,168,76,.28);border-radius:10px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+    .ivi-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
     .ivi-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.2);animation:pulse 2s infinite;flex-shrink:0}
     .ivi-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
     .ivi-title{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.04em;color:var(--offwhite);line-height:1.15}
     .ivi-sub{font-size:.78rem;color:rgba(240,237,230,.48);margin-top:3px;font-weight:300}
     .ivi-btn{display:inline-block;font-family:var(--font-display);font-size:.9rem;letter-spacing:.07em;padding:10px 24px;background:var(--gold);color:var(--navy);border-radius:4px;white-space:nowrap;transition:background .2s,transform .2s}
     .ivi-btn:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px)}
-
-    /* score band */
-    .hero-band{margin-top:64px;padding-top:44px;border-top:1px solid rgba(201,168,76,.15);display:block;max-width:360px;opacity:0;animation:fadeUp .8s ease .65s forwards}
-    .hstat{padding:0 28px 0 0;border-right:1px solid rgba(201,168,76,.1)}
-    .hstat:first-child{padding-left:0}
-    .hstat:last-child{border-right:none;padding-right:0;padding-left:28px}
-    .hstat:not(:first-child):not(:last-child){padding-left:28px}
-
-    /* featured 46/100 */
-    .hstat-feat .score-row{display:flex;align-items:flex-end;gap:10px;margin-bottom:8px}
-    .hstat-feat .snum{font-family:var(--font-display);font-size:4.2rem;letter-spacing:.02em;line-height:1;color:var(--gold)}
-    .hstat-feat .sright{display:flex;flex-direction:column;gap:2px;padding-bottom:4px}
-    .hstat-feat .sdenom{font-family:var(--font-display);font-size:1.7rem;color:var(--muted)}
-    .hstat-feat .sinterpret{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(220,100,100,.9)}
-    .sbar-wrap{height:4px;background:rgba(255,255,255,.07);border-radius:2px;margin-bottom:5px;overflow:hidden}
-    .sbar{height:100%;width:46%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
-    .sscale{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.6rem;color:rgba(136,153,180,.65);letter-spacing:.04em;margin-bottom:6px}
-
-    .hstat-val{font-family:var(--font-display);font-size:2.7rem;letter-spacing:.02em;color:var(--gold);line-height:1}
-    .hstat-lbl{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(136,153,180,.9);margin-top:7px}
-    .hstat-note{font-size:.8rem;color:rgba(240,237,230,.55);margin-top:3px;font-style:italic}
 
     /* PROBLEM */
     #problem{padding:96px 0;background:rgba(201,168,76,.033);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
@@ -165,8 +130,6 @@
     .icode{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
     .iname{font-family:var(--font-display);font-size:clamp(1.65rem,2.7vw,2.3rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.1;margin-bottom:12px}
     .idesc{font-size:.87rem;color:rgba(240,237,230,.5);line-height:1.72;font-weight:300;margin-bottom:26px;flex:1}
-
-    /* score */
     .score-block{margin-bottom:26px}
     .score-slabel{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
     .score-main{display:flex;align-items:flex-end;gap:10px;margin-bottom:9px}
@@ -177,19 +140,16 @@
     .score-bar-w{height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-bottom:5px}
     .score-bar{height:100%;width:46%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px}
     .score-scale{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.6rem;color:rgba(136,153,180,.65)}
-
     .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:8px}
     .ditem{background:rgba(0,0,0,.2);border:1px solid rgba(201,168,76,.09);border-radius:var(--r);padding:12px 14px}
     .dval{font-family:var(--font-display);font-size:1.4rem;color:var(--offwhite);line-height:1}
     .dval.neg{color:#E08080}.dval.pos{color:#7DC49E}
     .dlbl{font-family:var(--font-mono);font-size:.61rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:4px;line-height:1.45}
-
     .frow{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
     .frow:last-child{border-bottom:none}
     .ficon{width:17px;height:17px;flex-shrink:0;margin-top:2px}
     .ftxt{font-size:.86rem;color:rgba(240,237,230,.66);line-height:1.5}
     .ftxt strong{color:var(--offwhite);font-weight:600}
-
     .isec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
     .icard--sm{padding:28px 26px}
     .icard--sm .iname{font-size:1.2rem;margin-bottom:9px}
@@ -235,7 +195,9 @@
     .part-h{font-family:var(--font-display);font-size:clamp(2.3rem,4vw,3.7rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.05;margin-bottom:16px}
     .part-h .gold{color:var(--gold)}
     .part-b{font-size:.95rem;color:rgba(240,237,230,.56);line-height:1.75;font-weight:300;margin-bottom:30px}
-    .scard{background:rgba(0,0,0,.27);border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:34px}
+    /* scard — même registre bleu que bannière IVI et fbox */
+    .scard{background:linear-gradient(145deg,rgba(14,38,80,.92) 0%,rgba(18,48,100,.88) 55%,rgba(13,35,72,.92) 100%);border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:34px;position:relative;overflow:hidden}
+    .scard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
     .scard-t{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:5px}
     .scard-s{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
     .sfeats{display:flex;flex-direction:column;gap:9px;margin-bottom:26px}
@@ -273,17 +235,12 @@
     .fcopy{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;color:rgba(136,153,180,.42)}
     .fnote{font-family:var(--font-mono);font-size:.63rem;color:rgba(136,153,180,.3);font-style:italic;text-align:right;max-width:380px}
 
-    /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
     .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
     .reveal.visible{opacity:1;transform:none}
 
-    /* RESPONSIVE */
     @media(max-width:960px){
-      .hero-band{grid-template-columns:repeat(2,1fr);gap:20px}
-      .hstat{padding:0!important;border-right:none!important}
-      .hstat:nth-child(odd){border-right:1px solid rgba(201,168,76,.1)!important;padding-right:18px!important}
       .explainer-grid,.isec{grid-template-columns:1fr;gap:2px}
       .steps{grid-template-columns:1fr 1fr}
       .steps::before{display:none}
@@ -295,8 +252,6 @@
     }
     @media(max-width:600px){
       .steps{grid-template-columns:1fr}
-      .hero-band{grid-template-columns:1fr 1fr}
-      .hstat:nth-child(odd){padding-right:10px!important}
       .ritem{grid-template-columns:72px 1px 1fr;gap:0 12px}
       .dgrid{grid-template-columns:1fr}
     }
@@ -304,7 +259,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="container nav-inner">
     <a href="#" class="nav-logo">
@@ -322,63 +276,45 @@
   </div>
 </nav>
 
-
-<!-- HERO -->
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="container" style="position:relative;z-index:1">
-
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
       <span class="hero-eyebrow-text">Plateforme de données citoyennes · France · 2026</span>
     </div>
-
     <h1 class="hh">CE QUE LES<br>CITOYENS<br><span class="gold">RESSENTENT</span><br>VRAIMENT</h1>
+    <p class="hero-sub">Ressento mesure ce que les Français ressentent vis-à-vis des services publics, de la fiscalité et des institutions, de façon rigoureuse, anonyme et apolitique.</p>
 
-    <p class="hero-sub">
-      Ressento mesure ce que les Français ressentent vis-à-vis des services publics,
-      de la fiscalité et des institutions, de façon rigoureuse, anonyme et apolitique.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#indices" class="btn btn--gold">Voir les indices →</a>
-      <a href="#explainer" class="btn btn--outline">Comprendre la démarche</a>
-    </div>
-
-    <!-- BANNIÈRE IVI -->
-    <div class="ivi-banner">
-      <div style="display:flex;align-items:center;gap:14px;">
-        <div class="ivi-dot"></div>
-        <div>
-          <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
-          <div class="ivi-title">Indice de Valeur de l'Impôt</div>
-          <div class="ivi-sub">3 questions · moins de 90 secondes · anonyme</div>
-        </div>
+    <!-- BLOC CTA — boutons + bannière alignés sur max-width:660px -->
+    <div class="hero-cta-block">
+      <div class="hero-actions">
+        <a href="#indices" class="btn btn--gold">Voir les indices →</a>
+        <a href="#explainer" class="btn btn--outline">Comprendre la démarche</a>
       </div>
-      <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="ivi-btn">Participer →</a>
+      <div class="ivi-banner">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="ivi-dot"></div>
+          <div>
+            <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
+            <div class="ivi-title">Indice de Valeur de l'Impôt</div>
+            <div class="ivi-sub">12 questions · 60 secondes · anonyme</div>
+          </div>
+        </div>
+        <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="ivi-btn">Participer →</a>
+      </div>
     </div>
-
-
-
   </div>
 </section>
 
-
-<!-- PROBLEM -->
 <section id="problem">
   <div class="container--n">
-    <p class="pquote reveal">
-      Les institutions mesurent leurs propres performances.
-      <strong>Personne ne chiffre ce que les citoyens ressentent</strong> —
-      la fiscalité, les services, les élus — au quotidien.
-    </p>
+    <p class="pquote reveal">Les institutions mesurent leurs propres performances. <strong>Personne ne chiffre ce que les citoyens ressentent</strong> — la fiscalité, les services, les élus — au quotidien.</p>
     <p class="psource reveal">— Le vide que Ressento comble</p>
   </div>
 </section>
 
-
-<!-- EXPLAINER -->
 <section id="explainer">
   <div class="container">
     <div class="reveal">
@@ -410,8 +346,6 @@
   </div>
 </section>
 
-
-<!-- HOW -->
 <section id="how">
   <div class="container">
     <div class="reveal">
@@ -428,8 +362,6 @@
   </div>
 </section>
 
-
-<!-- INDICES -->
 <section id="indices">
   <div class="container">
     <div class="iheader reveal">
@@ -439,7 +371,6 @@
       </div>
       <a href="https://ressento.com/ibm" class="btn btn--outline" style="align-self:center">Tous les résultats →</a>
     </div>
-
     <div class="icard icard--feat reveal">
       <div class="cleft">
         <div>
@@ -448,31 +379,16 @@
           <p class="idesc">Premier indice Ressento. Il mesure la satisfaction des citoyens français vis-à-vis de leur municipalité : performance du maire, qualité des services locaux, et sentiment d'alignement démocratique.</p>
         </div>
         <div>
-          <div class="frow">
-            <svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#E08080" stroke-width="1.5"><path d="M13 7H7m6 4H7m4 4H7M5 3h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"></path></svg>
-            <p class="ftxt">Top déception : <strong>Sécurité</strong> — domaine le moins bien perçu.</p>
-          </div>
-          <div class="frow">
-            <svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#7DC49E" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <p class="ftxt">Top satisfaction : <strong>Culture</strong> — seul domaine en perception positive.</p>
-          </div>
-          <div class="frow">
-            <svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-            <p class="ftxt">Résultats segmentés par <strong>strate de commune</strong> et <strong>région</strong>.</p>
-          </div>
+          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#E08080" stroke-width="1.5"><path d="M13 7H7m6 4H7m4 4H7M5 3h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"></path></svg><p class="ftxt">Top déception : <strong>Sécurité</strong> — domaine le moins bien perçu.</p></div>
+          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#7DC49E" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><p class="ftxt">Top satisfaction : <strong>Culture</strong> — seul domaine en perception positive.</p></div>
+          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg><p class="ftxt">Résultats segmentés par <strong>strate de commune</strong> et <strong>région</strong>.</p></div>
           <a href="https://ressento.com/ibm" class="btn btn--gold" style="margin-top:18px;font-size:.88rem;padding:11px 24px">Voir les résultats complets →</a>
         </div>
       </div>
       <div class="cright">
         <div class="score-block">
           <div class="score-slabel">Score national RI-IBM</div>
-          <div class="score-main">
-            <span class="score-num">46</span>
-            <div class="score-rhs">
-              <span class="score-denom">/100</span>
-              <span class="score-interp">⚠ En-dessous du seuil neutre (50)</span>
-            </div>
-          </div>
+          <div class="score-main"><span class="score-num">46</span><div class="score-rhs"><span class="score-denom">/100</span><span class="score-interp">⚠ En-dessous du seuil neutre (50)</span></div></div>
           <div class="score-bar-w"><div class="score-bar"></div></div>
           <div class="score-scale"><span>0 · Déçu</span><span>50 · Neutre</span><span>100 · Satisfait</span></div>
         </div>
@@ -488,7 +404,6 @@
         </div>
       </div>
     </div>
-
     <div class="isec reveal">
       <div class="icard icard--sm" style="background:linear-gradient(145deg,rgba(14,40,80,.96) 0%,rgba(22,55,100,.9) 55%,rgba(13,35,72,.96) 100%);border-color:rgba(130,168,228,.2);position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(130,168,228,.38),transparent)"></div>
@@ -499,11 +414,7 @@
         <p style="font-size:.83rem;color:rgba(240,237,230,.52);line-height:1.65;font-weight:300;margin-bottom:8px">Lancé au lendemain de l'ouverture des déclarations fiscales. Mesure le sentiment des contribuables sur la valeur perçue de leur contribution.</p>
         <div style="font-family:var(--font-mono);font-size:.66rem;color:rgba(140,175,235,.65);margin-bottom:4px">IVI = Q2×0,45 + Q1×0,30 + Q3×0,25</div>
         <div class="sbadge sbadge--progress"><div class="sdot pulse"></div>Collecte en cours</div>
-        <div style="margin-top:13px">
-          <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="font-size:.83rem;padding:10px 16px;width:100%;display:block;text-align:center;background:rgba(55,95,170,.52);color:var(--offwhite);border:1px solid rgba(130,168,228,.18);border-radius:var(--r);font-family:var(--font-display);letter-spacing:.06em;transition:all .2s" onmouseover="this.style.background='rgba(65,108,190,.65)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(55,95,170,.52)';this.style.transform='none'">
-            Répondre maintenant →
-          </a>
-        </div>
+        <div style="margin-top:13px"><a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="font-size:.83rem;padding:10px 16px;width:100%;display:block;text-align:center;background:rgba(55,95,170,.52);color:var(--offwhite);border:1px solid rgba(130,168,228,.18);border-radius:var(--r);font-family:var(--font-display);letter-spacing:.06em;transition:all .2s" onmouseover="this.style.background='rgba(65,108,190,.65)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(55,95,170,.52)';this.style.transform='none'">Répondre maintenant →</a></div>
       </div>
       <div class="icard icard--sm">
         <div class="icode">RI-MOB · À venir</div>
@@ -521,8 +432,6 @@
   </div>
 </section>
 
-
-<!-- MÉTHODE -->
 <section id="methode">
   <div class="container">
     <div class="reveal">
@@ -557,8 +466,6 @@
   </div>
 </section>
 
-
-<!-- À PROPOS -->
 <section id="apropos">
   <div class="container">
     <div class="apgrid">
@@ -574,26 +481,15 @@
           <p>Nous comblons ce vide en produisant des indices nommés, méthodologiquement documentés et publiés en accès libre — pour que n'importe qui puisse s'en saisir, les citer, les contester ou les prolonger.</p>
         </div>
         <div style="margin-top:28px">
-          <div class="appillar">
-            <div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006.94 4.73L6 7m0 0l6-2m6 2l3-1m-3 1l-3 9a5 5 0 01-6.94 4.73L18 7m0 0l-6-2m-6 2l6-2"></path></svg></div>
-            <div class="aptxt"><strong>INDÉPENDANCE</strong><span>Aucun financement public, institutionnel ou partisan. Aucune régie publicitaire.</span></div>
-          </div>
-          <div class="appillar">
-            <div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
-            <div class="aptxt"><strong>NEUTRALITÉ</strong><span>Ni de gauche ni de droite. Ni pro-institution ni anti-institution. Nous observons et chiffrons.</span></div>
-          </div>
-          <div class="appillar">
-            <div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
-            <div class="aptxt"><strong>TRANSPARENCE</strong><span>Formules publiées, questionnaires archivés, données accessibles à tous en accès libre.</span></div>
-          </div>
+          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006.94 4.73L6 7m0 0l6-2m6 2l3-1m-3 1l-3 9a5 5 0 01-6.94 4.73L18 7m0 0l-6-2m-6 2l6-2"></path></svg></div><div class="aptxt"><strong>INDÉPENDANCE</strong><span>Aucun financement public, institutionnel ou partisan. Aucune régie publicitaire.</span></div></div>
+          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div><div class="aptxt"><strong>NEUTRALITÉ</strong><span>Ni de gauche ni de droite. Ni pro-institution ni anti-institution. Nous observons et chiffrons.</span></div></div>
+          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div><div class="aptxt"><strong>TRANSPARENCE</strong><span>Formules publiées, questionnaires archivés, données accessibles à tous en accès libre.</span></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- PARTICIPER -->
 <section id="participer">
   <div class="container">
     <div class="partgrid">
@@ -611,8 +507,8 @@
         <div class="scard-t">Indice de Valeur de l'Impôt</div>
         <div class="scard-s">RI-IVI · Collecte en cours · Avril 2026</div>
         <div class="sfeats">
-          <div class="sfeat">3 questions uniquement</div>
-          <div class="sfeat">Moins de 90 secondes</div>
+          <div class="sfeat">12 questions</div>
+          <div class="sfeat">60 secondes</div>
           <div class="sfeat">Aucune donnée personnelle demandée</div>
           <div class="sfeat">Résultats publiés en accès libre</div>
           <div class="sfeat">Anonymat garanti par design</div>
@@ -624,8 +520,6 @@
   </div>
 </section>
 
-
-<!-- ROADMAP -->
 <section id="roadmap">
   <div class="container">
     <div class="reveal">
@@ -634,47 +528,17 @@
       <div class="divider"></div>
     </div>
     <div class="rtimeline reveal">
-      <div class="ritem">
-        <div class="rdate">Mars 2026</div>
-        <div class="rline"><div class="rdot active"></div><div class="rconn"></div></div>
-        <div class="rcont"><h4>RI-IBM · Indice du Bilan Municipal</h4><p>Premier indice Ressento publié. Score national : 46/100. Résultats sur ressento.com/ibm.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">Avril 2026</div>
-        <div class="rline"><div class="rdot active"></div><div class="rconn fut"></div></div>
-        <div class="rcont"><h4>RI-IVI · Indice de Valeur de l'Impôt</h4><p>Lancé le 9 avril, au lendemain de l'ouverture des déclarations fiscales. Collecte en cours.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">Juin 2026</div>
-        <div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div>
-        <div class="rcont"><h4 class="fut">RI-MOB · Indice de Mobilité Citoyenne</h4><p>Satisfaction des Français vis-à-vis des transports en commun, de leur accessibilité et fiabilité au quotidien.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">Sept. 2026</div>
-        <div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div>
-        <div class="rcont"><h4 class="fut">RI-TRP · Transparence des Rémunérations Politiques</h4><p>Perception citoyenne de la transparence et de la légitimité des rémunérations des élus. Publication avant la période pré-campagne 2027.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">Oct. 2026</div>
-        <div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div>
-        <div class="rcont"><h4 class="fut">RI-DPA · Déclaration Pouvoir d'Achat</h4><p>Mesure du ressenti des Français sur l'évolution de leur pouvoir d'achat et leur capacité à faire face aux dépenses contraintes.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">Déc. 2026</div>
-        <div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div>
-        <div class="rcont"><h4 class="fut">RI-LOG · Indice du Logement Citoyen</h4><p>Satisfaction vis-à-vis de la situation de logement : accès, coût, qualité perçue et politiques publiques associées.</p></div>
-      </div>
-      <div class="ritem">
-        <div class="rdate">2027</div>
-        <div class="rline"><div class="rdot future"></div></div>
-        <div class="rcont"><h4 class="fut">Expansion de la plateforme</h4><p>Tableau de bord comparatif interactif, open data structuré, nouveaux indices réguliers et couverture nationale renforcée.</p></div>
-      </div>
+      <div class="ritem"><div class="rdate">Mars 2026</div><div class="rline"><div class="rdot active"></div><div class="rconn"></div></div><div class="rcont"><h4>RI-IBM · Indice du Bilan Municipal</h4><p>Premier indice Ressento publié. Score national : 46/100. Résultats sur ressento.com/ibm.</p></div></div>
+      <div class="ritem"><div class="rdate">Avril 2026</div><div class="rline"><div class="rdot active"></div><div class="rconn fut"></div></div><div class="rcont"><h4>RI-IVI · Indice de Valeur de l'Impôt</h4><p>Lancé le 9 avril, au lendemain de l'ouverture des déclarations fiscales. Collecte en cours.</p></div></div>
+      <div class="ritem"><div class="rdate">Juin 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-MOB · Indice de Mobilité Citoyenne</h4><p>Satisfaction des Français vis-à-vis des transports en commun, de leur accessibilité et fiabilité au quotidien.</p></div></div>
+      <div class="ritem"><div class="rdate">Sept. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-TRP · Transparence des Rémunérations Politiques</h4><p>Perception citoyenne de la transparence et de la légitimité des rémunérations des élus. Publication avant la période pré-campagne 2027.</p></div></div>
+      <div class="ritem"><div class="rdate">Oct. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-DPA · Déclaration Pouvoir d'Achat</h4><p>Mesure du ressenti des Français sur l'évolution de leur pouvoir d'achat et leur capacité à faire face aux dépenses contraintes.</p></div></div>
+      <div class="ritem"><div class="rdate">Déc. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-LOG · Indice du Logement Citoyen</h4><p>Satisfaction vis-à-vis de la situation de logement : accès, coût, qualité perçue et politiques publiques associées.</p></div></div>
+      <div class="ritem"><div class="rdate">2027</div><div class="rline"><div class="rdot future"></div></div><div class="rcont"><h4 class="fut">Expansion de la plateforme</h4><p>Tableau de bord comparatif interactif, open data structuré, nouveaux indices réguliers et couverture nationale renforcée.</p></div></div>
     </div>
   </div>
 </section>
 
-
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -712,8 +576,6 @@
   </div>
 </footer>
 
-
-<!-- SCRIPTS -->
 <script>
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
