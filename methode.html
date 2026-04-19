@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notre approche — Ressento</title>
+  <meta name="description" content="Ressento transforme le ressenti citoyen en données vérifiables. Découvrez notre méthodologie d'observatoire indépendant.">
+  <link rel="canonical" href="https://ressento.com/methode">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ressento.com/methode">
+  <meta property="og:title" content="Notre approche — Ressento">
+  <meta property="og:description" content="Ressento transforme le ressenti citoyen en données vérifiables.">
+  <meta property="og:image" content="https://ressento.com/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ressento">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B1F3C'/%3E%3Crect x='5' y='5' width='54' height='54' rx='8' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.35'/%3E%3Ctext x='32' y='33' font-family='Georgia,serif' font-weight='700' font-size='21' fill='%23F0EDE6' text-anchor='middle' dominant-baseline='middle'%3ERI%3C/text%3E%3Ctext x='32' y='50' font-family='monospace' font-size='7.5' fill='%23C9A84C' text-anchor='middle' letter-spacing='2'%3EINDEX%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    :root{
+      --navy:#0B1F3C;--navy-mid:#122347;--navy-light:#1a2e5a;
+      --gold:#C9A84C;--gold-light:#E2C278;
+      --offwhite:#F0EDE6;--muted:#8899B4;
+      --font-display:'Bebas Neue',sans-serif;
+      --font-body:'Fraunces',Georgia,serif;
+      --font-mono:'DM Mono',monospace;
+      --r:4px;--rl:10px;
+      --shadow-gold:0 2px 24px rgba(201,168,76,0.2);
+    }
+    body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.65;overflow-x:hidden}
+    a{color:var(--gold);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--gold-light)}
+    .container{max-width:1100px;margin:0 auto;padding:0 28px}
+    .container--n{max-width:820px;margin:0 auto;padding:0 28px}
+    .btn{display:inline-block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;padding:14px 36px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s ease;text-align:center}
+    .btn--gold{background:var(--gold);color:var(--navy)}
+    .btn--gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+    .btn--outline{background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.3)}
+    .btn--outline:hover{border-color:var(--gold);color:var(--gold)}
+    .divider{width:48px;height:3px;background:var(--gold);margin:18px 0 28px}
+    .slabel{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .stitle{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.05}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
+
+    nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid rgba(201,168,76,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,31,60,.9);transition:box-shadow .3s}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+    .nav-logo{display:flex;flex-direction:column;line-height:1;gap:3px}
+    .nav-logo-name{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.14em;color:var(--offwhite)}
+    .nav-logo-name .e2{color:var(--gold)}
+    .nav-logo-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,237,230,.55)}
+    .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+    .nav-links a{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .nav-links a:hover,.nav-links a.active{color:var(--offwhite)}
+
+    .page-hero{padding:140px 0 80px;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,168,76,.1)}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+    .hero-glow{position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 68%);pointer-events:none}
+    .breadcrumb{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+    .breadcrumb a{color:var(--muted)}
+    .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb span{color:rgba(201,168,76,.5);margin:0 10px}
+
+    .mission-block{padding:80px 0;background:rgba(201,168,76,.03);border-bottom:1px solid rgba(201,168,76,.1)}
+    .mission-txt{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3.1rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.15;max-width:760px}
+    .mission-txt .gold{color:var(--gold)}
+    .mission-sub{font-size:1.08rem;color:rgba(240,237,230,.62);line-height:1.78;max-width:580px;margin-top:24px;font-weight:300}
+
+    .section{padding:96px 0}
+    .section--alt{background:rgba(255,255,255,.016);border-top:1px solid rgba(201,168,76,.07);border-bottom:1px solid rgba(201,168,76,.07)}
+
+    /* UNICITÉ */
+    .unique-list{display:flex;flex-direction:column;gap:2px;margin-top:44px}
+    .urow{display:grid;grid-template-columns:1fr 56px;align-items:start;padding:32px 28px;border:1px solid rgba(201,168,76,.1);background:rgba(255,255,255,.018);transition:background .25s;gap:16px}
+    .urow:hover{background:rgba(255,255,255,.03)}
+    .urow--ressento{border-color:rgba(201,168,76,.32);background:rgba(201,168,76,.04)}
+    .urow--ressento:hover{background:rgba(201,168,76,.06)}
+    .urow-title{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:10px}
+    .urow--ressento .urow-title{color:var(--gold)}
+    .urow-desc{font-size:.96rem;color:rgba(240,237,230,.58);line-height:1.72;font-weight:300}
+    .urow--ressento .urow-desc{color:rgba(240,237,230,.7)}
+    .urow-num{font-family:var(--font-display);font-size:3.2rem;color:rgba(201,168,76,.14);line-height:1;text-align:right}
+    .urow--ressento .urow-num{color:rgba(201,168,76,.28)}
+
+    /* COMPOSANTES */
+    .composantes{display:flex;flex-direction:column;gap:3px;margin-top:44px}
+    .comp{display:grid;grid-template-columns:68px 1fr;border:1px solid rgba(201,168,76,.1);background:rgba(255,255,255,.018);transition:background .25s}
+    .comp:hover{background:rgba(255,255,255,.03)}
+    .comp-num{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.6rem;border-right:1px solid rgba(201,168,76,.08);padding:32px 0}
+    .comp-body{padding:32px 36px}
+    .comp-tag{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:9px}
+    .comp-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:12px}
+    .comp-desc{font-size:.97rem;color:rgba(240,237,230,.58);line-height:1.75;font-weight:300;margin-bottom:18px}
+    .pills{display:flex;flex-wrap:wrap;gap:7px}
+    .pill{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;padding:4px 11px;border-radius:2px;background:rgba(201,168,76,.07);color:rgba(201,168,76,.72);border:1px solid rgba(201,168,76,.15)}
+    .comp--obj .comp-num{color:rgba(125,196,158,.2)}
+    .comp--obj .comp-tag{color:#7DC49E}
+    .comp--dec .comp-num{color:rgba(201,168,76,.18)}
+    .comp--dec .comp-tag{color:var(--gold)}
+    .comp--ecart{border-color:rgba(138,174,224,.18);background:rgba(14,38,80,.45)}
+    .comp--ecart .comp-num{color:rgba(138,174,224,.2);border-right-color:rgba(138,174,224,.1)}
+    .comp--ecart .comp-tag{color:#8aaee0}
+    .comp--ecart .pill{background:rgba(138,174,224,.07);color:rgba(138,174,224,.72);border-color:rgba(138,174,224,.18)}
+
+    /* FORMULE */
+    .formule-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .fbox{background:linear-gradient(145deg,rgba(14,38,80,.75) 0%,rgba(18,48,90,.7) 100%);border:1px solid rgba(201,168,76,.22);border-radius:var(--rl);padding:36px 32px;font-family:var(--font-mono)}
+    .fbox-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+    .fbox-eq{font-size:1.05rem;color:var(--offwhite);line-height:2.2;margin-bottom:22px}
+    .fbox-eq .var{color:var(--gold-light)}
+    .fbox-eq .coef{color:var(--muted);font-size:.88rem}
+    .frow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,.06);font-size:.88rem}
+    .frow-lbl{color:rgba(240,237,230,.8)}
+    .frow-w{font-size:1rem;color:var(--gold)}
+    .fbox-note{margin-top:22px;padding:16px 18px;background:rgba(11,31,60,.6);border-left:2px solid rgba(201,168,76,.35);font-size:.84rem;color:rgba(240,237,230,.46);line-height:1.68}
+    .formule-aside p{font-size:1rem;color:rgba(240,237,230,.56);line-height:1.78;font-weight:300}
+    .formule-points{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+    .fpoint{display:flex;gap:14px;align-items:flex-start}
+    .fpoint-line{width:2px;background:rgba(201,168,76,.4);flex-shrink:0;margin-top:5px;align-self:stretch;min-height:40px}
+    .fpoint-txt{font-size:.96rem;color:rgba(240,237,230,.6);line-height:1.65;font-weight:300}
+    .fpoint-txt strong{color:var(--offwhite);font-weight:600;display:block;margin-bottom:3px;font-size:.9rem;font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+
+    /* GRAPHIQUE */
+    .chart-single{background:rgba(14,38,80,.45);border:1px solid rgba(201,168,76,.1);border-radius:var(--rl);padding:30px 28px;margin-top:44px}
+    .chart-title{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:6px}
+    .chart-sub{font-size:.88rem;color:rgba(240,237,230,.44);font-weight:300;margin-bottom:20px;line-height:1.55}
+    .chart-canvas-wrap{position:relative;width:100%}
+    .chart-src{font-family:var(--font-mono);font-size:.64rem;color:rgba(136,153,180,.45);margin-top:12px;text-align:right;letter-spacing:.06em}
+
+    /* ENGAGEMENTS */
+    .engage-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:44px}
+    .ecard{padding:34px 30px;border:1px solid rgba(201,168,76,.1);background:rgba(255,255,255,.018)}
+    .ecard-n{font-family:var(--font-display);font-size:2.5rem;color:rgba(201,168,76,.15);margin-bottom:10px;line-height:1}
+    .ecard-title{font-family:var(--font-display);font-size:1.12rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:10px}
+    .ecard-desc{font-size:.96rem;color:rgba(240,237,230,.54);line-height:1.72;font-weight:300}
+
+    /* LIMITES */
+    .limites{background:rgba(14,38,80,.5);border:1px solid rgba(138,174,224,.14);border-radius:var(--rl);padding:36px;margin-top:48px}
+    .limites-title{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:22px}
+    .limite{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.94rem;color:rgba(240,237,230,.56);line-height:1.68}
+    .limite:last-child{border-bottom:none}
+    .limite-dot{width:6px;height:6px;border-radius:50%;background:rgba(138,174,224,.5);flex-shrink:0;margin-top:9px}
+
+    .cta-section{padding:96px 0;text-align:center;border-top:1px solid rgba(201,168,76,.07)}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);letter-spacing:.03em;color:var(--offwhite);margin-bottom:16px}
+    .cta-title .gold{color:var(--gold)}
+    .cta-sub{font-size:1.02rem;color:rgba(240,237,230,.5);font-weight:300;max-width:460px;margin:0 auto 32px;line-height:1.72}
+    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    footer{padding:58px 0 34px;border-top:1px solid rgba(201,168,76,.1)}
+    .footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:40px}
+    .fbrand{font-family:var(--font-display);font-size:1.65rem;letter-spacing:.14em;color:var(--offwhite);margin-bottom:9px}
+    .fbrand .e2{color:var(--gold)}
+    .ftag2{font-size:.9rem;color:rgba(240,237,230,.58);line-height:1.65;font-weight:300;margin-bottom:16px}
+    .fmail{font-family:var(--font-mono);font-size:.76rem;color:var(--gold)}
+    .fcol-t{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(136,153,180,.8);margin-bottom:16px}
+    .flinks{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .flinks a{font-size:.9rem;color:rgba(240,237,230,.62)}
+    .flinks a:hover{color:var(--offwhite)}
+    .fbot{padding-top:26px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:11px}
+    .fcopy{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;color:rgba(136,153,180,.42)}
+    .fnote{font-family:var(--font-mono);font-size:.65rem;color:rgba(136,153,180,.3);font-style:italic;text-align:right;max-width:400px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:960px){
+      .formule-grid,.engage-grid,.footer-inner{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .comp{grid-template-columns:50px 1fr}
+      .comp-body{padding:22px 18px}
+      .urow{grid-template-columns:1fr 40px}
+    }
+    @media(max-width:600px){
+      .comp-num{font-size:2rem;padding:22px 0}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-name">RESS<span class="e2">E</span>NTO</span>
+      <span class="nav-logo-tag">Ce que vous ressentez, enfin chiffré</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#explainer">Mission</a></li>
+      <li><a href="/#indices">Indices</a></li>
+      <li><a href="/methode" class="active">Notre approche</a></li>
+      <li><a href="/#apropos">À propos</a></li>
+      <li><a href="/#roadmap">Calendrier</a></li>
+    </ul>
+    <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="padding:10px 22px;font-size:.88rem;">Participer →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb reveal"><a href="/">Ressento</a><span>›</span>Notre approche</div>
+    <div class="slabel reveal">Un observatoire de l'écart entre réel et ressenti</div>
+    <h1 class="stitle reveal" style="font-size:clamp(3rem,7vw,6rem);margin-bottom:18px">NOTRE<br>APPROCHE</h1>
+    <div class="divider reveal"></div>
+    <p class="reveal" style="font-size:1.1rem;font-weight:300;font-style:italic;color:rgba(240,237,230,.65);max-width:520px;line-height:1.72">Comment nous produisons des indices rigoureux, vérifiables et apolitiques.</p>
+  </div>
+</section>
+
+<!-- MISSION STATEMENT -->
+<section class="mission-block">
+  <div class="container--n">
+    <p class="mission-txt reveal">
+      Ressento transforme<br>
+      le ressenti citoyen<br>
+      en <span class="gold">données vérifiables.</span>
+    </p>
+    <p class="mission-sub reveal">
+      Voici ce que disent les données officielles.<br>
+      Voici ce que les Français ressentent.<br>
+      Ressento mesure les deux — et publie l'écart.
+    </p>
+  </div>
+</section>
+
+<!-- CE QUE PERSONNE D'AUTRE NE FAIT -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="slabel">Notre unicité</div>
+      <h2 class="stitle">Ce que personne<br>d'autre ne fait</h2>
+      <div class="divider"></div>
+      <p style="font-size:1rem;color:rgba(240,237,230,.52);max-width:540px;line-height:1.78;font-weight:300">Notre vrai avantage : la mise en tension systématique entre deux réalités. Nous faisons ce que les think tanks ne font pas.</p>
+    </div>
+    <div class="unique-list reveal">
+      <div class="urow">
+        <div>
+          <div class="urow-title">LES DONNÉES OFFICIELLES SEULES</div>
+          <div class="urow-desc">Les think tanks publient des analyses rigoureuses à partir de données publiques. Mais ils ne mesurent pas le ressenti réel des citoyens face à ces données.</div>
+        </div>
+        <div class="urow-num">01</div>
+      </div>
+      <div class="urow">
+        <div>
+          <div class="urow-title">LES SONDAGES SEULS</div>
+          <div class="urow-desc">Les sondages mesurent l'opinion à un instant T. Sans référence aux données officielles, il n'y a pas de contexte pour interpréter ce que les gens ressentent — ni pour mesurer l'écart avec la réalité.</div>
+        </div>
+        <div class="urow-num">02</div>
+      </div>
+      <div class="urow urow--ressento">
+        <div>
+          <div class="urow-title">RESSENTO — LES DEUX</div>
+          <div class="urow-desc">Ressento fait les deux simultanément. Données officielles d'un côté. Ressenti déclaré de l'autre. L'écart entre les deux est ce que nous publions. C'est ce que personne ne fait en France aujourd'hui.</div>
+        </div>
+        <div class="urow-num">03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TROIS COMPOSANTES -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="slabel">Architecture de nos indices</div>
+      <h2 class="stitle">Un indice,<br>trois composantes</h2>
+      <div class="divider"></div>
+      <p style="font-size:1rem;color:rgba(240,237,230,.52);max-width:560px;line-height:1.78;font-weight:300">Chaque indice Ressento repose sur la même structure. Trois composantes distinctes et complémentaires qui structurent chaque publication.</p>
+    </div>
+    <div class="composantes reveal">
+
+      <div class="comp comp--obj">
+        <div class="comp-num">01</div>
+        <div class="comp-body">
+          <div class="comp-tag">Composante objective</div>
+          <div class="comp-title">Les données officielles</div>
+          <div class="comp-desc">Nous partons toujours des données publiques disponibles. Ces données sont vérifiables par n'importe qui. Elles constituent le socle factuel de chaque indice, indépendant du nombre de répondants au questionnaire.</div>
+          <div class="pills">
+            <span class="pill">Eurostat</span>
+            <span class="pill">INSEE</span>
+            <span class="pill">DGFiP</span>
+            <span class="pill">Cour des Comptes</span>
+            <span class="pill">Transparency International</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp comp--dec">
+        <div class="comp-num">02</div>
+        <div class="comp-body">
+          <div class="comp-tag">Composante déclarative</div>
+          <div class="comp-title">Le ressenti des citoyens</div>
+          <div class="comp-desc">Les participants répondent à notre questionnaire de façon libre et anonyme. Leurs réponses sont agrégées selon une formule publiée avant la collecte — et non modifiable après. Cette composante mesure la perception réelle, là où les statistiques officielles ne vont pas. Si le ressenti s'écarte de façon notable des données officielles, c'est précisément cet écart que Ressento rend visible.</div>
+          <div class="pills">
+            <span class="pill">Questionnaire anonyme</span>
+            <span class="pill">Formule publiée avant collecte</span>
+            <span class="pill">Réponses agrégées</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp comp--ecart">
+        <div class="comp-num">03</div>
+        <div class="comp-body">
+          <div class="comp-tag">La valeur ajoutée Ressento</div>
+          <div class="comp-title">L'écart — ce que personne ne publie</div>
+          <div class="comp-desc">La différence entre ce que les données officielles indiquent et ce que les citoyens déclarent ressentir. Un écart négatif signifie que la perception est inférieure à la réalité mesurée. Un écart positif, l'inverse. Cet indicateur est au cœur de ce que Ressento produit.</div>
+          <div class="pills">
+            <span class="pill">Composante objective − Composante déclarative</span>
+            <span class="pill">Publication annuelle</span>
+            <span class="pill">Accès libre</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMULE IVI -->
+<section class="section">
+  <div class="container">
+    <div class="formule-grid">
+      <div class="formule-aside reveal">
+        <div class="slabel">Exemple · RI-IVI 2026</div>
+        <h2 class="stitle">La formule<br>de l'IVI</h2>
+        <div class="divider"></div>
+        <p style="font-size:1rem;color:rgba(240,237,230,.55);line-height:1.78;font-weight:300">Chaque dimension est pondérée selon son importance dans la perception de la valeur fiscale. La formule est publiée avant la collecte — elle ne peut pas changer après.</p>
+        <div class="formule-points">
+          <div class="fpoint">
+            <div class="fpoint-line"></div>
+            <div class="fpoint-txt">
+              <strong>Q1 — Contribution juste</strong>
+              Données objectives : France à 45,3% du PIB en prélèvements obligatoires — 2e rang européen derrière le Danemark.
+            </div>
+          </div>
+          <div class="fpoint">
+            <div class="fpoint-line"></div>
+            <div class="fpoint-txt">
+              <strong>Q2 — Valeur des services reçus</strong>
+              Données objectives : 1 670 milliards d'euros de dépenses publiques en 2024. Redistribution qui réduit les inégalités de revenus de ×21 à ×2,5.
+            </div>
+          </div>
+          <div class="fpoint">
+            <div class="fpoint-line"></div>
+            <div class="fpoint-txt">
+              <strong>Q3 — Confiance dans la gestion publique</strong>
+              Données objectives : déficit public à 5,8% du PIB en 2024 — la France seule en Europe à voir ses finances se dégrader hors récession.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="fbox">
+          <div class="fbox-label">Formule · RI-IVI · Édition 2026</div>
+          <div class="fbox-eq">
+            <span class="var">IVI</span> = <span class="var">Q2</span><span class="coef"> × 0,45</span> + <span class="var">Q1</span><span class="coef"> × 0,30</span> + <span class="var">Q3</span><span class="coef"> × 0,25</span>
+          </div>
+          <div class="frow">
+            <span class="frow-lbl">Q1 · Sentiment de contribution juste</span>
+            <span class="frow-w">× 0,30</span>
+          </div>
+          <div class="frow">
+            <span class="frow-lbl">Q2 · Valeur perçue des services reçus</span>
+            <span class="frow-w">× 0,45</span>
+          </div>
+          <div class="frow">
+            <span class="frow-lbl">Q3 · Confiance dans la gestion publique</span>
+            <span class="frow-w">× 0,25</span>
+          </div>
+          <div class="fbox-note">La formule est documentée avant la collecte. Elle ne peut pas être modifiée après la publication des résultats. C'est une garantie d'intégrité.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRAPHIQUE -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="slabel">Données publiques · IVI 2026</div>
+      <h2 class="stitle">Ce que disent<br>les chiffres officiels</h2>
+      <div class="divider"></div>
+      <p style="font-size:1rem;color:rgba(240,237,230,.52);max-width:560px;line-height:1.78;font-weight:300">La composante objective de l'IVI 2026 s'appuie notamment sur ce comparatif européen. Une donnée publique, vérifiable, qui donne le contexte factuel de la question Q1 — le sentiment de contribution juste.</p>
+    </div>
+    <div class="chart-single reveal">
+      <div class="chart-title">Prélèvements obligatoires en Europe — 2024</div>
+      <div class="chart-sub">En pourcentage du PIB · La France se situe au 2e rang européen, loin devant l'Allemagne (40,9%) et la moyenne UE (40,4%).</div>
+      <div class="chart-canvas-wrap" style="height:320px">
+        <canvas id="chart1" role="img" aria-label="Comparatif taux prélèvements obligatoires Europe 2024 en pourcentage du PIB — France 2e derrière le Danemark">Danemark 45.8, France 45.3, Belgique 45.1, Autriche 43.5, Suède 42.6, Italie 41.7, Allemagne 40.9, Espagne 37, Irlande 22.7</canvas>
+      </div>
+      <div class="chart-src">Source · Eurostat · gov_10a_taxag · données 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- NOS ENGAGEMENTS -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="slabel">Nos engagements</div>
+      <h2 class="stitle">Ce qui ne change<br>jamais</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="engage-grid reveal">
+      <div class="ecard">
+        <div class="ecard-n">01</div>
+        <div class="ecard-title">APOLITISME TOTAL</div>
+        <div class="ecard-desc">Ressento ne prend aucune position. Nous observons un écart — nous ne le jugeons pas. Nos résultats sont utilisables par tous, quelle que soit leur sensibilité politique.</div>
+      </div>
+      <div class="ecard">
+        <div class="ecard-n">02</div>
+        <div class="ecard-title">SOURCES VÉRIFIABLES</div>
+        <div class="ecard-desc">Chaque donnée publique intégrée dans nos indices est sourcée, datée et accessible en ligne. N'importe qui peut vérifier nos chiffres. C'est ce que "données vérifiables" signifie — et nous l'assumons pleinement.</div>
+      </div>
+      <div class="ecard">
+        <div class="ecard-n">03</div>
+        <div class="ecard-title">PARTICIPATION LIBRE ET ANONYME</div>
+        <div class="ecard-desc">Aucune donnée personnelle n'est collectée ni stockée. Les réponses sont agrégées immédiatement. La composante déclarative mesure un ressenti collectif — complété et contextualisé par les données officielles, ce qui en garantit la lisibilité.</div>
+      </div>
+      <div class="ecard">
+        <div class="ecard-n">04</div>
+        <div class="ecard-title">ACCÈS LIBRE TOTAL</div>
+        <div class="ecard-desc">Tous nos résultats sont publiés sans aucune barrière. Pas d'abonnement, pas de paywall. Chercheurs, journalistes et citoyens peuvent les utiliser et les citer librement.</div>
+      </div>
+    </div>
+
+    <div class="limites reveal">
+      <div class="limites-title">Ce que nous ne prétendons pas</div>
+      <div class="limite">
+        <div class="limite-dot"></div>
+        <div>La composante déclarative n'est pas statistiquement représentative de la population française au sens probabiliste. Elle est indicative. Nous le précisons systématiquement dans chaque publication.</div>
+      </div>
+      <div class="limite">
+        <div class="limite-dot"></div>
+        <div>L'écart Ressento mesure une divergence entre données et ressenti — il n'en explique pas les causes. L'interprétation appartient aux chercheurs, journalistes et citoyens qui s'en saisissent.</div>
+      </div>
+      <div class="limite">
+        <div class="limite-dot"></div>
+        <div>Ressento n'est pas un institut de sondage au sens de la loi du 19 juillet 1977. Nos indices ne constituent pas des sondages d'opinion au sens légal du terme.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title reveal">PARTICIPER,<br>C'EST <span class="gold">EXISTER</span> DANS LA DONNÉE</h2>
+    <p class="cta-sub reveal">60 secondes. Anonyme. Sans compte requis.<br>Chaque réponse renforce la composante déclarative de nos indices.</p>
+    <div class="cta-btns reveal">
+      <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold">Participer à l'IVI →</a>
+      <a href="/" class="btn btn--outline">Retour aux indices</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="fbrand">RESS<span class="e2">E</span>NTO</div>
+        <p class="ftag2">Ressento transforme le ressenti citoyen en données vérifiables.</p>
+        <a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a>
+      </div>
+      <div>
+        <div class="fcol-t">Les indices</div>
+        <ul class="flinks">
+          <li><a href="/ibm">RI-IBM · Bilan Municipal ✓</a></li>
+          <li><a href="https://tally.so/r/vGLAdQ">RI-IVI · Valeur de l'impôt ↗</a></li>
+          <li><a href="/#roadmap">RI-MOB · Mobilité — juin 2026</a></li>
+          <li><a href="/#roadmap">RI-TRP · Transparence — sept. 2026</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fcol-t">La plateforme</div>
+        <ul class="flinks">
+          <li><a href="/#explainer">Mission</a></li>
+          <li><a href="/methode">Notre approche</a></li>
+          <li><a href="/#apropos">À propos</a></li>
+          <li><a href="mailto:contact@ressento.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="fcopy">© 2026 Ressento — Tous droits réservés</div>
+      <div class="fnote">Initiative citoyenne indépendante. Nos indices ne constituent pas des sondages au sens de la loi du 19 juillet 1977.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}
+    });
+  },{threshold:0.07,rootMargin:'0px 0px -40px 0px'});
+  reveals.forEach(el=>obs.observe(el));
+  const nav=document.querySelector('nav');
+  window.addEventListener('scroll',()=>{nav.style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';},{passive:true});
+
+  const tc='rgba(240,237,230,0.55)';
+  const gc='rgba(201,168,76,0.07)';
+  new Chart(document.getElementById('chart1'),{
+    type:'bar',
+    data:{
+      labels:['Danemark','France','Belgique','Autriche','Suède','Italie','Allemagne','Espagne','Irlande'],
+      datasets:[{
+        data:[45.8,45.3,45.1,43.5,42.6,41.7,40.9,37.0,22.7],
+        backgroundColor:(_,i)=>i===1?'rgba(201,168,76,0.85)':'rgba(201,168,76,0.22)',
+        borderColor:(_,i)=>i===1?'rgba(201,168,76,1)':'rgba(201,168,76,0.38)',
+        borderWidth:1
+      }]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'% du PIB'}}
+      },
+      scales:{
+        x:{min:0,max:55,ticks:{color:tc,font:{size:12},callback:v=>v+'%'},grid:{color:gc}},
+        y:{ticks:{color:tc,font:{size:12}},grid:{display:false}}
+      }
+    }
+  });
+</script>
+</body>
+</html>
