@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur Carburant — Ressento</title>
+<meta name="description" content="Mesurez ce que la crise du carburant vous coûte vraiment, et comparez avec vos voisins européens.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --fond: #0B1F3C;
+  --gold: #C9A84C;
+  --blanc: #F0EDE6;
+  --blanc-dim: rgba(240,237,230,0.6);
+  --blanc-faint: rgba(240,237,230,0.12);
+  --gold-dim: rgba(201,168,76,0.7);
+  --gold-faint: rgba(201,168,76,0.1);
+  --vert: #5DCAA5;
+  --vert-faint: rgba(93,202,165,0.12);
+  --sep: rgba(240,237,230,0.1);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(240,237,230,0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--fond);
+  color: var(--blanc);
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0 2rem;
+  border-bottom: 0.5px solid var(--sep);
+  margin-bottom: 3rem;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-decoration: none;
+}
+.nav-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--blanc-dim);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--blanc); }
+
+/* ── PRIX LIVE BADGE ── */
+.prix-live {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+  padding: 10px 16px;
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 6px;
+}
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--vert);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-txt {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--blanc-dim);
+  letter-spacing: 0.04em;
+}
+.live-txt strong { color: var(--blanc); font-weight: 500; }
+.live-source {
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--blanc-dim);
+  opacity: 0.6;
+}
+
+/* ── EN-TÊTE ── */
+.editorial { margin-bottom: 3rem; }
+.editorial-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.editorial-tag::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 0.5px;
+  background: var(--gold);
+}
+.editorial h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 9vw, 62px);
+  letter-spacing: 0.04em;
+  color: var(--blanc);
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+.editorial h1 span { color: var(--gold); }
+
+.editorial-corps {
+  font-size: 16px;
+  color: var(--blanc-dim);
+  line-height: 1.8;
+  border-left: 1.5px solid var(--gold-dim);
+  padding-left: 1.25rem;
+  max-width: 580px;
+}
+.editorial-corps strong {
+  color: var(--blanc);
+  font-weight: 400;
+}
+
+.chiffres-cles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--sep);
+  border: 0.5px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.chiffre {
+  background: var(--fond);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+.chiffre-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.chiffre-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--blanc-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── SÉPARATEUR ── */
+.sep-ligne {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+.sep-ligne::before, .sep-ligne::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--sep);
+}
+.sep-txt {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── CALCULATEUR INPUTS ── */
+.calc-titre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: var(--blanc);
+  margin-bottom: 4px;
+}
+.calc-sous {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--blanc-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.inputs-bloc {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.input-field { margin-bottom: 1.75rem; }
+.input-field:last-child { margin-bottom: 0; }
+
+.input-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.input-label-val {
+  font-size: 15px;
+  color: var(--blanc);
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--sep);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  border: 2px solid var(--fond);
+  box-shadow: 0 0 0 1px var(--gold);
+  transition: transform 0.15s;
+}
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.25); }
+input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  border: 2px solid var(--fond);
+}
+
+.fuel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.fuel-btn {
+  border: 0.5px solid var(--card-border);
+  border-radius: 8px;
+  padding: 12px 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  color: var(--blanc-dim);
+  transition: all 0.15s;
+}
+.fuel-btn small {
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  opacity: 0.65;
+}
+.fuel-btn:hover { border-color: var(--gold-dim); color: var(--blanc); }
+.fuel-btn.on {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-faint);
+}
+
+/* ── RÉSULTATS ── */
+.resultats {
+  background: rgba(11,31,60,0.9);
+  border: 0.5px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.res-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 0.5px solid var(--sep);
+}
+.res-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blanc-dim);
+  margin-bottom: 8px;
+}
+.res-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--blanc);
+}
+.res-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--blanc-dim);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+.res-delta .res-val { color: var(--gold); }
+.res-delta .res-lbl { color: var(--gold-dim); }
+
+.bench-head {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blanc-dim);
+  margin-bottom: 14px;
+}
+.bench-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.bench-row:last-of-type { margin-bottom: 0; }
+.bench-flag { font-size: 15px; width: 22px; flex-shrink: 0; }
+.bench-country {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--blanc-dim);
+  width: 88px;
+  flex-shrink: 0;
+}
+.bench-bar-wrap {
+  flex: 1;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  height: 5px;
+}
+.bench-bar {
+  height: 5px;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+.bar-fr { background: var(--gold-dim); }
+.bar-eu { background: var(--vert); }
+.bench-amt {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 56px;
+  text-align: right;
+}
+.amt-fr { color: var(--gold); }
+.amt-eu { color: var(--vert); }
+
+.eco-bloc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem -1.75rem -1.75rem;
+  padding: 1.1rem 1.75rem;
+  background: var(--vert-faint);
+  border-radius: 0 0 10px 10px;
+  border-top: 0.5px solid rgba(93,202,165,0.2);
+}
+.eco-txt {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: rgba(93,202,165,0.85);
+  font-style: italic;
+}
+.eco-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--vert);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── ANNUEL + MSG ── */
+.annual-strip {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.annual-l {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--blanc-dim);
+  letter-spacing: 0.04em;
+}
+.annual-r {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.msg-ctx {
+  border-left: 1.5px solid var(--gold-dim);
+  padding: 0.9rem 1.1rem;
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--blanc-dim);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+.msg-ctx strong { color: var(--blanc); font-style: normal; font-weight: 400; }
+
+/* ── PARTAGE ── */
+.share-bloc { margin-bottom: 3rem; }
+.share-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blanc-dim);
+  margin-bottom: 12px;
+}
+.share-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.share-btn {
+  border: 0.5px solid var(--card-border);
+  border-radius: 7px;
+  padding: 13px 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  color: var(--blanc-dim);
+  transition: all 0.2s;
+  text-align: center;
+}
+.share-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-faint);
+}
+.share-btn.primary {
+  grid-column: 1 / -1;
+  border-color: var(--gold);
+  color: var(--fond);
+  background: var(--gold);
+  font-size: 13px;
+}
+.share-btn.primary:hover {
+  background: #d4ad50;
+}
+.ig-note {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--blanc-dim);
+  opacity: 0.55;
+  text-align: center;
+  margin-top: 6px;
+}
+.share-copied {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--vert);
+  text-align: center;
+  margin-top: 10px;
+  height: 18px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.share-copied.visible { opacity: 1; }
+
+/* ── FOOTER ── */
+.footer-edito {
+  border-top: 0.5px solid var(--sep);
+  padding-top: 2rem;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: var(--gold-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.footer-edito p {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--blanc-dim);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+/* ── LOADING ── */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--fond);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: opacity 0.4s;
+}
+.loading-overlay.fade { opacity: 0; pointer-events: none; }
+.loading-inner { text-align: center; }
+.loading-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.loading-bar-wrap {
+  width: 120px;
+  height: 2px;
+  background: var(--sep);
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.loading-bar {
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  animation: loadbar 1.5s ease-in-out infinite;
+}
+@keyframes loadbar {
+  0% { width: 0%; margin-left: 0; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0%; margin-left: 120%; }
+}
+.loading-txt {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--blanc-dim);
+  letter-spacing: 0.08em;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .chiffres-cles { grid-template-columns: 1fr; gap: 0; }
+  .res-top { grid-template-columns: 1fr; }
+  .res-val { font-size: 42px; }
+  .share-grid { grid-template-columns: 1fr; }
+  .share-btn.primary { grid-column: auto; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Loading screen -->
+<div class="loading-overlay" id="loading">
+  <div class="loading-inner">
+    <div class="loading-logo">Ressento</div>
+    <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+    <div class="loading-txt">Chargement des prix en temps réel…</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <nav>
+    <a href="https://ressento.com" class="nav-logo">Ressento</a>
+    <a href="https://ressento.com" class="nav-back">← Retour à l'accueil</a>
+  </nav>
+
+  <!-- Badge prix live -->
+  <div class="prix-live">
+    <div class="live-dot"></div>
+    <span class="live-txt">Prix du <strong id="live-date">—</strong> — mis à jour automatiquement</span>
+    <span class="live-source" id="live-source">chargement…</span>
+  </div>
+
+  <!-- ÉDITORIAL -->
+  <section class="editorial">
+    <div class="editorial-tag">Observatoire · Avril 2026</div>
+    <h1>Ce que la crise<br>vous coûte <span>vraiment</span></h1>
+    <p class="editorial-corps">
+      Depuis le 27 février 2026, le prix du gazole a progressé de plus de
+      <strong>50 cts par litre</strong> en France, sous l'effet des tensions
+      au Moyen-Orient et du quasi-blocage du détroit d'Ormuz.<br><br>
+      Plusieurs pays européens ont déployé des dispositifs d'allègement
+      pour les ménages — réduction de taxes, plafonnement des prix, remises directes.
+      La France a orienté ses aides vers les professionnels du transport,
+      de l'agriculture et de la pêche.<br><br>
+      Ressento vous permet de mesurer, en chiffres concrets,
+      ce que cette situation représente pour <strong>votre budget personnel</strong>.
+    </p>
+    <div class="chiffres-cles">
+      <div class="chiffre">
+        <div class="chiffre-val">+50 cts</div>
+        <div class="chiffre-lbl">hausse gazole<br>depuis le 27 fév.</div>
+      </div>
+      <div class="chiffre">
+        <div class="chiffre-val">6</div>
+        <div class="chiffre-lbl">pays européens<br>ont aidé les ménages</div>
+      </div>
+      <div class="chiffre">
+        <div class="chiffre-val">0</div>
+        <div class="chiffre-lbl">dispositif ménages<br>en France</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep-ligne"><span class="sep-txt">Votre simulateur</span></div>
+
+  <!-- CALCULATEUR -->
+  <div class="calc-titre">Calculateur</div>
+  <div class="calc-sous">Trois paramètres. Un résultat personnalisé.</div>
+
+  <div class="inputs-bloc">
+    <div class="input-field">
+      <div class="input-label">
+        Kilomètres par semaine
+        <span class="input-label-val" id="km-out">250 km</span>
+      </div>
+      <input type="range" min="50" max="800" value="250" step="10" id="km" oninput="calc()">
+    </div>
+    <div class="input-field">
+      <div class="input-label">
+        Consommation du véhicule
+        <span class="input-label-val" id="conso-out">6,0 L / 100 km</span>
+      </div>
+      <input type="range" min="4" max="13" value="6" step="0.5" id="conso" oninput="calc()">
+    </div>
+    <div class="input-field">
+      <div class="input-label">Carburant</div>
+      <div class="fuel-grid">
+        <button class="fuel-btn on" id="btn-gazole" onclick="setF(this,'gazole')">Gazole<small id="p-gazole">2,163 €/L</small></button>
+        <button class="fuel-btn" id="btn-sp95" onclick="setF(this,'sp95')">SP95<small id="p-sp95">2,002 €/L</small></button>
+        <button class="fuel-btn" id="btn-e85" onclick="setF(this,'e85')">E85<small id="p-e85">0,827 €/L</small></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RÉSULTATS -->
+  <div class="resultats">
+    <div class="res-top">
+      <div>
+        <div class="res-lbl">Budget mensuel</div>
+        <div class="res-val" id="r-cout">—</div>
+        <div class="res-sub">4 semaines de trajet</div>
+      </div>
+      <div class="res-delta">
+        <div class="res-lbl">Surcoût crise</div>
+        <div class="res-val" id="r-delta">—</div>
+        <div class="res-sub">vs 27 février 2026</div>
+      </div>
+    </div>
+
+    <div class="bench-head">Votre budget mensuel selon le pays</div>
+    <div class="bench-row">
+      <span class="bench-flag">🇫🇷</span>
+      <span class="bench-country">France</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-fr" id="bar-fr" style="width:100%"></div></div>
+      <span class="bench-amt amt-fr" id="bv-fr">—</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-flag">🇩🇪</span>
+      <span class="bench-country">Allemagne</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-de"></div></div>
+      <span class="bench-amt amt-eu" id="bv-de">—</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-flag">🇪🇸</span>
+      <span class="bench-country">Espagne</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-es"></div></div>
+      <span class="bench-amt amt-eu" id="bv-es">—</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-flag">🇮🇹</span>
+      <span class="bench-country">Italie</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-it"></div></div>
+      <span class="bench-amt amt-eu" id="bv-it">—</span>
+    </div>
+
+    <div class="eco-bloc">
+      <span class="eco-txt" id="eco-txt">En Espagne ce mois-ci, vous auriez payé</span>
+      <span class="eco-val" id="eco-val">—</span>
+    </div>
+  </div>
+
+  <div class="annual-strip">
+    <span class="annual-l">Projection du surcoût sur 12 mois</span>
+    <span class="annual-r" id="r-annual">—</span>
+  </div>
+
+  <div class="msg-ctx" id="r-msg"></div>
+
+  <!-- PARTAGE -->
+  <div class="share-bloc">
+    <div class="share-label">Partagez votre résultat</div>
+    <div class="share-grid">
+      <button class="share-btn primary" onclick="copyResult()">Copier mon résultat</button>
+      <button class="share-btn" onclick="shareLinkedIn()">LinkedIn</button>
+      <button class="share-btn" onclick="copyInstagram()">Instagram</button>
+      <button class="share-btn" onclick="shareTwitter()">X / Twitter</button>
+    </div>
+    <div class="ig-note">Instagram : le texte est copié — collez-le directement dans votre publication</div>
+    <div class="share-copied" id="share-copied">Copié dans le presse-papiers ✓</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-edito">
+    <div class="footer-logo">Ressento</div>
+    <p>
+      Prix mis à jour quotidiennement — source : prix-carburants.gouv.fr (Open Data).<br>
+      Prix avant crise : moyennes nationales du 27 février 2026, veille des frappes israélo-américaines sur l'Iran.<br>
+      Économies européennes calculées d'après les dispositifs officiels en vigueur :
+      Espagne −30 cts/L · Allemagne −17 cts/L · Italie −25 cts/L.<br>
+      Calcul indicatif à titre informatif. Ressento est un observatoire citoyen indépendant.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+// ── État global ──
+const PRIX_AVANT_CRISE = { gazole: 1.698, sp95: 1.779, e85: 0.782 };
+const ECO = {
+  gazole: { de: 0.17, es: 0.30, it: 0.25 },
+  sp95:   { de: 0.17, es: 0.30, it: 0.25 },
+  e85:    { de: 0,    es: 0,    it: 0    }
+};
+
+let PRIX = { gazole: 2.163, sp95: 2.002, e85: 0.827 };
+let fuel = 'gazole';
+let lastResult = {};
+
+// ── Chargement des prix live ──
+async function chargerPrix() {
+  try {
+    const res = await fetch('/.netlify/functions/prix-carburants');
+    const data = await res.json();
+    if (data.prix) {
+      if (data.prix.gazole) PRIX.gazole = data.prix.gazole;
+      if (data.prix.sp95)   PRIX.sp95   = data.prix.sp95;
+      if (data.prix.e85)    PRIX.e85    = data.prix.e85;
+    }
+    document.getElementById('live-date').textContent = data.date || '—';
+    document.getElementById('live-source').textContent =
+      data.source === 'fallback' ? 'données du 20 avr.' : 'prix-carburants.gouv.fr';
+  } catch(e) {
+    document.getElementById('live-date').textContent = '20 avril 2026';
+    document.getElementById('live-source').textContent = 'données de référence';
+  }
+
+  // Mettre à jour les libellés des boutons carburant
+  const fmt = v => v.toFixed(3).replace('.', ',') + ' €/L';
+  document.getElementById('p-gazole').textContent = fmt(PRIX.gazole);
+  document.getElementById('p-sp95').textContent   = fmt(PRIX.sp95);
+  document.getElementById('p-e85').textContent    = fmt(PRIX.e85);
+
+  // Masquer le loading et lancer le calcul
+  const overlay = document.getElementById('loading');
+  overlay.classList.add('fade');
+  setTimeout(() => overlay.style.display = 'none', 450);
+  calc();
+}
+
+// ── Helpers ──
+function g(id) { return document.getElementById(id); }
+function eur(n) { return Math.round(n) + '\u202f€'; }
+
+function setF(el, f) {
+  document.querySelectorAll('.fuel-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  fuel = f;
+  calc();
+}
+
+// ── Calcul principal ──
+function calc() {
+  const km    = parseInt(g('km').value);
+  const conso = parseFloat(g('conso').value);
+
+  g('km-out').textContent    = km + ' km';
+  g('conso-out').textContent = conso.toFixed(1).replace('.', ',') + ' L / 100 km';
+
+  const L    = (km * 4 * conso) / 100;
+  const pFr  = PRIX[fuel];
+  const pAv  = PRIX_AVANT_CRISE[fuel];
+  const eco  = ECO[fuel];
+
+  const cfr   = L * pFr;
+  const cav   = L * pAv;
+  const delta = cfr - cav;
+  const annual = delta * 12;
+
+  const cde = L * Math.max(pFr - eco.de, pFr * 0.88);
+  const ces = L * Math.max(pFr - eco.es, pFr * 0.82);
+  const cit = L * Math.max(pFr - eco.it, pFr * 0.85);
+
+  g('r-cout').textContent  = eur(cfr);
+  g('r-delta').textContent = '+' + eur(delta);
+  g('r-annual').textContent = '+' + eur(annual) + ' / an';
+
+  g('bv-fr').textContent = eur(cfr);
+  g('bv-de').textContent = eur(cde);
+  g('bv-es').textContent = eur(ces);
+  g('bv-it').textContent = eur(cit);
+
+  g('bar-fr').style.width = '100%';
+  g('bar-de').style.width = Math.round((cde / cfr) * 100) + '%';
+  g('bar-es').style.width = Math.round((ces / cfr) * 100) + '%';
+  g('bar-it').style.width = Math.round((cit / cfr) * 100) + '%';
+
+  if (fuel === 'e85') {
+    g('eco-txt').textContent = "L'E85 est structurellement déconnecté du pétrole — les dispositifs européens ne s'y appliquent pas.";
+    g('eco-val').textContent = '';
+  } else {
+    g('eco-txt').textContent = 'En Espagne ce mois-ci, vous auriez payé';
+    g('eco-val').textContent = '\u2212' + eur(cfr - ces) + ' de moins';
+  }
+
+  const fuelLabel = { gazole: 'gazole', sp95: 'SP95', e85: 'E85' };
+  let msg = '';
+  if (km <= 100) {
+    msg = "Petit rouleur — l'impact reste contenu pour votre budget. La crise est néanmoins visible sur chaque plein.";
+  } else if (km <= 300) {
+    msg = `Profil moyen — la crise vous coûte <strong>+${eur(annual)} sur l'année</strong>. Aucun dispositif d'aide aux ménages ne compense cette perte en France.`;
+  } else if (km <= 500) {
+    msg = `Grand rouleur — avec <strong>+${eur(annual)} de surcoût annuel</strong>, vous faites partie des profils les plus exposés à cette crise.`;
+  } else {
+    msg = `Usage intensif — votre surcoût de <strong>+${eur(annual)} / an</strong> dépasse le seuil d'éligibilité aux aides professionnelles. Si vous êtes indépendant, renseignez-vous sur les dispositifs Bpifrance.`;
+  }
+  g('r-msg').innerHTML = msg;
+
+  lastResult = { km, conso, fuel: fuelLabel[fuel], cfr, delta, annual, ces };
+}
+
+// ── Partage ──
+function buildText(format) {
+  const { km, conso, fuel, delta, annual } = lastResult;
+  if (format === 'ig') {
+    return `🔴 La crise carburant, en chiffres concrets.
+
+Mon profil : ${km} km/sem · ${conso.toFixed(1).replace('.',',')} L/100 · ${fuel}
+
+Surcoût mensuel : +${eur(delta)}
+Surcoût annuel : +${eur(annual)}
+
+Aucune aide de l'État pour les ménages.
+En Espagne, les automobilistes ont bénéficié de −30 cts/L.
+
+Calculez le vôtre 👉 ressento.com/carburant
+
+#Ressento #Carburant #PouvoirDachat #Crise #France`;
+  }
+  return `J'ai calculé mon surcoût carburant depuis la crise : +${eur(delta)}/mois, soit +${eur(annual)}/an.
+
+Profil : ${km} km/sem · ${conso.toFixed(1).replace('.',',')} L/100 · ${fuel}
+
+Calculez le vôtre → ressento.com/carburant
+#Ressento #Carburant #PouvoirDachat`;
+}
+
+function showCopied() {
+  const el = g('share-copied');
+  el.classList.add('visible');
+  setTimeout(() => el.classList.remove('visible'), 2800);
+}
+
+function copyResult() {
+  navigator.clipboard.writeText(buildText('default')).then(showCopied);
+}
+
+function copyInstagram() {
+  navigator.clipboard.writeText(buildText('ig')).then(() => {
+    g('share-copied').textContent = 'Texte Instagram copié — collez dans votre app ✓';
+    showCopied();
+    setTimeout(() => g('share-copied').textContent = 'Copié dans le presse-papiers ✓', 3000);
+  });
+}
+
+function shareLinkedIn() {
+  const url = encodeURIComponent('https://ressento.com/carburant');
+  window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
+}
+
+function shareTwitter() {
+  const txt = encodeURIComponent(buildText('default'));
+  window.open('https://twitter.com/intent/tweet?text=' + txt, '_blank');
+}
+
+// ── Init ──
+chargerPrix();
+</script>
+</body>
+</html>
