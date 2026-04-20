@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="fr"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculateur Carburant — Ressento</title>
 <meta name="description" content="Mesurez ce que la crise du carburant vous coûte vraiment, et comparez avec vos voisins européens.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -606,7 +604,7 @@ input[type=range]::-moz-range-thumb {
 <body>
 
 <!-- Loading screen -->
-<div class="loading-overlay" id="loading">
+<div class="loading-overlay fade" id="loading" style="display: none;">
   <div class="loading-inner">
     <div class="loading-logo">Ressento</div>
     <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
@@ -624,8 +622,8 @@ input[type=range]::-moz-range-thumb {
   <!-- Badge prix live -->
   <div class="prix-live">
     <div class="live-dot"></div>
-    <span class="live-txt">Prix du <strong id="live-date">—</strong> — mis à jour automatiquement</span>
-    <span class="live-source" id="live-source">chargement…</span>
+    <span class="live-txt">Prix du <strong id="live-date">20 avril 2026</strong> — mis à jour automatiquement</span>
+    <span class="live-source" id="live-source">données de référence</span>
   </div>
 
   <!-- ÉDITORIAL -->
@@ -695,12 +693,12 @@ input[type=range]::-moz-range-thumb {
     <div class="res-top">
       <div>
         <div class="res-lbl">Budget mensuel</div>
-        <div class="res-val" id="r-cout">—</div>
+        <div class="res-val" id="r-cout">130 €</div>
         <div class="res-sub">4 semaines de trajet</div>
       </div>
       <div class="res-delta">
         <div class="res-lbl">Surcoût crise</div>
-        <div class="res-val" id="r-delta">—</div>
+        <div class="res-val" id="r-delta">+28 €</div>
         <div class="res-sub">vs 27 février 2026</div>
       </div>
     </div>
@@ -710,51 +708,52 @@ input[type=range]::-moz-range-thumb {
       <span class="bench-flag">🇫🇷</span>
       <span class="bench-country">France</span>
       <div class="bench-bar-wrap"><div class="bench-bar bar-fr" id="bar-fr" style="width:100%"></div></div>
-      <span class="bench-amt amt-fr" id="bv-fr">—</span>
+      <span class="bench-amt amt-fr" id="bv-fr">130 €</span>
     </div>
     <div class="bench-row">
       <span class="bench-flag">🇩🇪</span>
       <span class="bench-country">Allemagne</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-de"></div></div>
-      <span class="bench-amt amt-eu" id="bv-de">—</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-de" style="width: 92%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-de">120 €</span>
     </div>
     <div class="bench-row">
       <span class="bench-flag">🇪🇸</span>
       <span class="bench-country">Espagne</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-es"></div></div>
-      <span class="bench-amt amt-eu" id="bv-es">—</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-es" style="width: 86%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-es">112 €</span>
     </div>
     <div class="bench-row">
       <span class="bench-flag">🇮🇹</span>
       <span class="bench-country">Italie</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-it"></div></div>
-      <span class="bench-amt amt-eu" id="bv-it">—</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-it" style="width: 88%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-it">115 €</span>
     </div>
 
     <div class="eco-bloc">
       <span class="eco-txt" id="eco-txt">En Espagne ce mois-ci, vous auriez payé</span>
-      <span class="eco-val" id="eco-val">—</span>
+      <span class="eco-val" id="eco-val">−18 € de moins</span>
     </div>
   </div>
 
   <div class="annual-strip">
     <span class="annual-l">Projection du surcoût sur 12 mois</span>
-    <span class="annual-r" id="r-annual">—</span>
+    <span class="annual-r" id="r-annual">+335 € / an</span>
   </div>
 
-  <div class="msg-ctx" id="r-msg"></div>
+  <div class="msg-ctx" id="r-msg">Profil moyen — la crise vous coûte <strong>+335 € sur l'année</strong>. Aucun dispositif d'aide aux ménages ne compense cette perte en France.</div>
 
   <!-- PARTAGE -->
   <div class="share-bloc">
     <div class="share-label">Partagez votre résultat</div>
     <div class="share-grid">
-      <button class="share-btn primary" onclick="copyResult()">Copier mon résultat</button>
+      <button class="share-btn primary" onclick="telechargerImage()">Télécharger mon résultat (image)</button>
       <button class="share-btn" onclick="shareLinkedIn()">LinkedIn</button>
-      <button class="share-btn" onclick="copyInstagram()">Instagram</button>
+      <button class="share-btn" onclick="telechargerImage()">Instagram</button>
       <button class="share-btn" onclick="shareTwitter()">X / Twitter</button>
     </div>
-    <div class="ig-note">Instagram : le texte est copié — collez-le directement dans votre publication</div>
-    <div class="share-copied" id="share-copied">Copié dans le presse-papiers ✓</div>
+    <div class="ig-note">Instagram / LinkedIn : téléchargez l'image et postez-la directement</div>
+    <div class="share-copied" id="share-copied">Image téléchargée ✓</div>
+    <canvas id="share-canvas" style="display:none"></canvas>
   </div>
 
   <!-- FOOTER -->
@@ -887,47 +886,156 @@ function calc() {
 }
 
 // ── Partage ──
-function buildText(format) {
-  const { km, conso, fuel, delta, annual } = lastResult;
-  if (format === 'ig') {
-    return `🔴 La crise carburant, en chiffres concrets.
-
-Mon profil : ${km} km/sem · ${conso.toFixed(1).replace('.',',')} L/100 · ${fuel}
-
-Surcoût mensuel : +${eur(delta)}
-Surcoût annuel : +${eur(annual)}
-
-Aucune aide de l'État pour les ménages.
-En Espagne, les automobilistes ont bénéficié de −30 cts/L.
-
-Calculez le vôtre 👉 ressento.com/carburant
-
-#Ressento #Carburant #PouvoirDachat #Crise #France`;
-  }
-  return `J'ai calculé mon surcoût carburant depuis la crise : +${eur(delta)}/mois, soit +${eur(annual)}/an.
-
-Profil : ${km} km/sem · ${conso.toFixed(1).replace('.',',')} L/100 · ${fuel}
-
-Calculez le vôtre → ressento.com/carburant
-#Ressento #Carburant #PouvoirDachat`;
-}
-
 function showCopied() {
   const el = g('share-copied');
   el.classList.add('visible');
   setTimeout(() => el.classList.remove('visible'), 2800);
 }
 
-function copyResult() {
-  navigator.clipboard.writeText(buildText('default')).then(showCopied);
+function buildText(format) {
+  const { km, conso, fuel, delta, annual } = lastResult;
+  return `Surcoût carburant depuis la crise : +${eur(delta)}/mois · +${eur(annual)}/an\n${km} km/sem · ${conso.toFixed(1).replace('.',',')} L/100 · ${fuel}\nCalculez le vôtre → ressento.com/carburant\n#Ressento #Carburant #PouvoirDachat`;
 }
 
-function copyInstagram() {
-  navigator.clipboard.writeText(buildText('ig')).then(() => {
-    g('share-copied').textContent = 'Texte Instagram copié — collez dans votre app ✓';
-    showCopied();
-    setTimeout(() => g('share-copied').textContent = 'Copié dans le presse-papiers ✓', 3000);
+function telechargerImage() {
+  const canvas = document.getElementById('share-canvas');
+  const S = 1080;
+  canvas.width = S;
+  canvas.height = S;
+  const ctx = canvas.getContext('2d');
+
+  const { km, conso, fuel, delta, annual, cfr, ces } = lastResult;
+  const ecoEs = Math.round(cfr - ces);
+
+  // Fond
+  ctx.fillStyle = '#0f2149';
+  ctx.fillRect(0, 0, S, S);
+
+  // Ligne déco top
+  const grad = ctx.createLinearGradient(0, 0, S, 0);
+  grad.addColorStop(0, 'transparent');
+  grad.addColorStop(0.5, '#C9A84C');
+  grad.addColorStop(1, 'transparent');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, S, 3);
+
+  // Logo RESSENTO
+  ctx.font = '600 52px Georgia, serif';
+  ctx.letterSpacing = '8px';
+  ctx.fillStyle = '#C9A84C';
+  ctx.fillText('RESSENTO', 72, 100);
+
+  // Tag observatoire
+  ctx.font = '300 22px monospace';
+  ctx.fillStyle = 'rgba(240,237,230,0.45)';
+  ctx.fillText('OBSERVATOIRE CITOYEN · AVRIL 2026', 72, 138);
+
+  // Ligne séparatrice
+  ctx.fillStyle = 'rgba(201,168,76,0.2)';
+  ctx.fillRect(72, 162, S - 144, 1);
+
+  // Titre
+  ctx.font = '300 italic 32px Georgia, serif';
+  ctx.fillStyle = 'rgba(240,237,230,0.7)';
+  ctx.fillText('Ce que la crise carburant me coûte', 72, 222);
+
+  // Grand chiffre surcoût mensuel
+  ctx.font = 'bold 160px Georgia, serif';
+  ctx.fillStyle = '#C9A84C';
+  ctx.fillText('+' + Math.round(delta) + '€', 72, 420);
+
+  ctx.font = '300 30px monospace';
+  ctx.fillStyle = 'rgba(240,237,230,0.5)';
+  ctx.fillText('/ mois de surcoût depuis le 27 fév. 2026', 72, 465);
+
+  // Projection annuelle
+  ctx.fillStyle = 'rgba(201,168,76,0.12)';
+  roundRect(ctx, 72, 500, S - 144, 80, 6);
+  ctx.fill();
+  ctx.font = '300 24px monospace';
+  ctx.fillStyle = 'rgba(240,237,230,0.5)';
+  ctx.fillText('Projection annuelle', 104, 537);
+  ctx.font = 'bold 36px Georgia, serif';
+  ctx.fillStyle = '#C9A84C';
+  ctx.fillText('+' + Math.round(delta * 12) + ' €  / an', 104, 566);
+
+  // Benchmark
+  ctx.fillStyle = 'rgba(240,237,230,0.12)';
+  ctx.fillRect(72, 614, 1, 180);
+
+  const pays = [
+    { flag: '🇫🇷', nom: 'France', val: Math.round(cfr) + ' €', color: '#C9A84C' },
+    { flag: '🇩🇪', nom: 'Allemagne', val: Math.round(lastResult.cfr - lastResult.cfr * 0.08) + ' €', color: '#5DCAA5' },
+    { flag: '🇪🇸', nom: 'Espagne', val: Math.round(ces) + ' €', color: '#5DCAA5' },
+    { flag: '🇮🇹', nom: 'Italie', val: Math.round(lastResult.cfr - lastResult.cfr * 0.11) + ' €', color: '#5DCAA5' },
+  ];
+  const colW = (S - 144) / 4;
+  pays.forEach((p, i) => {
+    const x = 72 + i * colW;
+    ctx.font = '28px serif';
+    ctx.fillText(p.flag, x + colW / 2 - 18, 655);
+    ctx.font = '300 18px monospace';
+    ctx.fillStyle = 'rgba(240,237,230,0.45)';
+    ctx.textAlign = 'center';
+    ctx.fillText(p.nom, x + colW / 2, 685);
+    ctx.font = 'bold 32px Georgia, serif';
+    ctx.fillStyle = p.color;
+    ctx.fillText(p.val, x + colW / 2, 718);
+    ctx.textAlign = 'left';
   });
+
+  // Label benchmark
+  ctx.font = '300 18px monospace';
+  ctx.fillStyle = 'rgba(240,237,230,0.3)';
+  ctx.fillText('budget mensuel · profil ' + km + ' km/sem · ' + fuel, 72, 780);
+
+  // Économie Espagne
+  if (fuel !== 'e85' && ecoEs > 0) {
+    ctx.fillStyle = 'rgba(93,202,165,0.1)';
+    roundRect(ctx, 72, 808, S - 144, 68, 6);
+    ctx.fill();
+    ctx.font = '300 italic 24px Georgia, serif';
+    ctx.fillStyle = 'rgba(93,202,165,0.8)';
+    ctx.fillText('En Espagne ce mois-ci, vous auriez payé  −' + ecoEs + ' €  de moins', 104, 848);
+  }
+
+  // Ligne bas
+  ctx.fillStyle = 'rgba(201,168,76,0.15)';
+  ctx.fillRect(72, 912, S - 144, 1);
+
+  // URL
+  ctx.font = '300 22px monospace';
+  ctx.fillStyle = 'rgba(201,168,76,0.6)';
+  ctx.fillText('ressento.com/carburant', 72, 950);
+  ctx.font = '300 18px monospace';
+  ctx.fillStyle = 'rgba(240,237,230,0.25)';
+  ctx.fillText('Prix du 20 avril 2026 · source prix-carburants.gouv.fr', 72, 980);
+
+  // Ligne déco bas
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, S - 3, S, 3);
+
+  // Téléchargement
+  const link = document.createElement('a');
+  link.download = 'ressento-carburant.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  showCopied();
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
 }
 
 function shareLinkedIn() {
@@ -936,12 +1044,13 @@ function shareLinkedIn() {
 }
 
 function shareTwitter() {
-  const txt = encodeURIComponent(buildText('default'));
+  const txt = encodeURIComponent(buildText());
   window.open('https://twitter.com/intent/tweet?text=' + txt, '_blank');
 }
 
 // ── Init ──
 chargerPrix();
 </script>
-</body>
-</html>
+
+
+</body></html>
