@@ -711,27 +711,27 @@ input[type=range]::-moz-range-thumb {
       <span class="bench-amt amt-fr" id="bv-fr">130 €</span>
     </div>
     <div class="bench-row">
-      <span class="bench-flag">🇩🇪</span>
-      <span class="bench-country">Allemagne</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-de" style="width: 92%;"></div></div>
-      <span class="bench-amt amt-eu" id="bv-de">120 €</span>
+      <span class="bench-flag">🇱🇺</span>
+      <span class="bench-country">Luxembourg</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-lu" style="width: 93%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-lu">121 €</span>
     </div>
     <div class="bench-row">
       <span class="bench-flag">🇪🇸</span>
       <span class="bench-country">Espagne</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-es" style="width: 86%;"></div></div>
-      <span class="bench-amt amt-eu" id="bv-es">112 €</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-es" style="width: 82%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-es">107 €</span>
     </div>
     <div class="bench-row">
       <span class="bench-flag">🇮🇹</span>
       <span class="bench-country">Italie</span>
-      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-it" style="width: 88%;"></div></div>
-      <span class="bench-amt amt-eu" id="bv-it">115 €</span>
+      <div class="bench-bar-wrap"><div class="bench-bar bar-eu" id="bar-it" style="width: 97%;"></div></div>
+      <span class="bench-amt amt-eu" id="bv-it">126 €</span>
     </div>
 
     <div class="eco-bloc">
       <span class="eco-txt" id="eco-txt">En Espagne ce mois-ci, vous auriez payé</span>
-      <span class="eco-val" id="eco-val">−18 € de moins</span>
+      <span class="eco-val" id="eco-val">−23 € de moins</span>
     </div>
   </div>
 
@@ -763,7 +763,7 @@ input[type=range]::-moz-range-thumb {
       Prix mis à jour quotidiennement — source : prix-carburants.gouv.fr (Open Data).<br>
       Prix avant crise : moyennes nationales du 27 février 2026, veille des frappes israélo-américaines sur l'Iran.<br>
       Économies européennes calculées d'après les dispositifs officiels en vigueur :
-      Espagne −30 cts/L · Allemagne −17 cts/L · Italie −25 cts/L.<br>
+      Espagne −30 cts/L · Luxembourg −14 cts/L · Italie −12 cts/L.<br>
       Calcul indicatif à titre informatif. Ressento est un observatoire citoyen indépendant.
     </p>
   </footer>
@@ -773,10 +773,10 @@ input[type=range]::-moz-range-thumb {
 <script>
 // ── État global ──
 const PRIX_AVANT_CRISE = { gazole: 1.698, sp95: 1.779, e85: 0.782 };
-const ECO = {
-  gazole: { de: 0.17, es: 0.30, it: 0.25 },
-  sp95:   { de: 0.17, es: 0.30, it: 0.25 },
-  e85:    { de: 0,    es: 0,    it: 0    }
+const PRIX_PAYS = {
+  gazole: { es: 1.780, lu: 2.010, it: 2.100 },
+  sp95:   { es: 1.560, lu: 1.880, it: 1.900 },
+  e85:    { es: null,  lu: null,  it: null   }
 };
 
 let PRIX = { gazole: 2.163, sp95: 2.002, e85: 0.827 };
@@ -836,29 +836,32 @@ function calc() {
   const L    = (km * 4 * conso) / 100;
   const pFr  = PRIX[fuel];
   const pAv  = PRIX_AVANT_CRISE[fuel];
-  const eco  = ECO[fuel];
-
   const cfr   = L * pFr;
   const cav   = L * pAv;
   const delta = cfr - cav;
   const annual = delta * 12;
 
-  const cde = L * Math.max(pFr - eco.de, pFr * 0.88);
-  const ces = L * Math.max(pFr - eco.es, pFr * 0.82);
-  const cit = L * Math.max(pFr - eco.it, pFr * 0.85);
+  let ces, clu, cit;
+  if (fuel === 'e85') {
+    ces = cfr; clu = cfr; cit = cfr;
+  } else {
+    ces = L * PRIX_PAYS[fuel].es;
+    clu = L * PRIX_PAYS[fuel].lu;
+    cit = L * PRIX_PAYS[fuel].it;
+  }
 
   g('r-cout').textContent  = eur(cfr);
   g('r-delta').textContent = '+' + eur(delta);
   g('r-annual').textContent = '+' + eur(annual) + ' / an';
 
   g('bv-fr').textContent = eur(cfr);
-  g('bv-de').textContent = eur(cde);
   g('bv-es').textContent = eur(ces);
+  g('bv-lu').textContent = eur(clu);
   g('bv-it').textContent = eur(cit);
 
   g('bar-fr').style.width = '100%';
-  g('bar-de').style.width = Math.round((cde / cfr) * 100) + '%';
   g('bar-es').style.width = Math.round((ces / cfr) * 100) + '%';
+  g('bar-lu').style.width = Math.round((clu / cfr) * 100) + '%';
   g('bar-it').style.width = Math.round((cit / cfr) * 100) + '%';
 
   if (fuel === 'e85') {
@@ -882,7 +885,7 @@ function calc() {
   }
   g('r-msg').innerHTML = msg;
 
-  lastResult = { km, conso, fuel: fuelLabel[fuel], cfr, delta, annual, ces };
+  lastResult = { km, conso, fuel: fuelLabel[fuel], cfr, delta, annual, ces, clu, cit };
 }
 
 // ── Partage ──
@@ -904,7 +907,7 @@ function telechargerImage() {
   canvas.height = S;
   const ctx = canvas.getContext('2d');
 
-  const { km, conso, fuel, delta, annual, cfr, ces } = lastResult;
+  const { km, conso, fuel, delta, annual, cfr, ces, clu, cit } = lastResult;
   const ecoEs = Math.round(cfr - ces);
 
   // Fond
@@ -965,7 +968,7 @@ function telechargerImage() {
 
   const pays = [
     { flag: '🇫🇷', nom: 'France', val: Math.round(cfr) + ' €', color: '#C9A84C' },
-    { flag: '🇩🇪', nom: 'Allemagne', val: Math.round(lastResult.cfr - lastResult.cfr * 0.08) + ' €', color: '#5DCAA5' },
+    { flag: '🇱🇺', nom: 'Luxembourg', val: Math.round(clu) + ' €', color: '#5DCAA5' },
     { flag: '🇪🇸', nom: 'Espagne', val: Math.round(ces) + ' €', color: '#5DCAA5' },
     { flag: '🇮🇹', nom: 'Italie', val: Math.round(lastResult.cfr - lastResult.cfr * 0.11) + ' €', color: '#5DCAA5' },
   ];
