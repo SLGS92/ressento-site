@@ -200,7 +200,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .meter-lbls{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.58rem;color:var(--muted)}
 
 /* ── HOME HERO ── */
-.home-hero{min-height:calc(100vh - 66px);display:flex;flex-direction:column;justify-content:center;padding:80px 0;position:relative;overflow:hidden}
+.home-hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:52px 0 44px;position:relative;overflow:hidden}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px;opacity:0;animation:fadeUp .7s ease .1s forwards}
 .hero-eyebrow-line{width:32px;height:1px;background:var(--gold)}
 .hero-eyebrow-text{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.85)}
@@ -211,7 +211,7 @@ h1.hh .gold{color:var(--gold)}
 .hero-sub{font-size:clamp(1rem,1.8vw,1.18rem);font-weight:400;font-style:italic;color:var(--text-med);max-width:580px;margin:26px 0 36px;line-height:1.72;opacity:0;animation:fadeUp .8s ease .35s forwards}
 
 .hero-cta-block{max-width:680px;opacity:0;animation:fadeUp .8s ease .5s forwards}
-.indices-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.indices-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
 .ip-item{background:var(--navy-card);padding:22px 20px;text-align:center;cursor:pointer;transition:background .2s,transform .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:110px}
 .ip-item:hover{background:var(--navy-mid);transform:translateY(-2px)}
 .ip-num{font-family:var(--font-display);font-size:2.8rem;line-height:1;display:flex;align-items:baseline;gap:3px}
@@ -371,8 +371,6 @@ h1.hh .gold{color:var(--gold)}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── JAUGE PERCEPTION GAP ── */
-.pg-gauge-section{padding:64px 0;background:linear-gradient(180deg,rgba(8,18,46,.99),rgba(11,28,58,.98));border-bottom:1px solid rgba(201,168,76,.08)}
-.pg-gauge-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .pg-gauge-left{}
 .pg-gauge-title{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.03em;color:var(--text-high);line-height:1.02;margin-bottom:.7rem}
 .pg-gauge-title span{color:var(--gold)}
@@ -393,12 +391,12 @@ h1.hh .gold{color:var(--gold)}
 .pg-index-pending{font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5);width:40px;text-align:right}
 
 /* ── COMPTEURS ── */
-.counters-section{padding:0;background:linear-gradient(180deg,rgba(10,22,52,.99),rgba(8,18,46,.99))}
-.counters-inner{max-width:1100px;margin:0 auto;padding:3rem 32px}
-.counters-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:12px}
+.counters-section{background:linear-gradient(180deg,rgba(10,22,52,.99),rgba(8,18,46,.99));border-top:1px solid rgba(201,168,76,.1)}
+.counters-inner{max-width:1100px;margin:0 auto;padding:2rem 32px}
+.counters-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0;display:flex;align-items:center;gap:12px}
 .counters-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;flex-shrink:0;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
 .counters-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.15)}
-.counter-box{background:rgba(11,24,56,.95);border:1px solid rgba(201,168,76,.1);padding:2.4rem 2rem;position:relative;overflow:hidden;transition:background .3s,border-color .2s}
+.counter-box{background:rgba(11,24,56,.95);border:1px solid rgba(201,168,76,.1);padding:1.8rem 1.6rem;position:relative;overflow:hidden;transition:background .3s,border-color .2s}
 .counter-box:hover{background:rgba(14,30,68,.98);border-color:rgba(201,168,76,.22)}
 .counter-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent);opacity:.6}
 .counter-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:1.2rem;line-height:1.5}
@@ -438,6 +436,41 @@ h1.hh .gold{color:var(--gold)}
      HOME
 ══════════════════════════════════════ -->
 <div id="page-home" class="page active">
+
+  <!-- ── TICKER ── -->
+  <div class="ticker-wrap" id="ticker-wrap">
+    <div class="ticker-track" id="ticker-track">
+      <!-- Bloc 1 -->
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
+      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
+      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
+      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
+      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
+      <!-- Bloc 2 — dupliqué pour boucle infinie -->
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
+      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
+      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
+      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
+      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
+    </div>
+  </div>
+
   <section class="home-hero">
     <div class="hero-grid-bg"></div>
     <div class="hero-glow"></div>
@@ -482,7 +515,7 @@ h1.hh .gold{color:var(--gold)}
   </section>
 
   <!-- Pitch apolitisme -->
-  <section style="padding:80px 0;background:rgba(201,168,76,.028);border-top:1px solid rgba(201,168,76,.08);border-bottom:1px solid rgba(201,168,76,.08)">
+  <section style="padding:36px 0;background:rgba(201,168,76,.028);border-top:1px solid rgba(201,168,76,.08);border-bottom:1px solid rgba(201,168,76,.08)">
     <div class="container--n">
       <p class="reveal" style="font-family:var(--font-body);font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;font-weight:300;color:var(--offwhite);line-height:1.55;max-width:760px;margin:0 auto;text-align:center;position:relative;padding:0 32px">
         <span style="font-size:4rem;color:var(--gold);opacity:.18;position:absolute;top:-14px;left:0;line-height:1;font-family:var(--font-body)">"</span>
@@ -499,108 +532,17 @@ h1.hh .gold{color:var(--gold)}
     </div>
   </section>
 
-  <!-- ── TICKER ── -->
-  <div class="ticker-wrap" id="ticker-wrap">
-    <div class="ticker-track" id="ticker-track">
-      <!-- Bloc 1 -->
-      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
-      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
-      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
-      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
-      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
-      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
-      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
-      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
-      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
-      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
-      <!-- Bloc 2 — dupliqué pour boucle infinie -->
-      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
-      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
-      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
-      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
-      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
-      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
-      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
-      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
-      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
-      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
-      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
-    </div>
-  </div>
 
-  <!-- ── JAUGE PERCEPTION GAP NATIONAL ── -->
-  <div class="pg-gauge-section">
-    <div class="pg-gauge-inner">
-      <div class="pg-gauge-left">
-        <div class="slabel">Observatoire · Synthèse</div>
-        <h2 class="pg-gauge-title">Indice de<br><span>Perception Gap</span><br>National</h2>
-        <p class="pg-gauge-sub">Synthèse des indices Ressento publiés. Chaque indice contribue à mesurer l'écart global entre ce que les données officielles indiquent et ce que les citoyens déclarent percevoir.</p>
-        <div class="pg-index-list">
-          <div class="pg-index-row">
-            <span class="pg-index-name">RI-IBM</span>
-            <div class="pg-index-bar"><div class="pg-index-fill" style="width:46%"></div></div>
-            <span class="pg-index-score">46</span>
-          </div>
-          <div class="pg-index-row">
-            <span class="pg-index-name">IVI</span>
-            <div class="pg-index-bar"><div class="pg-index-fill" style="width:0%;background:#8aaee0"></div></div>
-            <span class="pg-index-pending">—</span>
-          </div>
-          <div class="pg-index-row" style="opacity:.35">
-            <span class="pg-index-name">RI-MOB</span>
-            <div class="pg-index-bar"></div>
-            <span class="pg-index-pending">—</span>
-          </div>
-        </div>
-        <div class="pg-gauge-src">Score composite · 1 indice actif · Mis à jour à chaque publication</div>
-      </div>
-      <div class="pg-gauge-right">
-        <div class="gauge-container" id="gauge-container">
-          <svg class="gauge-svg" viewBox="0 0 260 140" id="gauge-svg">
-            <!-- Fond arc -->
-            <path d="M 20 130 A 110 110 0 0 1 240 130" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="18" stroke-linecap="round"></path>
-            <!-- Zones couleur -->
-            <path d="M 20 130 A 110 110 0 0 1 90 28" fill="none" stroke="rgba(191,58,26,.35)" stroke-width="18" stroke-linecap="round"></path>
-            <path d="M 90 28 A 110 110 0 0 1 170 28" fill="none" stroke="rgba(180,83,9,.35)" stroke-width="18" stroke-linecap="round"></path>
-            <path d="M 170 28 A 110 110 0 0 1 240 130" fill="none" stroke="rgba(45,106,79,.35)" stroke-width="18" stroke-linecap="round"></path>
-            <!-- Arc actif — 46% → angle ~165° from start -->
-            <path id="gauge-arc" d="M 20 130 A 110 110 0 0 1 240 130" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 345" opacity="0"></path>
-            <!-- Aiguille -->
-            <line id="gauge-needle" x1="130" y1="130" x2="130" y2="30" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" transform="rotate(-90 130 130)" opacity="0"></line>
-            <circle cx="130" cy="130" r="5" fill="var(--gold)" opacity="0" id="gauge-dot"></circle>
-            <!-- Labels -->
-            <text x="14" y="148" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">0</text>
-            <text x="123" y="18" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">50</text>
-            <text x="238" y="148" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">100</text>
-          </svg>
-          <div class="gauge-score-display">
-            <div class="gauge-num" id="gauge-num">0</div>
-            <div class="gauge-denom">/ 100 · Score composite</div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:.5rem">
-          <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.5)">
-            <div style="width:10px;height:3px;background:rgba(191,58,26,.6);border-radius:1px"></div>Faible
-            <div style="width:10px;height:3px;background:rgba(180,83,9,.6);border-radius:1px;margin-left:6px"></div>Moyen
-            <div style="width:10px;height:3px;background:rgba(45,106,79,.6);border-radius:1px;margin-left:6px"></div>Fort
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ── COMPTEURS LIVE ── -->
   <div class="counters-section">
     <div class="counters-inner">
-      <div style="margin-bottom:2rem">
-        <div class="counters-label">Compteurs en temps réel · Données officielles calculées</div>
-        <div style="font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;color:var(--text-high);line-height:1.05;margin-bottom:.5rem">Ce que <span style="color:var(--gold)">2026</span> coûte déjà.</div>
-        <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em">Chiffres calculés en continu · Sources officielles · Cliquez sur ⛽ Carburant pour personnaliser</div>
+      <div style="margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <div>
+          <div class="counters-label" style="margin-bottom:.4rem">Compteurs en temps réel · Depuis le 1er janvier 2026</div>
+          <div style="font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.2rem);letter-spacing:.03em;color:var(--text-high);line-height:1">Ce que <span style="color:var(--gold)">2026</span> coûte déjà.</div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-align:right">Sources officielles<br>Cliquez sur ⛽ Carburant pour personnaliser</div>
       </div>
       <div class="counters-grid">
 
@@ -633,7 +575,7 @@ h1.hh .gold{color:var(--gold)}
   </div>
 
   <!-- Comment ça marche -->
-  <section style="padding:80px 0">
+  <section style="padding:36px 0">
     <div class="container">
       <div class="reveal"><div class="slabel">Comment ça fonctionne</div><h2 class="stitle">De la question au chiffre public</h2><div class="divider"></div></div>
       <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative">
@@ -1554,8 +1496,13 @@ function initCounters(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  // Init home elements au chargement
-  setTimeout(()=>{ initGauge(46); initCounters(); }, 400);
+  // Init home — double tentative pour s'assurer que le DOM est prêt
+  function tryInitHome(){
+    const el = document.getElementById('cnt-greve');
+    if(el){ initGauge(46); initCounters(); }
+    else { setTimeout(tryInitHome, 200); }
+  }
+  setTimeout(tryInitHome, 300);
   goTo('home');
   window.addEventListener('scroll',()=>{
     document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';
