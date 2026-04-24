@@ -549,7 +549,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Coût des grèves transport · France 2026</div>
-          <div class="counter-val" id="cnt-greve">0</div>
+          <div class="counter-val" id="cnt-greve">1,50 Md €</div>
           <div class="counter-unit">€ de manque à gagner cumulé<br>depuis le 1er jan. 2026</div>
           <div class="counter-src">Base : 500 M€/jour (Institut Montaigne · Banque de France) · 3 jours de grève nationale comptabilisés</div>
         </div>
@@ -557,7 +557,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Surcoût carburant · Ménages français 2026</div>
-          <div class="counter-val" id="cnt-carbu">0</div>
+          <div class="counter-val" id="cnt-carbu">1,29 Md €</div>
           <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
           <div class="counter-src">Base : +50 cts/L · 38M véhicules · consommation moy. nationale · INSEE 2024</div>
         </div>
@@ -565,7 +565,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">0</div>
+          <div class="counter-val" id="cnt-fiscal">306,05 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -1140,12 +1140,12 @@ h1.hh .gold{color:var(--gold)}
     <div class="container">
       <div class="method-two-col">
         <nav class="method-nav-list">
-          <button class="method-nav-btn active" onclick="scrollTo('ms-principe')">Principe général</button>
-          <button class="method-nav-btn" onclick="scrollTo('ms-collecte')">Collecte</button>
-          <button class="method-nav-btn" onclick="scrollTo('ms-formules')">Formules</button>
-          <button class="method-nav-btn" onclick="scrollTo('ms-sources')">Sources officielles</button>
-          <button class="method-nav-btn" onclick="scrollTo('ms-biais')">Biais &amp; limites</button>
-          <button class="method-nav-btn" onclick="scrollTo('ms-neutralite')">Neutralité</button>
+          <button class="method-nav-btn active" onclick="scrollToSection('ms-principe')">Principe général</button>
+          <button class="method-nav-btn" onclick="scrollToSection('ms-collecte')">Collecte</button>
+          <button class="method-nav-btn" onclick="scrollToSection('ms-formules')">Formules</button>
+          <button class="method-nav-btn" onclick="scrollToSection('ms-sources')">Sources officielles</button>
+          <button class="method-nav-btn" onclick="scrollToSection('ms-biais')">Biais &amp; limites</button>
+          <button class="method-nav-btn" onclick="scrollToSection('ms-neutralite')">Neutralité</button>
         </nav>
         <div>
           <div class="method-section" id="ms-principe">
@@ -1229,6 +1229,7 @@ h1.hh .gold{color:var(--gold)}
 
 <script>
 // ── ROUTING ──────────────────────────────────────────────────
+window._nativeScrollTo = window.scrollTo.bind(window);
 const PAGES=['home','approche','indices','ibm','ivi','methodologie'];
 let activeCharts=[];
 let counterInterval=null;
@@ -1236,7 +1237,7 @@ let counterInterval=null;
 function goTo(id){
   PAGES.forEach(p=>{document.getElementById('page-'+p)?.classList.remove('active');});
   document.getElementById('page-'+id)?.classList.add('active');
-  window.scrollTo(0,0);
+  window._nativeScrollTo(0,0);
   ['home','approche','indices','methodologie'].forEach(n=>{
     const el=document.getElementById('nl-'+n);
     if(el) el.classList.remove('active');
@@ -1258,12 +1259,12 @@ function goTo(id){
   setupReveal();
 }
 
-function scrollTo(id){
+function scrollToSection(id){
   const el = document.getElementById(id);
   if(!el) return;
   const offset = 86;
   const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-  window.scrollTo({top, behavior:'smooth'});
+  window._nativeScrollTo({top, behavior:'smooth'});
   document.querySelectorAll('.method-nav-btn').forEach(b => b.classList.remove('active'));
   const btns = document.querySelectorAll('.method-nav-btn');
   btns.forEach(b => { if(b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) b.classList.add('active'); });
@@ -1395,7 +1396,7 @@ function initIVI(){
   mkChart('chart-ivi-3','line',
     ['2021','2022','2023','2024'],
     [
-      {label:'Confiance gouvernement pour gérer l'impôt (%)',data:[42,40,38,38],borderColor:'#8aaee0',backgroundColor:'rgba(138,174,224,.06)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#8aaee0'},
+      {label:'Confiance gouvernement pour gérer l\'impôt (%)',data:[42,40,38,38],borderColor:'#8aaee0',backgroundColor:'rgba(138,174,224,.06)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#8aaee0'},
       {label:'Confiance institutions fiscales — DGFiP (%)',data:[48,46,44,45],borderColor:'rgba(201,168,76,.7)',backgroundColor:'rgba(201,168,76,.04)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'rgba(201,168,76,.7)'}
     ],
     {min:30,max:60}
@@ -1493,14 +1494,10 @@ function initCounters(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  // Init home — double tentative pour s'assurer que le DOM est prêt
-  function tryInitHome(){
-    const el = document.getElementById('cnt-greve');
-    if(el){ initCounters(); }
-    else { setTimeout(tryInitHome, 200); }
-  }
-  setTimeout(tryInitHome, 100);
-  goTo('home');
+  // page-home est déjà active dans le HTML — pas besoin de goTo
+  // On initialise directement les compteurs
+  initCounters();
+  setupReveal();
   window.addEventListener('scroll',()=>{
     document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';
   },{passive:true});
