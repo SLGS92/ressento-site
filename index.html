@@ -351,6 +351,67 @@ h1.hh .gold{color:var(--gold)}
   .hub-grid{grid-template-columns:1fr}
   .indices-preview{grid-template-columns:1fr}
 }
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--dark,#0a1628);border-top:1px solid rgba(201,168,76,.18);border-bottom:1px solid rgba(201,168,76,.18);padding:0;overflow:hidden;position:relative;height:44px;display:flex;align-items:center}
+.ticker-wrap::before{content:'LIVE';position:absolute;left:0;top:0;bottom:0;z-index:3;background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.75rem;letter-spacing:.14em;padding:0 16px;display:flex;align-items:center;white-space:nowrap}
+.ticker-wrap::after{content:'';position:absolute;left:68px;top:0;bottom:0;width:40px;background:linear-gradient(90deg,var(--dark,#0a1628),transparent);z-index:2}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 55s linear infinite;padding-left:80px}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(201,168,76,.12);height:44px}
+.ticker-sep{color:rgba(201,168,76,.25);font-size:.8rem;margin:0 4px}
+.ticker-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ticker-val{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em}
+.ticker-val.gold{color:var(--gold)}
+.ticker-val.neg{color:#E08080}
+.ticker-val.pos{color:#7DC49E}
+.ticker-val.blue{color:#8aaee0}
+.ticker-delta{font-family:var(--font-mono);font-size:.6rem;background:rgba(201,168,76,.1);color:var(--gold);padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+.ticker-delta.neg{background:rgba(224,128,128,.1);color:#E08080}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── JAUGE PERCEPTION GAP ── */
+.pg-gauge-section{padding:64px 0;background:#060d1a;border-bottom:1px solid rgba(201,168,76,.1)}
+.pg-gauge-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.pg-gauge-left{}
+.pg-gauge-title{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.03em;color:var(--text-high);line-height:1.02;margin-bottom:.7rem}
+.pg-gauge-title span{color:var(--gold)}
+.pg-gauge-sub{font-size:.88rem;color:var(--text-med);line-height:1.8;font-weight:400;max-width:420px}
+.pg-gauge-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1rem}
+.pg-gauge-right{position:relative}
+.gauge-container{position:relative;width:260px;height:140px;margin:0 auto 1.5rem}
+.gauge-svg{width:260px;height:140px}
+.gauge-score-display{position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center}
+.gauge-num{font-family:var(--font-display);font-size:3.5rem;color:var(--gold);letter-spacing:.02em;line-height:1}
+.gauge-denom{font-family:var(--font-mono);font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+.pg-index-list{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+.pg-index-row{display:flex;align-items:center;gap:.8rem;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.pg-index-name{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:70px;flex-shrink:0}
+.pg-index-bar{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:2px;position:relative}
+.pg-index-fill{position:absolute;left:0;top:0;height:100%;background:var(--gold);border-radius:2px;opacity:.7}
+.pg-index-score{font-family:var(--font-display);font-size:.95rem;color:var(--gold);width:40px;text-align:right}
+.pg-index-pending{font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5);width:40px;text-align:right}
+
+/* ── COMPTEURS ── */
+.counters-section{padding:0;background:var(--dark,#080f1e)}
+.counters-inner{max-width:1100px;margin:0 auto;padding:0 32px;padding-top:3rem;padding-bottom:3rem}
+.counters-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:12px}
+.counters-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;flex-shrink:0;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
+.counters-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.15)}
+.counter-box{background:#060d1a;padding:2.4rem 2rem;position:relative;overflow:hidden;transition:background .3s}
+.counter-box:hover{background:#09142a}
+.counter-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent);opacity:.6}
+.counter-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:1.2rem;line-height:1.5}
+.counter-val{font-family:var(--font-display);font-size:clamp(2.2rem,3.5vw,3.8rem);color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.6rem;transition:color .3s;text-shadow:0 0 40px rgba(201,168,76,.15)}
+.counter-unit{font-family:var(--font-mono);font-size:.65rem;color:rgba(240,237,230,.5);letter-spacing:.06em;line-height:1.65}
+.counter-src{font-size:.65rem;color:var(--text-faint);margin-top:.8rem;font-style:italic;opacity:.6;line-height:1.5}
+.counter-dot{position:absolute;top:1.4rem;right:1.4rem;width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+
+@media(max-width:900px){
+  .pg-gauge-inner{grid-template-columns:1fr}
+  .counters-grid{grid-template-columns:1fr}
+  .gauge-container{width:220px;height:120px}
+}
 </style>
 </head>
 <body>
@@ -437,6 +498,139 @@ h1.hh .gold{color:var(--gold)}
       </div>
     </div>
   </section>
+
+  <!-- ── TICKER ── -->
+  <div class="ticker-wrap" id="ticker-wrap">
+    <div class="ticker-track" id="ticker-track">
+      <!-- Bloc 1 -->
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
+      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
+      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
+      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
+      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
+      <!-- Bloc 2 — dupliqué pour boucle infinie -->
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
+      <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance État / impôt</span><span class="ticker-val neg">38%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Kantar 2024</span></div>
+      <div class="ticker-item"><span class="ticker-label">Recettes fiscales nettes</span><span class="ticker-val gold">984 Md€</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">DGFiP 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
+      <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
+      <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
+      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
+      <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
+      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
+    </div>
+  </div>
+
+  <!-- ── JAUGE PERCEPTION GAP NATIONAL ── -->
+  <div class="pg-gauge-section">
+    <div class="pg-gauge-inner">
+      <div class="pg-gauge-left">
+        <div class="slabel">Observatoire · Synthèse</div>
+        <h2 class="pg-gauge-title">Indice de<br><span>Perception Gap</span><br>National</h2>
+        <p class="pg-gauge-sub">Synthèse des indices Ressento publiés. Chaque indice contribue à mesurer l'écart global entre ce que les données officielles indiquent et ce que les citoyens déclarent percevoir.</p>
+        <div class="pg-index-list">
+          <div class="pg-index-row">
+            <span class="pg-index-name">RI-IBM</span>
+            <div class="pg-index-bar"><div class="pg-index-fill" style="width:46%"></div></div>
+            <span class="pg-index-score">46</span>
+          </div>
+          <div class="pg-index-row">
+            <span class="pg-index-name">IVI</span>
+            <div class="pg-index-bar"><div class="pg-index-fill" style="width:0%;background:#8aaee0"></div></div>
+            <span class="pg-index-pending">—</span>
+          </div>
+          <div class="pg-index-row" style="opacity:.35">
+            <span class="pg-index-name">RI-MOB</span>
+            <div class="pg-index-bar"></div>
+            <span class="pg-index-pending">—</span>
+          </div>
+        </div>
+        <div class="pg-gauge-src">Score composite · 1 indice actif · Mis à jour à chaque publication</div>
+      </div>
+      <div class="pg-gauge-right">
+        <div class="gauge-container" id="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 260 140" id="gauge-svg">
+            <!-- Fond arc -->
+            <path d="M 20 130 A 110 110 0 0 1 240 130" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="18" stroke-linecap="round"></path>
+            <!-- Zones couleur -->
+            <path d="M 20 130 A 110 110 0 0 1 90 28" fill="none" stroke="rgba(191,58,26,.35)" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M 90 28 A 110 110 0 0 1 170 28" fill="none" stroke="rgba(180,83,9,.35)" stroke-width="18" stroke-linecap="round"></path>
+            <path d="M 170 28 A 110 110 0 0 1 240 130" fill="none" stroke="rgba(45,106,79,.35)" stroke-width="18" stroke-linecap="round"></path>
+            <!-- Arc actif — 46% → angle ~165° from start -->
+            <path id="gauge-arc" d="M 20 130 A 110 110 0 0 1 240 130" fill="none" stroke="var(--gold)" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 345" opacity="0"></path>
+            <!-- Aiguille -->
+            <line id="gauge-needle" x1="130" y1="130" x2="130" y2="30" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" transform="rotate(-90 130 130)" opacity="0"></line>
+            <circle cx="130" cy="130" r="5" fill="var(--gold)" opacity="0" id="gauge-dot"></circle>
+            <!-- Labels -->
+            <text x="14" y="148" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">0</text>
+            <text x="123" y="18" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">50</text>
+            <text x="238" y="148" font-family="monospace" font-size="9" fill="rgba(240,237,230,.3)">100</text>
+          </svg>
+          <div class="gauge-score-display">
+            <div class="gauge-num" id="gauge-num">0</div>
+            <div class="gauge-denom">/ 100 · Score composite</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:.5rem">
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.5)">
+            <div style="width:10px;height:3px;background:rgba(191,58,26,.6);border-radius:1px"></div>Faible
+            <div style="width:10px;height:3px;background:rgba(180,83,9,.6);border-radius:1px;margin-left:6px"></div>Moyen
+            <div style="width:10px;height:3px;background:rgba(45,106,79,.6);border-radius:1px;margin-left:6px"></div>Fort
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COMPTEURS LIVE ── -->
+  <div class="counters-section">
+    <div class="counters-inner">
+      <div style="margin-bottom:2rem">
+        <div class="counters-label">Compteurs en temps réel · Données officielles calculées</div>
+        <div style="font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;color:var(--text-high);line-height:1.05;margin-bottom:.5rem">Ce que <span style="color:var(--gold)">2026</span> coûte déjà.</div>
+        <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em">Chiffres calculés en continu · Sources officielles · Cliquez sur ⛽ Carburant pour personnaliser</div>
+      </div>
+      <div class="counters-grid">
+
+        <div class="counter-box">
+          <div class="counter-dot"></div>
+          <div class="counter-eyebrow">Coût des grèves transport · France 2026</div>
+          <div class="counter-val" id="cnt-greve">0</div>
+          <div class="counter-unit">€ de manque à gagner cumulé<br>depuis le 1er jan. 2026</div>
+          <div class="counter-src">Base : 500 M€/jour (Institut Montaigne · Banque de France) · 3 jours de grève nationale comptabilisés</div>
+        </div>
+
+        <div class="counter-box">
+          <div class="counter-dot"></div>
+          <div class="counter-eyebrow">Surcoût carburant · Ménages français 2026</div>
+          <div class="counter-val" id="cnt-carbu">0</div>
+          <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
+          <div class="counter-src">Base : +50 cts/L · 38M véhicules · consommation moy. nationale · INSEE 2024</div>
+        </div>
+
+        <div class="counter-box">
+          <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
+          <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
+          <div class="counter-val" id="cnt-fiscal">0</div>
+          <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
+          <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- Comment ça marche -->
   <section style="padding:80px 0">
@@ -797,19 +991,28 @@ h1.hh .gold{color:var(--gold)}
 ══════════════════════════════════════ -->
 <div id="page-ivi" class="page">
   <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><button class="bc-btn" onclick="goTo('indices')">Indices</button><span class="bc-sep">›</span><span class="bc-cur">IVI</span></div>
-  <section class="indice-hero" style="background:linear-gradient(180deg,rgba(14,40,80,.98),rgba(18,48,90,.95))">
+  <section class="indice-hero" style="background:linear-gradient(180deg,rgba(10,28,68,.99),rgba(14,38,82,.97))">
     <div class="hero-grid-bg"></div>
     <div class="indice-hero-grid">
       <div>
-        <div class="indice-hero-eyebrow">Indice #02 · Avril 2026 · Collecte en cours</div>
+        <div class="indice-hero-eyebrow" style="color:#8aaee0">Indice #02 · Lancé le 9 avril 2026 · Collecte en cours</div>
         <div class="indice-hero-name">IVI</div>
-        <div class="indice-hero-full" style="color:#8aaee0">Indice de Valeur de l'Impôt</div>
-        <div class="indice-hero-desc">Mesure la perception des contribuables français sur la valeur reçue en échange de leurs prélèvements obligatoires. Lancé le 9 avril 2026, calé sur la période de déclaration fiscale.</div>
-        <div style="margin-top:1.5rem"><a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:.9rem;padding:11px 24px">Participer à l'IVI →</a></div>
+        <div class="indice-hero-full" style="color:rgba(138,174,224,.5)">Indice de Valeur de l'Impôt</div>
+        <div class="indice-hero-desc">La France est le pays le plus prélevé d'Europe — 45,3% du PIB. Mais ce que les citoyens perçoivent en retour, personne ne le mesurait. L'IVI mesure cet écart : entre ce que vous payez et ce que vous estimez recevoir.</div>
+        <div style="margin-top:1.8rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:.9rem;padding:11px 24px">Participer à l'IVI →</a>
+          <span style="font-family:var(--font-mono);font-size:.62rem;color:rgba(138,174,224,.5);letter-spacing:.1em">12 questions · 60 sec · anonyme</span>
+        </div>
       </div>
       <div>
-        <div class="big-score-pending">Résultats<br>Mai 2026</div>
-        <div class="score-lbl">Collecte en cours — IVI 2026</div>
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(138,174,224,.4);margin-bottom:.8rem;text-align:right">Score IVI 2026</div>
+        <div class="big-score-pending" style="color:rgba(138,174,224,.35)">Résultats<br>Mai 2026</div>
+        <div class="score-lbl">Collecte en cours</div>
+        <div style="margin-top:1.2rem;text-align:right">
+          <div style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(90,130,210,.1);color:#8aaee0;border:1px solid rgba(90,130,210,.22);padding:5px 12px;border-radius:20px">
+            <div class="sdot pulse" style="background:#8aaee0"></div>Collecte active
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -839,6 +1042,13 @@ h1.hh .gold{color:var(--gold)}
 
   <div class="indice-body">
     <main>
+
+      <!-- Accroche éditoriale -->
+      <div style="background:rgba(90,130,210,.06);border:1px solid rgba(90,130,210,.15);padding:1.6rem 1.8rem;margin-bottom:2.5rem;border-left:3px solid #8aaee0">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#8aaee0;margin-bottom:.7rem">Contexte de lancement</div>
+        <p style="font-size:.95rem;line-height:1.82;color:var(--text-med);font-weight:400;margin:0">La France est le pays d'Europe où le taux de prélèvements obligatoires est le plus élevé — <strong style="color:var(--text-high)">45,3% du PIB</strong>. Pourtant <strong style="color:var(--text-high)">58% des Français</strong> estiment payer trop au regard des services reçus, et seulement <strong style="color:var(--text-high)">38%</strong> font confiance à l'État pour utiliser l'impôt efficacement. L'IVI mesure cet écart avec précision.</p>
+      </div>
+
       <!-- Formule -->
       <div class="fbox" style="margin-bottom:2.5rem">
         <div class="fbox-title">Formule de calcul IVI</div>
@@ -846,44 +1056,101 @@ h1.hh .gold{color:var(--gold)}
         <div class="frow2"><span class="frow2-lbl">Q1 · Valeur perçue des services publics reçus</span><span class="frow2-w">×0,30</span></div>
         <div class="frow2"><span class="frow2-lbl">Q2 · Équité fiscale ressentie (poids dominant)</span><span class="frow2-w">×0,45</span></div>
         <div class="frow2"><span class="frow2-lbl">Q3 · Lisibilité de l'utilisation des fonds publics</span><span class="frow2-w">×0,25</span></div>
-        <div style="margin-top:14px;font-size:.72rem;color:var(--muted);line-height:1.65">La formule est documentée avant la collecte et ne peut être modifiée a posteriori.</div>
+        <div style="margin-top:14px;font-size:.72rem;color:var(--muted);line-height:1.65">Formule documentée avant la collecte. Non modifiable a posteriori. Score de 0 (valeur nulle perçue) à 100 (valeur maximale perçue).</div>
       </div>
 
-      <!-- KPIs données publiques -->
-      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Contexte — Données officielles</h3>
+      <!-- KPIs -->
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Chiffres clés — Données officielles</h3>
       <div class="kpi-grid">
         <div class="kpi-box"><div class="kpi-val">45,3%</div><div class="kpi-lbl">Taux de prélèvements obligatoires / PIB</div><div class="kpi-src">INSEE, 2024</div></div>
         <div class="kpi-box"><div class="kpi-val">1er</div><div class="kpi-lbl">Rang européen — niveau de prélèvements / PIB</div><div class="kpi-src">Eurostat, 2024</div></div>
         <div class="kpi-box"><div class="kpi-val">984 Md€</div><div class="kpi-lbl">Recettes fiscales nettes de l'État</div><div class="kpi-src">DGFiP, 2023</div></div>
         <div class="kpi-box"><div class="kpi-val">58%</div><div class="kpi-lbl">Estiment payer trop vs services rendus</div><div class="kpi-src">Ifop / Contribuables Assoc. 2024</div></div>
-        <div class="kpi-box"><div class="kpi-val">38%</div><div class="kpi-lbl">Font confiance à l'État pour l'impôt</div><div class="kpi-src">Baromètre Kantar, 2024</div></div>
+        <div class="kpi-box"><div class="kpi-val">38%</div><div class="kpi-lbl">Font confiance à l'État pour gérer l'impôt</div><div class="kpi-src">Baromètre Kantar, 2024</div></div>
         <div class="kpi-box"><div class="kpi-val">34%</div><div class="kpi-lbl">Confiance envers le gouvernement national</div><div class="kpi-src">OCDE Trust Survey, 2023</div></div>
       </div>
 
+      <!-- Chart 1 : évolution prélèvements -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Évolution des prélèvements obligatoires — France</div>
         <div class="chart-container">
-          <div class="chart-lbl">Taux de prélèvements obligatoires (% PIB) — 2015–2024</div>
+          <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Taux de prélèvements obligatoires (% PIB) — 2015–2024</div>
           <div class="chart-wrap"><canvas id="chart-ivi-1"></canvas></div>
           <div class="chart-src">Source : INSEE — Comptes nationaux, 2024</div>
         </div>
       </div>
 
+      <!-- Comparaison EU — juste après le graph prélèvements pour cohérence -->
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Prélèvements obligatoires — Comparaison européenne</h3>
+      <div id="eu-ivi" style="margin-bottom:.8rem"></div>
+      <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurostat — Tax revenue statistics 2024 (% PIB)</div>
+
+      <!-- Chart 2 : IR par tranche -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Contribution à l'IR par tranche d'imposition</div>
         <div class="chart-container">
-          <div class="chart-lbl">Produit de l'impôt sur le revenu par tranche (Mds €) — DGFiP 2023</div>
+          <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Produit de l'impôt sur le revenu par tranche (Mds €) — DGFiP 2023</div>
           <div class="chart-wrap"><canvas id="chart-ivi-2"></canvas></div>
           <div class="chart-src">Source : DGFiP — Statistiques des déclarations de revenus 2023</div>
         </div>
       </div>
 
-      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Prélèvements obligatoires — Comparaison européenne</h3>
-      <div id="eu-ivi" style="margin-bottom:1rem"></div>
-      <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurostat — Tax revenue statistics 2024 (% PIB)</div>
+      <!-- Chart 3 : confiance dans les institutions fiscales -->
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Confiance dans la gestion de l'impôt — évolution</div>
+        <div class="chart-container">
+          <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Confiance envers le gouvernement et les institutions fiscales (%) — France</div>
+          <div class="chart-wrap"><canvas id="chart-ivi-3"></canvas></div>
+          <div class="chart-src">Source : OCDE Trust Survey 2021–2024 · Baromètre Kantar Sénat 2024</div>
+        </div>
+      </div>
+
+      <!-- Ce que le score mesurera -->
+      <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.15);padding:1.8rem;margin-bottom:2.5rem">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Ce que le score IVI mesurera</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.1)">
+          <div style="background:var(--navy);padding:1.1rem">
+            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score élevé · 65–100</div>
+            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Les citoyens estiment recevoir une valeur significative en échange de leurs prélèvements. Confiance dans la gestion publique.</div>
+          </div>
+          <div style="background:var(--navy);padding:1.1rem">
+            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score faible · 0–35</div>
+            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Sentiment de déconnexion entre contribution et retour perçu. Indicateur de perception gap fiscal élevé.</div>
+          </div>
+          <div style="background:var(--navy);padding:1.1rem">
+            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Seuil neutre · 50</div>
+            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Ni satisfaction ni insatisfaction dominante. Point d'équilibre entre perception positive et négative.</div>
+          </div>
+          <div style="background:var(--navy);padding:1.1rem">
+            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Δ Delta · à paraître</div>
+            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Écart entre le taux officiel (45,3% PIB) et la valeur perçue déclarée. C'est la donnée exclusive Ressento.</div>
+          </div>
+        </div>
+      </div>
+
     </main>
 
     <aside>
+      <div class="sb-block">
+        <div class="sb-title">Score IVI — À paraître</div>
+        <div style="text-align:center;padding:1.5rem 0">
+          <div style="font-family:var(--font-display);font-size:4rem;color:rgba(138,174,224,.2);letter-spacing:.02em;line-height:1">—</div>
+          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(138,174,224,.4);margin-top:.6rem">Publication mai 2026</div>
+          <div style="display:flex;gap:3px;margin:1rem auto;justify-content:center">
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(138,174,224,.35)">0 · Faible → Fort · 100</div>
+        </div>
+      </div>
       <div class="sb-block">
         <div class="sb-title">Répartition par canal</div>
         <div id="distrib-ivi"></div>
@@ -1022,6 +1289,7 @@ h1.hh .gold{color:var(--gold)}
 // ── ROUTING ──────────────────────────────────────────────────
 const PAGES=['home','approche','indices','ibm','ivi','methodologie'];
 let activeCharts=[];
+let counterInterval=null;
 
 function goTo(id){
   PAGES.forEach(p=>{document.getElementById('page-'+p)?.classList.remove('active');});
@@ -1038,7 +1306,16 @@ function goTo(id){
   activeCharts=[];
   if(id==='ibm') setTimeout(initIBM,100);
   if(id==='ivi') setTimeout(initIVI,100);
-  // Scroll reveal
+  if(id==='home'){
+    // Relancer jauge si pas encore faite ou si on revient
+    setTimeout(()=>{ initGauge(46); }, 300);
+    // Relancer compteurs
+    if(counterInterval) clearInterval(counterInterval);
+    initCounters();
+  } else {
+    // Stopper les compteurs quand on quitte la home (perf)
+    if(counterInterval) clearInterval(counterInterval);
+  }
   setupReveal();
 }
 
@@ -1176,10 +1453,109 @@ function initIVI(){
     [{label:'Contribution IR (Mds €)',data:[11.2,38.4,42.1,31.7],backgroundColor:['rgba(201,168,76,.35)','rgba(201,168,76,.5)','rgba(201,168,76,.7)','rgba(201,168,76,.9)']}],
     {}
   );
+  mkChart('chart-ivi-3','line',
+    ['2021','2022','2023','2024'],
+    [
+      {label:'Confiance gouvernement pour gérer l'impôt (%)',data:[42,40,38,38],borderColor:'#8aaee0',backgroundColor:'rgba(138,174,224,.06)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#8aaee0'},
+      {label:'Confiance institutions fiscales — DGFiP (%)',data:[48,46,44,45],borderColor:'rgba(201,168,76,.7)',backgroundColor:'rgba(201,168,76,.04)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'rgba(201,168,76,.7)'}
+    ],
+    {min:30,max:60}
+  );
 }
 
 // ── INIT ──────────────────────────────────────────────────────
+// ── GAUGE ──────────────────────────────────────────────────────
+function initGauge(score){
+  const needle = document.getElementById('gauge-needle');
+  const dot = document.getElementById('gauge-dot');
+  const arc = document.getElementById('gauge-arc');
+  const numEl = document.getElementById('gauge-num');
+  if(!needle) return;
+
+  // Angle : -90° (gauche = 0) à +90° (droite = 100)
+  const angle = -90 + (score / 100) * 180;
+  const circumference = Math.PI * 110; // demi-cercle
+
+  needle.style.opacity = '0';
+  arc.style.opacity = '0';
+  dot.style.opacity = '0';
+  numEl.textContent = '0';
+
+  setTimeout(()=>{
+    needle.style.opacity = '1';
+    dot.style.opacity = '1';
+    arc.style.opacity = '1';
+    needle.style.transition = 'transform 1.8s cubic-bezier(.16,1,.3,1)';
+    needle.style.transform = `rotate(${angle}deg)`;
+
+    const dashLen = (score / 100) * circumference;
+    arc.style.transition = 'stroke-dasharray 1.8s cubic-bezier(.16,1,.3,1)';
+    arc.style.strokeDasharray = `${dashLen} ${circumference}`;
+
+    // Compteur numérique
+    let cur = 0;
+    const step = score / 60;
+    const timer = setInterval(()=>{
+      cur = Math.min(cur + step, score);
+      numEl.textContent = Math.round(cur);
+      if(cur >= score) clearInterval(timer);
+    }, 30);
+  }, 400);
+}
+
+// ── COMPTEURS LIVE ──────────────────────────────────────────────
+function formatBig(n){
+  if(n >= 1e9) return (n/1e9).toFixed(2).replace('.',',') + ' Md';
+  if(n >= 1e6) return (n/1e6).toFixed(1).replace('.',',') + ' M';
+  if(n >= 1e3) return Math.round(n/1e3).toLocaleString('fr-FR') + ' k';
+  return Math.round(n).toLocaleString('fr-FR');
+}
+
+function initCounters(){
+  const now = new Date();
+
+  // Grèves : 3 jours de grève nationale en 2026, coût 500M€/jour
+  // On simule que les grèves ont eu lieu et le compteur monte depuis le 1er jan
+  const jan1 = new Date('2026-01-01T00:00:00');
+  const secsSinceJan = Math.max(0, (now - jan1) / 1000);
+  const totalGreve = 3 * 500e6; // 1.5 Md€ total
+  // Le compteur monte pendant les 3 premiers mois puis reste stable
+  const rateGreve = totalGreve / (90 * 86400); // réparti sur 90 jours
+
+  // Carburant : depuis 27 fév, ~38M véhicules, 50cts/L, conso moy 1.2L/jour
+  const fev27 = new Date('2026-02-27T00:00:00');
+  const secsSinceFev = Math.max(0, (now - fev27) / 1000);
+  // 38M véhicules × 1.2L/jour × 0.50€/L = 22.8M€/jour
+  const rateCarbu = 22.8e6 / 86400;
+
+  // Fiscal : 984 Md€/an = 31.2k€/seconde
+  const rateFiscal = 984e9 / (365.25 * 86400);
+
+  function updateCounters(){
+    const t = new Date();
+    const sJan = Math.max(0,(t - jan1)/1000);
+    const sFev = Math.max(0,(t - fev27)/1000);
+
+    const greve = Math.min(totalGreve, sJan * rateGreve);
+    const carbu = sFev * rateCarbu;
+    const fiscal = sJan * rateFiscal;
+
+    const g = document.getElementById('cnt-greve');
+    const c = document.getElementById('cnt-carbu');
+    const f = document.getElementById('cnt-fiscal');
+
+    if(g) g.textContent = formatBig(greve) + ' €';
+    if(c) c.textContent = formatBig(carbu) + ' €';
+    if(f) f.textContent = formatBig(fiscal) + ' €';
+  }
+
+  updateCounters();
+  counterInterval = setInterval(updateCounters, 1000);
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
+  // Init home elements au chargement
+  setTimeout(()=>{ initGauge(46); initCounters(); }, 400);
   goTo('home');
   window.addEventListener('scroll',()=>{
     document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';
