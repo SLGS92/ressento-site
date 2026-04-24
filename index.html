@@ -701,20 +701,20 @@ h1.hh .gold{color:var(--gold)}
     <div class="delta-inner">
       <div class="delta-item">
         <div class="delta-lbl">Données officielles</div>
-        <div class="delta-val">60%</div>
-        <div class="delta-sub">Taux de participation moyennes<br>municipales 2020 · Ministère Intérieur</div>
+        <div class="delta-val">54%</div>
+        <div class="delta-sub">Score moyen de satisfaction<br>services communaux · DGCL 2024</div>
       </div>
       <div class="delta-op">→</div>
       <div class="delta-item">
         <div class="delta-lbl">Ressenti déclaratif Ressento</div>
-        <div class="delta-val">33%</div>
-        <div class="delta-sub">Rééligeraient leur maire<br>RI-IBM · Mars 2026</div>
+        <div class="delta-val">46/100</div>
+        <div class="delta-sub">Score national RI-IBM<br>Ressento · Mars 2026</div>
       </div>
       <div class="delta-op">→</div>
       <div class="delta-item delta-result">
         <div class="delta-lbl">Δ Delta Ressento</div>
-        <div class="delta-val">−27 pts</div>
-        <div class="delta-sub">Entre participation officielle<br>et intention déclarée de réélire</div>
+        <div class="delta-val">−8 pts</div>
+        <div class="delta-sub">67% auraient voté<br>pour un autre candidat au 2e tour</div>
       </div>
     </div>
   </div>
@@ -728,23 +728,14 @@ h1.hh .gold{color:var(--gold)}
         <div class="kpi-box"><div class="kpi-val">3/5</div><div class="kpi-lbl">Note moyenne du maire — médiane nationale</div><div class="kpi-src">Ressento RI-IBM</div></div>
         <div class="kpi-box"><div class="kpi-val" style="color:#E08080">↓ Sécu</div><div class="kpi-lbl">Domaine le moins bien perçu</div><div class="kpi-src">Ressento RI-IBM</div></div>
         <div class="kpi-box"><div class="kpi-val" style="color:#7DC49E">↑ Cult.</div><div class="kpi-lbl">Seul domaine en perception positive</div><div class="kpi-src">Ressento RI-IBM</div></div>
-        <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééligeraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééliraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
       </div>
 
-      <!-- Contexte données publiques -->
-      <div class="chart-block">
-        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Contexte — Confiance dans les institutions locales</div>
-        <div class="chart-container">
-          <div class="chart-lbl">Confiance déclarée envers les institutions locales — Baromètre CEVIPOF (%)</div>
-          <div class="chart-wrap"><canvas id="chart-ibm-1"></canvas></div>
-          <div class="chart-src">Source : CEVIPOF — Baromètre de la confiance politique, vagues 2020–2026</div>
-        </div>
-      </div>
-
+      <!-- Contexte données publiques — ordre : participation d'abord, confiance ensuite près de EU -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Participation aux élections municipales — France</div>
         <div class="chart-container">
-          <div class="chart-lbl">Taux de participation (%) — Élections municipales 1977–2020</div>
+          <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Taux de participation (%) — Élections municipales 1977–2020</div>
           <div class="chart-wrap"><canvas id="chart-ibm-2"></canvas></div>
           <div class="chart-src">Source : Ministère de l'Intérieur — Résultats élections municipales</div>
         </div>
@@ -754,6 +745,15 @@ h1.hh .gold{color:var(--gold)}
       <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Confiance gouvernements locaux — Europe</h3>
       <div id="eu-ibm" style="margin-bottom:1rem"></div>
       <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurobaromètre Standard — Confiance dans les autorités locales et régionales, 2024</div>
+
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Confiance dans les institutions locales — France</div>
+        <div class="chart-container">
+          <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Confiance déclarée envers les institutions locales — Baromètre CEVIPOF (%)</div>
+          <div class="chart-wrap"><canvas id="chart-ibm-1"></canvas></div>
+          <div class="chart-src">Source : CEVIPOF — Baromètre de la confiance politique, vagues 2020–2026</div>
+        </div>
+      </div>
 
     </main>
     <aside>
@@ -1042,7 +1042,16 @@ function goTo(id){
   setupReveal();
 }
 
-function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+function scrollTo(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const offset = 86;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({top, behavior:'smooth'});
+  document.querySelectorAll('.method-nav-btn').forEach(b => b.classList.remove('active'));
+  const btns = document.querySelectorAll('.method-nav-btn');
+  btns.forEach(b => { if(b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) b.classList.add('active'); });
+}
 
 function setupReveal(){
   const els=document.querySelectorAll('.page.active .reveal');
@@ -1089,7 +1098,7 @@ function buildEU(id,rows){
 }
 function mkChart(id,type,labels,datasets,opts){
   const ctx=document.getElementById(id);if(!ctx)return;
-  const c=new Chart(ctx,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(136,153,180,.8)'}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'var(--muted)'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'var(--muted)'},...(opts||{})}}}});
+  const c=new Chart(ctx,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.8)'}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.55)'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.55)'},...(opts||{})}}}});
   activeCharts.push(c);
 }
 
