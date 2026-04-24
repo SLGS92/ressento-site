@@ -1,604 +1,1181 @@
 <html lang="fr"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ressento — Ce que vous ressentez, enfin chiffré</title>
-  <meta name="description" content="Ressento transforme le ressenti citoyen en données vérifiables. Un observatoire indépendant qui mesure l'écart entre données officielles et perception citoyenne.">
-  <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="nYyzdU3Id6cnNel8CyaXZpIdAzAtyIC5rP7whvjxf78">
-  <link rel="canonical" href="https://ressento.com/">
-  <meta property="og:type" content="website"><meta property="og:url" content="https://ressento.com/">
-  <meta property="og:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
-  <meta property="og:description" content="Ressento transforme le ressenti citoyen en données vérifiables.">
-  <meta property="og:image" content="https://ressento.com/og-image.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-  <meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Ressento">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
-  <meta name="twitter:description" content="Ressento transforme le ressenti citoyen en données vérifiables.">
-  <meta name="twitter:image" content="https://ressento.com/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B1F3C'/%3E%3Crect x='5' y='5' width='54' height='54' rx='8' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.35'/%3E%3Ctext x='32' y='33' font-family='Georgia,serif' font-weight='700' font-size='21' fill='%23F0EDE6' text-anchor='middle' dominant-baseline='middle'%3ERI%3C/text%3E%3Ctext x='32' y='50' font-family='monospace' font-size='7.5' fill='%23C9A84C' text-anchor='middle' letter-spacing='2'%3EINDEX%3C/text%3E%3C/svg%3E">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Ressento","url":"https://ressento.com","description":"Ressento transforme le ressenti citoyen en données vérifiables.","email":"contact@ressento.com","foundingDate":"2026","areaServed":"FR"}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;font-size:16px}
-    :root{--navy:#0B1F3C;--navy-mid:#122347;--navy-light:#1a2e5a;--gold:#C9A84C;--gold-light:#E2C278;--gold-pale:#F0E0A8;--offwhite:#F0EDE6;--offwhite2:#E8E4DC;--muted:#8899B4;--font-display:'Bebas Neue',sans-serif;--font-body:'Fraunces',Georgia,serif;--font-mono:'DM Mono',monospace;--r:4px;--rl:10px;--shadow-gold:0 2px 24px rgba(201,168,76,0.2)}
-    body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
-    a{color:var(--gold);text-decoration:none;transition:color .2s}
-    a:hover{color:var(--gold-light)}
-    .container{max-width:1100px;margin:0 auto;padding:0 28px}
-    .container--n{max-width:800px;margin:0 auto;padding:0 28px}
-    .btn{display:inline-block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;padding:14px 36px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s ease;text-align:center}
-    .btn--gold{background:var(--gold);color:var(--navy)}.btn--gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
-    .btn--outline{background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.3)}.btn--outline:hover{border-color:var(--gold);color:var(--gold)}
-    .divider{width:48px;height:3px;background:var(--gold);margin:18px 0 24px}
-    .slabel{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-    .stitle{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.05}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
-    nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid rgba(201,168,76,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,31,60,.9);transition:box-shadow .3s}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-    .nav-logo{display:flex;flex-direction:column;line-height:1;gap:3px}
-    .nav-logo-name{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.14em;color:var(--offwhite)}
-    .nav-logo-name .e2{color:var(--gold)}
-    .nav-logo-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,237,230,.55)}
-    .nav-links{display:flex;gap:18px;list-style:none;align-items:center}
-    .nav-links a{font-family:var(--font-mono);font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-    .nav-links a:hover{color:var(--offwhite)}
-    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 80px;position:relative;overflow:hidden}
-    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
-    .hero-glow{position:absolute;top:-15%;right:-8%;width:650px;height:650px;background:radial-gradient(ellipse,rgba(201,168,76,.07) 0%,transparent 68%);pointer-events:none}
-    .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .1s forwards}
-    .hero-eyebrow-line{width:30px;height:1px;background:var(--gold)}
-    .hero-eyebrow-text{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.85)}
-    h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--offwhite);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards}
-    h1.hh .gold{color:var(--gold)}
-    .hero-sub{font-size:clamp(1rem,1.8vw,1.18rem);font-weight:300;font-style:italic;color:rgba(240,237,230,.75);max-width:560px;margin:24px 0 40px;line-height:1.65;opacity:0;animation:fadeUp .8s ease .35s forwards}
-    .hero-cta-block{max-width:660px;opacity:0;animation:fadeUp .8s ease .5s forwards}
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;width:100%}
-    .hero-actions .btn{flex:1;text-align:center}
-    .ivi-banner{background:linear-gradient(145deg,rgba(14,38,80,.92) 0%,rgba(18,48,100,.88) 55%,rgba(13,35,72,.92) 100%);border:1px solid rgba(201,168,76,.28);border-radius:10px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
-    .ivi-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
-    .ivi-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.2);animation:pulse 2s infinite;flex-shrink:0}
-    .ivi-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-    .ivi-title{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.04em;color:var(--offwhite);line-height:1.15}
-    .ivi-sub{font-size:.78rem;color:rgba(240,237,230,.48);margin-top:3px;font-weight:300}
-    .ivi-btn{display:inline-block;font-family:var(--font-display);font-size:.9rem;letter-spacing:.07em;padding:10px 24px;background:var(--gold);color:var(--navy);border-radius:4px;white-space:nowrap;transition:background .2s,transform .2s}
-    .ivi-btn:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px)}
-    #problem{padding:96px 0;background:rgba(201,168,76,.033);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
-    .pquote{font-family:var(--font-body);font-size:clamp(1.3rem,2.7vw,1.95rem);font-style:italic;font-weight:300;color:var(--offwhite);line-height:1.55;max-width:760px;margin:0 auto;text-align:center;position:relative;padding:0 32px}
-    .pquote::before{content:'\201C';font-size:5rem;color:var(--gold);opacity:.18;position:absolute;top:-14px;left:0;line-height:1}
-    .pquote strong{color:var(--gold);font-style:normal;font-weight:600}
-    .psource{text-align:center;margin-top:26px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(136,153,180,.75)}
-    #explainer{padding:112px 0}
-    .explainer-intro{font-size:1.03rem;color:rgba(240,237,230,.58);max-width:560px;line-height:1.78;font-weight:300}
-    .explainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px}
-    .ecard{background:rgba(255,255,255,.024);border:1px solid rgba(201,168,76,.1);padding:38px 30px;position:relative;transition:background .3s}
-    .ecard:hover{background:rgba(201,168,76,.042)}
-    .ecard-num{font-family:var(--font-display);font-size:4.2rem;color:rgba(201,168,76,.1);line-height:1;position:absolute;top:16px;right:20px}
-    .ecard-icon{width:36px;height:36px;margin-bottom:16px;color:var(--gold)}
-    .ecard h3{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:9px}
-    .ecard p{font-size:.92rem;color:rgba(240,237,230,.56);line-height:1.72;font-weight:300}
-    #how{padding:112px 0}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative}
-    .steps::before{content:'';position:absolute;top:26px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.28),transparent)}
-    .step{padding:0 18px;text-align:center}
-    .step-circle{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--gold);position:relative;z-index:1}
-    .step h4{font-family:var(--font-display);font-size:1.02rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:9px}
-    .step p{font-size:.86rem;color:rgba(240,237,230,.5);line-height:1.65;font-weight:300}
-    #indices{padding:112px 0;background:linear-gradient(180deg,var(--navy) 0%,var(--navy-mid) 100%)}
-    .iheader{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:18px}
-    .icard{background:rgba(255,255,255,.028);border:1px solid rgba(201,168,76,.14);border-radius:var(--rl);overflow:hidden;transition:transform .25s,border-color .25s}
-    .icard:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.38)}
-    .icard--feat{display:grid;grid-template-columns:1fr 1.05fr;min-height:420px;margin-bottom:18px}
-    .icard--feat .cleft{padding:42px 38px;border-right:1px solid rgba(201,168,76,.08);display:flex;flex-direction:column;justify-content:space-between}
-    .icard--feat .cright{padding:42px 38px;background:rgba(201,168,76,.022)}
-    .icode{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
-    .iname{font-family:var(--font-display);font-size:clamp(1.65rem,2.7vw,2.3rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.1;margin-bottom:12px}
-    .idesc{font-size:.9rem;color:rgba(240,237,230,.5);line-height:1.72;font-weight:300;margin-bottom:26px;flex:1}
-    .score-block{margin-bottom:26px}
-    .score-slabel{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-    .score-main{display:flex;align-items:flex-end;gap:10px;margin-bottom:9px}
-    .score-num{font-family:var(--font-display);font-size:5.5rem;letter-spacing:.02em;line-height:1;color:var(--gold)}
-    .score-rhs{display:flex;flex-direction:column;gap:3px;padding-bottom:5px}
-    .score-denom{font-family:var(--font-display);font-size:1.55rem;color:var(--muted)}
-    .score-interp{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(220,100,100,.88)}
-    .score-bar-w{height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-bottom:5px}
-    .score-bar{height:100%;width:46%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px}
-    .score-scale{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.6rem;color:rgba(136,153,180,.65)}
-    .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:8px}
-    .ditem{background:rgba(0,0,0,.2);border:1px solid rgba(201,168,76,.09);border-radius:var(--r);padding:12px 14px}
-    .dval{font-family:var(--font-display);font-size:1.4rem;color:var(--offwhite);line-height:1}
-    .dval.neg{color:#E08080}.dval.pos{color:#7DC49E}
-    .dlbl{font-family:var(--font-mono);font-size:.61rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:4px;line-height:1.45}
-    .frow{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-    .frow:last-child{border-bottom:none}
-    .ficon{width:17px;height:17px;flex-shrink:0;margin-top:2px}
-    .ftxt{font-size:.88rem;color:rgba(240,237,230,.66);line-height:1.5}
-    .ftxt strong{color:var(--offwhite);font-weight:600}
-    .isec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .icard--sm{padding:28px 26px}
-    .icard--sm .iname{font-size:1.2rem;margin-bottom:9px}
-    .icard--sm p{color:rgba(240,237,230,.6)!important}
-    .sbadge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.61rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-top:13px}
-    .sbadge--progress{background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.22)}
-    .sbadge--planned{background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17)}
-    .sdot{width:6px;height:6px;border-radius:50%;background:currentColor}
-    .sdot.pulse{animation:pulse 2s infinite}
-    /* Carte carburant */
-    .icard--carburant{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(145deg,rgba(10,38,28,.97) 0%,rgba(14,52,36,.92) 55%,rgba(9,34,24,.97) 100%);border-color:rgba(93,202,165,.25);position:relative}
-    .icard--carburant:hover{border-color:rgba(93,202,165,.5)}
-    .icard--carburant::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(93,202,165,.45),transparent)}
-    .carb-left{padding:32px 34px;border-right:1px solid rgba(93,202,165,.1);display:flex;flex-direction:column;justify-content:space-between;gap:16px}
-    .carb-right{padding:32px 34px;display:flex;flex-direction:column;justify-content:center;gap:10px}
-    .bench-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(0,0,0,.25);border-radius:var(--r);border:1px solid rgba(93,202,165,.08)}
-    .bench-country{font-family:var(--font-mono);font-size:.75rem;color:rgba(240,237,230,.55)}
-    .bench-val{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.04em}
-    .bench-val.ref{color:var(--gold)}.bench-val.eco{color:#5DCAA5}
-    .bench-note{font-family:var(--font-mono);font-size:.62rem;color:rgba(240,237,230,.28);text-align:center;margin-top:4px}
-    #methode{padding:112px 0;border-top:1px solid rgba(201,168,76,.07)}
-    .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:start;margin-top:52px}
-    .mpillar{display:flex;gap:18px;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.05)}
-    .mpillar:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-    .mpnum{font-family:var(--font-display);font-size:1.8rem;color:rgba(201,168,76,.22);flex-shrink:0;line-height:1;width:36px}
-    .mpillar h4{font-family:var(--font-display);font-size:1.08rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:6px}
-    .mpillar p{font-size:.88rem;color:rgba(240,237,230,.52);line-height:1.72;font-weight:300}
-    .fbox{background:linear-gradient(145deg,rgba(14,38,80,.7) 0%,rgba(18,48,90,.65) 100%);border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:34px 30px;font-family:var(--font-mono)}
-    .fbox-title{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
-    .fbox-main{font-size:.98rem;color:var(--offwhite);line-height:2;margin-bottom:18px}
-    .fbox-main .var{color:var(--gold-light)}.fbox-main .coef{color:var(--muted);font-size:.83rem}
-    .frow2{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font-size:.77rem}
-    .frow2-lbl{color:rgba(240,237,230,.82)}.frow2-w{font-size:.93rem;color:var(--gold)}
-    .methode-link{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.28);padding:12px 22px;border-radius:var(--r);transition:all .2s}
-    .methode-link:hover{background:rgba(201,168,76,.08);color:var(--gold-light);border-color:rgba(201,168,76,.5)}
-    #apropos{padding:96px 0;background:rgba(255,255,255,.016);border-top:1px solid rgba(201,168,76,.07);border-bottom:1px solid rgba(201,168,76,.07)}
-    .apgrid{display:grid;grid-template-columns:1fr 1.85fr;gap:68px;align-items:start}
-    .apbody{font-size:.97rem;color:rgba(240,237,230,.62);line-height:1.82;font-weight:300}
-    .apbody p+p{margin-top:15px}
-    .appillar{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-    .appillar:last-child{border-bottom:none}
-    .apicon{width:34px;height:34px;flex-shrink:0;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.17);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--gold)}
-    .apicon svg{width:15px;height:15px}
-    .aptxt strong{display:block;font-family:var(--font-display);font-size:.98rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:2px}
-    .aptxt span{font-size:.84rem;color:rgba(240,237,230,.48);font-weight:300}
-    #participer{padding:112px 0;background:rgba(201,168,76,.028);border-top:1px solid rgba(201,168,76,.08)}
-    .partgrid{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
-    .part-h{font-family:var(--font-display);font-size:clamp(2.3rem,4vw,3.7rem);letter-spacing:.03em;color:var(--offwhite);line-height:1.05;margin-bottom:16px}
-    .part-h .gold{color:var(--gold)}
-    .part-b{font-size:.97rem;color:rgba(240,237,230,.56);line-height:1.75;font-weight:300;margin-bottom:30px}
-    .scard{background:linear-gradient(145deg,rgba(14,38,80,.92) 0%,rgba(18,48,100,.88) 55%,rgba(13,35,72,.92) 100%);border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:34px;position:relative;overflow:hidden}
-    .scard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
-    .scard-t{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:5px}
-    .scard-s{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
-    .sfeats{display:flex;flex-direction:column;gap:9px;margin-bottom:26px}
-    .sfeat{display:flex;align-items:center;gap:8px;font-size:.86rem;color:rgba(240,237,230,.6)}
-    .sfeat::before{content:'—';color:var(--gold);flex-shrink:0}
-    #roadmap{padding:96px 0}
-    .rtimeline{display:flex;flex-direction:column;margin-top:48px;max-width:660px}
-    .ritem{display:grid;grid-template-columns:125px 1px 1fr;gap:0 26px}
-    .rdate{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:20px 0;text-align:right}
-    .rline{display:flex;flex-direction:column;align-items:center}
-    .rdot{width:10px;height:10px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);flex-shrink:0;margin-top:22px;position:relative;z-index:1}
-    .rdot.active{background:var(--gold)}.rdot.future{border-color:rgba(136,153,180,.38)}
-    .rconn{flex:1;width:1px;background:rgba(201,168,76,.17)}.rconn.fut{background:rgba(136,153,180,.1)}
-    .rcont{padding:16px 0 26px}
-    .rcont h4{font-family:var(--font-display);font-size:1.08rem;letter-spacing:.04em;color:var(--offwhite);margin-bottom:4px}
-    .rcont h4.fut{color:rgba(136,153,180,.6)}
-    .rcont p{font-size:.84rem;color:rgba(240,237,230,.4);line-height:1.6;font-weight:300}
-    footer{padding:58px 0 34px;border-top:1px solid rgba(201,168,76,.1)}
-    .footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:40px}
-    .fbrand{font-family:var(--font-display);font-size:1.65rem;letter-spacing:.14em;color:var(--offwhite);margin-bottom:9px}
-    .fbrand .e2{color:var(--gold)}
-    .ftag2{font-size:.86rem;color:rgba(240,237,230,.58);line-height:1.65;font-weight:300;margin-bottom:16px}
-    .fmail{font-family:var(--font-mono);font-size:.74rem;color:var(--gold)}
-    .fcol-t{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(136,153,180,.8);margin-bottom:16px}
-    .flinks{list-style:none;display:flex;flex-direction:column;gap:8px}
-    .flinks a{font-size:.86rem;color:rgba(240,237,230,.62)}.flinks a:hover{color:var(--offwhite)}
-    .fbot{padding-top:26px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:11px}
-    .fcopy{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;color:rgba(136,153,180,.42)}
-    .fnote{font-family:var(--font-mono);font-size:.63rem;color:rgba(136,153,180,.3);font-style:italic;text-align:right;max-width:380px}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-    .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
-    .reveal.visible{opacity:1;transform:none}
-    @media(max-width:960px){
-      .explainer-grid,.isec{grid-template-columns:1fr;gap:2px}
-      .steps{grid-template-columns:1fr 1fr}.steps::before{display:none}
-      .icard--feat{grid-template-columns:1fr}
-      .icard--feat .cleft{border-right:none;border-bottom:1px solid rgba(201,168,76,.08)}
-      .icard--carburant{grid-template-columns:1fr}
-      .carb-left{border-right:none;border-bottom:1px solid rgba(93,202,165,.1)}
-      .mgrid,.apgrid,.partgrid,.footer-inner{grid-template-columns:1fr}
-      .nav-links{display:none}
-      .dgrid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:600px){.steps{grid-template-columns:1fr}.ritem{grid-template-columns:72px 1px 1fr;gap:0 12px}.dgrid{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ressento — Ce que vous ressentez, enfin chiffré</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --navy:#0B1F3C;
+  --navy-mid:#122347;
+  --navy-light:#1a2e5a;
+  --navy-card:#0f2444;
+  --gold:#C9A84C;
+  --gold-light:#E2C278;
+  --gold-pale:#F0E0A8;
+  --offwhite:#F0EDE6;
+  --offwhite2:#E8E4DC;
+  --text-high:rgba(240,237,230,1);
+  --text-med:rgba(240,237,230,.78);
+  --text-low:rgba(240,237,230,.5);
+  --text-faint:rgba(240,237,230,.3);
+  --muted:#8899B4;
+  --border-gold:rgba(201,168,76,.18);
+  --border-subtle:rgba(255,255,255,.07);
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Fraunces',Georgia,serif;
+  --font-mono:'DM Mono',monospace;
+  --r:4px;--rl:10px;
+  --shadow-gold:0 4px 28px rgba(201,168,76,0.18);
+  --section-gap:96px;
+}
+
+/* ── BASE ── */
+body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.65;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold-light)}
+p{font-size:.95rem;line-height:1.85;color:var(--text-med);font-weight:400}
+
+/* Grain */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
+
+/* ── LAYOUT ── */
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+.container--n{max-width:820px;margin:0 auto;padding:0 32px}
+.page{display:none;padding-top:66px;min-height:100vh;position:relative;z-index:1}
+.page.active{display:block}
+
+/* ── BUTTONS ── */
+.btn{display:inline-block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;padding:14px 36px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s ease;text-align:center}
+.btn--gold{background:var(--gold);color:var(--navy)}.btn--gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.btn--outline{background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.28)}.btn--outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── TYPOGRAPHY SYSTEM ── */
+.slabel{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.stitle{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);letter-spacing:.03em;color:var(--text-high);line-height:1.02}
+.divider{width:48px;height:3px;background:var(--gold);margin:18px 0 28px}
+
+/* Body text — weight 400 minimum, jamais 300 pour texte informatif */
+.prose-body{font-size:.95rem;line-height:1.88;color:var(--text-med);font-weight:400;margin-bottom:1.1rem}
+.prose-body strong{color:var(--text-high);font-weight:600}
+.prose-body.small{font-size:.87rem;line-height:1.8}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--border-gold);backdrop-filter:blur(20px);background:rgba(11,31,60,.92)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{display:flex;flex-direction:column;line-height:1;gap:3px;cursor:pointer;text-decoration:none}
+.nav-logo-name{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.14em;color:var(--text-high)}
+.nav-logo-name .e2{color:var(--gold)}
+.nav-logo-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-low)}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
+.nav-links button{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:8px 14px;transition:color .2s;border-bottom:2px solid transparent}
+.nav-links button:hover{color:var(--text-high)}
+.nav-links button.active{color:var(--text-high);border-bottom-color:var(--gold)}
+
+/* ── BREADCRUMB ── */
+.breadcrumb{background:rgba(11,31,60,.75);border-bottom:1px solid rgba(201,168,76,.07);padding:.75rem 32px;display:flex;align-items:center;gap:.7rem;position:relative;z-index:1}
+.bc-btn{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s}
+.bc-btn:hover{color:var(--text-high)}
+.bc-sep{color:var(--gold);opacity:.3;font-size:.6rem}
+.bc-cur{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-med)}
+
+/* ── BG EFFECTS ── */
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-glow{position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(201,168,76,.065) 0%,transparent 68%);pointer-events:none}
+
+/* ── FOOTER ── */
+.site-footer{padding:64px 0 36px;border-top:1px solid var(--border-gold);position:relative;z-index:1}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.fbrand{font-family:var(--font-display);font-size:1.65rem;letter-spacing:.14em;color:var(--text-high);margin-bottom:10px}
+.fbrand .e2{color:var(--gold)}
+.ftag2{font-size:.88rem;color:var(--text-low);line-height:1.7;font-weight:400;margin-bottom:18px}
+.fmail{font-family:var(--font-mono);font-size:.74rem;color:var(--gold)}
+.fcol-t{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.flinks li button{font-size:.88rem;color:var(--text-low);background:none;border:none;cursor:pointer;text-align:left;padding:0;font-family:var(--font-body);transition:color .2s;font-weight:400}
+.flinks li button:hover{color:var(--text-high)}
+.fbot{padding-top:28px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fcopy{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;color:var(--text-faint)}
+.fnote{font-family:var(--font-mono);font-size:.63rem;color:var(--text-faint);font-style:italic;text-align:right;max-width:400px;line-height:1.6}
+
+/* ── DELTA BANNER — pièce maîtresse, plus imposante ── */
+.delta-banner{background:linear-gradient(145deg,rgba(12,32,68,.98),rgba(16,44,92,.95),rgba(11,30,62,.98));border-top:2px solid rgba(201,168,76,.3);border-bottom:1px solid rgba(201,168,76,.15);padding:3rem 32px;position:relative}
+.delta-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 5%,rgba(201,168,76,.55) 40%,rgba(201,168,76,.55) 60%,transparent 95%)}
+.delta-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;gap:.5rem;align-items:center}
+.delta-item{text-align:center;padding:0 1rem}
+.delta-lbl{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;display:block}
+.delta-val{font-family:var(--font-display);font-size:2.6rem;color:var(--text-high);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.delta-sub{font-family:var(--font-mono);font-size:.65rem;color:var(--text-low);letter-spacing:.04em;line-height:1.6}
+.delta-op{font-family:var(--font-display);font-size:2.2rem;color:rgba(201,168,76,.22);text-align:center}
+.delta-result{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:1.2rem}
+.delta-result .delta-lbl{color:var(--gold)}
+.delta-result .delta-val{color:var(--gold);font-size:3rem}
+.delta-result .delta-sub{color:rgba(201,168,76,.6)}
+
+/* ── INDICE HERO ── */
+.indice-hero{min-height:360px;padding:4.5rem 32px;position:relative;overflow:hidden}
+.indice-hero-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:end}
+.indice-hero-eyebrow{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;display:block}
+.indice-hero-name{font-family:var(--font-display);font-size:clamp(2.5rem,5.5vw,4.5rem);color:var(--text-high);letter-spacing:.03em;line-height:.95;margin-bottom:.4rem}
+.indice-hero-full{font-size:.88rem;color:var(--text-faint);margin-bottom:1.4rem;font-family:var(--font-mono);letter-spacing:.06em;line-height:1.5}
+.indice-hero-desc{font-size:.95rem;line-height:1.82;color:var(--text-med);font-weight:400}
+.big-score-num{font-family:var(--font-display);font-size:8rem;color:var(--gold);letter-spacing:.02em;line-height:1;text-align:right;text-shadow:0 0 60px rgba(201,168,76,.2)}
+.big-score-pending{font-family:var(--font-body);font-size:1.9rem;color:var(--text-faint);text-align:right;font-style:italic;line-height:1.3}
+.score-lbl{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-top:.5rem;text-align:right;display:block}
+.score-bar-w{width:200px;height:5px;background:rgba(255,255,255,.07);margin:.8rem 0 0 auto;border-radius:3px;overflow:hidden}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+/* ── INDICE BODY ── */
+.indice-body{max-width:1100px;margin:3.5rem auto;padding:0 32px;display:grid;grid-template-columns:1fr 300px;gap:3.5rem}
+
+/* KPI grid — valeurs en gold pour les chiffres clés */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1);border:1px solid var(--border-gold);margin-bottom:3rem}
+.kpi-box{background:var(--navy-card);padding:1.6rem 1.4rem}
+.kpi-val{font-family:var(--font-display);font-size:2.4rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.kpi-lbl{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-med);line-height:1.5}
+.kpi-src{font-size:.68rem;color:var(--text-faint);margin-top:.5rem;font-style:italic}
+
+/* Séparateur de section */
+.section-head{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border-subtle)}
+.section-head-title{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.05em;color:var(--text-high)}
+
+/* Chart */
+.chart-block{margin-bottom:3rem}
+.chart-container{background:rgba(255,255,255,.022);border:1px solid var(--border-gold);padding:1.8rem}
+.chart-lbl{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:block}
+.chart-wrap{height:230px;position:relative}
+.chart-src{font-size:.68rem;color:var(--text-faint);margin-top:.9rem;font-style:italic;display:block}
+
+/* EU Compare */
+.eu-row{display:flex;align-items:center;gap:.9rem;padding:.75rem 0;border-bottom:1px solid var(--border-subtle)}
+.eu-flag{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
+.eu-country{font-family:var(--font-mono);font-size:.75rem;color:var(--text-med);width:108px;flex-shrink:0;font-weight:400}
+.eu-bar-w{flex:1;height:5px;background:rgba(255,255,255,.06);position:relative;border-radius:2px}
+.eu-bar-f{position:absolute;left:0;top:0;height:100%;background:rgba(201,168,76,.45);border-radius:2px}
+.eu-val{font-family:var(--font-display);font-size:1rem;color:var(--text-high);width:54px;text-align:right}
+.eu-row.fr .eu-country{color:var(--gold);font-weight:500}
+.eu-row.fr .eu-bar-f{background:var(--gold)}
+.eu-row.fr .eu-val{color:var(--gold)}
+
+/* ── SIDEBAR ── */
+.sb-block{margin-bottom:2.2rem}
+.sb-title{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border-subtle);display:block}
+.press-item{display:block;padding:.9rem 1rem;border:1px solid var(--border-gold);text-decoration:none;margin-bottom:.6rem;transition:border-color .2s,background .2s;cursor:pointer;border-radius:var(--r)}
+.press-item:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.04)}
+.press-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.28rem;display:block}
+.press-ttl{font-size:.82rem;color:var(--text-high);line-height:1.45;font-weight:400}
+.press-date{font-family:var(--font-mono);font-size:.6rem;color:var(--muted);margin-top:.35rem;display:block}
+.method-item{padding:.9rem 0;border-bottom:1px solid var(--border-subtle);display:grid;grid-template-columns:20px 1fr;gap:.75rem}
+.method-n{font-family:var(--font-mono);font-size:.6rem;color:var(--gold);padding-top:.15rem}
+.method-t{font-size:.82rem;color:var(--text-med);line-height:1.55;font-weight:400}
+.method-t strong{display:block;color:var(--text-high);margin-bottom:.2rem;font-weight:600}
+.distrib-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.7rem}
+.distrib-lbl{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;color:var(--muted);width:80px;flex-shrink:0;letter-spacing:.04em}
+.distrib-track{flex:1;height:5px;background:rgba(255,255,255,.07);position:relative;border-radius:2px}
+.distrib-fill{position:absolute;left:0;top:0;height:100%;background:rgba(201,168,76,.65);border-radius:2px}
+.distrib-pct{font-family:var(--font-display);font-size:.95rem;color:var(--gold);width:36px;text-align:right}
+.cta-sb{background:linear-gradient(145deg,rgba(14,38,80,.95),rgba(18,48,100,.9));border:1px solid rgba(201,168,76,.25);padding:1.6rem;text-align:center;position:relative;overflow:hidden;border-radius:var(--r)}
+.cta-sb::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.45),transparent)}
+.cta-sb-txt{font-size:.84rem;color:var(--text-med);margin-bottom:1.1rem;line-height:1.6;font-weight:400}
+.cta-sb-btn{display:block;width:100%;background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;padding:.85rem;border:none;cursor:pointer;transition:background .2s,transform .15s;border-radius:var(--r)}
+.cta-sb-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* Formule box */
+.fbox{background:linear-gradient(145deg,rgba(12,32,68,.8),rgba(16,42,82,.7));border:1px solid rgba(201,168,76,.22);border-radius:var(--rl);padding:30px;font-family:var(--font-mono);margin-bottom:2.2rem}
+.fbox-title{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
+.fbox-main{font-size:1rem;color:var(--text-high);line-height:2.1;margin-bottom:16px}
+.fbox-main .var{color:var(--gold-light)}.fbox-main .coef{color:var(--muted);font-size:.84rem}
+.frow2{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem}
+.frow2-lbl{color:var(--text-med)}.frow2-w{font-size:.95rem;color:var(--gold);font-weight:500}
+
+/* Meter */
+.meter-segs{display:flex;gap:3px;margin:.9rem 0 .5rem}
+.meter-seg{flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:1px}
+.seg-red{background:#bf3a1a!important}
+.seg-amber{background:#b45309!important}
+.seg-green{background:#2d6a4f!important}
+.meter-lbls{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.58rem;color:var(--muted)}
+
+/* ── HOME HERO ── */
+.home-hero{min-height:calc(100vh - 66px);display:flex;flex-direction:column;justify-content:center;padding:80px 0;position:relative;overflow:hidden}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px;opacity:0;animation:fadeUp .7s ease .1s forwards}
+.hero-eyebrow-line{width:32px;height:1px;background:var(--gold)}
+.hero-eyebrow-text{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.85)}
+h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--text-high);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards}
+h1.hh .gold{color:var(--gold)}
+
+/* Hero sub — poids 400, taille lisible */
+.hero-sub{font-size:clamp(1rem,1.8vw,1.18rem);font-weight:400;font-style:italic;color:var(--text-med);max-width:580px;margin:26px 0 36px;line-height:1.72;opacity:0;animation:fadeUp .8s ease .35s forwards}
+
+.hero-cta-block{max-width:680px;opacity:0;animation:fadeUp .8s ease .5s forwards}
+.indices-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.ip-item{background:var(--navy-card);padding:22px 20px;text-align:center;cursor:pointer;transition:background .2s,transform .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:110px}
+.ip-item:hover{background:var(--navy-mid);transform:translateY(-2px)}
+.ip-num{font-family:var(--font-display);font-size:2.8rem;line-height:1;display:flex;align-items:baseline;gap:3px}
+.ip-lbl{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.4}
+.ip-cta{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.45);margin-top:8px}
+
+.ivi-banner{background:linear-gradient(145deg,rgba(14,38,80,.93),rgba(18,48,100,.89),rgba(13,35,72,.93));border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+.ivi-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.45),transparent)}
+.ivi-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.18);animation:pulse 2s infinite;flex-shrink:0}
+.ivi-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;display:block}
+.ivi-title{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.04em;color:var(--text-high);line-height:1.15}
+.ivi-sub{font-size:.82rem;color:var(--text-low);margin-top:4px;font-weight:400}
+.ivi-btn{display:inline-block;font-family:var(--font-display);font-size:.95rem;letter-spacing:.07em;padding:11px 26px;background:var(--gold);color:var(--navy);border-radius:4px;white-space:nowrap;cursor:pointer;border:none;transition:background .2s,transform .2s}
+.ivi-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* ── APPROCHE PAGE ── */
+.pg-hero{background:linear-gradient(180deg,rgba(11,31,60,1) 0%,rgba(18,40,80,.8) 100%);padding:5.5rem 32px;position:relative;overflow:hidden}
+.pg-hero::after{content:'';position:absolute;top:-30%;right:-5%;width:550px;height:550px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.pg-h1{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.8rem);letter-spacing:.03em;color:var(--text-high);line-height:.97;margin-bottom:.9rem}
+.pg-h1 .gold{color:var(--gold)}
+.pg-sub{font-size:1.02rem;font-weight:400;font-style:italic;color:var(--text-med);max-width:580px;line-height:1.75}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;padding:4.5rem 0}
+.prose h2{font-family:var(--font-display);font-size:1.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:1.1rem;line-height:1.03}
+.prose h2 .gold{color:var(--gold)}
+.prose p{font-size:.95rem;line-height:1.88;color:var(--text-med);font-weight:400;margin-bottom:1.1rem}
+.prose p strong{color:var(--text-high);font-weight:600}
+.prose .src-tag{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.6rem}
+
+.quote-block{border-left:2px solid var(--gold);padding:1.3rem 1.6rem;background:rgba(201,168,76,.04);margin:1.6rem 0;border-radius:0 var(--r) var(--r) 0}
+.quote-text{font-family:var(--font-body);font-size:.98rem;font-style:italic;color:var(--text-high);line-height:1.7;margin-bottom:.7rem;font-weight:400}
+.quote-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+.gap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(201,168,76,.1);margin:2.2rem 0}
+.gap-card{background:var(--navy-card);padding:1.8rem}
+.gap-n{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.gap-ttl{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.6rem}
+.gap-desc{font-size:.87rem;color:var(--text-med);line-height:1.7;font-weight:400}
+
+.actors-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border-gold);border-radius:var(--r);overflow:hidden}
+.actor-row{padding:1.1rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.actor-row:last-child{border-bottom:none}
+.actor-name{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.35rem}
+.actor-desc{font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400}
+
+.delta-formula-vis{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.8rem}
+.df-block{background:rgba(255,255,255,.03);border:1px solid var(--border-gold);padding:1.3rem 1.6rem;flex:1;min-width:145px;text-align:center;border-radius:var(--r)}
+.df-title{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;display:block}
+.df-val{font-family:var(--font-display);font-size:1.15rem;color:var(--text-high);letter-spacing:.04em;line-height:1.35}
+.df-op{font-family:var(--font-display);font-size:2rem;color:rgba(201,168,76,.22);flex-shrink:0}
+.df-result{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.35)}
+.df-result .df-title{color:var(--gold)}
+.df-result .df-val{color:var(--gold)}
+
+/* ── TIMELINE ── */
+.tl-item{display:grid;grid-template-columns:120px 1px 1fr;gap:0 26px;margin-bottom:0}
+.tl-date{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:20px 0;text-align:right}
+.tl-line{display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:11px;height:11px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);flex-shrink:0;margin-top:21px;position:relative;z-index:1}
+.tl-dot.active{background:var(--gold)}
+.tl-dot.future{border-color:rgba(136,153,180,.35)}
+.tl-conn{flex:1;width:1px;background:rgba(201,168,76,.18)}
+.tl-conn.fut{background:rgba(136,153,180,.1)}
+.tl-content{padding:16px 0 26px}
+.tl-content h4{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.35rem}
+.tl-content h4.fut{color:rgba(136,153,180,.55)}
+.tl-content p{font-size:.85rem;color:var(--text-low);line-height:1.65;font-weight:400}
+.tl-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-top:9px}
+.badge-live{background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
+.badge-prog{background:rgba(90,130,210,.1);color:#8aaee0;border:1px solid rgba(90,130,210,.22)}
+.badge-plan{background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.18)}
+.sdot{width:5px;height:5px;border-radius:50%;background:currentColor}
+.sdot.pulse{animation:pulse 2s infinite}
+
+/* ── HUB INDICES ── */
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1);margin:2.8rem 0}
+.hub-card{background:var(--navy-card);padding:2.2rem;cursor:pointer;position:relative;transition:background .25s,transform .2s,box-shadow .2s;overflow:hidden;border-bottom:2px solid transparent}
+.hub-card:hover{background:var(--navy-mid);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.35);border-bottom-color:var(--gold)}
+.hub-card.disabled{opacity:.38;cursor:default;pointer-events:none}
+.hub-card-meta{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+.hub-card-name{font-family:var(--font-display);font-size:2.2rem;color:var(--text-high);letter-spacing:.03em;margin-bottom:.35rem}
+.hub-card-full{font-size:.78rem;color:var(--text-faint);margin-bottom:1.3rem;line-height:1.45;font-family:var(--font-mono)}
+.hub-card-score{font-family:var(--font-display);font-size:3.8rem;color:var(--gold);letter-spacing:.02em;line-height:1}
+.hub-card-score-sub{font-family:var(--font-mono);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.35rem;display:block}
+.hub-card-delta{margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.07);font-family:var(--font-mono);font-size:.67rem;color:var(--text-low);letter-spacing:.03em;line-height:1.9}
+.hub-card-delta span{color:var(--gold)}
+.hub-card-arrow{position:absolute;top:1.4rem;right:1.4rem;display:flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.55);transition:color .2s,transform .15s}
+.hub-card:hover .hub-card-arrow{color:var(--gold);transform:translate(2px,-2px)}
+.hub-card-cta{margin-top:1.4rem;padding-top:1rem;border-top:1px solid rgba(201,168,76,.12);font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.5);display:flex;align-items:center;gap:6px;transition:color .2s}
+.hub-card:hover .hub-card-cta{color:var(--gold)}
+
+/* ── METHODOLOGIE ── */
+.method-body{padding:4.5rem 0}
+.method-two-col{display:grid;grid-template-columns:240px 1fr;gap:4.5rem;align-items:start}
+.method-nav-list{position:sticky;top:86px;display:flex;flex-direction:column;gap:0}
+.method-nav-btn{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;text-align:left;width:100%;transition:color .2s}
+.method-nav-btn:hover{color:var(--text-high)}
+.method-nav-btn.active{color:var(--gold)}
+.method-section{margin-bottom:4rem}
+.method-section h2{font-family:var(--font-display);font-size:1.9rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:1.1rem}
+.method-section p{font-size:.92rem;line-height:1.88;color:var(--text-med);font-weight:400;margin-bottom:1rem}
+.method-section p strong{color:var(--text-high);font-weight:600}
+.limits-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,168,76,.08);margin:1.8rem 0}
+.limit-item{background:var(--navy-card);padding:1.4rem}
+.limit-ttl{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.45rem}
+.limit-desc{font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400}
+
+/* Section communs */
+.section-sep{width:48px;height:3px;background:var(--gold);margin:18px 0 28px}
+.ecard{background:rgba(255,255,255,.024);border:1px solid var(--border-gold);padding:40px 32px;position:relative;transition:background .3s;border-radius:var(--r)}
+.ecard:hover{background:rgba(201,168,76,.04)}
+.ecard-num{font-family:var(--font-display);font-size:4.5rem;color:rgba(201,168,76,.08);line-height:1;position:absolute;top:16px;right:20px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .indice-hero-grid,.two-col,.method-two-col{grid-template-columns:1fr}
+  .big-score-num,.big-score-pending,.score-lbl,.score-bar-w{text-align:left;margin-left:0}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .hub-grid{grid-template-columns:1fr 1fr}
+  .indice-body{grid-template-columns:1fr;padding:0 20px}
+  .delta-inner{grid-template-columns:1fr;gap:1rem}
+  .delta-op{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .method-nav-list{display:none}
+  .gap-grid,.limits-grid{grid-template-columns:1fr}
+  .container,.container--n{padding:0 20px}
+}
+@media(max-width:560px){
+  .kpi-grid{grid-template-columns:1fr}
+  .hub-grid{grid-template-columns:1fr}
+  .indices-preview{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
+<!-- ══ NAV ══ -->
 <nav>
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">
+    <a class="nav-logo" onclick="goTo('home')" href="#">
       <span class="nav-logo-name">RESS<span class="e2">E</span>NTO</span>
       <span class="nav-logo-tag">Ce que vous ressentez, enfin chiffré</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#indices">Indices</a></li>
-      <li><a href="#methode">Méthode</a></li>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#roadmap">Calendrier</a></li>
-      <li><a href="/carburant" style="border: 1px solid rgba(93, 202, 165, 0.3); padding: 4px 10px; border-radius: 3px; transition: 0.2s; white-space: nowrap;" onmouseover="this.style.background='rgba(93,202,165,.08)'" onmouseout="this.style.background='transparent'">⛽ Carburant</a></li>
+      <li><button id="nl-home" class="active" onclick="goTo('home')">Accueil</button></li>
+      <li><button id="nl-approche" onclick="goTo('approche')">Notre approche</button></li>
+      <li><button id="nl-indices" onclick="goTo('indices')">Indices</button></li>
+      <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
+      <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 14px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
-    <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="padding:9px 16px;font-size:.78rem;white-space:nowrap;flex-shrink:0">Participer →</a>
+    <button class="btn btn--gold" style="padding:9px 16px;font-size:.78rem;white-space:nowrap" onclick="goTo('ivi')">Participer →</button>
   </div>
 </nav>
 
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Observatoire indépendant · France · 2026</span></div>
-    <h1 class="hh">CE QUE LES<br>CITOYENS<br><span class="gold">RESSENTENT</span><br>VRAIMENT</h1>
-    <p class="hero-sub"><strong style="color:var(--gold);font-style:normal">46/100</strong> — c'est le score que les Français donnent à leur mairie. Ressento mesure l'écart entre ce que les citoyens ressentent et ce que disent les données officielles.</p>
-    <div class="hero-cta-block">
-      <div class="hero-actions">
-        <a href="#indices" class="btn btn--gold">Voir les résultats →</a>
-        <a href="/ibm" class="btn btn--outline">Explorer l'indice municipal</a>
-      </div>
-
-      <!-- PREUVE DE CONCEPT — IBM visible dès le hero -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-bottom:14px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.18);border-radius:var(--r);overflow:hidden">
-        <div style="background:#0B1F3C;padding:14px 16px;text-align:center">
-          <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--gold);line-height:1">46<span style="font-size:1rem;color:var(--muted)">/100</span></div>
-          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,237,230,.4);margin-top:5px">Score national mairie</div>
-        </div>
-        <div style="background:#0B1F3C;padding:14px 16px;text-align:center">
-          <div style="font-family:var(--font-display);font-size:2.2rem;color:#E08080;line-height:1">67%</div>
-          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,237,230,.4);margin-top:5px">Autre candidat au 2e tour</div>
-        </div>
-        <div style="background:#0B1F3C;padding:14px 16px;text-align:center">
-          <div style="font-family:var(--font-display);font-size:2.2rem;color:#7DC49E;line-height:1">3/5</div>
-          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,237,230,.4);margin-top:5px">Note moyenne du maire</div>
-        </div>
-      </div>
-      <div style="font-family:var(--font-mono);font-size:.6rem;color:rgba(240,237,230,.25);text-align:right;margin-bottom:16px;letter-spacing:.04em">RI-IBM · Indice du Bilan Municipal · Mars 2026 · <a href="/ibm" style="color:rgba(201,168,76,.5)">résultats complets →</a></div>
-
-      <div class="ivi-banner">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div class="ivi-dot"></div>
-          <div>
-            <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
-            <div class="ivi-title">Indice de Valeur de l'Impôt</div>
-            <div class="ivi-sub">12 questions · 60 secondes · anonyme</div>
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="page-home" class="page active">
+  <section class="home-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Observatoire indépendant · France · 2026</span></div>
+      <h1 class="hh">CE QUE LES<br>CITOYENS<br><span class="gold">RESSENTENT</span><br>VRAIMENT</h1>
+      <p class="hero-sub">Ressento mesure l'écart entre ce que les données officielles disent et ce que les citoyens ressentent. Cet écart a un nom : le <strong style="color:var(--gold);font-style:normal">perception gap</strong>.<br>Personne ne le mesurait. Nous le faisons.</p>
+      <div class="hero-cta-block">
+        <div class="indices-preview">
+          <div class="ip-item" onclick="goTo('ibm')">
+            <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">RI-IBM · Publié</div>
+            <div style="font-family:var(--font-display);font-size:2.8rem;line-height:1;color:var(--gold);letter-spacing:.02em">46<span style="font-size:1.4rem;color:rgba(201,168,76,.55)">/100</span></div>
+            <div class="ip-lbl">Indice du Bilan Municipal</div>
+            <div class="ip-cta">Explorer →</div>
+          </div>
+          <div class="ip-item" onclick="goTo('ivi')">
+            <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:#8aaee0;margin-bottom:6px">IVI · Collecte en cours</div>
+            <div style="font-family:var(--font-display);font-size:2.8rem;line-height:1;color:rgba(240,237,230,.35);letter-spacing:.02em">Mai 2026</div>
+            <div class="ip-lbl">Indice de Valeur de l'Impôt</div>
+            <div class="ip-cta" style="color:rgba(138,174,224,.45)">Explorer →</div>
+          </div>
+          <div class="ip-item" style="opacity:.35;cursor:default">
+            <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">RI-MOB · Juin 2026</div>
+            <div style="font-family:var(--font-display);font-size:2.8rem;line-height:1;color:rgba(240,237,230,.2);letter-spacing:.02em">Bientôt</div>
+            <div class="ip-lbl">Indice de Mobilité</div>
           </div>
         </div>
-        <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="ivi-btn">Participer →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="problem">
-  <div class="container--n">
-    <p class="pquote reveal">Voici ce que disent les données officielles.<br><strong>Voici ce que les Français ressentent.</strong><br>Ressento mesure les deux — et publie l'écart.</p>
-    <p class="psource reveal">— Ressento transforme le ressenti citoyen en données vérifiables</p>
-
-    <!-- BLOC APOLITISME EXPLICITE -->
-    <div class="reveal" style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.12);border-radius:var(--r);overflow:hidden;max-width:760px;margin-left:auto;margin-right:auto">
-      <div style="background:rgba(11,31,60,.8);padding:20px 22px;text-align:center">
-        <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">AUCUN JUGEMENT</div>
-        <div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(240,237,230,.42);line-height:1.5">Nous mesurons des écarts — nous ne les commentons pas</div>
-      </div>
-      <div style="background:rgba(11,31,60,.8);padding:20px 22px;text-align:center">
-        <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">AUCUNE ORIENTATION</div>
-        <div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(240,237,230,.42);line-height:1.5">Ni de gauche ni de droite — les données parlent seules</div>
-      </div>
-      <div style="background:rgba(11,31,60,.8);padding:20px 22px;text-align:center">
-        <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">SOURCES OUVERTES</div>
-        <div style="font-family:var(--font-mono);font-size:.7rem;color:rgba(240,237,230,.42);line-height:1.5">INSEE · Eurostat · DGFiP · Cour des Comptes</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="explainer">
-  <div class="container">
-    <div class="reveal">
-      <div class="slabel">Notre mission</div>
-      <h2 class="stitle">Ce que personne<br>d'autre ne fait</h2>
-      <div class="divider"></div>
-      <p class="explainer-intro">Ressento est un système qui mesure, publie et rend lisible l'écart entre données publiques et perception citoyenne. Nous faisons ce que les think tanks ne font pas.</p>
-    </div>
-    <div class="explainer-grid reveal">
-      <div class="ecard"><div class="ecard-num">01</div><svg class="ecard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg><h3>DONNÉES OFFICIELLES</h3><p>Chaque indice s'appuie sur des sources publiques vérifiables — Eurostat, INSEE, DGFiP, Cour des Comptes. Ce socle factuel est accessible et contrôlable par tous.</p></div>
-      <div class="ecard"><div class="ecard-num">02</div><svg class="ecard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg><h3>RESSENTI CITOYEN</h3><p>Les participants répondent de façon libre et anonyme. Leurs réponses sont agrégées selon une formule publiée avant la collecte — non modifiable après.</p></div>
-      <div class="ecard"><div class="ecard-num">03</div><svg class="ecard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg><h3>L'ÉCART PUBLIÉ</h3><p>La différence entre les deux — c'est ce que Ressento produit et publie en accès libre. Un indicateur que personne d'autre ne calcule ni ne rend lisible en France.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="container">
-    <div class="reveal">
-      <div class="slabel">Comment ça fonctionne</div>
-      <h2 class="stitle">De la question<br>au chiffre public</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="steps reveal">
-      <div class="step"><div class="step-circle">1</div><h4>DONNÉES OFFICIELLES</h4><p>Nous collectons et structurons les données publiques pertinentes pour chaque indice.</p></div>
-      <div class="step"><div class="step-circle">2</div><h4>QUESTIONNAIRE</h4><p>Un questionnaire ciblé recueille le ressenti des citoyens, anonymement, sur le même thème.</p></div>
-      <div class="step"><div class="step-circle">3</div><h4>CALCUL</h4><p>Un score pondéré est calculé pour chaque composante selon la formule documentée et publiée.</p></div>
-      <div class="step"><div class="step-circle">4</div><h4>L'ÉCART PUBLIÉ</h4><p>Les deux scores et l'écart entre eux sont publiés en accès libre sur ressento.com.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="indices">
-  <div class="container">
-    <div class="iheader reveal">
-      <div><div class="slabel">Les indices Ressento</div><h2 class="stitle">Résultats publiés<br>&amp; en cours</h2></div>
-      <a href="https://ressento.com/ibm" class="btn btn--outline" style="align-self:center">Tous les résultats →</a>
-    </div>
-    <div class="icard icard--feat reveal">
-      <div class="cleft">
-        <div>
-          <div class="icode">RI-IBM · Mars 2026 · Publié</div>
-          <h3 class="iname">Indice du Bilan Municipal</h3>
-          <p class="idesc">Premier indice Ressento. Il mesure la satisfaction des citoyens français vis-à-vis de leur municipalité : performance du maire, qualité des services locaux, et sentiment d'alignement démocratique.</p>
-        </div>
-        <div>
-          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#E08080" stroke-width="1.5"><path d="M13 7H7m6 4H7m4 4H7M5 3h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"></path></svg><p class="ftxt">Top déception : <strong>Sécurité</strong> — domaine le moins bien perçu.</p></div>
-          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="#7DC49E" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><p class="ftxt">Top satisfaction : <strong>Culture</strong> — seul domaine en perception positive.</p></div>
-          <div class="frow"><svg class="ficon" viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg><p class="ftxt">Résultats segmentés par <strong>strate de commune</strong> et <strong>région</strong>.</p></div>
-          <a href="https://ressento.com/ibm" class="btn btn--gold" style="margin-top:18px;font-size:.88rem;padding:11px 24px">Voir les résultats complets →</a>
-        </div>
-      </div>
-      <div class="cright">
-        <div class="score-block">
-          <div class="score-slabel">Score national RI-IBM</div>
-          <div class="score-main"><span class="score-num">46</span><div class="score-rhs"><span class="score-denom">/100</span><span class="score-interp">⚠ En-dessous du seuil neutre (50)</span></div></div>
-          <div class="score-bar-w"><div class="score-bar"></div></div>
-          <div class="score-scale"><span>0 · Déçu</span><span>50 · Neutre</span><span>100 · Satisfait</span></div>
-        </div>
-        <div class="dgrid">
-          <div class="ditem"><div class="dval neg">67%</div><div class="dlbl">auraient voté pour un autre candidat au 2e tour</div></div>
-          <div class="ditem"><div class="dval">3/5</div><div class="dlbl">note moyenne du maire · médiane nationale</div></div>
-          <div class="ditem"><div class="dval neg">↓ Sécu</div><div class="dlbl">domaine le moins bien perçu</div></div>
-          <div class="ditem"><div class="dval pos">↑ Culture</div><div class="dlbl">seul domaine en perception positive</div></div>
-        </div>
-        <div style="margin-top:20px;padding:13px 15px;background:rgba(14,38,80,.55);border-radius:var(--r);border-left:3px solid rgba(201,168,76,.45)">
-          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Note méthodologique</div>
-          <p style="font-size:.78rem;color:rgba(240,237,230,.44);line-height:1.6;font-weight:300">Résultats basés sur des réponses citoyennes agrégées et anonymisées. Le volume de répondants n'est pas communiqué pour préserver la crédibilité du protocole.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="isec reveal">
-      <!-- CARTE CARBURANT pleine largeur -->
-      <div class="icard icard--carburant">
-        <div class="carb-left">
-          <div>
-            <div class="icode" style="color:#5DCAA5">Outil · Actualité · Avril 2026</div>
-            <div style="display:inline-block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(93,202,165,.1);color:#5DCAA5;border:1px solid rgba(93,202,165,.22);padding:3px 10px;border-radius:3px;margin-bottom:14px">Crise carburant</div>
-            <h3 class="iname" style="font-size:1.55rem">Calculateur Carburant</h3>
-            <p style="font-size:.92rem;color:rgba(240,237,230,.58);line-height:1.7;font-weight:300;margin-bottom:20px">Depuis le 27 février, le gazole a pris <strong style="color:var(--offwhite);font-weight:400">+50 cts/L</strong> en France. Six pays européens ont allégé la facture de leurs ménages. La France a orienté ses aides vers les professionnels. Mesurez ce que cette situation représente concrètement pour votre budget.</p>
+        <div style="font-family:var(--font-mono);font-size:.6rem;color:rgba(240,237,230,.22);text-align:right;margin-bottom:16px;letter-spacing:.04em">Cliquez sur un indice pour l'explorer →</div>
+        <div class="ivi-banner">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div class="ivi-dot"></div>
+            <div>
+              <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
+              <div class="ivi-title">Indice de Valeur de l'Impôt</div>
+              <div class="ivi-sub">12 questions · 60 secondes · anonyme</div>
+            </div>
           </div>
-          <a href="/carburant" class="btn btn--gold" style="font-size:.92rem;padding:12px 28px;align-self:flex-start">Calculer mon surcoût →</a>
-        </div>
-        <div class="carb-right">
-          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(93,202,165,.6);margin-bottom:12px">Budget mensuel selon le pays · profil moyen</div>
-          <div class="bench-item"><span class="bench-country">🇫🇷 France</span><span class="bench-val ref">Référence</span></div>
-          <div class="bench-item"><span class="bench-country">🇩🇪 Allemagne</span><span class="bench-val eco">− 17 cts/L</span></div>
-          <div class="bench-item"><span class="bench-country">🇪🇸 Espagne</span><span class="bench-val eco">− 30 cts/L</span></div>
-          <div class="bench-item"><span class="bench-country">🇮🇹 Italie</span><span class="bench-val eco">− 25 cts/L</span></div>
-          <div class="bench-note">dispositifs officiels en vigueur · avr. 2026 · source prix-carburants.gouv.fr</div>
-        </div>
-      </div>
-
-      <!-- CARTE IVI -->
-      <div class="icard icard--sm" style="background:linear-gradient(145deg,rgba(14,40,80,.96) 0%,rgba(22,55,100,.9) 55%,rgba(13,35,72,.96) 100%);border-color:rgba(130,168,228,.2);position:relative;overflow:hidden">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(130,168,228,.38),transparent)"></div>
-        <div style="position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:radial-gradient(circle,rgba(70,110,190,.07) 0%,transparent 70%);pointer-events:none"></div>
-        <div class="icode" style="color:#8aaee0">RI-IVI · Avril 2026</div>
-        <div style="display:inline-block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(90,130,210,.1);color:#8aaee0;border:1px solid rgba(90,130,210,.2);padding:3px 8px;border-radius:3px;margin-bottom:10px">Indice du moment</div>
-        <h3 class="iname">Indice de Valeur de l'Impôt</h3>
-        <p style="font-size:.85rem;color:rgba(240,237,230,.52);line-height:1.65;font-weight:300;margin-bottom:8px">Lancé au lendemain de l'ouverture des déclarations fiscales. Mesure le sentiment des contribuables sur la valeur perçue de leur contribution.</p>
-        <div style="font-family:var(--font-mono);font-size:.66rem;color:rgba(140,175,235,.65);margin-bottom:4px">IVI = Q2×0,45 + Q1×0,30 + Q3×0,25</div>
-        <div class="sbadge sbadge--progress"><div class="sdot pulse"></div>Collecte en cours</div>
-        <div style="margin-top:13px"><a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="font-size:.83rem;padding:10px 16px;width:100%;display:block;text-align:center;background:rgba(55,95,170,.52);color:var(--offwhite);border:1px solid rgba(130,168,228,.18);border-radius:var(--r);font-family:var(--font-display);letter-spacing:.06em;transition:all .2s" onmouseover="this.style.background='rgba(65,108,190,.65)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(55,95,170,.52)';this.style.transform='none'">Répondre maintenant →</a></div>
-      </div>
-
-      <div class="icard icard--sm">
-        <div class="icode">RI-MOB · À venir</div>
-        <h3 class="iname">Indice de Mobilité Citoyenne</h3>
-        <p style="font-size:.85rem;color:rgba(240,237,230,.46);line-height:1.65;font-weight:300">Satisfaction vis-à-vis des transports en commun, de leur accessibilité, fiabilité et rapport qualité/prix perçu.</p>
-        <div class="sbadge sbadge--planned"><div class="sdot"></div>À paraître</div>
-      </div>
-
-      <div class="icard icard--sm">
-        <div class="icode">RI-DPA · Sept. 2026</div>
-        <h3 class="iname">Transparence Rémunérations Politiques</h3>
-        <p style="font-size:.85rem;color:rgba(240,237,230,.46);line-height:1.65;font-weight:300">Perception citoyenne de la transparence des élus. Publication avant la période pré-campagne 2027.</p>
-        <div class="sbadge sbadge--planned"><div class="sdot"></div>Sept. 2026</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="methode">
-  <div class="container">
-    <div class="reveal">
-      <div class="slabel">Rigueur &amp; Transparence</div>
-      <h2 class="stitle">Une méthode construite<br>pour durer</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="mgrid">
-      <div class="reveal">
-        <div class="mpillar"><div class="mpnum">01</div><div><h4>APOLITISME TOTAL</h4><p>Ressento ne prend aucune position. Nous observons un écart — nous ne le jugeons pas. Nos résultats sont utilisables par tous, quelle que soit leur sensibilité politique.</p></div></div>
-        <div class="mpillar"><div class="mpnum">02</div><div><h4>SOURCES VÉRIFIABLES</h4><p>Chaque donnée publique est sourcée, datée et accessible en ligne. N'importe qui peut vérifier nos chiffres. C'est ce que "données vérifiables" signifie — nous l'assumons pleinement.</p></div></div>
-        <div class="mpillar"><div class="mpnum">03</div><div><h4>PARTICIPATION LIBRE ET ANONYME</h4><p>Aucune donnée personnelle collectée ni stockée. Les réponses sont agrégées immédiatement. La composante déclarative mesure un ressenti collectif, contextualisé par les données officielles.</p></div></div>
-        <div class="mpillar"><div class="mpnum">04</div><div><h4>ACCÈS LIBRE TOTAL</h4><p>Tous nos résultats sont publiés sans barrière. Pas d'abonnement, pas de paywall. Chercheurs, journalistes et citoyens peuvent les utiliser et les citer librement.</p></div></div>
-        <a href="/methode" class="methode-link reveal">Découvrir notre approche complète →</a>
-      </div>
-      <div class="reveal">
-        <div class="fbox">
-          <div class="fbox-title">Exemple · Formule RI-IVI</div>
-          <div class="fbox-main"><span class="var">IVI</span> = <span class="var">Q2</span><span class="coef">×0,45</span> + <span class="var">Q1</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,25</span></div>
-          <div class="frow2"><span class="frow2-lbl">Q1 · Sentiment de contribution juste</span><span class="frow2-w">×0,30</span></div>
-          <div class="frow2"><span class="frow2-lbl">Q2 · Valeur perçue des services reçus</span><span class="frow2-w">×0,45</span></div>
-          <div class="frow2"><span class="frow2-lbl">Q3 · Confiance dans la gestion publique</span><span class="frow2-w">×0,25</span></div>
-          <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.05);font-size:.72rem;color:var(--muted);line-height:1.65">La formule est documentée avant la collecte et ne peut être modifiée a posteriori.</div>
-        </div>
-        <div style="margin-top:16px;padding:22px 26px;background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.1);border-radius:var(--rl)">
-          <div style="font-family:var(--font-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:13px">Engagements éditoriaux</div>
-          <div class="frow"><div class="ftxt">Les indices sont <strong>nommés avant la collecte</strong> — le périmètre ne change pas après les résultats.</div></div>
-          <div class="frow"><div class="ftxt">Ressento ne commente jamais en son propre nom — <strong>les données parlent.</strong></div></div>
-          <div class="frow"><div class="ftxt">Aucune affiliation politique, syndicale ou institutionnelle. <strong>Indépendance totale.</strong></div></div>
+          <button class="ivi-btn" onclick="goTo('ivi')">Participer →</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="apropos">
-  <div class="container">
-    <div class="apgrid">
-      <div class="reveal">
-        <div class="slabel">À propos</div>
-        <h2 class="stitle">Ce que nous<br>sommes</h2>
-        <div class="divider"></div>
+  <!-- Pitch apolitisme -->
+  <section style="padding:80px 0;background:rgba(201,168,76,.028);border-top:1px solid rgba(201,168,76,.08);border-bottom:1px solid rgba(201,168,76,.08)">
+    <div class="container--n">
+      <p class="reveal" style="font-family:var(--font-body);font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;font-weight:300;color:var(--offwhite);line-height:1.55;max-width:760px;margin:0 auto;text-align:center;position:relative;padding:0 32px">
+        <span style="font-size:4rem;color:var(--gold);opacity:.18;position:absolute;top:-14px;left:0;line-height:1;font-family:var(--font-body)">"</span>
+        Voici ce que disent les données officielles.<br><strong style="color:var(--gold);font-style:normal">Voici ce que les Français ressentent.</strong><br>Ressento mesure les deux et publie l'écart.
+      </p>
+      <div class="reveal" style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.12);overflow:hidden;max-width:760px;margin-left:auto;margin-right:auto">
+        <div style="background:rgba(11,31,60,.85);padding:18px 20px;text-align:center"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">AUCUN JUGEMENT</div><div style="font-family:var(--font-mono);font-size:.68rem;color:rgba(240,237,230,.4);line-height:1.5">Nous mesurons des écarts — nous ne les commentons pas</div></div>
+        <div style="background:rgba(11,31,60,.85);padding:18px 20px;text-align:center"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">AUCUNE ORIENTATION</div><div style="font-family:var(--font-mono);font-size:.68rem;color:rgba(240,237,230,.4);line-height:1.5">Ni de gauche ni de droite — les données parlent seules</div></div>
+        <div style="background:rgba(11,31,60,.85);padding:18px 20px;text-align:center"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.06em;color:var(--offwhite);margin-bottom:6px">SOURCES OUVERTES</div><div style="font-family:var(--font-mono);font-size:.68rem;color:rgba(240,237,230,.4);line-height:1.5">INSEE · Eurostat · DGFiP · Cour des Comptes</div></div>
       </div>
-      <div class="reveal">
-        <div class="apbody">
-          <p>Ressento est un observatoire citoyen indépendant, sans affiliation politique, syndicale ou institutionnelle. Nous ne sommes ni un sondeur, ni un média, ni une association partisane.</p>
-          <p>Ressento fait ce que les think tanks ne font pas — croiser données officielles et ressenti citoyen, et publier l'écart. Voici ce que disent les chiffres. Voici ce que les Français ressentent. Ressento mesure les deux.</p>
-          <p>Nous produisons des indices nommés, méthodologiquement documentés et publiés en accès libre — pour que n'importe qui puisse s'en saisir, les citer, les contester ou les prolonger.</p>
-        </div>
-        <div style="margin-top:28px">
-          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006.94 4.73L6 7m0 0l6-2m6 2l3-1m-3 1l-3 9a5 5 0 01-6.94 4.73L18 7m0 0l-6-2m-6 2l6-2"></path></svg></div><div class="aptxt"><strong>INDÉPENDANCE</strong><span>Aucun financement public, institutionnel ou partisan. Aucune régie publicitaire.</span></div></div>
-          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div><div class="aptxt"><strong>NEUTRALITÉ</strong><span>Ni de gauche ni de droite. Ni pro-institution ni anti-institution. Nous observons et chiffrons.</span></div></div>
-          <div class="appillar"><div class="apicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div><div class="aptxt"><strong>TRANSPARENCE</strong><span>Formules publiées, sources documentées, données accessibles à tous en accès libre.</span></div></div>
-        </div>
+      <div class="reveal" style="text-align:center;margin-top:32px">
+        <button class="btn btn--outline" onclick="goTo('approche')" style="font-size:.85rem">Comprendre notre concept →</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="participer">
-  <div class="container">
-    <div class="partgrid">
-      <div class="reveal">
-        <div class="slabel">Votre voix compte</div>
-        <h2 class="part-h">PARTICIPER,<br>C'EST <span class="gold">EXISTER</span><br>DANS LA DONNÉE</h2>
-        <div class="divider"></div>
-        <p class="part-b">La composante déclarative de nos indices est alimentée par vos réponses. Plus vous participez, plus l'écart entre données officielles et ressenti citoyen est précis et représentatif. Aucune donnée personnelle n'est demandée.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold">Participer à l'IVI →</a>
-          <a href="mailto:contact@ressento.com" class="btn btn--outline">Nous contacter</a>
-        </div>
-      </div>
-      <div class="scard reveal">
-        <div class="scard-t">Indice de Valeur de l'Impôt</div>
-        <div class="scard-s">RI-IVI · Collecte en cours · Avril 2026</div>
-        <div class="sfeats">
-          <div class="sfeat">12 questions</div>
-          <div class="sfeat">60 secondes</div>
-          <div class="sfeat">Aucune donnée personnelle demandée</div>
-          <div class="sfeat">Résultats publiés en accès libre</div>
-          <div class="sfeat">Participation libre et anonyme</div>
-        </div>
-        <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="width:100%;text-align:center;display:block">Accéder au questionnaire →</a>
-        <div style="text-align:center;margin-top:9px;font-family:var(--font-mono);font-size:.63rem;color:var(--muted)">tally.so · sécurisé · aucun compte requis</div>
+  <!-- Comment ça marche -->
+  <section style="padding:80px 0">
+    <div class="container">
+      <div class="reveal"><div class="slabel">Comment ça fonctionne</div><h2 class="stitle">De la question au chiffre public</h2><div class="divider"></div></div>
+      <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative">
+        <div style="position:absolute;top:26px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.28),transparent)"></div>
+        <div style="padding:0 18px;text-align:center"><div style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--gold);position:relative;z-index:1">1</div><h4 style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:8px">DONNÉES OFFICIELLES</h4><p style="font-size:.84rem;color:rgba(240,237,230,.48);line-height:1.65;font-weight:300">Sources publiques : INSEE, DGFiP, Eurostat, Cour des Comptes.</p></div>
+        <div style="padding:0 18px;text-align:center"><div style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--gold);position:relative;z-index:1">2</div><h4 style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:8px">QUESTIONNAIRE</h4><p style="font-size:.84rem;color:rgba(240,237,230,.48);line-height:1.65;font-weight:300">Le ressenti des citoyens, anonymement, sur le même thème.</p></div>
+        <div style="padding:0 18px;text-align:center"><div style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--gold);position:relative;z-index:1">3</div><h4 style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:8px">CALCUL</h4><p style="font-size:.84rem;color:rgba(240,237,230,.48);line-height:1.65;font-weight:300">Score pondéré selon la formule documentée avant collecte.</p></div>
+        <div style="padding:0 18px;text-align:center"><div style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--gold);position:relative;z-index:1">4</div><h4 style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--offwhite);margin-bottom:8px">L'ÉCART PUBLIÉ</h4><p style="font-size:.84rem;color:rgba(240,237,230,.48);line-height:1.65;font-weight:300">Score Ressento + données officielles + Delta : accès libre.</p></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="roadmap">
-  <div class="container">
-    <div class="reveal">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Un observatoire indépendant qui mesure l'écart entre données officielles et perception citoyenne.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Les indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM · Bilan Municipal ✓</button></li><li><button onclick="goTo('ivi')">IVI · Valeur de l'impôt ↗</button></li><li><a href="/carburant" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">⛽ Calculateur Carburant</a></li><li><button onclick="goTo('indices')">Tous les indices →</button></li></ul></div>
+        <div><div class="fcol-t">La plateforme</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode &amp; transparence</button></li><li><button onclick="goTo('indices')">Calendrier des indices</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     NOTRE APPROCHE
+══════════════════════════════════════ -->
+<div id="page-approche" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">Notre approche</span></div>
+  <section class="pg-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Notre approche</div>
+      <h1 class="pg-h1">LE <span class="gold">PERCEPTION GAP</span><br>ENFIN MESURÉ</h1>
+      <p class="pg-sub">Un concept établi par la recherche en économie comportementale. Un écart documenté, répété, ignoré du grand public en France. Ressento le rend visible.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 0 5rem">
+    <div class="container">
+
+      <!-- Bloc 1 : Le concept -->
+      <div class="two-col reveal">
+        <div class="prose">
+          <div class="slabel" style="margin-top:2rem">01 — Le concept</div>
+          <h2>Un écart documenté<br>par la <span class="gold">recherche</span></h2>
+          <p>Le <strong>perception gap</strong> — ou écart de perception — désigne la divergence mesurée entre une réalité statistique objective et la façon dont les citoyens la perçoivent subjectivement.</p>
+          <p>Ce concept est documenté en économie comportementale et en sciences politiques. Des chercheurs comme <strong>Stefanie Stantcheva</strong> (Harvard) ont montré que les Français surestiment systématiquement les inégalités de revenus. L'OCDE mesure depuis 2021 l'écart entre qualité réelle des services publics et satisfaction déclarée.</p>
+          <p>Le résultat est constant : <strong>la perception diverge de la réalité</strong>, et cet écart est plus large que la plupart des décideurs ne l'imaginent.</p>
+          <span class="src-tag">→ Sources : Harvard Equality of Opportunity Project, OCDE Trust Survey 2024, CEVIPOF 2026</span>
+        </div>
+        <div style="margin-top:2rem">
+          <div class="quote-block reveal">
+            <div class="quote-text">"En 2023, seulement 34% des Français déclaraient une confiance élevée envers leur gouvernement national — 5 points sous la moyenne OCDE."</div>
+            <div class="quote-src">OCDE — Enquête sur les déterminants de la confiance, 2024</div>
+          </div>
+          <div class="quote-block reveal" style="margin-top:1rem">
+            <div class="quote-text">"Les citoyens ne décident pas sur la réalité — ils décident sur leur perception de la réalité. Ce sont deux choses très différentes."</div>
+            <div class="quote-src">Économie comportementale appliquée aux politiques publiques</div>
+          </div>
+          <div class="quote-block reveal" style="margin-top:1rem">
+            <div class="quote-text">"La baisse de confiance dans les institutions n'est pas une question d'incompétence — c'est une question de perception gap non adressé."</div>
+            <div class="quote-src">CEVIPOF Baromètre de la confiance politique, 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloc 2 : Pourquoi personne -->
+      <div class="reveal" style="margin-bottom:4rem">
+        <div class="slabel">02 — Le vide</div>
+        <h2 class="stitle" style="margin-bottom:1rem">Pourquoi personne ne le mesurait</h2>
+        <div class="section-sep"></div>
+        <div class="two-col" style="padding-top:1.5rem">
+          <div>
+            <div class="actors-list">
+              <div class="actor-row"><div class="actor-name">INSEE / DGFiP / Eurostat</div><div class="actor-desc">Mesurent la réalité statistique. Ne mesurent pas la perception. Ce n'est pas leur mandat — ni leur intérêt institutionnel.</div></div>
+              <div class="actor-row"><div class="actor-name">CEVIPOF / Sciences Po</div><div class="actor-desc">Mesurent la confiance politique. Cadre académique, publication annuelle en PDF. Pas accessible au grand public, pas croisé avec les stats officielles.</div></div>
+              <div class="actor-row"><div class="actor-name">YouGov / Morning Consult</div><div class="actor-desc">Sondent l'opinion. Vendent aux médias et institutions. Aucun croisement avec données officielles. Modèle B2B payant.</div></div>
+              <div class="actor-row"><div class="actor-name">Statista / Dataviz médias</div><div class="actor-desc">Republier les mêmes données officielles avec de beaux graphiques. Zéro dimension déclarative citoyenne. Souvent payant.</div></div>
+            </div>
+          </div>
+          <div class="prose">
+            <p>Trois raisons structurelles ont maintenu ce vide.</p>
+            <p><strong>Le coût de collecte</strong> était prohibitif. Les réseaux sociaux ont changé la donne — aujourd'hui une diffusion ciblée atteint des milliers de répondants pour un coût marginal.</p>
+            <p><strong>Les acteurs institutionnels n'ont aucun intérêt</strong> à produire ce croisement. L'INSEE mesure des faits, pas des ressentis. Les instituts de sondage servent des commanditaires avec des agendas.</p>
+            <p><strong>La neutralité est commercialement difficile.</strong> Un Delta qui dit "les citoyens paient beaucoup et perçoivent peu" est inconfortable pour un commanditaire institutionnel. Ressento n'a pas de client à ménager.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloc 3 : Delta -->
+      <div class="reveal" style="background:linear-gradient(145deg,rgba(14,38,80,.7),rgba(18,48,90,.65));border:1px solid rgba(201,168,76,.15);padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)"></div>
+        <div class="slabel">03 — Le concept Ressento</div>
+        <h2 class="stitle" style="margin-bottom:.8rem">Le Delta Ressento</h2>
+        <p style="font-size:.9rem;color:rgba(240,237,230,.55);max-width:560px;line-height:1.75;font-weight:300;margin-bottom:0">Chaque indice Ressento produit un écart entre la donnée officielle et le ressenti déclaratif. Cet écart — le Delta — est la donnée que personne ne publiait. C'est notre contribution.</p>
+        <div class="delta-formula-vis">
+          <div class="df-block"><div class="df-title">Donnée officielle</div><div class="df-val">INSEE · DGFiP<br>Eurostat · OCDE</div></div>
+          <div class="df-op">+</div>
+          <div class="df-block"><div class="df-title">Ressenti déclaratif</div><div class="df-val">Questionnaire<br>citoyen Ressento</div></div>
+          <div class="df-op">=</div>
+          <div class="df-block df-result"><div class="df-title">Δ Delta Ressento</div><div class="df-val">L'écart que<br>personne ne mesurait</div></div>
+        </div>
+      </div>
+
+      <!-- Bloc 4 : Gaps -->
+      <div class="reveal" style="margin-bottom:4rem">
+        <div class="slabel">04 — Ce que ça change</div>
+        <h2 class="stitle" style="margin-bottom:1rem">Les 4 espaces que personne n'occupait</h2>
+        <div class="section-sep"></div>
+        <div class="gap-grid" style="margin-top:1.5rem">
+          <div class="gap-card"><div class="gap-n">GAP 01</div><div class="gap-ttl">L'indice synthétique accessible</div><div class="gap-desc">L'OCDE publie 80 pages. Le CEVIPOF publie des PDF académiques. Personne ne traduit la perception citoyenne en un chiffre unique, lisible en 10 secondes par n'importe qui.</div></div>
+          <div class="gap-card"><div class="gap-n">GAP 02</div><div class="gap-ttl">Le croisement déclaratif × officiel</div><div class="gap-desc">Les instituts sondent. L'INSEE mesure. Jamais les deux en face à face sur la même page. Le Delta est une donnée inexistante dans l'espace public français.</div></div>
+          <div class="gap-card"><div class="gap-n">GAP 03</div><div class="gap-ttl">La neutralité éditoriale totale</div><div class="gap-desc">YouGov dépend de clients médias. Le CEVIPOF est ancré Sciences Po. Aucun acteur ne produit de la mesure citoyenne sans agenda éditorial explicite ou implicite.</div></div>
+          <div class="gap-card"><div class="gap-n">GAP 04</div><div class="gap-ttl">Le rendez-vous citoyen événementiel</div><div class="gap-desc">L'IVI calé sur la déclaration fiscale. Les sondages institutionnels n'ont pas de calendrier citoyen. Ressento crée des indices synchronisés avec les moments où les Français vivent le sujet.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Un observatoire indépendant. Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM publié</button></li><li><button onclick="goTo('ivi')">IVI en cours</button></li></ul></div>
+        <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('methodologie')">Méthode</button></li><li><button onclick="goTo('indices')">Tous les indices</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div><div class="fnote">Mesure civique · Apolitique · Accès libre</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     HUB INDICES
+══════════════════════════════════════ -->
+<div id="page-indices" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">Tous les indices</span></div>
+  <section class="pg-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Les indices Ressento</div>
+      <h1 class="pg-h1">RÉSULTATS PUBLIÉS<br>&amp; <span class="gold">À VENIR</span></h1>
+      <p class="pg-sub">Chaque indice mesure un perception gap distinct. Données déclaratives croisées avec sources officielles. Méthodologie ouverte. Accès libre total.</p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-bottom:4rem">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.55)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"></path></svg>
+        Cliquez sur un indice pour explorer les données
+      </div>
+      <div class="hub-grid">
+      <div class="hub-card" onclick="goTo('ibm')">
+        <div class="hub-card-arrow">Explorer →</div>
+        <div class="hub-card-meta">Indice #01 · Mars 2026 · Publié</div>
+        <div class="hub-card-name">RI-IBM</div>
+        <div class="hub-card-full">Indice du Bilan Municipal</div>
+        <div class="hub-card-score">46</div>
+        <div class="hub-card-score-sub">/ 100 · Score national</div>
+        <div class="hub-card-delta">Satisfaction mairie : <span>46/100</span><br>Vote réélu : <span>33%</span> · Sécurité perception : <span>↓ critique</span></div>
+        <div class="hub-card-cta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Voir l'analyse complète</div>
+      </div>
+      <div class="hub-card" onclick="goTo('ivi')">
+        <div class="hub-card-arrow">Explorer →</div>
+        <div class="hub-card-meta">Indice #02 · Avril 2026 · En cours</div>
+        <div class="hub-card-name">IVI</div>
+        <div class="hub-card-full">Indice de Valeur de l'Impôt</div>
+        <div class="hub-card-score" style="font-size:2rem;opacity:.3;font-family:var(--font-body);font-style:italic">En cours</div>
+        <div class="hub-card-score-sub">Résultats Mai 2026</div>
+        <div class="hub-card-delta">Prélèvements France : <span>45,3% PIB</span><br>Rang UE : <span>1er</span> · Confiance gestion : <span>38%</span></div>
+        <div class="hub-card-cta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Voir les données &amp; participer</div>
+      </div>
+      <div class="hub-card" onclick="window.location.href='/carburant'" style="border-bottom:2px solid rgba(93,202,165,.3)">
+        <div class="hub-card-arrow" style="color:rgba(93,202,165,.55)">Explorer →</div>
+        <div class="hub-card-meta" style="color:#5DCAA5">Outil · Avril 2026 · Live</div>
+        <div class="hub-card-name">⛽ Carburant</div>
+        <div class="hub-card-full" style="color:rgba(93,202,165,.4)">Calculateur de surcoût</div>
+        <div class="hub-card-score" style="font-size:2rem;color:#5DCAA5">+50 cts/L</div>
+        <div class="hub-card-score-sub" style="color:rgba(93,202,165,.6)">Hausse gazole depuis le 27 fév.</div>
+        <div class="hub-card-delta" style="color:rgba(93,202,165,.5)">Prix live · <span style="color:#5DCAA5">prix-carburants.gouv.fr</span><br>Benchmark : <span style="color:#5DCAA5">6 pays européens</span></div>
+        <div class="hub-card-cta" style="color:rgba(93,202,165,.5);border-top-color:rgba(93,202,165,.15)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Calculer mon surcoût</div>
+      </div>
+      <div class="hub-card disabled">
+        <div class="hub-card-meta">Indice #03 · Juin 2026</div>
+        <div class="hub-card-name">RI-MOB</div>
+        <div class="hub-card-full">Indice de Mobilité Citoyenne</div>
+        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
+      </div>
+      <div class="hub-card disabled">
+        <div class="hub-card-meta">Indice #04 · Sept. 2026</div>
+        <div class="hub-card-name">RI-TRP</div>
+        <div class="hub-card-full">Transparence des Rémunérations Politiques</div>
+        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
+      </div>
+      <div class="hub-card disabled">
+        <div class="hub-card-meta">Indice #05 · Oct. 2026</div>
+        <div class="hub-card-name">RI-DPA</div>
+        <div class="hub-card-full">Déclaration Pouvoir d'Achat</div>
+        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
+      </div>
+      <div class="hub-card disabled">
+        <div class="hub-card-meta">Indice #06 · Déc. 2026</div>
+        <div class="hub-card-name">RI-LOG</div>
+        <div class="hub-card-full">Indice du Logement Citoyen</div>
+        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="reveal" style="margin-top:3rem">
       <div class="slabel">Calendrier de publication</div>
-      <h2 class="stitle">Les prochains<br>indices</h2>
+      <h2 class="stitle">Les prochains indices</h2>
       <div class="divider"></div>
-    </div>
-    <div class="rtimeline reveal">
-      <div class="ritem"><div class="rdate">Mars 2026</div><div class="rline"><div class="rdot active"></div><div class="rconn"></div></div><div class="rcont"><h4>RI-IBM · Indice du Bilan Municipal</h4><p>Premier indice Ressento publié. Score national : 46/100. Résultats sur ressento.com/ibm.</p></div></div>
-      <div class="ritem"><div class="rdate">Avril 2026</div><div class="rline"><div class="rdot active"></div><div class="rconn fut"></div></div><div class="rcont"><h4>RI-IVI · Indice de Valeur de l'Impôt</h4><p>Lancé le 9 avril, au lendemain de l'ouverture des déclarations fiscales. Collecte en cours.</p></div></div>
-      <div class="ritem"><div class="rdate">Juin 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-MOB · Indice de Mobilité Citoyenne</h4><p>Satisfaction des Français vis-à-vis des transports en commun, de leur accessibilité et fiabilité.</p></div></div>
-      <div class="ritem"><div class="rdate">Sept. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-TRP · Transparence des Rémunérations Politiques</h4><p>Perception citoyenne de la transparence des élus. Publication avant la période pré-campagne 2027.</p></div></div>
-      <div class="ritem"><div class="rdate">Oct. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-DPA · Déclaration Pouvoir d'Achat</h4><p>Mesure du ressenti des Français sur l'évolution de leur pouvoir d'achat et leur capacité à faire face aux dépenses contraintes.</p></div></div>
-      <div class="ritem"><div class="rdate">Déc. 2026</div><div class="rline"><div class="rdot future"></div><div class="rconn fut"></div></div><div class="rcont"><h4 class="fut">RI-LOG · Indice du Logement Citoyen</h4><p>Satisfaction vis-à-vis de la situation de logement : accès, coût, qualité perçue et politiques associées.</p></div></div>
-      <div class="ritem"><div class="rdate">2027</div><div class="rline"><div class="rdot future"></div></div><div class="rcont"><h4 class="fut">Expansion de la plateforme</h4><p>Tableau de bord comparatif interactif, open data structuré, nouveaux indices réguliers et couverture nationale renforcée.</p></div></div>
+      <div style="max-width:640px;margin-top:2rem">
+        <div class="tl-item"><div class="tl-date">Mars 2026</div><div class="tl-line"><div class="tl-dot active"></div><div class="tl-conn"></div></div><div class="tl-content"><h4>RI-IBM · Bilan Municipal</h4><p>Premier indice publié. Score national 46/100.</p><div class="tl-badge badge-live"><div class="sdot"></div>Publié</div></div></div>
+        <div class="tl-item"><div class="tl-date">Avril 2026</div><div class="tl-line"><div class="tl-dot active"></div><div class="tl-conn fut"></div></div><div class="tl-content"><h4>IVI · Valeur de l'Impôt</h4><p>Lancé le 9 avril. Collecte en cours. Résultats mai 2026.</p><div class="tl-badge badge-prog"><div class="sdot pulse"></div>En cours</div></div></div>
+        <div class="tl-item"><div class="tl-date">Juin 2026</div><div class="tl-line"><div class="tl-dot future"></div><div class="tl-conn fut"></div></div><div class="tl-content"><h4 class="fut">RI-MOB · Mobilité Citoyenne</h4><p>Satisfaction transports commun, accessibilité, fiabilité.</p><div class="tl-badge badge-plan"><div class="sdot"></div>À paraître</div></div></div>
+        <div class="tl-item"><div class="tl-date">Sept. 2026</div><div class="tl-line"><div class="tl-dot future"></div><div class="tl-conn fut"></div></div><div class="tl-content"><h4 class="fut">RI-TRP · Transparence Rémunérations</h4><p>Perception citoyenne de la transparence des élus.</p><div class="tl-badge badge-plan"><div class="sdot"></div>À paraître</div></div></div>
+        <div class="tl-item"><div class="tl-date">Oct. 2026</div><div class="tl-line"><div class="tl-dot future"></div><div class="tl-conn fut"></div></div><div class="tl-content"><h4 class="fut">RI-DPA · Pouvoir d'Achat</h4><p>Ressenti sur l'évolution du pouvoir d'achat et dépenses contraintes.</p><div class="tl-badge badge-plan"><div class="sdot"></div>À paraître</div></div></div>
+        <div class="tl-item"><div class="tl-date">Déc. 2026</div><div class="tl-line"><div class="tl-dot future"></div></div><div class="tl-content"><h4 class="fut">RI-LOG · Logement Citoyen</h4><p>Accès, coût, qualité perçue et politiques de logement.</p><div class="tl-badge badge-plan"><div class="sdot"></div>À paraître</div></div></div>
+      </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="container">
-    <div class="footer-inner">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Navigation</div><ul class="flinks"><li><button onclick="goTo('home')">Accueil</button></li><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     INDICE RI-IBM
+══════════════════════════════════════ -->
+<div id="page-ibm" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><button class="bc-btn" onclick="goTo('indices')">Indices</button><span class="bc-sep">›</span><span class="bc-cur">RI-IBM</span></div>
+  <section class="indice-hero" style="background:linear-gradient(180deg,rgba(11,31,60,1),rgba(14,38,80,.95))">
+    <div class="hero-grid-bg"></div>
+    <div class="indice-hero-grid">
       <div>
-        <div class="fbrand">RESS<span class="e2">E</span>NTO</div>
-        <p class="ftag2">Ressento transforme le ressenti citoyen en données vérifiables. Un observatoire indépendant, apolitique, en accès libre.</p>
-        <a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a>
+        <div class="indice-hero-eyebrow">Indice #01 · Mars 2026 · Publié</div>
+        <div class="indice-hero-name">RI-IBM</div>
+        <div class="indice-hero-full">Indice du Bilan Municipal</div>
+        <div class="indice-hero-desc">Mesure la satisfaction des citoyens vis-à-vis de leur municipalité : performance perçue du maire, qualité des services locaux, et alignement démocratique ressenti. Premier indice Ressento publié.</div>
       </div>
       <div>
-        <div class="fcol-t">Les indices</div>
-        <ul class="flinks">
-          <li><a href="https://ressento.com/ibm">RI-IBM · Bilan Municipal ✓</a></li>
-          <li><a href="https://tally.so/r/vGLAdQ">RI-IVI · Valeur de l'impôt ↗</a></li>
-          <li><a href="/carburant">⛽ Calculateur Carburant</a></li>
-          <li><a href="#roadmap">RI-MOB · Mobilité (juin 2026)</a></li>
-          <li><a href="#roadmap">RI-TRP · Transparence politique (sept. 2026)</a></li>
-          <li><a href="#roadmap">RI-DPA · Pouvoir d'achat (oct. 2026)</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="fcol-t">La plateforme</div>
-        <ul class="flinks">
-          <li><a href="#explainer">Notre mission</a></li>
-          <li><a href="/methode">Notre approche</a></li>
-          <li><a href="#methode">Méthode &amp; transparence</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#participer">Participer</a></li>
-          <li><a href="mailto:contact@ressento.com">Nous contacter</a></li>
-        </ul>
+        <div class="big-score-num">46</div>
+        <div class="score-lbl">Score national / 100 · Mars 2026</div>
+        <div class="score-bar-w"><div class="score-bar-fill" id="bar-ibm" style="width:0%"></div></div>
       </div>
     </div>
-    <div class="fbot">
-      <div class="fcopy">© 2026 Ressento — Tous droits réservés</div>
-      <div class="fnote">Initiative citoyenne indépendante. Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977 relative à la publication et à la diffusion de certains sondages d'opinion.</div>
+  </section>
+
+  <!-- DELTA BANNER -->
+  <div class="delta-banner">
+    <div class="delta-inner">
+      <div class="delta-item">
+        <div class="delta-lbl">Données officielles</div>
+        <div class="delta-val">60%</div>
+        <div class="delta-sub">Taux de participation moyennes<br>municipales 2020 · Ministère Intérieur</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item">
+        <div class="delta-lbl">Ressenti déclaratif Ressento</div>
+        <div class="delta-val">33%</div>
+        <div class="delta-sub">Rééligeraient leur maire<br>RI-IBM · Mars 2026</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item delta-result">
+        <div class="delta-lbl">Δ Delta Ressento</div>
+        <div class="delta-val">−27 pts</div>
+        <div class="delta-sub">Entre participation officielle<br>et intention déclarée de réélire</div>
+      </div>
     </div>
   </div>
-</footer>
+
+  <div class="indice-body">
+    <main>
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Résultats clés</h3>
+      <div class="kpi-grid">
+        <div class="kpi-box"><div class="kpi-val">46/100</div><div class="kpi-lbl">Score national RI-IBM</div><div class="kpi-src">Ressento, mars 2026</div></div>
+        <div class="kpi-box"><div class="kpi-val">67%</div><div class="kpi-lbl">Auraient voté pour un autre candidat au 2e tour</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val">3/5</div><div class="kpi-lbl">Note moyenne du maire — médiane nationale</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val" style="color:#E08080">↓ Sécu</div><div class="kpi-lbl">Domaine le moins bien perçu</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val" style="color:#7DC49E">↑ Cult.</div><div class="kpi-lbl">Seul domaine en perception positive</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééligeraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
+      </div>
+
+      <!-- Contexte données publiques -->
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Contexte — Confiance dans les institutions locales</div>
+        <div class="chart-container">
+          <div class="chart-lbl">Confiance déclarée envers les institutions locales — Baromètre CEVIPOF (%)</div>
+          <div class="chart-wrap"><canvas id="chart-ibm-1"></canvas></div>
+          <div class="chart-src">Source : CEVIPOF — Baromètre de la confiance politique, vagues 2020–2026</div>
+        </div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Participation aux élections municipales — France</div>
+        <div class="chart-container">
+          <div class="chart-lbl">Taux de participation (%) — Élections municipales 1977–2020</div>
+          <div class="chart-wrap"><canvas id="chart-ibm-2"></canvas></div>
+          <div class="chart-src">Source : Ministère de l'Intérieur — Résultats élections municipales</div>
+        </div>
+      </div>
+
+      <!-- Comparaison EU -->
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Confiance gouvernements locaux — Europe</h3>
+      <div id="eu-ibm" style="margin-bottom:1rem"></div>
+      <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurobaromètre Standard — Confiance dans les autorités locales et régionales, 2024</div>
+
+    </main>
+    <aside>
+      <div class="sb-block">
+        <div class="sb-title">Positionnement du score</div>
+        <div class="meter-segs" id="meter-ibm"></div>
+        <div class="meter-lbls"><span>0 Déçu</span><span>50 Neutre</span><span>100 Satisfait</span></div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Répartition par domaine</div>
+        <div id="distrib-ibm"></div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Sources &amp; données</div>
+        <div id="press-ibm"></div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Méthodologie</div>
+        <div id="method-ibm"></div>
+      </div>
+      <div class="cta-sb">
+        <div class="cta-sb-txt">Recevoir les prochains indices Ressento à leur publication.</div>
+        <button class="cta-sb-btn">Recevoir les résultats</button>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('indices')">← Tous les indices</button></li><li><button onclick="goTo('ivi')">Prochain : IVI →</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     INDICE IVI
+══════════════════════════════════════ -->
+<div id="page-ivi" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><button class="bc-btn" onclick="goTo('indices')">Indices</button><span class="bc-sep">›</span><span class="bc-cur">IVI</span></div>
+  <section class="indice-hero" style="background:linear-gradient(180deg,rgba(14,40,80,.98),rgba(18,48,90,.95))">
+    <div class="hero-grid-bg"></div>
+    <div class="indice-hero-grid">
+      <div>
+        <div class="indice-hero-eyebrow">Indice #02 · Avril 2026 · Collecte en cours</div>
+        <div class="indice-hero-name">IVI</div>
+        <div class="indice-hero-full" style="color:#8aaee0">Indice de Valeur de l'Impôt</div>
+        <div class="indice-hero-desc">Mesure la perception des contribuables français sur la valeur reçue en échange de leurs prélèvements obligatoires. Lancé le 9 avril 2026, calé sur la période de déclaration fiscale.</div>
+        <div style="margin-top:1.5rem"><a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:.9rem;padding:11px 24px">Participer à l'IVI →</a></div>
+      </div>
+      <div>
+        <div class="big-score-pending">Résultats<br>Mai 2026</div>
+        <div class="score-lbl">Collecte en cours — IVI 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELTA BANNER IVI -->
+  <div class="delta-banner">
+    <div class="delta-inner">
+      <div class="delta-item">
+        <div class="delta-lbl">Donnée officielle</div>
+        <div class="delta-val">45,3%</div>
+        <div class="delta-sub">Taux de prélèvements obligatoires / PIB<br>INSEE 2024 — Rang 1er en Europe</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item">
+        <div class="delta-lbl">Ressenti déclaratif</div>
+        <div class="delta-val">38%</div>
+        <div class="delta-sub">Font confiance à l'État pour gérer l'impôt<br>Baromètre Kantar 2024</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item delta-result">
+        <div class="delta-lbl">Δ Score IVI · À paraître</div>
+        <div class="delta-val" style="font-size:1.6rem;font-style:italic">Mai 2026</div>
+        <div class="delta-sub">Le Delta Ressento sera publié<br>avec les résultats consolidés</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="indice-body">
+    <main>
+      <!-- Formule -->
+      <div class="fbox" style="margin-bottom:2.5rem">
+        <div class="fbox-title">Formule de calcul IVI</div>
+        <div class="fbox-main"><span class="var">IVI</span> = <span class="var">Q2</span><span class="coef">×0,45</span> + <span class="var">Q1</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,25</span></div>
+        <div class="frow2"><span class="frow2-lbl">Q1 · Valeur perçue des services publics reçus</span><span class="frow2-w">×0,30</span></div>
+        <div class="frow2"><span class="frow2-lbl">Q2 · Équité fiscale ressentie (poids dominant)</span><span class="frow2-w">×0,45</span></div>
+        <div class="frow2"><span class="frow2-lbl">Q3 · Lisibilité de l'utilisation des fonds publics</span><span class="frow2-w">×0,25</span></div>
+        <div style="margin-top:14px;font-size:.72rem;color:var(--muted);line-height:1.65">La formule est documentée avant la collecte et ne peut être modifiée a posteriori.</div>
+      </div>
+
+      <!-- KPIs données publiques -->
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Contexte — Données officielles</h3>
+      <div class="kpi-grid">
+        <div class="kpi-box"><div class="kpi-val">45,3%</div><div class="kpi-lbl">Taux de prélèvements obligatoires / PIB</div><div class="kpi-src">INSEE, 2024</div></div>
+        <div class="kpi-box"><div class="kpi-val">1er</div><div class="kpi-lbl">Rang européen — niveau de prélèvements / PIB</div><div class="kpi-src">Eurostat, 2024</div></div>
+        <div class="kpi-box"><div class="kpi-val">984 Md€</div><div class="kpi-lbl">Recettes fiscales nettes de l'État</div><div class="kpi-src">DGFiP, 2023</div></div>
+        <div class="kpi-box"><div class="kpi-val">58%</div><div class="kpi-lbl">Estiment payer trop vs services rendus</div><div class="kpi-src">Ifop / Contribuables Assoc. 2024</div></div>
+        <div class="kpi-box"><div class="kpi-val">38%</div><div class="kpi-lbl">Font confiance à l'État pour l'impôt</div><div class="kpi-src">Baromètre Kantar, 2024</div></div>
+        <div class="kpi-box"><div class="kpi-val">34%</div><div class="kpi-lbl">Confiance envers le gouvernement national</div><div class="kpi-src">OCDE Trust Survey, 2023</div></div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Évolution des prélèvements obligatoires — France</div>
+        <div class="chart-container">
+          <div class="chart-lbl">Taux de prélèvements obligatoires (% PIB) — 2015–2024</div>
+          <div class="chart-wrap"><canvas id="chart-ivi-1"></canvas></div>
+          <div class="chart-src">Source : INSEE — Comptes nationaux, 2024</div>
+        </div>
+      </div>
+
+      <div class="chart-block">
+        <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Contribution à l'IR par tranche d'imposition</div>
+        <div class="chart-container">
+          <div class="chart-lbl">Produit de l'impôt sur le revenu par tranche (Mds €) — DGFiP 2023</div>
+          <div class="chart-wrap"><canvas id="chart-ivi-2"></canvas></div>
+          <div class="chart-src">Source : DGFiP — Statistiques des déclarations de revenus 2023</div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Prélèvements obligatoires — Comparaison européenne</h3>
+      <div id="eu-ivi" style="margin-bottom:1rem"></div>
+      <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurostat — Tax revenue statistics 2024 (% PIB)</div>
+    </main>
+
+    <aside>
+      <div class="sb-block">
+        <div class="sb-title">Répartition par canal</div>
+        <div id="distrib-ivi"></div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Sources &amp; références</div>
+        <div id="press-ivi"></div>
+      </div>
+      <div class="sb-block">
+        <div class="sb-title">Méthodologie IVI</div>
+        <div id="method-ivi"></div>
+      </div>
+      <div class="cta-sb">
+        <div class="cta-sb-txt">Participer à la collecte IVI — 12 questions, 60 secondes, anonyme. Résultats publiés en accès libre.</div>
+        <button class="cta-sb-btn" onclick="window.open('https://tally.so/r/vGLAdQ','_blank')">Répondre maintenant →</button>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('indices')">← Tous les indices</button></li><li><button onclick="goTo('ibm')">Voir RI-IBM →</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     METHODOLOGIE
+══════════════════════════════════════ -->
+<div id="page-methodologie" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">Méthode &amp; transparence</span></div>
+  <section class="pg-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Rigueur &amp; Transparence</div>
+      <h1 class="pg-h1">UNE MÉTHODE<br>CONSTRUITE <span class="gold">POUR DURER</span></h1>
+      <p class="pg-sub">Formules publiées avant collecte. Sources vérifiables. Biais documentés. Neutralité absolue. Accès libre total.</p>
+    </div>
+  </section>
+
+  <div class="method-body">
+    <div class="container">
+      <div class="method-two-col">
+        <nav class="method-nav-list">
+          <button class="method-nav-btn active" onclick="scrollTo('ms-principe')">Principe général</button>
+          <button class="method-nav-btn" onclick="scrollTo('ms-collecte')">Collecte</button>
+          <button class="method-nav-btn" onclick="scrollTo('ms-formules')">Formules</button>
+          <button class="method-nav-btn" onclick="scrollTo('ms-sources')">Sources officielles</button>
+          <button class="method-nav-btn" onclick="scrollTo('ms-biais')">Biais &amp; limites</button>
+          <button class="method-nav-btn" onclick="scrollTo('ms-neutralite')">Neutralité</button>
+        </nav>
+        <div>
+          <div class="method-section" id="ms-principe">
+            <div class="slabel">01</div>
+            <h2>Mesurer le perception gap, pas l'opinion</h2>
+            <p>Ressento ne produit pas des sondages d'opinion. Il produit des <strong>indices de perception croisés avec des données officielles</strong>. La différence est fondamentale.</p>
+            <p>Un sondage demande "êtes-vous satisfait ?" sans référence mesurable. Ressento demande "quelle valeur percevez-vous ?" et confronte la réponse à ce que les statistiques officielles indiquent. L'écart — le Delta — est la donnée centrale.</p>
+          </div>
+          <div class="method-section" id="ms-collecte">
+            <div class="slabel">02</div>
+            <h2>Collecte — Panel non-représentatif assumé</h2>
+            <p>Les questionnaires sont diffusés sur <strong>LinkedIn, Facebook, Instagram et email Brevo</strong>. Aucun panel payant. Aucune rémunération.</p>
+            <p>Ressento <strong>ne prétend pas à la représentativité statistique</strong> au sens de l'INSEE. Les répondants sont auto-sélectionnés — ce biais est documenté, pas caché. La valeur réside dans la répétition et la tendance, pas la précision d'une vague isolée.</p>
+            <p>Note méthodologique : le volume de répondants n'est pas communiqué pour préserver la crédibilité du protocole de collecte.</p>
+          </div>
+          <div class="method-section" id="ms-formules">
+            <div class="slabel">03</div>
+            <h2>Formules publiées avant collecte</h2>
+            <div class="fbox" style="margin:1.5rem 0">
+              <div class="fbox-title">RI-IBM · Indice du Bilan Municipal</div>
+              <div class="fbox-main"><span class="var">IBM</span> = <span class="var">Q1</span><span class="coef">×0,35</span> + <span class="var">Q2</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,20</span> + <span class="var">Q4</span><span class="coef">×0,15</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q1 · Satisfaction globale mairie</span><span class="frow2-w">×0,35</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q2 · Performance services locaux</span><span class="frow2-w">×0,30</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q3 · Note du maire</span><span class="frow2-w">×0,20</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q4 · Alignement démocratique perçu</span><span class="frow2-w">×0,15</span></div>
+            </div>
+            <div class="fbox">
+              <div class="fbox-title">IVI · Indice de Valeur de l'Impôt</div>
+              <div class="fbox-main"><span class="var">IVI</span> = <span class="var">Q2</span><span class="coef">×0,45</span> + <span class="var">Q1</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,25</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q2 · Équité fiscale ressentie</span><span class="frow2-w">×0,45</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q1 · Valeur perçue des services reçus</span><span class="frow2-w">×0,30</span></div>
+              <div class="frow2"><span class="frow2-lbl">Q3 · Lisibilité utilisation fonds publics</span><span class="frow2-w">×0,25</span></div>
+            </div>
+            <p style="margin-top:1.2rem">Chaque question est scorée sur 100 via une échelle de Likert à 5 niveaux. La pondération est <strong>fixée avant la collecte</strong> et ne peut être modifiée a posteriori.</p>
+          </div>
+          <div class="method-section" id="ms-sources">
+            <div class="slabel">04</div>
+            <h2>Sources officielles — Au moins 3 par indice</h2>
+            <p>Chaque indice identifie les données les plus proches disponibles auprès des organismes suivants :</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.08);margin:1.5rem 0">
+              <div style="background:var(--navy);padding:1rem"><div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">France</div><div style="font-size:.8rem;color:rgba(240,237,230,.5);line-height:1.8;font-weight:300">INSEE · DGFiP · Banque de France<br>Cour des Comptes · DARES · DRESS</div></div>
+              <div style="background:var(--navy);padding:1rem"><div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Europe &amp; international</div><div style="font-size:.8rem;color:rgba(240,237,230,.5);line-height:1.8;font-weight:300">Eurostat · Eurobaromètre · OCDE<br>BCE · FMI · Transparency International</div></div>
+            </div>
+            <p>Toutes les données sont citées avec source exacte, année de publication et URL. <strong>Aucune donnée non sourçable n'est utilisée.</strong></p>
+          </div>
+          <div class="method-section" id="ms-biais">
+            <div class="slabel">05</div>
+            <h2>Biais &amp; limites — Ce que Ressento n'est pas</h2>
+            <div class="limits-grid">
+              <div class="limit-item"><div class="limit-ttl">Biais de sélection</div><div class="limit-desc">Répondants auto-sélectionnés. Sur-représentation probable des profils actifs sur LinkedIn, sensibles aux questions civiques.</div></div>
+              <div class="limit-item"><div class="limit-ttl">Non-représentativité</div><div class="limit-desc">Ressento n'est pas un sondage représentatif au sens statistique. Les résultats ne sont pas extrapolables à la population française.</div></div>
+              <div class="limit-item"><div class="limit-ttl">Taille d'échantillon</div><div class="limit-desc">Insuffisant pour des analyses par sous-groupes fins. Le volume exact n'est pas communiqué — voir note méthodologique.</div></div>
+              <div class="limit-item"><div class="limit-ttl">Biais de désirabilité</div><div class="limit-desc">Sur des sujets politiques ou fiscaux, les répondants peuvent sous-déclarer leur défiance réelle par autocensure sociale.</div></div>
+            </div>
+          </div>
+          <div class="method-section" id="ms-neutralite">
+            <div class="slabel">06</div>
+            <h2>Neutralité — Zéro opinion, uniquement de la mesure</h2>
+            <p>Ressento applique une règle éditoriale stricte et non-négociable : <strong>aucun commentaire politique, aucune recommandation de politique publique, aucune opinion sur les résultats.</strong></p>
+            <p>Un score IVI de 38/100 ne signifie pas que les impôts sont trop élevés. Il signifie que les Français perçoivent une valeur de 38/100. C'est un fait mesurable. Son interprétation appartient au lecteur.</p>
+            <div style="background:rgba(201,168,76,.04);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-top:1.5rem">
+              <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Règle absolue</div>
+              <div style="font-size:.85rem;color:var(--offwhite);line-height:1.7">Toute publication Ressento doit passer ce test : <strong>est-ce que je mesure, ou est-ce que je commente ?</strong> Si la réponse est "je commente", le contenu n'est pas publiable sous le label Ressento.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Navigation</div><ul class="flinks"><li><button onclick="goTo('home')">Accueil</button></li><li><button onclick="goTo('indices')">Indices</button></li><li><button onclick="goTo('approche')">Notre approche</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Initiative citoyenne indépendante. Les indices ne constituent pas des sondages au sens de la loi du 19 juillet 1977.</div></div>
+    </div>
+  </footer>
+</div>
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 65);
-        obs.unobserve(e.target);
-      }
+// ── ROUTING ──────────────────────────────────────────────────
+const PAGES=['home','approche','indices','ibm','ivi','methodologie'];
+let activeCharts=[];
+
+function goTo(id){
+  PAGES.forEach(p=>{document.getElementById('page-'+p)?.classList.remove('active');});
+  document.getElementById('page-'+id)?.classList.add('active');
+  window.scrollTo(0,0);
+  ['home','approche','indices','methodologie'].forEach(n=>{
+    const el=document.getElementById('nl-'+n);
+    if(el) el.classList.remove('active');
+  });
+  const map={home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie'};
+  const nl=document.getElementById('nl-'+(map[id]||id));
+  if(nl) nl.classList.add('active');
+  activeCharts.forEach(c=>{try{c.destroy();}catch(e){}});
+  activeCharts=[];
+  if(id==='ibm') setTimeout(initIBM,100);
+  if(id==='ivi') setTimeout(initIVI,100);
+  // Scroll reveal
+  setupReveal();
+}
+
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+
+function setupReveal(){
+  const els=document.querySelectorAll('.page.active .reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);obs.unobserve(e.target);}
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
-  reveals.forEach(el => obs.observe(el));
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 40 ? '0 4px 32px rgba(0,0,0,.42)' : 'none';
-  }, { passive: true });
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  sections.forEach(s =>
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) navLinks.forEach(a => {
-          a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--offwhite)' : '';
-        });
-      });
-    }, { threshold: 0.4 }).observe(s)
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>obs.observe(el));
+}
+
+// ── SIDEBAR HELPERS ───────────────────────────────────────────
+function buildDistrib(id,rows){
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=rows.map(r=>`<div class="distrib-row"><div class="distrib-lbl">${r.l}</div><div class="distrib-track"><div class="distrib-fill" style="width:${r.p}%"></div></div><div class="distrib-pct">${r.p}%</div></div>`).join('');
+}
+function buildPress(id,items){
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=items.map(p=>`<a class="press-item" href="${p.url}" target="_blank" rel="noopener"><div class="press-src">${p.src}</div><div class="press-ttl">${p.ttl}</div><div class="press-date">${p.date}</div></a>`).join('');
+}
+function buildMethod(id,steps){
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML=steps.map((s,i)=>`<div class="method-item"><div class="method-n">0${i+1}</div><div class="method-t"><strong>${s.t}</strong>${s.d}</div></div>`).join('');
+}
+function buildMeter(id,score){
+  const el=document.getElementById(id);if(!el)return;
+  let h='';
+  for(let i=0;i<10;i++){
+    const p=(i+1)*10;
+    let cls='';
+    if(score!==null){
+      if(p<=40) cls=p<=score?'seg-red':'';
+      else if(p<=65) cls=p<=score?'seg-amber':'';
+      else cls=p<=score?'seg-green':'';
+    }
+    h+=`<div class="meter-seg ${cls}"></div>`;
+  }
+  el.innerHTML=h;
+}
+function buildEU(id,rows){
+  const el=document.getElementById(id);if(!el)return;
+  const max=Math.max(...rows.map(r=>r.v));
+  el.innerHTML=rows.map(r=>`<div class="eu-row ${r.fr?'fr':''}"><div class="eu-flag">${r.f}</div><div class="eu-country">${r.c}</div><div class="eu-bar-w"><div class="eu-bar-f" style="width:${(r.v/max*100).toFixed(1)}%"></div></div><div class="eu-val">${r.v}${r.u||'%'}</div></div>`).join('');
+}
+function mkChart(id,type,labels,datasets,opts){
+  const ctx=document.getElementById(id);if(!ctx)return;
+  const c=new Chart(ctx,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(136,153,180,.8)'}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'var(--muted)'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'var(--muted)'},...(opts||{})}}}});
+  activeCharts.push(c);
+}
+
+// ── IBM ───────────────────────────────────────────────────────
+function initIBM(){
+  const b=document.getElementById('bar-ibm');if(b) b.style.width='46%';
+  buildMeter('meter-ibm',46);
+  buildDistrib('distrib-ibm',[
+    {l:'Sécurité',p:28},{l:'Transports',p:42},{l:'Ecoles',p:55},{l:'Voirie',p:38},{l:'Culture',p:62},
+  ]);
+  buildPress('press-ibm',[
+    {src:'CEVIPOF 2026',ttl:'Baromètre confiance politique — La proximité fait refuge',date:'Janv. 2026',url:'https://www.sciencespo.fr/cevipof'},
+    {src:'Ministère Intérieur',ttl:'Résultats élections municipales 2020',date:'2020',url:'https://www.interieur.gouv.fr'},
+    {src:'Eurobaromètre',ttl:'Trust in local/regional authorities — Standard 2024',date:'Déc. 2024',url:'https://ec.europa.eu/eurostat'},
+    {src:'Cour des Comptes',ttl:'Les finances des communes — Rapport 2024',date:'2024',url:'https://www.ccomptes.fr'},
+  ]);
+  buildMethod('method-ibm',[
+    {t:'Questionnaire',d:'Diffusé sur LinkedIn, Facebook groupes citoyens, Instagram et Brevo.'},
+    {t:'Formule',d:'4 axes pondérés : satisfaction globale (35%), services (30%), maire (20%), démocratie (15%).'},
+    {t:'Croisement',d:'Confronté aux données CEVIPOF, participation électorale et Eurobaromètre.'},
+    {t:'Volume',d:'Volume de répondants non communiqué — voir note méthodologique.'},
+  ]);
+  buildEU('eu-ibm',[
+    {f:'🇩🇰',c:'Danemark',v:76},{f:'🇫🇮',c:'Finlande',v:74},{f:'🇸🇪',c:'Suède',v:70},
+    {f:'🇳🇱',c:'Pays-Bas',v:67},{f:'🇩🇪',c:'Allemagne',v:62},
+    {f:'🇫🇷',c:'France',v:52,fr:true},
+    {f:'🇪🇸',c:'Espagne',v:48},{f:'🇮🇹',c:'Italie',v:40},{f:'🇬🇷',c:'Grèce',v:32},
+  ]);
+  mkChart('chart-ibm-1','line',
+    ['2020','2021','2022','2023','2024','2026'],
+    [{label:'Confiance maire (%)',data:[60,58,55,52,57,60],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'},
+     {label:'Confiance gouvernement (%)',data:[33,31,28,27,30,34],borderColor:'rgba(136,153,180,.6)',backgroundColor:'rgba(136,153,180,.04)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:'rgba(136,153,180,.6)'}],
+    {min:20,max:75}
   );
+  mkChart('chart-ibm-2','bar',
+    ['1977','1983','1989','1995','2001','2008','2014','2020'],
+    [{label:'Participation (%)',data:[72.8,78.4,73.5,70.3,67.3,66.5,63.9,60.1],backgroundColor:'rgba(201,168,76,.55)'}],
+    {min:50,max:85}
+  );
+}
+
+// ── IVI ───────────────────────────────────────────────────────
+function initIVI(){
+  buildDistrib('distrib-ivi',[
+    {l:'LinkedIn',p:45},{l:'Facebook',p:30},{l:'Instagram',p:15},{l:'Email',p:10},
+  ]);
+  buildPress('press-ivi',[
+    {src:'Les Échos',ttl:'INSEE : la redistribution fiscale en données 2024',date:'17 avr. 2026',url:'#'},
+    {src:'INSEE',ttl:'Les prélèvements obligatoires en 2023',date:'Fév. 2025',url:'https://www.insee.fr'},
+    {src:'DGFiP',ttl:'Statistiques des déclarations de revenus 2023',date:'2024',url:'https://www.impots.gouv.fr'},
+    {src:'Eurostat',ttl:'Tax revenue statistics — EU comparison 2024',date:'2024',url:'https://ec.europa.eu/eurostat'},
+    {src:'OCDE',ttl:'Revenue Statistics 2024 — France',date:'Nov. 2024',url:'https://www.oecd.org'},
+  ]);
+  buildMethod('method-ivi',[
+    {t:'Lancement',d:'9 avril 2026 — calé sur l\'ouverture des déclarations fiscales.'},
+    {t:'Formule',d:'Q2 (équité 45%) + Q1 (valeur services 30%) + Q3 (lisibilité 25%).'},
+    {t:'Canaux',d:'LinkedIn, Facebook groupes, Instagram, email Brevo.'},
+    {t:'Publication',d:'Résultats consolidés prévus mai 2026, avec Delta officiel/ressenti.'},
+  ]);
+  buildEU('eu-ivi',[
+    {f:'🇮🇪',c:'Irlande',v:22.9,u:'%'},{f:'🇷🇴',c:'Roumanie',v:27.8,u:'%'},
+    {f:'🇪🇪',c:'Estonie',v:34.2,u:'%'},{f:'🇩🇪',c:'Allemagne',v:39.8,u:'%'},
+    {f:'🇪🇸',c:'Espagne',v:38.7,u:'%'},{f:'🇸🇪',c:'Suède',v:41.6,u:'%'},
+    {f:'🇦🇹',c:'Autriche',v:42.5,u:'%'},{f:'🇧🇪',c:'Belgique',v:43.8,u:'%'},
+    {f:'🇩🇰',c:'Danemark',v:44.0,u:'%'},
+    {f:'🇫🇷',c:'France',v:45.3,u:'%',fr:true},
+  ]);
+  mkChart('chart-ivi-1','line',
+    ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],
+    [{label:'Prélèvements obligatoires (% PIB)',data:[44.5,44.6,45.3,45.0,44.1,45.4,44.6,45.4,45.1,45.3],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'}],
+    {min:42,max:47}
+  );
+  mkChart('chart-ivi-2','bar',
+    ['Tranche 11%','Tranche 30%','Tranche 41%','Tranche 45%'],
+    [{label:'Contribution IR (Mds €)',data:[11.2,38.4,42.1,31.7],backgroundColor:['rgba(201,168,76,.35)','rgba(201,168,76,.5)','rgba(201,168,76,.7)','rgba(201,168,76,.9)']}],
+    {}
+  );
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  goTo('home');
+  window.addEventListener('scroll',()=>{
+    document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';
+  },{passive:true});
+});
 </script>
 
 
