@@ -569,6 +569,98 @@ h1.hh .gold{color:var(--gold)}
   .nl-banner-form{max-width:100%;width:100%}
   .delta-gauge-wrap{flex-direction:column}
 }
+
+/* ── ANALYSE NARRATIVE IBM ── */
+.ibm-analysis{margin:2rem 0 3rem}
+.analysis-intro{margin-bottom:2.5rem}
+.analysis-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.04em;color:var(--text-high);line-height:1;margin-bottom:1rem}
+.analysis-lead{font-size:.95rem;line-height:1.88;color:var(--text-med);font-weight:400;max-width:680px;border-left:2px solid rgba(201,168,76,.3);padding-left:1.2rem}
+
+.analysis-delta-block{background:linear-gradient(145deg,rgba(12,28,60,.6),rgba(14,32,68,.5));border:1px solid var(--border-gold);border-radius:var(--rl);padding:1.8rem 2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.analysis-delta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+
+.adb-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+.adb-num{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.1em;color:var(--gold);background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);padding:.3rem .8rem;border-radius:var(--r)}
+.adb-title{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;color:var(--text-high)}
+
+.adb-vis{margin-bottom:1.4rem;display:flex;flex-direction:column;gap:.7rem}
+.adb-bar-wrap{display:flex;align-items:center;gap:.8rem}
+.adb-bar-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:160px;flex-shrink:0}
+.adb-bar-track{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.adb-bar-fill{height:100%;border-radius:4px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.adb-bar-val{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.02em;width:50px;text-align:right;flex-shrink:0}
+.adb-gap-tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);color:var(--gold);padding:.3rem .8rem;border-radius:20px;margin-top:.4rem;align-self:flex-start}
+
+.adb-domains{margin-bottom:1.4rem;display:flex;flex-direction:column;gap:.55rem}
+.adb-domain-row{display:flex;align-items:center;gap:.8rem}
+.adb-domain-name{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-med);width:80px;flex-shrink:0}
+.adb-domain-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.adb-domain-fill{height:100%;border-radius:3px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.adb-domain-score{font-family:var(--font-display);font-size:1rem;width:36px;text-align:right;flex-shrink:0}
+
+.adb-paradox{display:flex;align-items:center;justify-content:center;gap:2rem;padding:1.5rem;background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);border-radius:var(--r);margin-bottom:1.4rem}
+.adb-paradox-item{text-align:center}
+.adb-paradox-val{font-family:var(--font-display);font-size:3rem;letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.adb-paradox-lbl{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.adb-paradox-arrow{font-family:var(--font-display);font-size:2rem;color:rgba(201,168,76,.25)}
+
+.adb-text{font-size:.9rem;line-height:1.85;color:var(--text-med);font-weight:400;margin:0}
+
+.analysis-note{background:rgba(255,255,255,.015);border:1px solid var(--border-subtle);padding:1.2rem 1.4rem;border-radius:var(--r);margin-top:2rem}
+
+@media(max-width:640px){
+  .adb-bar-label{width:90px;font-size:.55rem}
+  .adb-paradox{flex-direction:column;gap:1rem}
+  .adb-paradox-arrow{transform:rotate(90deg)}
+}
+
+/* ── PAGE PRESSE ── */
+.presse-hero{padding:5.5rem 32px 4rem;background:linear-gradient(180deg,rgba(15,33,73,1),rgba(18,40,85,.9));position:relative;overflow:hidden}
+.presse-hero::after{content:'';position:absolute;top:-20%;right:-5%;width:500px;height:500px;background:radial-gradient(ellipse,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
+.presse-body{max-width:900px;margin:0 auto;padding:3.5rem 32px 5rem}
+.presse-section{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border-subtle)}
+.presse-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+
+/* En bref */
+.presse-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1);margin:1.5rem 0}
+.presse-stat{background:var(--navy-card);padding:1.4rem}
+.presse-stat-val{font-family:var(--font-display);font-size:2rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.presse-stat-lbl{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-med);line-height:1.5}
+
+/* Kit téléchargeable */
+.kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.08);margin:1.5rem 0}
+.kit-item{background:var(--navy-card);padding:1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.kit-icon{font-size:1.6rem}
+.kit-title{font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--text-high)}
+.kit-desc{font-family:var(--font-mono);font-size:.62rem;color:var(--text-low);line-height:1.5}
+.kit-dl{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.25);padding:.4rem .8rem;border-radius:var(--r);cursor:pointer;transition:all .2s;background:transparent;margin-top:auto}
+.kit-dl:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.5)}
+
+/* Charte couleurs */
+.charte-colors{display:flex;gap:12px;flex-wrap:wrap;margin:1.2rem 0}
+.charte-swatch{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.charte-color{width:56px;height:56px;border-radius:var(--r);border:1px solid rgba(255,255,255,.08)}
+.charte-hex{font-family:var(--font-mono);font-size:.6rem;color:var(--text-low);letter-spacing:.06em}
+.charte-name{font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);letter-spacing:.04em}
+
+/* Angles presse */
+.angles-list{display:flex;flex-direction:column;gap:0;margin:1.5rem 0}
+.angle-item{padding:1.1rem 0;border-bottom:1px solid var(--border-subtle);display:grid;grid-template-columns:24px 1fr;gap:.8rem;align-items:start}
+.angle-item:last-child{border-bottom:none}
+.angle-num{font-family:var(--font-mono);font-size:.6rem;color:var(--gold);padding-top:.15rem}
+.angle-content{}
+.angle-title{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.3rem}
+.angle-desc{font-size:.84rem;color:var(--text-med);line-height:1.65;font-weight:400}
+.angle-data{font-family:var(--font-mono);font-size:.62rem;color:rgba(201,168,76,.6);margin-top:.4rem;letter-spacing:.04em}
+
+/* Contact presse */
+.presse-contact{background:linear-gradient(145deg,rgba(14,38,80,.7),rgba(18,48,90,.65));border:1px solid rgba(201,168,76,.15);padding:2rem;border-radius:var(--r);position:relative;overflow:hidden}
+.presse-contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.35),transparent)}
+
+@media(max-width:720px){
+  .presse-stats,.kit-grid{grid-template-columns:1fr}
+  .charte-colors{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -610,7 +702,7 @@ h1.hh .gold{color:var(--gold)}
 
 
 <!-- ══ NEWSLETTER STICKY BANNER ══ -->
-<div class="nl-banner" id="nl-banner">
+<div class="nl-banner visible" id="nl-banner">
   <div class="nl-banner-left">
     <div class="nl-banner-dot"></div>
     <div class="nl-banner-text">
@@ -633,7 +725,7 @@ h1.hh .gold{color:var(--gold)}
 
   <div class="ticker-wrap" id="ticker-wrap">
     <div class="ticker-track" id="ticker-track">
-      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −14 pts</span></div>
       <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
       <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
       <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
@@ -644,7 +736,7 @@ h1.hh .gold{color:var(--gold)}
       <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
-      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
+      <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −14 pts</span></div>
       <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
       <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
       <div class="ticker-item"><span class="ticker-label">Prélèvements France</span><span class="ticker-val gold">45,3%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">PIB · Rang 1er EU</span></div>
@@ -670,7 +762,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="si-divider"></div>
         <div class="si-text">
           <strong>RI-IBM publié — Score national du Bilan Municipal.</strong><br>
-          67% des Français auraient voté pour un autre candidat. Delta officiel : −8 pts.
+          67% auraient voté autrement. Delta perception : −14 pts entre note brute et bilan agrégé.
           <span style="margin-left:10px;font-family:var(--font-mono);font-size:.6rem;color:rgba(201,168,76,.6);cursor:pointer;text-decoration:underline" onclick="goTo('ibm')">Voir l'analyse →</span>
         </div>
       </div>
@@ -753,14 +845,14 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Surcoût carburant · Ménages français 2026</div>
-          <div class="counter-val" id="cnt-carbu">1,38 Md €</div>
+          <div class="counter-val" id="cnt-carbu">1,39 Md €</div>
           <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
           <div class="counter-src">Base : +50 cts/L · 38M véhicules · conso moy. nationale · INSEE 2024</div>
         </div>
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">317,00 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">317,57 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -789,7 +881,7 @@ h1.hh .gold{color:var(--gold)}
         <div><div class="fcol-t">Les indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM · Bilan Municipal ✓</button></li><li><button onclick="goTo('ivi')">IVI · Valeur de l'impôt ↗</button></li><li><a href="/carburant" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">⛽ Calculateur Carburant</a></li><li><button onclick="goTo('indices')">Tous les indices →</button></li></ul></div>
         <div><div class="fcol-t">La plateforme</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode &amp; transparence</button></li><li><button onclick="goTo('indices')">Calendrier des indices</button></li></ul></div>
       </div>
-      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés · <button onclick="goTo('presse')" style="color:var(--text-faint);background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-decoration:underline">Espace presse</button></div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
     </div>
   </footer>
 </div>
@@ -922,7 +1014,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="hub-card-full">Indice du Bilan Municipal</div>
         <div class="hub-card-score">46</div>
         <div class="hub-card-score-sub">/ 100 · Score national</div>
-        <div class="hub-card-delta">Satisfaction mairie : <span>46/100</span><br>Vote réélu : <span>33%</span> · Sécurité perception : <span>↓ critique</span></div>
+        <div class="hub-card-delta">Score agrégé : <span>46/100</span> · Delta : <span>−14 pts</span><br>Réélection : <span>33%</span> · Sécurité : <span>28/100 ↓</span></div>
         <div class="hub-card-cta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Voir l'analyse complète</div>
       </div>
       <div class="hub-card" onclick="goTo('ivi')">
@@ -999,42 +1091,147 @@ h1.hh .gold{color:var(--gold)}
     </div>
   </section>
 
+  <!-- DELTA BANNER IBM — revu -->
   <div class="delta-banner">
     <div class="delta-inner">
       <div class="delta-item">
-        <div class="delta-lbl">Données officielles</div>
-        <div class="delta-val">54%</div>
-        <div class="delta-sub">Score moyen de satisfaction<br>services communaux · DGCL 2024</div>
+        <div class="delta-lbl">Note directe du maire · Ressento IBM</div>
+        <div class="delta-val">3/5</div>
+        <div class="delta-sub">Note brute médiane donnée au maire<br>par les répondants · Mars 2026</div>
       </div>
       <div class="delta-op">→</div>
       <div class="delta-item">
-        <div class="delta-lbl">Ressenti déclaratif Ressento</div>
+        <div class="delta-lbl">Score agrégé RI-IBM · Ressento</div>
         <div class="delta-val">46/100</div>
-        <div class="delta-sub">Score national RI-IBM<br>Ressento · Mars 2026</div>
+        <div class="delta-sub">Bilan global perçu : services, démocratie,<br>sécurité, culture · Mars 2026</div>
       </div>
       <div class="delta-op">→</div>
       <div class="delta-item delta-result">
         <div class="delta-lbl">Δ Delta Ressento</div>
-        <div class="delta-val">−8 pts</div>
-        <div class="delta-sub">67% auraient voté<br>pour un autre candidat au 2e tour</div>
+        <div class="delta-val">−14 pts</div>
+        <div class="delta-sub">La note seule ne suffit pas.<br>Le bilan agrégé révèle l'écart réel.</div>
       </div>
     </div>
   </div>
 
   <div class="indice-body">
     <main>
-      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Résultats clés</h3>
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Résultats clés · RI-IBM · Mars 2026</h3>
+      <!-- KPI GRID IBM -->
       <div class="kpi-grid">
-        <div class="kpi-box"><div class="kpi-val">46/100</div><div class="kpi-lbl">Score national RI-IBM</div><div class="kpi-src">Ressento, mars 2026</div></div>
+        <div class="kpi-box"><div class="kpi-val">46/100</div><div class="kpi-lbl">Score national RI-IBM · Bilan global perçu</div><div class="kpi-src">Ressento · Mars 2026</div></div>
+        <div class="kpi-box"><div class="kpi-val">−14 pts</div><div class="kpi-lbl">Delta entre note brute maire (3/5) et score agrégé IBM</div><div class="kpi-src">Ressento · Perception gap mesuré</div></div>
         <div class="kpi-box"><div class="kpi-val">67%</div><div class="kpi-lbl">Auraient voté pour un autre candidat au 2e tour</div><div class="kpi-src">Ressento RI-IBM</div></div>
-        <div class="kpi-box"><div class="kpi-val">3/5</div><div class="kpi-lbl">Note moyenne du maire — médiane nationale</div><div class="kpi-src">Ressento RI-IBM</div></div>
-        <div class="kpi-box"><div class="kpi-val" style="color:#E08080">↓ Sécu</div><div class="kpi-lbl">Domaine le moins bien perçu</div><div class="kpi-src">Ressento RI-IBM</div></div>
-        <div class="kpi-box"><div class="kpi-val" style="color:#7DC49E">↑ Cult.</div><div class="kpi-lbl">Seul domaine en perception positive</div><div class="kpi-src">Ressento RI-IBM</div></div>
-        <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééliraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Seulement rééliraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val" style="color:#E08080">28/100</div><div class="kpi-lbl">Sécurité — domaine le plus critique</div><div class="kpi-src">Ressento RI-IBM</div></div>
+        <div class="kpi-box"><div class="kpi-val" style="color:#7DC49E">62/100</div><div class="kpi-lbl">Culture — seul domaine en perception positive</div><div class="kpi-src">Ressento RI-IBM</div></div>
+      </div>
+
+      <!-- CONTEXTE DGCL — donnée complémentaire, pas comparative -->
+      <div style="background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1rem 1.4rem;margin:-1.5rem 0 2.5rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
+        <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Données de contexte</div>
+        <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-low)">Satisfaction services communaux · DGCL 2024 : <span style="color:var(--text-med)">54%</span> — mesure distincte, non directement comparable au score IBM agrégé</div>
       </div>
 
       <!-- DELTA GAUGE -->
       <div id="delta-gauge-ibm" style="margin-bottom:1.5rem"></div>
+
+      <!-- ANALYSE NARRATIVE IBM — 3 deltas -->
+      <div class="ibm-analysis">
+
+        <!-- Intro -->
+        <div class="analysis-intro reveal">
+          <div class="slabel" style="margin-bottom:.8rem">Analyse · RI-IBM · Mars 2026</div>
+          <h2 class="analysis-title">Ce que le score <span style="color:var(--gold)">révèle vraiment</span></h2>
+          <p class="analysis-lead">Un score de 46/100 se lit comme une insatisfaction modérée. Mais derrière ce chiffre, trois écarts précis dessinent un tableau plus nuancé — et plus préoccupant — de la relation entre les citoyens français et leurs maires.</p>
+        </div>
+
+        <!-- Delta 1 -->
+        <div class="analysis-delta-block reveal">
+          <div class="adb-header">
+            <div class="adb-num">Δ 01</div>
+            <div class="adb-title">La note ne dit pas tout</div>
+          </div>
+          <div class="adb-vis">
+            <div class="adb-bar-wrap">
+              <div class="adb-bar-label">Note brute du maire · 3/5</div>
+              <div class="adb-bar-track"><div class="adb-bar-fill" style="width:60%;background:rgba(240,237,230,.3)"></div></div>
+              <div class="adb-bar-val" style="color:var(--text-med)">60/100</div>
+            </div>
+            <div class="adb-bar-wrap">
+              <div class="adb-bar-label">Score agrégé RI-IBM</div>
+              <div class="adb-bar-track"><div class="adb-bar-fill" style="width:46%;background:var(--gold)"></div></div>
+              <div class="adb-bar-val" style="color:var(--gold)">46/100</div>
+            </div>
+            <div class="adb-gap-tag">−14 pts · Perception gap</div>
+          </div>
+          <p class="adb-text">Les répondants notent leur maire 3/5 — une note passable qui pourrait laisser penser à une satisfaction relative. Mais dès qu'on agrège les quatre dimensions du bilan — services locaux, sécurité, culture, alignement démocratique — le score tombe à 46/100. Cet écart de 14 points est le cœur du perception gap IBM : <strong style="color:var(--text-high)">la note brute masque une insatisfaction structurelle que seule la mesure agrégée révèle.</strong></p>
+        </div>
+
+        <!-- Delta 2 -->
+        <div class="analysis-delta-block reveal">
+          <div class="adb-header">
+            <div class="adb-num">Δ 02</div>
+            <div class="adb-title">Une insatisfaction ciblée, pas globale</div>
+          </div>
+          <div class="adb-domains">
+            <div class="adb-domain-row">
+              <div class="adb-domain-name">Culture</div>
+              <div class="adb-domain-track"><div class="adb-domain-fill" style="width:62%;background:#2d6a4f"></div></div>
+              <div class="adb-domain-score" style="color:#7DC49E">62</div>
+            </div>
+            <div class="adb-domain-row">
+              <div class="adb-domain-name">Écoles</div>
+              <div class="adb-domain-track"><div class="adb-domain-fill" style="width:55%;background:rgba(201,168,76,.5)"></div></div>
+              <div class="adb-domain-score" style="color:var(--gold)">55</div>
+            </div>
+            <div class="adb-domain-row">
+              <div class="adb-domain-name">Transports</div>
+              <div class="adb-domain-track"><div class="adb-domain-fill" style="width:42%;background:rgba(201,168,76,.35)"></div></div>
+              <div class="adb-domain-score" style="color:rgba(201,168,76,.7)">42</div>
+            </div>
+            <div class="adb-domain-row">
+              <div class="adb-domain-name">Voirie</div>
+              <div class="adb-domain-track"><div class="adb-domain-fill" style="width:38%;background:rgba(224,128,128,.4)"></div></div>
+              <div class="adb-domain-score" style="color:#E08080">38</div>
+            </div>
+            <div class="adb-domain-row">
+              <div class="adb-domain-name">Sécurité</div>
+              <div class="adb-domain-track"><div class="adb-domain-fill" style="width:28%;background:#bf3a1a"></div></div>
+              <div class="adb-domain-score" style="color:#E08080">28</div>
+            </div>
+            <div class="adb-gap-tag" style="margin-top:.8rem">34 pts d'écart entre le domaine le mieux et le moins bien perçu</div>
+          </div>
+          <p class="adb-text">L'écart de 34 points entre la culture (62/100) et la sécurité (28/100) au sein du même indice est le signal le plus important du RI-IBM. <strong style="color:var(--text-high)">L'insatisfaction n'est pas uniforme — elle est concentrée sur des domaines régaliens précis.</strong> Les citoyens distinguent ce qui relève de la compétence municipale perçue (culture, écoles) de ce qui relève d'un sentiment de défaillance (sécurité, voirie). Ce n'est pas un rejet du maire — c'est un diagnostic sectoriel.</p>
+        </div>
+
+        <!-- Delta 3 -->
+        <div class="analysis-delta-block reveal">
+          <div class="adb-header">
+            <div class="adb-num">Δ 03</div>
+            <div class="adb-title">Le paradoxe démocratique</div>
+          </div>
+          <div class="adb-paradox">
+            <div class="adb-paradox-item">
+              <div class="adb-paradox-val" style="color:var(--text-med)">67%</div>
+              <div class="adb-paradox-lbl">auraient voté pour<br>un autre candidat</div>
+            </div>
+            <div class="adb-paradox-arrow">↔</div>
+            <div class="adb-paradox-item">
+              <div class="adb-paradox-val" style="color:var(--gold)">33%</div>
+              <div class="adb-paradox-lbl">seulement rééliraient<br>leur maire actuel</div>
+            </div>
+          </div>
+          <p class="adb-text">Deux tiers des répondants déclarent qu'ils auraient voté différemment, et seulement un tiers rééliraient leur maire. Ce n'est pas un score de satisfaction — c'est un score de légitimité perçue. <strong style="color:var(--text-high)">Le maire est en poste, mais son mandat ne reflète pas le ressenti de la majorité des citoyens interrogés.</strong> Ce paradoxe — être élu sans être plébiscité — est précisément ce que le RI-IBM mesure et que les données officielles ne capturent pas.</p>
+        </div>
+
+        <!-- Note méthodologique -->
+        <div class="analysis-note reveal">
+          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Note méthodologique</div>
+          <p style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400;margin:0">Ces résultats sont issus d'un panel auto-sélectionné, non représentatif au sens statistique. Ils ne sont pas extrapolables à l'ensemble de la population française. La valeur de l'indice réside dans la tendance et la répétabilité, non dans la précision d'une vague isolée. La satisfaction mesurée par la DGCL (54% · services communaux) est une donnée complémentaire de contexte, non directement comparable au score agrégé IBM.</p>
+        </div>
+
+      </div>
 
       <!-- SHARE BLOCK -->
       <div class="share-block">
@@ -1508,6 +1705,16 @@ const PAGE_META = {
     desc: 'Ressento est né d\'un constat : l\'écart entre les données officielles et ce que les citoyens vivent n\'était mesuré nulle part. Apolitique, indépendant, sources ouvertes.',
     url: '/manifeste'
   },
+  presse: {
+    title: 'Espace Presse — Kit média & contacts | Ressento',
+    desc: 'Kit média Ressento : présentation de l\'observatoire, angles éditoriaux, charte graphique, contact presse. Observatoire indépendant du perception gap citoyen en France.',
+    url: '/presse'
+  },
+  presse: {
+    title: 'Espace Presse — Kit média & contacts | Ressento',
+    desc: 'Kit média Ressento : présentation de l\'observatoire, angles éditoriaux, charte graphique, contact presse.',
+    url: '/presse'
+  },
   merci: {
     title: 'Merci d\'avoir participé à l\'IVI | Ressento',
     desc: 'Votre réponse contribue à mesurer le perception gap fiscal. Résultats publiés en mai 2026. Partagez l\'IVI avec votre réseau.',
@@ -1530,7 +1737,7 @@ function updateMeta(id) {
 
 // ── ROUTING ────────────────────────────────────────────────────
 window._nativeScrollTo = window.scrollTo.bind(window);
-const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci','manifeste'];
+const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci','manifeste','presse'];
 let activeCharts = [];
 let counterInterval = null;
 
@@ -1543,7 +1750,7 @@ function goTo(id) {
     const el = document.getElementById('nl-'+n);
     if(el) el.classList.remove('active');
   });
-  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie',manifeste:'manifeste'};
+  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie',manifeste:'manifeste',presse:'home'};
   const nl = document.getElementById('nl-'+(navMap[id]||id));
   if(nl) nl.classList.add('active');
   activeCharts.forEach(c => { try{c.destroy();}catch(e){} });
@@ -1929,17 +2136,17 @@ function renderDeltaGaugeIBM() {
   container.innerHTML = `
     <div class="delta-gauge-wrap">
       <div class="dg-side">
-        <span class="dg-label">Donnée officielle · DGCL 2024</span>
-        <div class="dg-num" style="color:var(--text-high)">54<span style="font-size:1.4rem;color:rgba(240,237,230,.3)">/100</span></div>
-        <div class="dg-sub">Score moyen satisfaction<br>services communaux</div>
+        <span class="dg-label">Note brute du maire · Ressento</span>
+        <div class="dg-num" style="color:var(--text-high)">3<span style="font-size:1.4rem;color:rgba(240,237,230,.3)">/5</span></div>
+        <div class="dg-sub">Note médiane donnée<br>directement au maire</div>
         <div style="margin-top:1rem;height:5px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden">
           <div style="width:54%;height:100%;background:rgba(240,237,230,.25);border-radius:2px"></div>
         </div>
       </div>
       <div class="dg-center">
         <span class="dg-delta-label">Δ Delta Ressento</span>
-        <div class="dg-delta-val">−8</div>
-        <div class="dg-delta-sub">pts de<br>perception gap</div>
+        <div class="dg-delta-val">−14</div>
+        <div class="dg-delta-sub">pts entre note brute<br>et bilan agrégé</div>
         <svg width="52" height="52" viewBox="0 0 52 52" style="margin-top:.8rem;display:block">
           <circle cx="26" cy="26" r="20" fill="none" stroke="rgba(201,168,76,.12)" stroke-width="4"/>
           <circle cx="26" cy="26" r="20" fill="none" stroke="var(--gold)" stroke-width="4"
@@ -1961,6 +2168,22 @@ function renderDeltaGaugeIBM() {
     const bar = document.getElementById('dg-bar-ressento');
     if(bar) bar.style.width = '46%';
   }, 300);
+}
+
+// ── LOGO DOWNLOAD ──────────────────────────────────────────────
+function downloadLogo() {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+    <rect width="400" height="120" fill="#0F2149"/>
+    <text x="20" y="78" font-family="'Bebas Neue', sans-serif" font-size="72" letter-spacing="8" fill="#F0EDE6">RESS</text>
+    <text x="223" y="78" font-family="'Bebas Neue', sans-serif" font-size="72" letter-spacing="8" fill="#C9A84C">E</text>
+    <text x="262" y="78" font-family="'Bebas Neue', sans-serif" font-size="72" letter-spacing="8" fill="#F0EDE6">NTO</text>
+    <text x="21" y="100" font-family="monospace" font-size="11" letter-spacing="3" fill="rgba(240,237,230,0.4)">CE QUE VOUS RESSENTEZ, ENFIN CHIFFRE</text>
+  </svg>`;
+  const blob = new Blob([svg], {type: 'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'ressento-logo.svg';
+  a.click(); URL.revokeObjectURL(url);
 }
 </script>
 
@@ -2100,6 +2323,214 @@ function renderDeltaGaugeIBM() {
         <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
         <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM publié</button></li><li><button onclick="goTo('ivi')">IVI en cours</button></li><li><button onclick="goTo('indices')">Tous les indices</button></li></ul></div>
         <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Mesure civique · Apolitique · Accès libre</div></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE PRESSE
+══════════════════════════════════════ -->
+<div id="page-presse" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">Espace Presse</span></div>
+
+  <section class="presse-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Espace Presse</div>
+      <h1 class="pg-h1">KIT MÉDIA<br><span class="gold">RESSENTO</span></h1>
+      <p class="pg-sub">Ressento est un observatoire indépendant qui mesure l'écart entre données officielles et perception citoyenne en France. Apolitique, sources ouvertes, accès libre total.</p>
+    </div>
+  </section>
+
+  <div class="presse-body">
+
+    <!-- En bref -->
+    <div class="presse-section reveal">
+      <span class="slabel">En bref</span>
+      <h2 class="manifeste-h">Ressento <span class="gold">en chiffres</span></h2>
+      <div class="presse-stats">
+        <div class="presse-stat">
+          <div class="presse-stat-val">46/100</div>
+          <div class="presse-stat-lbl">Score RI-IBM · Premier indice publié<br>Mars 2026 · Delta −14 pts</div>
+        </div>
+        <div class="presse-stat">
+          <div class="presse-stat-val">Mai 2026</div>
+          <div class="presse-stat-lbl">Publication IVI · Indice de Valeur de l'Impôt<br>Collecte en cours · Accès libre</div>
+        </div>
+        <div class="presse-stat">
+          <div class="presse-stat-val">6</div>
+          <div class="presse-stat-lbl">Indices programmés en 2026<br>IBM · IVI · MOB · TRP · DPA · LOG</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1.2rem 1.4rem;border-radius:var(--r);margin-top:1rem">
+        <p style="font-size:.88rem;line-height:1.8;color:var(--text-med);font-weight:400;margin:0">Ressento mesure le <strong style="color:var(--text-high)">perception gap</strong> — l'écart entre ce que les statistiques officielles indiquent et ce que les citoyens ressentent. Chaque indice croise des données déclaratives citoyennes avec des sources officielles (INSEE, DGFiP, Eurostat, OCDE). Les formules sont publiées avant la collecte. Aucun commanditaire. Aucun agenda politique.</p>
+      </div>
+    </div>
+
+    <!-- Angles presse -->
+    <div class="presse-section reveal">
+      <span class="slabel">Angles éditoriaux</span>
+      <h2 class="manifeste-h">Ce que <span class="gold">les données disent</span></h2>
+      <p class="manifeste-p" style="max-width:640px">Ces angles sont proposés à titre indicatif. Les données sont accessibles en accès libre sur ressento.com. Ressento ne commente pas les résultats — leur interprétation appartient à la rédaction.</p>
+      <div class="angles-list">
+        <div class="angle-item">
+          <div class="angle-num">01</div>
+          <div class="angle-content">
+            <div class="angle-title">Le maire bien noté, le bilan mal perçu</div>
+            <div class="angle-desc">Les citoyens attribuent à leur maire une note de 3/5 — mais le bilan global agrégé tombe à 46/100 dès qu'on mesure services, sécurité, démocratie et culture. Un écart de 14 points que la note seule ne révèle pas.</div>
+            <div class="angle-data">Données : RI-IBM · Ressento · Mars 2026 · ressento.com/indices/ibm</div>
+          </div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">02</div>
+          <div class="angle-content">
+            <div class="angle-title">Sécurité 28, culture 62 : l'insatisfaction municipale est sectorielle</div>
+            <div class="angle-desc">34 points séparent le domaine le mieux perçu (culture) du moins bien perçu (sécurité) au sein du même indice municipal. Les citoyens ne rejettent pas leur maire en bloc — ils identifient des défaillances précises.</div>
+            <div class="angle-data">Données : RI-IBM · Ressento · Mars 2026 · ressento.com/indices/ibm</div>
+          </div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">03</div>
+          <div class="angle-content">
+            <div class="angle-title">France : 1er préleveur d'Europe, 38% de confiance fiscale</div>
+            <div class="angle-desc">La France prélève 45,3% du PIB — rang 1er en Europe. Seulement 38% des Français font confiance à l'État pour utiliser l'impôt efficacement (Kantar 2024). L'IVI mesurera cet écart avec précision — résultats mai 2026.</div>
+            <div class="angle-data">Sources : INSEE 2024 · Eurostat · Kantar 2024 · ressento.com/indices/ivi</div>
+          </div>
+        </div>
+        <div class="angle-item">
+          <div class="angle-num">04</div>
+          <div class="angle-content">
+            <div class="angle-title">Le perception gap : la donnée que personne ne publiait</div>
+            <div class="angle-desc">L'INSEE mesure la réalité. Les instituts sondent l'opinion. Personne ne croisait les deux sur une même page, avec une formule publiée avant la collecte. Ressento occupe ce vide depuis mars 2026.</div>
+            <div class="angle-data">Concept · ressento.com/approche · ressento.com/methode</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kit graphique -->
+    <div class="presse-section reveal">
+      <span class="slabel">Kit graphique</span>
+      <h2 class="manifeste-h">Charte <span class="gold">visuelle</span></h2>
+
+      <div style="margin-bottom:1.5rem">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Couleurs officielles</div>
+        <div class="charte-colors">
+          <div class="charte-swatch">
+            <div class="charte-color" style="background:#0F2149"></div>
+            <div class="charte-hex">#0F2149</div>
+            <div class="charte-name">Navy</div>
+          </div>
+          <div class="charte-swatch">
+            <div class="charte-color" style="background:#C9A84C"></div>
+            <div class="charte-hex">#C9A84C</div>
+            <div class="charte-name">Gold</div>
+          </div>
+          <div class="charte-swatch">
+            <div class="charte-color" style="background:#E2C278"></div>
+            <div class="charte-hex">#E2C278</div>
+            <div class="charte-name">Gold Light</div>
+          </div>
+          <div class="charte-swatch">
+            <div class="charte-color" style="background:#F0EDE6;border:1px solid rgba(255,255,255,.15)"></div>
+            <div class="charte-hex">#F0EDE6</div>
+            <div class="charte-name">Offwhite</div>
+          </div>
+          <div class="charte-swatch">
+            <div class="charte-color" style="background:#8899B4"></div>
+            <div class="charte-hex">#8899B4</div>
+            <div class="charte-name">Muted</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.5rem">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Typographies</div>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;align-items:baseline;gap:1rem">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--text-high);letter-spacing:.06em;width:200px">BEBAS NEUE</div>
+            <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Titres · Display · Scores</div>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:1rem">
+            <div style="font-family:'Fraunces',Georgia,serif;font-size:1.1rem;color:var(--text-high);font-style:italic;width:200px">Fraunces Italic</div>
+            <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Corps de texte · Édito</div>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:1rem">
+            <div style="font-family:'DM Mono',monospace;font-size:.8rem;color:var(--text-high);width:200px">DM Mono</div>
+            <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">Labels · Sources · Données</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-grid">
+        <div class="kit-item">
+          <div class="kit-icon">🎨</div>
+          <div class="kit-title">Logo SVG</div>
+          <div class="kit-desc">Logotype RESSENTO en Bebas Neue · versions fond sombre et fond clair</div>
+          <button class="kit-dl" onclick="downloadLogo()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+            Télécharger SVG
+          </button>
+        </div>
+        <div class="kit-item">
+          <div class="kit-icon">📋</div>
+          <div class="kit-title">Résumé méthodo</div>
+          <div class="kit-desc">1 page · Concept, formules, sources, limites · Format PDF</div>
+          <button class="kit-dl" onclick="window.open('mailto:contact@ressento.com?subject=Kit presse - Résumé méthodologique')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Demander par email
+          </button>
+        </div>
+        <div class="kit-item">
+          <div class="kit-icon">📊</div>
+          <div class="kit-title">Données RI-IBM</div>
+          <div class="kit-desc">Résultats complets · Scores par domaine · Contexte officiel</div>
+          <button class="kit-dl" onclick="goTo('ibm')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            Voir en ligne
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="reveal">
+      <span class="slabel">Contact presse</span>
+      <h2 class="manifeste-h">Nous <span class="gold">contacter</span></h2>
+      <div class="presse-contact">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Email</div>
+            <a href="mailto:contact@ressento.com?subject=Demande presse" style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);text-decoration:none;transition:color .2s;display:block;margin-bottom:.5rem" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-high)'">contact@ressento.com</a>
+            <div style="font-family:var(--font-mono);font-size:.62rem;color:var(--text-faint);line-height:1.6">Objet : "Demande presse"<br>Réponse sous 48h ouvrées</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Nous pouvons fournir</div>
+            <div style="font-size:.84rem;color:var(--text-med);line-height:1.8;font-weight:400">
+              → Données brutes des indices publiés<br>
+              → Note méthodologique détaillée<br>
+              → Contexte officiel sourcé<br>
+              → Visuels haute résolution<br>
+              → Accès embargo sur prochains indices
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;padding:1rem 1.4rem;background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);border-radius:var(--r)">
+        <div style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400">Les indices Ressento ne constituent pas des sondages au sens de la loi n°77-808 du 19 juillet 1977. Initiative citoyenne indépendante. Ressento ne prend pas position sur les résultats publiés — leur interprétation appartient au lecteur.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM publié</button></li><li><button onclick="goTo('ivi')">IVI en cours</button></li><li><button onclick="goTo('indices')">Tous les indices</button></li></ul></div>
+        <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li><li><button onclick="goTo('manifeste')">À propos</button></li></ul></div>
       </div>
       <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Mesure civique · Apolitique · Accès libre</div></div>
     </div>
