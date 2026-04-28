@@ -12,6 +12,60 @@
 <meta id="meta-tw-title" name="twitter:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
 <meta id="meta-tw-desc" name="twitter:description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
 <link rel="canonical" id="meta-canonical" href="https://ressento.com/">
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ressento.com/#organization",
+      "name": "Ressento",
+      "url": "https://ressento.com",
+      "description": "Observatoire indépendant mesurant l'écart entre données officielles et perception citoyenne en France.",
+      "foundingDate": "2026",
+      "areaServed": "FR",
+      "knowsAbout": ["perception gap", "indices citoyens", "confiance institutionnelle", "prélèvements obligatoires", "bilan municipal"],
+      "contactPoint": {"@type": "ContactPoint", "email": "contact@ressento.com", "contactType": "general"}
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://ressento.com/indices/ibm#dataset",
+      "name": "RI-IBM — Indice du Bilan Municipal",
+      "description": "Mesure la satisfaction des citoyens français vis-à-vis de leur municipalité. Score national 46/100. Delta officiel : −8 pts vs données DGCL 2024.",
+      "url": "https://ressento.com/indices/ibm",
+      "creator": {"@id": "https://ressento.com/#organization"},
+      "datePublished": "2026-03-01",
+      "temporalCoverage": "2026",
+      "spatialCoverage": "France",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "variableMeasured": ["satisfaction municipale", "confiance maire", "alignement démocratique"]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://ressento.com/indices/ivi#dataset",
+      "name": "IVI — Indice de Valeur de l'Impôt",
+      "description": "Mesure la perception citoyenne de la valeur reçue en échange des prélèvements obligatoires. France : 45,3% du PIB prélevé, rang 1er en Europe.",
+      "url": "https://ressento.com/indices/ivi",
+      "creator": {"@id": "https://ressento.com/#organization"},
+      "datePublished": "2026-05-01",
+      "temporalCoverage": "2026",
+      "spatialCoverage": "France",
+      "variableMeasured": ["valeur perçue impôt", "équité fiscale", "confiance gestion publique"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ressento.com/#website",
+      "url": "https://ressento.com",
+      "name": "Ressento",
+      "description": "Ce que vous ressentez, enfin chiffré",
+      "publisher": {"@id": "https://ressento.com/#organization"},
+      "inLanguage": "fr-FR"
+    }
+  ]
+}
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -448,6 +502,73 @@ h1.hh .gold{color:var(--gold)}
   .merci-share-btn{justify-content:center}
   .share-block{flex-direction:column}
 }
+
+/* ── NEWSLETTER STICKY BANNER ── */
+.nl-banner{position:fixed;bottom:0;left:0;right:0;z-index:80;background:linear-gradient(90deg,rgba(8,18,46,.98),rgba(12,32,68,.98));border-top:1px solid rgba(201,168,76,.25);padding:.9rem 32px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .5s cubic-bezier(.16,1,.3,1);backdrop-filter:blur(16px)}
+.nl-banner.visible{transform:translateY(0)}
+.nl-banner.hidden{display:none}
+.nl-banner-left{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nl-banner-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(201,168,76,.2);flex-shrink:0}
+.nl-banner-text{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--text-med);line-height:1.5}
+.nl-banner-text strong{color:var(--gold);font-weight:600}
+.nl-banner-form{display:flex;gap:8px;align-items:center;flex:1;max-width:420px}
+.nl-banner-form input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-radius:var(--r);padding:.55rem .9rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-high);outline:none;transition:border-color .2s;min-width:0}
+.nl-banner-form input:focus{border-color:var(--gold)}
+.nl-banner-form input::placeholder{color:var(--text-faint)}
+.nl-banner-form button{background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.9rem;letter-spacing:.06em;padding:.55rem 1.1rem;border:none;border-radius:var(--r);cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0}
+.nl-banner-form button:hover{background:var(--gold-light)}
+.nl-banner-close{background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:1.2rem;padding:.2rem .4rem;transition:color .2s;flex-shrink:0;line-height:1}
+.nl-banner-close:hover{color:var(--text-high)}
+.nl-banner-success{font-family:var(--font-mono);font-size:.7rem;color:#7DC49E;letter-spacing:.06em;display:none}
+
+/* ── MANIFESTE PAGE ── */
+.manifeste-hero{padding:5.5rem 32px 4rem;background:linear-gradient(180deg,rgba(11,31,60,1),rgba(14,36,76,.9));position:relative;overflow:hidden}
+.manifeste-hero::after{content:'';position:absolute;top:-20%;left:-5%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(201,168,76,.05) 0%,transparent 70%);pointer-events:none}
+.manifeste-body{max-width:780px;margin:0 auto;padding:3.5rem 32px 5rem}
+.manifeste-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border-subtle)}
+.manifeste-section:last-child{border-bottom:none}
+.manifeste-n{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:.8rem;display:block}
+.manifeste-h{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:.04em;color:var(--text-high);line-height:1;margin-bottom:1.2rem}
+.manifeste-h .gold{color:var(--gold)}
+.manifeste-p{font-size:.95rem;line-height:1.92;color:var(--text-med);font-weight:400;margin-bottom:1rem}
+.manifeste-p strong{color:var(--text-high);font-weight:600}
+.manifeste-rule{background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.15);border-left:3px solid var(--gold);padding:1.3rem 1.6rem;margin:1.6rem 0}
+.manifeste-rule-lbl{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.manifeste-rule-txt{font-size:.92rem;color:var(--text-high);line-height:1.72;font-weight:400;font-style:italic}
+.manifeste-timeline{display:flex;flex-direction:column;gap:0;margin:1.6rem 0}
+.mt-item{display:grid;grid-template-columns:90px 1px 1fr;gap:0 22px}
+.mt-date{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 0;text-align:right;line-height:1.4}
+.mt-line{display:flex;flex-direction:column;align-items:center}
+.mt-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--gold);flex-shrink:0;margin-top:15px;position:relative;z-index:1}
+.mt-conn{flex:1;width:1px;background:rgba(201,168,76,.2)}
+.mt-content{padding:12px 0 22px}
+.mt-content h4{font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.2rem}
+.mt-content p{font-size:.82rem;color:var(--text-low);line-height:1.6;font-weight:400}
+.valeurs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.08);margin:1.6rem 0}
+.valeur-item{background:var(--navy-card);padding:1.4rem 1.2rem}
+.valeur-icon{font-size:1.5rem;margin-bottom:.7rem}
+.valeur-title{font-family:var(--font-display);font-size:1rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:.4rem}
+.valeur-desc{font-size:.8rem;color:var(--text-med);line-height:1.6;font-weight:400}
+.contact-block{background:linear-gradient(145deg,rgba(14,38,80,.7),rgba(18,48,90,.65));border:1px solid rgba(201,168,76,.15);padding:2rem;text-align:center;border-radius:var(--r);margin-top:1.6rem;position:relative;overflow:hidden}
+.contact-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
+
+/* ── DELTA SVG GAUGE ── */
+.delta-gauge-wrap{display:flex;gap:2px;background:rgba(201,168,76,.08);margin:2.5rem 0}
+.dg-side{background:var(--navy-card);padding:1.8rem;flex:1;text-align:center}
+.dg-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;display:block}
+.dg-num{font-family:var(--font-display);font-size:3rem;letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.dg-sub{font-family:var(--font-mono);font-size:.62rem;color:var(--text-faint);line-height:1.5}
+.dg-center{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);padding:1.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:160px}
+.dg-delta-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.dg-delta-val{font-family:var(--font-display);font-size:2.8rem;color:var(--gold);letter-spacing:.02em;line-height:1}
+.dg-delta-sub{font-family:var(--font-mono);font-size:.6rem;color:rgba(201,168,76,.55);margin-top:.4rem;line-height:1.5;text-align:center}
+
+@media(max-width:720px){
+  .valeurs-grid{grid-template-columns:1fr}
+  .nl-banner{flex-direction:column;align-items:flex-start;gap:1rem}
+  .nl-banner-form{max-width:100%;width:100%}
+  .delta-gauge-wrap{flex-direction:column}
+}
 </style>
 </head>
 <body>
@@ -464,6 +585,7 @@ h1.hh .gold{color:var(--gold)}
       <li><button id="nl-approche" onclick="goTo('approche')">Notre approche</button></li>
       <li><button id="nl-indices" onclick="goTo('indices')">Indices</button></li>
       <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
+      <li><button id="nl-manifeste" onclick="goTo('manifeste')">À propos</button></li>
       <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 14px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
@@ -481,8 +603,27 @@ h1.hh .gold{color:var(--gold)}
   <button class="mobile-drawer-link" onclick="goTo('approche');toggleDrawer()">Notre approche</button>
   <button class="mobile-drawer-link" onclick="goTo('indices');toggleDrawer()">Indices</button>
   <button class="mobile-drawer-link" onclick="goTo('methodologie');toggleDrawer()">Méthode</button>
+  <button class="mobile-drawer-link" onclick="goTo('manifeste');toggleDrawer()">À propos</button>
   <a href="/carburant" class="mobile-drawer-link" style="text-decoration:none;font-family:var(--font-display);font-size:2rem;letter-spacing:.06em;color:rgba(93,202,165,.7);padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:block">⛽ Carburant</a>
   <button class="btn btn--gold mobile-drawer-cta" onclick="goTo('ivi');toggleDrawer()">Participer à l'IVI →</button>
+</div>
+
+
+<!-- ══ NEWSLETTER STICKY BANNER ══ -->
+<div class="nl-banner" id="nl-banner">
+  <div class="nl-banner-left">
+    <div class="nl-banner-dot"></div>
+    <div class="nl-banner-text">
+      <strong>IVI · Résultats mai 2026</strong><br>
+      Recevoir les résultats à publication — accès libre, aucune publicité.
+    </div>
+  </div>
+  <div id="nl-banner-form-wrap" class="nl-banner-form">
+    <input type="email" id="nl-email" placeholder="votre@email.com" autocomplete="email">
+    <button onclick="submitNLBanner()">Recevoir →</button>
+  </div>
+  <div class="nl-banner-success" id="nl-banner-success">✓ Vous serez notifié à la publication.</div>
+  <button class="nl-banner-close" onclick="closeNLBanner()" aria-label="Fermer">×</button>
 </div>
 
 <!-- ══════════════════════════════════════
@@ -619,7 +760,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">316,89 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">316,92 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -891,6 +1032,9 @@ h1.hh .gold{color:var(--gold)}
         <div class="kpi-box"><div class="kpi-val" style="color:#7DC49E">↑ Cult.</div><div class="kpi-lbl">Seul domaine en perception positive</div><div class="kpi-src">Ressento RI-IBM</div></div>
         <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééliraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
       </div>
+
+      <!-- DELTA GAUGE -->
+      <div id="delta-gauge-ibm" style="margin-bottom:1.5rem"></div>
 
       <!-- SHARE BLOCK -->
       <div class="share-block">
@@ -1359,6 +1503,11 @@ const PAGE_META = {
     desc: 'La méthodologie Ressento : formules publiées avant collecte, sources officielles vérifiables (INSEE, DGFiP, Eurostat), biais documentés, neutralité totale.',
     url: '/methode'
   },
+  manifeste: {
+    title: 'Manifeste — Qui sommes-nous & pourquoi Ressento | Ressento',
+    desc: 'Ressento est né d\'un constat : l\'écart entre les données officielles et ce que les citoyens vivent n\'était mesuré nulle part. Apolitique, indépendant, sources ouvertes.',
+    url: '/manifeste'
+  },
   merci: {
     title: 'Merci d\'avoir participé à l\'IVI | Ressento',
     desc: 'Votre réponse contribue à mesurer le perception gap fiscal. Résultats publiés en mai 2026. Partagez l\'IVI avec votre réseau.',
@@ -1381,7 +1530,7 @@ function updateMeta(id) {
 
 // ── ROUTING ────────────────────────────────────────────────────
 window._nativeScrollTo = window.scrollTo.bind(window);
-const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci'];
+const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci','manifeste'];
 let activeCharts = [];
 let counterInterval = null;
 
@@ -1394,7 +1543,7 @@ function goTo(id) {
     const el = document.getElementById('nl-'+n);
     if(el) el.classList.remove('active');
   });
-  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie'};
+  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie',manifeste:'manifeste'};
   const nl = document.getElementById('nl-'+(navMap[id]||id));
   if(nl) nl.classList.add('active');
   activeCharts.forEach(c => { try{c.destroy();}catch(e){} });
@@ -1405,6 +1554,7 @@ function goTo(id) {
     if(counterInterval) clearInterval(counterInterval);
     initCounters();
     updateRespondentsDisplay();
+    initNLBanner();
   } else {
     if(counterInterval) clearInterval(counterInterval);
   }
@@ -1559,6 +1709,7 @@ function mkChart(id, type, labels, datasets, opts) {
 
 // ── IBM ────────────────────────────────────────────────────────
 function initIBM() {
+  renderDeltaGaugeIBM();
   const b = document.getElementById('bar-ibm'); if(b) b.style.width='46%';
   buildMeter('meter-ibm', 46);
   buildDistrib('distrib-ibm', [{l:'Sécurité',p:28},{l:'Transports',p:42},{l:'Ecoles',p:55},{l:'Voirie',p:38},{l:'Culture',p:62}]);
@@ -1683,6 +1834,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   updateRespondentsDisplay();
   setupReveal();
+  initNLBanner();
   updateMeta('home');
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.boxShadow = window.scrollY>40 ? '0 4px 32px rgba(0,0,0,.42)' : 'none';
@@ -1699,7 +1851,233 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch(e) {}
 });
+
+// ── NEWSLETTER STICKY BANNER ──────────────────────────────────
+function initNLBanner() {
+  try {
+    if(localStorage.getItem('ressento_nl_dismissed') || localStorage.getItem('ressento_email_captured')) return;
+  } catch(e) {}
+  setTimeout(() => {
+    const banner = document.getElementById('nl-banner');
+    if(banner) banner.classList.add('visible');
+  }, 8000);
+}
+
+function closeNLBanner() {
+  const banner = document.getElementById('nl-banner');
+  if(banner) banner.classList.remove('visible');
+  try { localStorage.setItem('ressento_nl_dismissed', '1'); } catch(e) {}
+}
+
+function submitNLBanner() {
+  const input = document.getElementById('nl-email');
+  const wrap = document.getElementById('nl-banner-form-wrap');
+  const success = document.getElementById('nl-banner-success');
+  if(!input) return;
+  const email = input.value.trim();
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.style.borderColor = '#E08080';
+    input.focus();
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+    return;
+  }
+  console.log('[Ressento NL Banner] Email:', email);
+  if(wrap) wrap.style.display = 'none';
+  if(success) success.style.display = 'block';
+  try {
+    localStorage.setItem('ressento_email_captured', '1');
+    localStorage.setItem('ressento_nl_dismissed', '1');
+  } catch(e) {}
+  setTimeout(closeNLBanner, 3000);
+}
+
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' && e.target.id === 'nl-email') submitNLBanner();
+});
+
+// ── DELTA SVG GAUGE — IBM ──────────────────────────────────────
+function renderDeltaGaugeIBM() {
+  const container = document.getElementById('delta-gauge-ibm');
+  if(!container) return;
+  container.innerHTML = `
+    <div class="delta-gauge-wrap">
+      <div class="dg-side">
+        <span class="dg-label">Donnée officielle · DGCL 2024</span>
+        <div class="dg-num" style="color:var(--text-high)">54<span style="font-size:1.4rem;color:rgba(240,237,230,.3)">/100</span></div>
+        <div class="dg-sub">Score moyen satisfaction<br>services communaux</div>
+        <div style="margin-top:1rem;height:5px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden">
+          <div style="width:54%;height:100%;background:rgba(240,237,230,.25);border-radius:2px"></div>
+        </div>
+      </div>
+      <div class="dg-center">
+        <span class="dg-delta-label">Δ Delta Ressento</span>
+        <div class="dg-delta-val">−8</div>
+        <div class="dg-delta-sub">pts de<br>perception gap</div>
+        <svg width="52" height="52" viewBox="0 0 52 52" style="margin-top:.8rem;display:block">
+          <circle cx="26" cy="26" r="20" fill="none" stroke="rgba(201,168,76,.12)" stroke-width="4"/>
+          <circle cx="26" cy="26" r="20" fill="none" stroke="var(--gold)" stroke-width="4"
+            stroke-dasharray="57.9 125.7" stroke-linecap="round"
+            transform="rotate(-90 26 26)"/>
+          <text x="26" y="30" text-anchor="middle" fill="var(--gold)" font-family="Bebas Neue" font-size="13" letter-spacing="1">46</text>
+        </svg>
+      </div>
+      <div class="dg-side">
+        <span class="dg-label">Ressenti déclaratif · Ressento</span>
+        <div class="dg-num" style="color:var(--gold)">46<span style="font-size:1.4rem;color:rgba(201,168,76,.4)">/100</span></div>
+        <div class="dg-sub">Score national RI-IBM<br>Mars 2026</div>
+        <div style="margin-top:1rem;height:5px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden">
+          <div id="dg-bar-ressento" style="width:0%;height:100%;background:var(--gold);border-radius:2px;transition:width 1.5s ease"></div>
+        </div>
+      </div>
+    </div>`;
+  setTimeout(() => {
+    const bar = document.getElementById('dg-bar-ressento');
+    if(bar) bar.style.width = '46%';
+  }, 300);
+}
 </script>
+
+
+<!-- ══════════════════════════════════════
+     MANIFESTE / À PROPOS
+══════════════════════════════════════ -->
+<div id="page-manifeste" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">À propos &amp; Manifeste</span></div>
+
+  <section class="manifeste-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">À propos</div>
+      <h1 class="pg-h1">RESSENTO —<br>POURQUOI <span class="gold">NOUS EXISTONS</span></h1>
+      <p class="pg-sub">Un observatoire né d'un constat simple : l'écart entre ce que les données disent et ce que les citoyens vivent n'était mesuré nulle part. Nous le mesurons.</p>
+    </div>
+  </section>
+
+  <div class="manifeste-body">
+
+    <!-- Section 1 : Genèse -->
+    <div class="manifeste-section reveal">
+      <span class="manifeste-n">01 — Genèse</span>
+      <h2 class="manifeste-h">Un constat, <span class="gold">pas une opinion</span></h2>
+      <p class="manifeste-p">Ressento est né d'une observation répétée : les débats publics français tournent en boucle autour des mêmes questions — les impôts sont-ils trop élevés ? Les services publics fonctionnent-ils ? Les élus locaux tiennent-ils leurs promesses ? — sans jamais poser la bonne question.</p>
+      <p class="manifeste-p">La bonne question n'est pas <strong>ce qui est vrai objectivement</strong>. C'est <strong>l'écart entre ce qui est vrai et ce que les citoyens perçoivent</strong>. Cet écart — que les chercheurs appellent le <em>perception gap</em> — détermine la confiance, le vote, l'engagement civique. Et personne ne le mesurait en France de façon systématique, publique et apolitique.</p>
+      <p class="manifeste-p">Ressento a été construit pour combler ce vide. Pas pour prendre position. Pour mesurer.</p>
+    </div>
+
+    <!-- Section 2 : Ce que nous sommes -->
+    <div class="manifeste-section reveal">
+      <span class="manifeste-n">02 — Ce que nous sommes</span>
+      <h2 class="manifeste-h">Un observatoire <span class="gold">indépendant</span></h2>
+      <p class="manifeste-p">Ressento est une initiative citoyenne indépendante. Aucun financement institutionnel. Aucun commanditaire. Aucun agenda politique. Les indices sont produits et publiés en accès libre total.</p>
+      <p class="manifeste-p">Nous opérons sous anonymat collectif — non par manque de transparence, mais parce que <strong>l'identité des fondateurs ne doit jamais devenir le sujet</strong>. Le sujet, c'est la mesure. Voici ce que nous garantissons à la place de l'identité :</p>
+      <div class="valeurs-grid">
+        <div class="valeur-item">
+          <div class="valeur-icon">⚖️</div>
+          <div class="valeur-title">Formules pré-publiées</div>
+          <div class="valeur-desc">Chaque pondération est documentée avant la collecte. Elle ne peut être modifiée a posteriori. C'est notre engagement de non-manipulation.</div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-icon">📂</div>
+          <div class="valeur-title">Sources vérifiables</div>
+          <div class="valeur-desc">INSEE, DGFiP, Eurostat, OCDE, Cour des Comptes. Chaque chiffre officiel est sourcé avec l'année et l'URL. Zéro donnée non-vérifiable.</div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-icon">🔇</div>
+          <div class="valeur-title">Zéro commentaire</div>
+          <div class="valeur-desc">Ressento ne dit jamais ce que les résultats signifient politiquement. Un score, un delta, des données. L'interprétation appartient au lecteur.</div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-icon">🔓</div>
+          <div class="valeur-title">Accès libre total</div>
+          <div class="valeur-desc">Aucun paywall. Aucune inscription obligatoire pour consulter. Les données produites appartiennent au débat public.</div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-icon">📋</div>
+          <div class="valeur-title">Biais documentés</div>
+          <div class="valeur-desc">Nous documentons explicitement nos limites méthodologiques. La non-représentativité est assumée et expliquée, pas dissimulée.</div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-icon">🗓️</div>
+          <div class="valeur-title">Calendrier citoyen</div>
+          <div class="valeur-desc">Les indices sont synchronisés avec les moments où les citoyens vivent le sujet — déclarations fiscales, bilans municipaux, rentrée.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 : La règle éditoriale -->
+    <div class="manifeste-section reveal">
+      <span class="manifeste-n">03 — La règle absolue</span>
+      <h2 class="manifeste-h">Mesurer ou commenter —<br><span class="gold">jamais les deux</span></h2>
+      <p class="manifeste-p">Chaque publication Ressento passe un test avant d'être mise en ligne. Ce test est non-négociable.</p>
+      <div class="manifeste-rule">
+        <span class="manifeste-rule-lbl">Le test Ressento</span>
+        <div class="manifeste-rule-txt">"Est-ce que cette phrase <strong>mesure</strong> quelque chose — ou est-ce qu'elle <strong>commente</strong> quelque chose ?"<br><br>Si la réponse est "elle commente", la phrase n'est pas publiable sous le label Ressento.</div>
+      </div>
+      <p class="manifeste-p">Un score IVI de 32/100 ne signifie pas que l'État gaspille l'argent public. Il signifie que <strong>32% de la valeur maximale théorique est perçue par les citoyens</strong>. C'est un fait. Son interprétation politique appartient à chaque lecteur.</p>
+      <p class="manifeste-p">Cette règle est ce qui rend Ressento utilisable par tous — journalistes, chercheurs, élus, citoyens — sans que personne ne puisse l'accuser de servir un camp.</p>
+    </div>
+
+    <!-- Section 4 : Chronologie -->
+    <div class="manifeste-section reveal">
+      <span class="manifeste-n">04 — Chronologie</span>
+      <h2 class="manifeste-h">Les étapes de <span class="gold">la construction</span></h2>
+      <div class="manifeste-timeline">
+        <div class="mt-item">
+          <div class="mt-date">Jan. 2026</div>
+          <div class="mt-line"><div class="mt-dot"></div><div class="mt-conn"></div></div>
+          <div class="mt-content"><h4>Conception du concept</h4><p>Définition du perception gap comme objet de mesure. Première formulation du protocole Delta : officiel vs déclaratif.</p></div>
+        </div>
+        <div class="mt-item">
+          <div class="mt-date">Fév. 2026</div>
+          <div class="mt-line"><div class="mt-dot"></div><div class="mt-conn"></div></div>
+          <div class="mt-content"><h4>Construction méthodologique</h4><p>Rédaction des formules IBM et IVI. Choix des sources officielles. Documentation des biais. Règle éditoriale finalisée.</p></div>
+        </div>
+        <div class="mt-item">
+          <div class="mt-date">Mars 2026</div>
+          <div class="mt-line"><div class="mt-dot"></div><div class="mt-conn"></div></div>
+          <div class="mt-content"><h4>Publication RI-IBM</h4><p>Premier indice Ressento publié. Score national 46/100. Delta −8 pts. Diffusion sur LinkedIn, Facebook, Instagram.</p></div>
+        </div>
+        <div class="mt-item">
+          <div class="mt-date">Avr. 2026</div>
+          <div class="mt-line"><div class="mt-dot"></div><div class="mt-conn"></div></div>
+          <div class="mt-content"><h4>Lancement IVI</h4><p>Collecte de l'Indice de Valeur de l'Impôt, calé sur la période des déclarations fiscales. Résultats prévus mai 2026.</p></div>
+        </div>
+        <div class="mt-item">
+          <div class="mt-date">2026 →</div>
+          <div class="mt-line"><div class="mt-dot" style="border-color:rgba(136,153,180,.35);background:var(--navy)"></div></div>
+          <div class="mt-content"><h4 style="color:rgba(136,153,180,.55)">RI-MOB · RI-TRP · RI-DPA · RI-LOG</h4><p>Quatre indices supplémentaires programmés — Mobilité, Transparence, Pouvoir d'achat, Logement.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 : Contact -->
+    <div class="reveal">
+      <span class="manifeste-n">05 — Contact</span>
+      <h2 class="manifeste-h">Vous souhaitez <span class="gold">échanger</span> ?</h2>
+      <p class="manifeste-p">Ressento accueille les retours méthodologiques, les propositions de sujets d'indices, et les demandes de presse ou de collaboration académique. Toute correspondance est traitée avec soin.</p>
+      <div class="contact-block">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Contact</div>
+        <a href="mailto:contact@ressento.com" style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:.06em;color:var(--text-high);text-decoration:none;transition:color .2s;display:block;margin-bottom:.6rem" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-high)'">contact@ressento.com</a>
+        <div style="font-family:var(--font-mono);font-size:.65rem;color:var(--text-faint);line-height:1.7">Presse · Recherche académique · Retours méthodologiques<br>Nous répondons à toutes les demandes sérieuses.</div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.2rem;background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);border-radius:var(--r)">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Note légale</div>
+        <div style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400">Les indices produits par Ressento ne constituent pas des sondages au sens de la loi n°77-808 du 19 juillet 1977 relative à la publication et à la diffusion de certains sondages d'opinion. Ressento est une initiative citoyenne indépendante sans personnalité morale déclarée.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM publié</button></li><li><button onclick="goTo('ivi')">IVI en cours</button></li><li><button onclick="goTo('indices')">Tous les indices</button></li></ul></div>
+        <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Mesure civique · Apolitique · Accès libre</div></div>
+    </div>
+  </footer>
+</div>
 
 
 
