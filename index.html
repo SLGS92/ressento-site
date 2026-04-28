@@ -661,6 +661,104 @@ h1.hh .gold{color:var(--gold)}
   .presse-stats,.kit-grid{grid-template-columns:1fr}
   .charte-colors{gap:8px}
 }
+
+/* ── BAROMETRE PAGE ── */
+.baro-hero{padding:5rem 32px 3.5rem;background:linear-gradient(180deg,rgba(15,33,73,1),rgba(12,28,65,.95));position:relative;overflow:hidden}
+.baro-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.baro-hero::after{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 65%);pointer-events:none}
+.baro-body{max-width:1100px;margin:0 auto;padding:3rem 32px 5rem}
+
+/* Radar container */
+.radar-section{display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:start;margin-bottom:4rem}
+.radar-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:2rem 0}
+.radar-legend{display:flex;flex-direction:column;gap:0}
+.rl-item{padding:1rem 0;border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:1rem;cursor:pointer;transition:background .2s}
+.rl-item:last-child{border-bottom:none}
+.rl-item:hover{background:rgba(201,168,76,.03)}
+.rl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.rl-content{flex:1}
+.rl-name{font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.15rem}
+.rl-indice{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rl-score{font-family:var(--font-display);font-size:1.6rem;letter-spacing:.02em;flex-shrink:0}
+.rl-badge{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:10px;flex-shrink:0}
+.rl-badge-live{background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.2)}
+.rl-badge-soon{background:rgba(136,153,180,.07);color:var(--muted);border:1px solid rgba(136,153,180,.15)}
+.rl-badge-active{background:rgba(90,130,210,.1);color:#8aaee0;border:1px solid rgba(90,130,210,.2)}
+
+/* Score global */
+.baro-global{background:linear-gradient(145deg,rgba(14,38,80,.8),rgba(18,48,95,.7));border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:2rem;margin-bottom:3rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
+.baro-global::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
+.bg-score-wrap{text-align:center;flex-shrink:0}
+.bg-score{font-family:var(--font-display);font-size:5rem;color:var(--gold);letter-spacing:.02em;line-height:1}
+.bg-score-lbl{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.bg-divider{width:1px;height:80px;background:rgba(201,168,76,.15);flex-shrink:0}
+.bg-text{flex:1;min-width:200px}
+.bg-title{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.5rem}
+.bg-desc{font-size:.85rem;color:var(--text-med);line-height:1.7;font-weight:400}
+.bg-progress{margin-top:1rem;display:flex;align-items:center;gap:.8rem}
+.bg-progress-track{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.bg-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.bg-progress-lbl{font-family:var(--font-mono);font-size:.6rem;color:var(--muted);white-space:nowrap}
+
+/* Indices grid barometre */
+.baro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.08);margin-bottom:3rem}
+.baro-card{background:var(--navy-card);padding:1.8rem;position:relative;overflow:hidden;transition:background .2s}
+.baro-card:hover{background:var(--navy-mid)}
+.baro-card.published{cursor:pointer;border-bottom:2px solid var(--gold)}
+.baro-card.active{cursor:pointer;border-bottom:2px solid #8aaee0}
+.baro-card.upcoming{opacity:.5;cursor:default}
+.baro-card-status{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem;display:flex;align-items:center;gap:6px}
+.baro-card-name{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.03em;color:var(--text-high);margin-bottom:.2rem}
+.baro-card-full{font-family:var(--font-mono);font-size:.62rem;color:var(--text-faint);margin-bottom:1rem;letter-spacing:.04em}
+.baro-card-score{font-family:var(--font-display);font-size:3.2rem;letter-spacing:.02em;line-height:1;margin-bottom:.3rem}
+.baro-card-date{font-family:var(--font-mono);font-size:.6rem;color:var(--muted);letter-spacing:.06em}
+.baro-card-bar{height:3px;background:rgba(255,255,255,.06);margin-top:1rem;border-radius:2px;overflow:hidden}
+.baro-card-bar-fill{height:100%;border-radius:2px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+/* ── PERCEPTION GAP PAGE ── */
+.pg-page-hero{padding:5.5rem 32px 4rem;background:linear-gradient(180deg,rgba(15,33,73,1),rgba(14,36,76,.9));position:relative;overflow:hidden}
+.pg-page-body{max-width:820px;margin:0 auto;padding:3.5rem 32px 5rem}
+.pg-page-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--border-subtle)}
+.pg-page-section:last-child{border-bottom:none}
+
+/* Exemple concret */
+.example-block{background:linear-gradient(145deg,rgba(12,28,65,.7),rgba(14,34,72,.6));border:1px solid var(--border-gold);border-radius:var(--rl);padding:1.8rem 2rem;margin:1.5rem 0;position:relative;overflow:hidden}
+.example-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+.example-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.example-split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.example-col-title{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+.example-col-val{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.02em;line-height:1;margin-bottom:.3rem}
+.example-col-desc{font-size:.8rem;color:var(--text-low);line-height:1.6;font-weight:400}
+.example-gap{display:flex;align-items:center;justify-content:center;margin:.8rem 0}
+.example-gap-val{font-family:var(--font-display);font-size:1.8rem;color:var(--gold);background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);padding:.4rem 1.2rem;border-radius:var(--r)}
+
+/* Citation recherche */
+.research-block{border-left:2px solid var(--gold);padding:1.2rem 1.6rem;background:rgba(201,168,76,.03);margin:1.5rem 0}
+.research-text{font-size:.92rem;font-style:italic;color:var(--text-high);line-height:1.72;margin-bottom:.5rem;font-weight:400}
+.research-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Ressento application */
+.application-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,168,76,.08);margin:1.5rem 0}
+.app-item{background:var(--navy-card);padding:1.4rem}
+.app-icon{font-size:1.4rem;margin-bottom:.6rem}
+.app-title{font-family:var(--font-display);font-size:.95rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:.4rem}
+.app-desc{font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400}
+
+/* CTA perception gap */
+.pg-cta{background:linear-gradient(145deg,rgba(14,38,80,.8),rgba(18,48,95,.7));border:1px solid rgba(201,168,76,.2);border-radius:var(--rl);padding:2rem;text-align:center;position:relative;overflow:hidden;margin-top:2rem}
+.pg-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)}
+
+@media(max-width:900px){
+  .radar-section{grid-template-columns:1fr}
+  .baro-grid{grid-template-columns:1fr 1fr}
+  .example-split{grid-template-columns:1fr}
+  .application-grid{grid-template-columns:1fr}
+  .baro-global{flex-direction:column;gap:1.5rem}
+  .bg-divider{display:none}
+}
+@media(max-width:560px){
+  .baro-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -678,6 +776,7 @@ h1.hh .gold{color:var(--gold)}
       <li><button id="nl-indices" onclick="goTo('indices')">Indices</button></li>
       <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
       <li><button id="nl-manifeste" onclick="goTo('manifeste')">À propos</button></li>
+      <li><button id="nl-barometre" onclick="goTo('barometre')" style="color:rgba(201,168,76,.7);border-bottom-color:transparent" class="">Baromètre</button></li>
       <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 14px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
@@ -803,6 +902,7 @@ h1.hh .gold{color:var(--gold)}
           <button class="ivi-btn" onclick="goTo('ivi')">Participer →</button>
         </div>
       </div>
+      <div style="text-align:right;margin-top:10px"><button onclick="goTo('barometre')" style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.5);background:none;border:none;cursor:pointer" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(201,168,76,.5)'">Voir le baromètre citoyen 2026 →</button></div>
     </div>
   </section>
 
@@ -852,7 +952,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">317,57 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">317,60 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -1705,6 +1805,16 @@ const PAGE_META = {
     desc: 'Ressento est né d\'un constat : l\'écart entre les données officielles et ce que les citoyens vivent n\'était mesuré nulle part. Apolitique, indépendant, sources ouvertes.',
     url: '/manifeste'
   },
+  barometre: {
+    title: 'Baromètre de Confiance Citoyenne 2026 — Tous les indices | Ressento',
+    desc: 'La première cartographie multidimensionnelle du perception gap citoyen français. 6 domaines mesurés : municipalité, fiscalité, mobilité, transparence, pouvoir d\'achat, logement.',
+    url: '/barometre'
+  },
+  perceptiongap: {
+    title: 'Le Perception Gap — Qu\'est-ce que c\'est ? | Ressento',
+    desc: 'Le perception gap désigne l\'écart entre la réalité statistique et ce que les citoyens ressentent. Un concept documenté par la recherche, jamais mesuré en France. Ressento le mesure.',
+    url: '/perception-gap'
+  },
   presse: {
     title: 'Espace Presse — Kit média & contacts | Ressento',
     desc: 'Kit média Ressento : présentation de l\'observatoire, angles éditoriaux, charte graphique, contact presse. Observatoire indépendant du perception gap citoyen en France.',
@@ -1737,7 +1847,7 @@ function updateMeta(id) {
 
 // ── ROUTING ────────────────────────────────────────────────────
 window._nativeScrollTo = window.scrollTo.bind(window);
-const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci','manifeste','presse'];
+const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci','manifeste','presse','barometre','perceptiongap'];
 let activeCharts = [];
 let counterInterval = null;
 
@@ -1750,7 +1860,7 @@ function goTo(id) {
     const el = document.getElementById('nl-'+n);
     if(el) el.classList.remove('active');
   });
-  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie',manifeste:'manifeste',presse:'home'};
+  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie',manifeste:'manifeste',presse:'home',barometre:'home',perceptiongap:'approche'};
   const nl = document.getElementById('nl-'+(navMap[id]||id));
   if(nl) nl.classList.add('active');
   activeCharts.forEach(c => { try{c.destroy();}catch(e){} });
@@ -2533,6 +2643,414 @@ function downloadLogo() {
         <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li><li><button onclick="goTo('manifeste')">À propos</button></li></ul></div>
       </div>
       <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés</div><div class="fnote">Mesure civique · Apolitique · Accès libre</div></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BAROMETRE CITOYEN
+══════════════════════════════════════ -->
+<div id="page-barometre" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><span class="bc-cur">Baromètre citoyen 2026</span></div>
+
+  <section class="baro-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Première mondiale · France · 2026</div>
+      <h1 class="pg-h1">BAROMÈTRE<br>DE CONFIANCE <span class="gold">CITOYENNE</span></h1>
+      <p class="pg-sub">La première cartographie multidimensionnelle du perception gap citoyen français. 6 domaines mesurés tout au long de 2026 — chaque indice publié enrichit la carte.</p>
+      <div style="margin-top:1.5rem;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);padding:.5rem 1.1rem;border-radius:20px;color:var(--gold)">
+        <div class="sdot pulse" style="background:var(--gold)"></div>
+        1/6 indices publiés · En construction · Mise à jour à chaque publication
+      </div>
+    </div>
+  </section>
+
+  <div class="baro-body">
+
+    <!-- Score global partiel -->
+    <div class="baro-global reveal">
+      <div class="bg-score-wrap">
+        <div class="bg-score">46</div>
+        <div class="bg-score-lbl">Score partiel · 1 indice</div>
+      </div>
+      <div class="bg-divider"></div>
+      <div class="bg-text">
+        <div class="bg-title">Score de confiance citoyenne — France 2026</div>
+        <div class="bg-desc">Score provisoire basé sur le RI-IBM (Bilan Municipal) publié en mars 2026. Ce score sera enrichi à chaque nouvelle publication — IVI en mai, RI-MOB en juin, et trois indices supplémentaires d'ici décembre. La valeur finale représentera la première mesure globale du perception gap citoyen français.</div>
+        <div class="bg-progress">
+          <div class="bg-progress-track"><div class="bg-progress-fill" style="width:16.7%"></div></div>
+          <div class="bg-progress-lbl">1/6 indices · 16,7% du baromètre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar SVG + Légende -->
+    <div class="radar-section reveal">
+      <div class="radar-wrap">
+        <svg id="radar-svg" viewBox="0 0 420 420" width="420" height="420" style="max-width:100%">
+          <!-- Grilles concentriques -->
+          <polygon points="210,60 340,135 340,285 210,360 80,285 80,135" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"></polygon>
+          <polygon points="210,85 320,148 320,272 210,335 100,272 100,148" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"></polygon>
+          <polygon points="210,110 300,161 300,259 210,310 120,259 120,161" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"></polygon>
+          <polygon points="210,135 280,174 280,246 210,285 140,246 140,174" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"></polygon>
+          <polygon points="210,160 260,187 260,233 210,260 160,233 160,187" fill="none" stroke="rgba(201,168,76,.06)" stroke-width="1"></polygon>
+
+          <!-- Axes -->
+          <line x1="210" y1="60" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+          <line x1="340" y1="135" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+          <line x1="340" y1="285" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+          <line x1="210" y1="360" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+          <line x1="80" y1="285" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+          <line x1="80" y1="135" x2="210" y2="210" stroke="rgba(201,168,76,.12)" stroke-width="1"></line>
+
+          <!-- Zone IBM publiée (46/100 = 46% du rayon max=150) -->
+          <!-- Rayon IBM: 150 * 0.46 = 69px depuis centre -->
+          <!-- Centre: 210,210 -->
+          <!-- Top: 210, 210-69 = 141 -->
+          <!-- Autres axes: 0 (pas encore publiés) -->
+          <polygon id="radar-fill" points="210,141 210,210 210,210 210,210 210,210 210,210" fill="rgba(201,168,76,.15)" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"></polygon>
+
+          <!-- Points axes -->
+          <!-- IBM publié -->
+          <circle id="radar-pt-ibm" cx="210" cy="141" r="5" fill="var(--gold)" stroke="var(--navy-card)" stroke-width="2"></circle>
+
+          <!-- Axes à venir — points fantômes -->
+          <circle cx="340" cy="135" r="4" fill="rgba(136,153,180,.15)" stroke="rgba(136,153,180,.2)" stroke-width="1"></circle>
+          <circle cx="340" cy="285" r="4" fill="rgba(136,153,180,.15)" stroke="rgba(136,153,180,.2)" stroke-width="1"></circle>
+          <circle cx="210" cy="360" r="4" fill="rgba(136,153,180,.15)" stroke="rgba(136,153,180,.2)" stroke-width="1"></circle>
+          <circle cx="80" cy="285" r="4" fill="rgba(136,153,180,.15)" stroke="rgba(136,153,180,.2)" stroke-width="1"></circle>
+          <circle cx="80" cy="135" r="4" fill="rgba(136,153,180,.15)" stroke="rgba(136,153,180,.2)" stroke-width="1"></circle>
+
+          <!-- Labels axes -->
+          <text x="210" y="48" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="var(--gold)">MUNICIPAL</text>
+          <text x="210" y="38" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="rgba(201,168,76,.6)">46/100</text>
+
+          <text x="358" y="130" text-anchor="start" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="rgba(136,153,180,.5)">FISCAL</text>
+          <text x="358" y="142" text-anchor="start" font-family="'DM Mono',monospace" font-size="9" fill="rgba(136,153,180,.3)">mai 2026</text>
+
+          <text x="358" y="288" text-anchor="start" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="rgba(136,153,180,.5)">MOBILITÉ</text>
+          <text x="358" y="300" text-anchor="start" font-family="'DM Mono',monospace" font-size="9" fill="rgba(136,153,180,.3)">juin 2026</text>
+
+          <text x="210" y="385" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="rgba(136,153,180,.5)">TRANSPARENCE</text>
+          <text x="210" y="397" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="rgba(136,153,180,.3)">sept. 2026</text>
+
+          <text x="62" y="288" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="rgba(136,153,180,.5)">POUVOIR D'ACH.</text>
+          <text x="62" y="300" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="rgba(136,153,180,.3)">oct. 2026</text>
+
+          <text x="62" y="130" text-anchor="end" font-family="'Bebas Neue',sans-serif" font-size="13" letter-spacing="1" fill="rgba(136,153,180,.5)">LOGEMENT</text>
+          <text x="62" y="142" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="rgba(136,153,180,.3)">déc. 2026</text>
+
+          <!-- Score central -->
+          <text x="210" y="205" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="11" letter-spacing="2" fill="rgba(201,168,76,.4)">SCORE</text>
+          <text x="210" y="222" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="11" letter-spacing="2" fill="rgba(201,168,76,.4)">PARTIEL</text>
+        </svg>
+      </div>
+
+      <!-- Légende -->
+      <div class="radar-legend">
+        <div class="rl-item" onclick="goTo('ibm')">
+          <div class="rl-dot" style="background:var(--gold)"></div>
+          <div class="rl-content">
+            <div class="rl-name">Bilan Municipal</div>
+            <div class="rl-indice">RI-IBM · Mars 2026</div>
+          </div>
+          <div class="rl-score" style="color:var(--gold)">46</div>
+          <div class="rl-badge rl-badge-live">Publié</div>
+        </div>
+        <div class="rl-item" onclick="goTo('ivi')">
+          <div class="rl-dot" style="background:#8aaee0"></div>
+          <div class="rl-content">
+            <div class="rl-name">Valeur de l'Impôt</div>
+            <div class="rl-indice">IVI · Mai 2026</div>
+          </div>
+          <div class="rl-score" style="color:rgba(138,174,224,.4)">—</div>
+          <div class="rl-badge rl-badge-active">En cours</div>
+        </div>
+        <div class="rl-item">
+          <div class="rl-dot" style="background:rgba(136,153,180,.3)"></div>
+          <div class="rl-content">
+            <div class="rl-name">Mobilité Citoyenne</div>
+            <div class="rl-indice">RI-MOB · Juin 2026</div>
+          </div>
+          <div class="rl-score" style="color:rgba(136,153,180,.25)">—</div>
+          <div class="rl-badge rl-badge-soon">Bientôt</div>
+        </div>
+        <div class="rl-item">
+          <div class="rl-dot" style="background:rgba(136,153,180,.3)"></div>
+          <div class="rl-content">
+            <div class="rl-name">Transparence</div>
+            <div class="rl-indice">RI-TRP · Sept. 2026</div>
+          </div>
+          <div class="rl-score" style="color:rgba(136,153,180,.25)">—</div>
+          <div class="rl-badge rl-badge-soon">Bientôt</div>
+        </div>
+        <div class="rl-item">
+          <div class="rl-dot" style="background:rgba(136,153,180,.3)"></div>
+          <div class="rl-content">
+            <div class="rl-name">Pouvoir d'Achat</div>
+            <div class="rl-indice">RI-DPA · Oct. 2026</div>
+          </div>
+          <div class="rl-score" style="color:rgba(136,153,180,.25)">—</div>
+          <div class="rl-badge rl-badge-soon">Bientôt</div>
+        </div>
+        <div class="rl-item">
+          <div class="rl-dot" style="background:rgba(136,153,180,.3)"></div>
+          <div class="rl-content">
+            <div class="rl-name">Logement Citoyen</div>
+            <div class="rl-indice">RI-LOG · Déc. 2026</div>
+          </div>
+          <div class="rl-score" style="color:rgba(136,153,180,.25)">—</div>
+          <div class="rl-badge rl-badge-soon">Bientôt</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grille indices -->
+    <div class="reveal">
+      <div class="slabel" style="margin-bottom:1.2rem">Détail par indice</div>
+      <div class="baro-grid">
+        <div class="baro-card published" onclick="goTo('ibm')">
+          <div class="baro-card-status" style="color:var(--gold)"><div class="sdot" style="background:var(--gold)"></div>Publié · Mars 2026</div>
+          <div class="baro-card-name">RI-IBM</div>
+          <div class="baro-card-full">Indice du Bilan Municipal</div>
+          <div class="baro-card-score" style="color:var(--gold)">46<span style="font-size:1.2rem;color:rgba(201,168,76,.5)">/100</span></div>
+          <div class="baro-card-date">Delta : −14 pts · 67% voteraient autrement</div>
+          <div class="baro-card-bar"><div class="baro-card-bar-fill" style="width:46%;background:var(--gold)"></div></div>
+        </div>
+        <div class="baro-card active" onclick="goTo('ivi')">
+          <div class="baro-card-status" style="color:#8aaee0"><div class="sdot pulse" style="background:#8aaee0"></div>Collecte en cours</div>
+          <div class="baro-card-name">IVI</div>
+          <div class="baro-card-full">Indice de Valeur de l'Impôt</div>
+          <div class="baro-card-score" style="color:rgba(138,174,224,.35);font-size:1.8rem;font-family:var(--font-body);font-style:italic">Mai 2026</div>
+          <div class="baro-card-date">45,3% PIB prélevé · 38% de confiance fiscale</div>
+          <div class="baro-card-bar"><div class="baro-card-bar-fill" style="width:0%;background:#8aaee0"></div></div>
+        </div>
+        <div class="baro-card upcoming">
+          <div class="baro-card-status" style="color:var(--muted)"><div class="sdot" style="background:var(--muted)"></div>À venir · Juin 2026</div>
+          <div class="baro-card-name">RI-MOB</div>
+          <div class="baro-card-full">Indice de Mobilité Citoyenne</div>
+          <div class="baro-card-score" style="color:rgba(136,153,180,.2);font-size:1.8rem">—</div>
+          <div class="baro-card-date">Transports · Accessibilité · Fiabilité</div>
+          <div class="baro-card-bar"></div>
+        </div>
+        <div class="baro-card upcoming">
+          <div class="baro-card-status" style="color:var(--muted)"><div class="sdot" style="background:var(--muted)"></div>À venir · Sept. 2026</div>
+          <div class="baro-card-name">RI-TRP</div>
+          <div class="baro-card-full">Transparence Rémunérations Politiques</div>
+          <div class="baro-card-score" style="color:rgba(136,153,180,.2);font-size:1.8rem">—</div>
+          <div class="baro-card-date">Perception transparence des élus</div>
+          <div class="baro-card-bar"></div>
+        </div>
+        <div class="baro-card upcoming">
+          <div class="baro-card-status" style="color:var(--muted)"><div class="sdot" style="background:var(--muted)"></div>À venir · Oct. 2026</div>
+          <div class="baro-card-name">RI-DPA</div>
+          <div class="baro-card-full">Déclaration Pouvoir d'Achat</div>
+          <div class="baro-card-score" style="color:rgba(136,153,180,.2);font-size:1.8rem">—</div>
+          <div class="baro-card-date">Ressenti pouvoir d'achat · Dépenses contraintes</div>
+          <div class="baro-card-bar"></div>
+        </div>
+        <div class="baro-card upcoming">
+          <div class="baro-card-status" style="color:var(--muted)"><div class="sdot" style="background:var(--muted)"></div>À venir · Déc. 2026</div>
+          <div class="baro-card-name">RI-LOG</div>
+          <div class="baro-card-full">Indice du Logement Citoyen</div>
+          <div class="baro-card-score" style="color:rgba(136,153,180,.2);font-size:1.8rem">—</div>
+          <div class="baro-card-date">Accès · Coût · Qualité perçue</div>
+          <div class="baro-card-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pourquoi c'est unique -->
+    <div class="reveal" style="margin-top:1rem">
+      <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.12);padding:1.8rem 2rem;border-radius:var(--r)">
+        <div class="slabel" style="margin-bottom:.8rem">Pourquoi ce baromètre est unique</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:rgba(201,168,76,.08)">
+          <div style="background:var(--navy);padding:1.2rem">
+            <div style="font-family:var(--font-display);font-size:.9rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:.4rem">Multidimensionnel</div>
+            <div style="font-size:.8rem;color:var(--text-med);line-height:1.6;font-weight:400">6 domaines de la vie citoyenne mesurés avec la même méthodologie. Aucun observatoire français ne fait ça.</div>
+          </div>
+          <div style="background:var(--navy);padding:1.2rem">
+            <div style="font-family:var(--font-display);font-size:.9rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:.4rem">Vivant</div>
+            <div style="font-size:.8rem;color:var(--text-med);line-height:1.6;font-weight:400">Le radar se remplit à chaque publication. Ce n'est pas un rapport annuel — c'est une cartographie en construction.</div>
+          </div>
+          <div style="background:var(--navy);padding:1.2rem">
+            <div style="font-family:var(--font-display);font-size:.9rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:.4rem">Libre &amp; sourcé</div>
+            <div style="font-size:.8rem;color:var(--text-med);line-height:1.6;font-weight:400">Accès libre total. Formules publiées avant collecte. Sources officielles vérifiables. Zéro agenda.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM · 46/100 ✓</button></li><li><button onclick="goTo('ivi')">IVI · En cours</button></li><li><button onclick="goTo('indices')">Tous les indices</button></li></ul></div>
+        <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('perceptiongap')">Le perception gap</button></li><li><button onclick="goTo('manifeste')">À propos</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div><div class="fnote">Baromètre citoyen · Mise à jour à chaque publication · Accès libre</div></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     LE PERCEPTION GAP
+══════════════════════════════════════ -->
+<div id="page-perceptiongap" class="page">
+  <div class="breadcrumb"><button class="bc-btn" onclick="goTo('home')">Accueil</button><span class="bc-sep">›</span><button class="bc-btn" onclick="goTo('approche')">Notre approche</button><span class="bc-sep">›</span><span class="bc-cur">Le perception gap</span></div>
+
+  <section class="pg-page-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="slabel">Concept fondateur</div>
+      <h1 class="pg-h1">LE <span class="gold">PERCEPTION GAP</span><br>QU'EST-CE QUE C'EST ?</h1>
+      <p class="pg-sub">L'écart entre ce que les données disent et ce que vous ressentez. Un phénomène documenté par la recherche internationale, systématique en France, et jamais mesuré publiquement avant Ressento.</p>
+    </div>
+  </section>
+
+  <div class="pg-page-body">
+
+    <!-- Section 1 : Définition simple -->
+    <div class="pg-page-section reveal">
+      <span class="slabel">01 — La définition</span>
+      <h2 class="manifeste-h">Une réalité, <span class="gold">deux perceptions</span></h2>
+      <p class="manifeste-p">Le <strong>perception gap</strong> — ou écart de perception — désigne la divergence mesurable entre une réalité objective (ce que les statistiques indiquent) et la façon dont les individus la perçoivent subjectivement (ce qu'ils ressentent).</p>
+      <p class="manifeste-p">Ce n'est pas une question d'ignorance ou d'erreur. C'est un phénomène structurel, documenté dans tous les pays développés, qui affecte la façon dont les citoyens évaluent leurs institutions, leur qualité de vie et leurs gouvernements.</p>
+
+      <div class="example-block">
+        <span class="example-label">Exemple concret · France 2026</span>
+        <div class="example-split">
+          <div>
+            <div class="example-col-title">Ce que dit la statistique</div>
+            <div class="example-col-val" style="color:var(--text-med)">45,3%</div>
+            <div class="example-col-desc">du PIB français est prélevé en impôts et cotisations. C'est le taux le plus élevé d'Europe. Source : INSEE 2024.</div>
+          </div>
+          <div>
+            <div class="example-col-title">Ce que ressentent les citoyens</div>
+            <div class="example-col-val" style="color:var(--gold)">38%</div>
+            <div class="example-col-desc">seulement font confiance à l'État pour utiliser efficacement cet argent. Source : Kantar 2024.</div>
+          </div>
+        </div>
+        <div class="example-gap">
+          <div class="example-gap-val">Δ Perception gap fiscal</div>
+        </div>
+        <div style="font-size:.8rem;color:var(--text-faint);font-family:var(--font-mono);font-size:.6rem;letter-spacing:.04em">L'IVI (Indice de Valeur de l'Impôt) mesurera cet écart avec précision — résultats mai 2026</div>
+      </div>
+    </div>
+
+    <!-- Section 2 : La recherche -->
+    <div class="pg-page-section reveal">
+      <span class="slabel">02 — Ce que dit la recherche</span>
+      <h2 class="manifeste-h">Documenté, <span class="gold">répété, ignoré</span></h2>
+      <p class="manifeste-p">Le perception gap n'est pas une intuition — c'est un objet d'étude sérieux, mesuré depuis des décennies par des institutions académiques et internationales.</p>
+
+      <div class="research-block">
+        <div class="research-text">"Les individus surestiment systématiquement les inégalités de revenus dans leur pays — et cette surestimation est plus forte en France que dans la plupart des économies développées."</div>
+        <div class="research-src">Stefanie Stantcheva · Harvard University · NBER Working Paper · 2022</div>
+      </div>
+
+      <div class="research-block">
+        <div class="research-text">"En 2023, seulement 34% des Français déclaraient une confiance élevée envers leur gouvernement national — 5 points sous la moyenne OCDE, et en recul constant depuis 2010."</div>
+        <div class="research-src">OCDE · Enquête sur les déterminants de la confiance · 2024</div>
+      </div>
+
+      <div class="research-block">
+        <div class="research-text">"La satisfaction déclarée envers les services publics est systématiquement inférieure aux indicateurs objectifs de qualité de ces mêmes services."</div>
+        <div class="research-src">OCDE · Government at a Glance · 2023</div>
+      </div>
+
+      <p class="manifeste-p">Ces études partagent un constat commun : <strong style="color:var(--text-high)">la perception diverge de la réalité, et cet écart a des effets réels</strong> — sur le vote, sur l'engagement civique, sur la confiance institutionnelle. Ce n'est pas un biais à corriger. C'est une donnée à mesurer.</p>
+    </div>
+
+    <!-- Section 3 : Pourquoi ça compte -->
+    <div class="pg-page-section reveal">
+      <span class="slabel">03 — Pourquoi ça compte</span>
+      <h2 class="manifeste-h">Les citoyens décident sur <span class="gold">leur perception</span></h2>
+      <p class="manifeste-p">Une donnée économique fondamentale : les décisions humaines — vote, confiance, engagement, consommation — ne sont pas fondées sur la réalité objective mais sur la <em>perception de la réalité</em>.</p>
+      <p class="manifeste-p">Un maire qui améliore objectivement la sécurité de sa commune mais dont les citoyens ne perçoivent pas cette amélioration sera sanctionné dans les urnes. Une réforme fiscale qui réduit objectivement la charge des ménages moyens mais qui est perçue comme injuste sera rejetée dans les sondages.</p>
+
+      <div style="background:rgba(201,168,76,.04);border-left:3px solid var(--gold);padding:1.3rem 1.6rem;margin:1.5rem 0">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Le principe</div>
+        <div style="font-size:.95rem;color:var(--text-high);line-height:1.72;font-weight:400;font-style:italic">"Les citoyens ne votent pas sur la réalité. Ils votent sur leur perception de la réalité. Ce sont deux choses très différentes — et mesurer l'écart entre les deux est la seule façon de comprendre l'une et l'autre."</div>
+      </div>
+
+      <p class="manifeste-p">C'est pourquoi mesurer le perception gap n'est pas un exercice académique — c'est une nécessité civique. Et c'est ce vide que Ressento existe pour combler.</p>
+    </div>
+
+    <!-- Section 4 : Comment Ressento mesure -->
+    <div class="pg-page-section reveal">
+      <span class="slabel">04 — La mesure Ressento</span>
+      <h2 class="manifeste-h">Comment nous <span class="gold">le mesurons</span></h2>
+      <p class="manifeste-p">Ressento applique un protocole en trois temps pour chaque indice :</p>
+
+      <div class="application-grid">
+        <div class="app-item">
+          <div class="app-icon">📊</div>
+          <div class="app-title">La réalité officielle</div>
+          <div class="app-desc">On identifie la donnée officielle la plus pertinente — INSEE, DGFiP, Eurostat, OCDE. Elle est sourcée avec l'année et l'URL. C'est le point de référence objectif.</div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">💬</div>
+          <div class="app-title">La perception déclarée</div>
+          <div class="app-desc">On collecte le ressenti citoyen via un questionnaire structuré, diffusé anonymement. Les questions sont calibrées pour mesurer la même réalité que la donnée officielle.</div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">⚖️</div>
+          <div class="app-title">La formule publiée avant</div>
+          <div class="app-desc">La pondération est documentée avant la collecte. Elle ne peut pas être modifiée a posteriori. C'est notre garantie de non-manipulation.</div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">Δ</div>
+          <div class="app-title">Le Delta — l'écart mesuré</div>
+          <div class="app-desc">L'écart entre les deux mesures est le Delta Ressento. C'est la donnée que personne ne publiait. Elle ne dit pas qui a tort — elle dit où l'écart existe.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 : Ce que Ressento ne fait pas -->
+    <div class="pg-page-section reveal">
+      <span class="slabel">05 — Les limites assumées</span>
+      <h2 class="manifeste-h">Ce que Ressento <span class="gold">ne prétend pas</span></h2>
+      <p class="manifeste-p">Mesurer le perception gap avec rigueur implique d'être honnête sur ce que la mesure ne fait pas.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.04);margin:1.5rem 0">
+        <div style="background:var(--navy-card);padding:1.3rem">
+          <div style="font-family:var(--font-display);font-size:.9rem;letter-spacing:.05em;color:#E08080;margin-bottom:.4rem">Ressento ne dit pas</div>
+          <div style="font-size:.82rem;color:var(--text-med);line-height:1.7;font-weight:400">— Que les citoyens ont tort ou raison<br>— Que les politiques publiques sont bonnes ou mauvaises<br>— Que le ressenti devrait changer<br>— Qui est responsable de l'écart</div>
+        </div>
+        <div style="background:var(--navy-card);padding:1.3rem">
+          <div style="font-family:var(--font-display);font-size:.9rem;letter-spacing:.05em;color:#7DC49E;margin-bottom:.4rem">Ressento mesure</div>
+          <div style="font-size:.82rem;color:var(--text-med);line-height:1.7;font-weight:400">— L'écart entre réalité et perception<br>— Son amplitude et sa direction<br>— Les domaines où il est le plus fort<br>— Son évolution dans le temps</div>
+        </div>
+      </div>
+      <p class="manifeste-p" style="font-size:.85rem">Les questionnaires Ressento sont diffusés sur des panels auto-sélectionnés (LinkedIn, Facebook, Instagram, email). Les résultats ne sont pas représentatifs de la population française au sens statistique — ce biais est documenté et assumé. La valeur réside dans la tendance et la répétabilité, pas dans la précision d'une vague isolée.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal">
+      <div class="pg-cta">
+        <div class="slabel" style="margin-bottom:.8rem">Ressento en action</div>
+        <h3 style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.8rem">Voir le perception gap <span style="color:var(--gold)">mesuré</span></h3>
+        <p style="font-size:.88rem;color:var(--text-med);margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7">Le RI-IBM est le premier indice publié. Il mesure le perception gap municipal — la note du maire vs le bilan global perçu.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn--gold" onclick="goTo('ibm')" style="font-size:.9rem;padding:11px 24px">Voir le RI-IBM →</button>
+          <button class="btn btn--outline" onclick="goTo('ivi')" style="font-size:.9rem;padding:11px 24px">Participer à l'IVI →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Le perception gap, enfin mesuré.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
+        <div><div class="fcol-t">Indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM publié</button></li><li><button onclick="goTo('ivi')">IVI en cours</button></li><li><button onclick="goTo('barometre')">Baromètre citoyen</button></li></ul></div>
+        <div><div class="fcol-t">Ressento</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode</button></li><li><button onclick="goTo('manifeste')">À propos</button></li></ul></div>
+      </div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento</div><div class="fnote">Concept · Mesure · Delta · Accès libre</div></div>
     </div>
   </footer>
 </div>
