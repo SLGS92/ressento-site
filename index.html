@@ -1,7 +1,17 @@
 <html lang="fr"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ressento — Ce que vous ressentez, enfin chiffré</title>
+<title id="meta-title">Ressento — Ce que vous ressentez, enfin chiffré</title>
+<meta id="meta-desc" name="description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
+<meta id="meta-og-title" property="og:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
+<meta id="meta-og-desc" property="og:description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
+<meta property="og:type" content="website">
+<meta id="meta-og-url" property="og:url" content="https://ressento.com/">
+<meta property="og:image" content="https://ressento.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="meta-tw-title" name="twitter:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
+<meta id="meta-tw-desc" name="twitter:description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
+<link rel="canonical" id="meta-canonical" href="https://ressento.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -33,35 +43,28 @@ html{scroll-behavior:smooth;font-size:16px}
   --section-gap:96px;
 }
 
-/* ── BASE ── */
 body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.65;overflow-x:hidden}
 a{color:var(--gold);text-decoration:none;transition:color .2s}
 a:hover{color:var(--gold-light)}
 p{font-size:.95rem;line-height:1.85;color:var(--text-med);font-weight:400}
 
-/* Grain */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
 
-/* ── LAYOUT ── */
 .container{max-width:1100px;margin:0 auto;padding:0 32px}
 .container--n{max-width:820px;margin:0 auto;padding:0 32px}
 .page{display:none;padding-top:66px;min-height:100vh;position:relative;z-index:1}
 .page.active{display:block}
 
-/* ── BUTTONS ── */
 .btn{display:inline-block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;padding:14px 36px;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s ease;text-align:center}
 .btn--gold{background:var(--gold);color:var(--navy)}.btn--gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
 .btn--outline{background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.28)}.btn--outline:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ── TYPOGRAPHY SYSTEM ── */
 .slabel{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
 .stitle{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);letter-spacing:.03em;color:var(--text-high);line-height:1.02}
 .divider{width:48px;height:3px;background:var(--gold);margin:18px 0 28px}
 
-/* Body text — weight 400 minimum, jamais 300 pour texte informatif */
 .prose-body{font-size:.95rem;line-height:1.88;color:var(--text-med);font-weight:400;margin-bottom:1.1rem}
 .prose-body strong{color:var(--text-high);font-weight:600}
-.prose-body.small{font-size:.87rem;line-height:1.8}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--border-gold);backdrop-filter:blur(20px);background:rgba(11,31,60,.92)}
@@ -75,6 +78,20 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .nav-links button:hover{color:var(--text-high)}
 .nav-links button.active{color:var(--text-high);border-bottom-color:var(--gold)}
 
+/* ── HAMBURGER ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:200}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--offwhite);transition:all .3s ease;border-radius:2px}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── MOBILE DRAWER ── */
+.mobile-drawer{position:fixed;top:66px;left:0;right:0;bottom:0;background:rgba(8,18,46,.98);z-index:90;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:2rem 28px;gap:0;overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-drawer-link{font-family:var(--font-display);font-size:2rem;letter-spacing:.06em;color:var(--text-low);padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;text-align:left;width:100%;transition:color .2s}
+.mobile-drawer-link:hover,.mobile-drawer-link.active{color:var(--gold)}
+.mobile-drawer-cta{margin-top:2rem;display:block;width:100%;text-align:center}
+
 /* ── BREADCRUMB ── */
 .breadcrumb{background:rgba(11,31,60,.75);border-bottom:1px solid rgba(201,168,76,.07);padding:.75rem 32px;display:flex;align-items:center;gap:.7rem;position:relative;z-index:1}
 .bc-btn{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s}
@@ -82,7 +99,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .bc-sep{color:var(--gold);opacity:.3;font-size:.6rem}
 .bc-cur{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-med)}
 
-/* ── BG EFFECTS ── */
+/* ── BG ── */
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
 .hero-glow{position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(201,168,76,.065) 0%,transparent 68%);pointer-events:none}
 
@@ -101,7 +118,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .fcopy{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;color:var(--text-faint)}
 .fnote{font-family:var(--font-mono);font-size:.63rem;color:var(--text-faint);font-style:italic;text-align:right;max-width:400px;line-height:1.6}
 
-/* ── DELTA BANNER — pièce maîtresse, plus imposante ── */
+/* ── DELTA BANNER ── */
 .delta-banner{background:linear-gradient(145deg,rgba(12,32,68,.98),rgba(16,44,92,.95),rgba(11,30,62,.98));border-top:2px solid rgba(201,168,76,.3);border-bottom:1px solid rgba(201,168,76,.15);padding:3rem 32px;position:relative}
 .delta-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 5%,rgba(201,168,76,.55) 40%,rgba(201,168,76,.55) 60%,transparent 95%)}
 .delta-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;gap:.5rem;align-items:center}
@@ -131,25 +148,21 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 /* ── INDICE BODY ── */
 .indice-body{max-width:1100px;margin:3.5rem auto;padding:0 32px;display:grid;grid-template-columns:1fr 300px;gap:3.5rem}
 
-/* KPI grid — valeurs en gold pour les chiffres clés */
 .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1);border:1px solid var(--border-gold);margin-bottom:3rem}
 .kpi-box{background:var(--navy-card);padding:1.6rem 1.4rem}
 .kpi-val{font-family:var(--font-display);font-size:2.4rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
 .kpi-lbl{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-med);line-height:1.5}
 .kpi-src{font-size:.68rem;color:var(--text-faint);margin-top:.5rem;font-style:italic}
 
-/* Séparateur de section */
 .section-head{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border-subtle)}
 .section-head-title{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.05em;color:var(--text-high)}
 
-/* Chart */
 .chart-block{margin-bottom:3rem}
 .chart-container{background:rgba(255,255,255,.022);border:1px solid var(--border-gold);padding:1.8rem}
 .chart-lbl{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;display:block}
 .chart-wrap{height:230px;position:relative}
 .chart-src{font-size:.68rem;color:var(--text-faint);margin-top:.9rem;font-style:italic;display:block}
 
-/* EU Compare */
 .eu-row{display:flex;align-items:center;gap:.9rem;padding:.75rem 0;border-bottom:1px solid var(--border-subtle)}
 .eu-flag{font-size:1rem;width:24px;text-align:center;flex-shrink:0}
 .eu-country{font-family:var(--font-mono);font-size:.75rem;color:var(--text-med);width:108px;flex-shrink:0;font-weight:400}
@@ -183,7 +196,28 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .cta-sb-btn{display:block;width:100%;background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;padding:.85rem;border:none;cursor:pointer;transition:background .2s,transform .15s;border-radius:var(--r)}
 .cta-sb-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
 
-/* Formule box */
+/* ── EMAIL CAPTURE INLINE ── */
+.email-capture{display:flex;gap:8px;flex-wrap:wrap;margin-top:.8rem}
+.email-capture input{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:.65rem 1rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text-high);outline:none;transition:border-color .2s}
+.email-capture input:focus{border-color:var(--gold)}
+.email-capture input::placeholder{color:var(--text-faint)}
+.email-capture button{background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.88rem;letter-spacing:.06em;padding:.65rem 1.2rem;border:none;border-radius:var(--r);cursor:pointer;white-space:nowrap;transition:background .2s}
+.email-capture button:hover{background:var(--gold-light)}
+.email-success{font-family:var(--font-mono);font-size:.72rem;color:#7DC49E;letter-spacing:.06em;padding:.6rem;text-align:center;display:none}
+
+/* ── SOCIAL PROOF BADGE ── */
+.social-proof{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.18);padding:.5rem 1rem;border-radius:20px;margin-bottom:1.4rem}
+.sp-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
+.sp-text{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+
+/* ── SHARE BUTTON ── */
+.share-block{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--border-subtle)}
+.share-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.1rem;border-radius:var(--r);border:1px solid;cursor:pointer;transition:all .2s;background:transparent}
+.share-btn--linkedin{color:#8aaee0;border-color:rgba(138,174,224,.3)}.share-btn--linkedin:hover{background:rgba(138,174,224,.08);border-color:rgba(138,174,224,.6)}
+.share-btn--x{color:var(--text-med);border-color:rgba(240,237,230,.2)}.share-btn--x:hover{background:rgba(240,237,230,.04);border-color:rgba(240,237,230,.4)}
+.share-btn--copy{color:var(--gold);border-color:rgba(201,168,76,.25)}.share-btn--copy:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.5)}
+
+/* ── FORMULE BOX ── */
 .fbox{background:linear-gradient(145deg,rgba(12,32,68,.8),rgba(16,42,82,.7));border:1px solid rgba(201,168,76,.22);border-radius:var(--rl);padding:30px;font-family:var(--font-mono);margin-bottom:2.2rem}
 .fbox-title{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
 .fbox-main{font-size:1rem;color:var(--text-high);line-height:2.1;margin-bottom:16px}
@@ -191,7 +225,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .frow2{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem}
 .frow2-lbl{color:var(--text-med)}.frow2-w{font-size:.95rem;color:var(--gold);font-weight:500}
 
-/* Meter */
+/* ── METER ── */
 .meter-segs{display:flex;gap:3px;margin:.9rem 0 .5rem}
 .meter-seg{flex:1;height:7px;background:rgba(255,255,255,.07);border-radius:1px}
 .seg-red{background:#bf3a1a!important}
@@ -206,9 +240,14 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .hero-eyebrow-text{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.85)}
 h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--text-high);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards}
 h1.hh .gold{color:var(--gold)}
-
-/* Hero sub — poids 400, taille lisible */
 .hero-sub{font-size:clamp(1rem,1.8vw,1.18rem);font-weight:400;font-style:italic;color:var(--text-med);max-width:580px;margin:18px 0 24px;line-height:1.72;opacity:0;animation:fadeUp .8s ease .35s forwards}
+
+/* ── SCORE IMPACT BANNER (above fold) ── */
+.score-impact{display:flex;align-items:center;gap:16px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:14px 20px;margin-bottom:22px;opacity:0;animation:fadeUp .8s ease .28s forwards}
+.si-score{font-family:var(--font-display);font-size:2.8rem;color:var(--gold);letter-spacing:.02em;line-height:1;flex-shrink:0}
+.si-divider{width:1px;height:44px;background:rgba(201,168,76,.2);flex-shrink:0}
+.si-text{font-size:.85rem;color:var(--text-med);line-height:1.6;font-weight:400}
+.si-text strong{color:var(--text-high)}
 
 .hero-cta-block{max-width:680px;opacity:0;animation:fadeUp .8s ease .5s forwards}
 .indices-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
@@ -227,7 +266,7 @@ h1.hh .gold{color:var(--gold)}
 .ivi-btn{display:inline-block;font-family:var(--font-display);font-size:.95rem;letter-spacing:.07em;padding:11px 26px;background:var(--gold);color:var(--navy);border-radius:4px;white-space:nowrap;cursor:pointer;border:none;transition:background .2s,transform .2s}
 .ivi-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
 
-/* ── APPROCHE PAGE ── */
+/* ── APPROCHE ── */
 .pg-hero{background:linear-gradient(180deg,rgba(11,31,60,1) 0%,rgba(18,40,80,.8) 100%);padding:5.5rem 32px;position:relative;overflow:hidden}
 .pg-hero::after{content:'';position:absolute;top:-30%;right:-5%;width:550px;height:550px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
 .pg-h1{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.8rem);letter-spacing:.03em;color:var(--text-high);line-height:.97;margin-bottom:.9rem}
@@ -319,76 +358,7 @@ h1.hh .gold{color:var(--gold)}
 .limit-ttl{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.45rem}
 .limit-desc{font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400}
 
-/* Section communs */
 .section-sep{width:48px;height:3px;background:var(--gold);margin:18px 0 28px}
-.ecard{background:rgba(255,255,255,.024);border:1px solid var(--border-gold);padding:40px 32px;position:relative;transition:background .3s;border-radius:var(--r)}
-.ecard:hover{background:rgba(201,168,76,.04)}
-.ecard-num{font-family:var(--font-display);font-size:4.5rem;color:rgba(201,168,76,.08);line-height:1;position:absolute;top:16px;right:20px}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:none}
-
-/* ── RESPONSIVE ── */
-@media(max-width:960px){
-  .indice-hero-grid,.two-col,.method-two-col{grid-template-columns:1fr}
-  .big-score-num,.big-score-pending,.score-lbl,.score-bar-w{text-align:left;margin-left:0}
-  .kpi-grid{grid-template-columns:1fr 1fr}
-  .hub-grid{grid-template-columns:1fr 1fr}
-  .indice-body{grid-template-columns:1fr;padding:0 20px}
-  .delta-inner{grid-template-columns:1fr;gap:1rem}
-  .delta-op{display:none}
-  .footer-inner{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .method-nav-list{display:none}
-  .gap-grid,.limits-grid{grid-template-columns:1fr}
-  .container,.container--n{padding:0 20px}
-}
-@media(max-width:560px){
-  .kpi-grid{grid-template-columns:1fr}
-  .hub-grid{grid-template-columns:1fr}
-  .indices-preview{grid-template-columns:1fr}
-}
-
-/* ── TICKER ── */
-.ticker-wrap{background:rgba(8,18,46,.99);border-top:1px solid rgba(201,168,76,.18);border-bottom:1px solid rgba(201,168,76,.18);padding:0;overflow:hidden;position:relative;height:44px;display:flex;align-items:center}
-.ticker-wrap::before{content:'LIVE';position:absolute;left:0;top:0;bottom:0;z-index:3;background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.75rem;letter-spacing:.14em;padding:0 16px;display:flex;align-items:center;white-space:nowrap}
-.ticker-wrap::after{content:'';position:absolute;left:68px;top:0;bottom:0;width:40px;background:linear-gradient(90deg,rgba(8,18,46,.99),transparent);z-index:2}
-.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 55s linear infinite;padding-left:80px}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(201,168,76,.12);height:44px}
-.ticker-sep{color:rgba(201,168,76,.25);font-size:.8rem;margin:0 4px}
-.ticker-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.ticker-val{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em}
-.ticker-val.gold{color:var(--gold)}
-.ticker-val.neg{color:#E08080}
-.ticker-val.pos{color:#7DC49E}
-.ticker-val.blue{color:#8aaee0}
-.ticker-delta{font-family:var(--font-mono);font-size:.6rem;background:rgba(201,168,76,.1);color:var(--gold);padding:2px 7px;border-radius:2px;letter-spacing:.06em}
-.ticker-delta.neg{background:rgba(224,128,128,.1);color:#E08080}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ── JAUGE PERCEPTION GAP ── */
-.pg-gauge-left{}
-.pg-gauge-title{font-family:var(--font-display);font-size:2.2rem;letter-spacing:.03em;color:var(--text-high);line-height:1.02;margin-bottom:.7rem}
-.pg-gauge-title span{color:var(--gold)}
-.pg-gauge-sub{font-size:.88rem;color:var(--text-med);line-height:1.8;font-weight:400;max-width:420px}
-.pg-gauge-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1rem}
-.pg-gauge-right{position:relative}
-.gauge-container{position:relative;width:260px;height:140px;margin:0 auto 1.5rem}
-.gauge-svg{width:260px;height:140px}
-.gauge-score-display{position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center}
-.gauge-num{font-family:var(--font-display);font-size:3.5rem;color:var(--gold);letter-spacing:.02em;line-height:1}
-.gauge-denom{font-family:var(--font-mono);font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
-.pg-index-list{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
-.pg-index-row{display:flex;align-items:center;gap:.8rem;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
-.pg-index-name{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:70px;flex-shrink:0}
-.pg-index-bar{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:2px;position:relative}
-.pg-index-fill{position:absolute;left:0;top:0;height:100%;background:var(--gold);border-radius:2px;opacity:.7}
-.pg-index-score{font-family:var(--font-display);font-size:.95rem;color:var(--gold);width:40px;text-align:right}
-.pg-index-pending{font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5);width:40px;text-align:right}
 
 /* ── COMPTEURS ── */
 .counters-section{background:linear-gradient(180deg,rgba(10,22,52,.99),rgba(8,18,46,.99));border-top:1px solid rgba(201,168,76,.1)}
@@ -405,19 +375,87 @@ h1.hh .gold{color:var(--gold)}
 .counter-src{font-size:.65rem;color:var(--text-faint);margin-top:.8rem;font-style:italic;opacity:.6;line-height:1.5}
 .counter-dot{position:absolute;top:1.4rem;right:1.4rem;width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(201,168,76,.15)}
 
-@media(max-width:900px){
-  .pg-gauge-inner{grid-template-columns:1fr}
-  .counters-grid{grid-template-columns:1fr}
-  .gauge-container{width:220px;height:120px}
+/* ── TICKER ── */
+.ticker-wrap{background:rgba(8,18,46,.99);border-top:1px solid rgba(201,168,76,.18);border-bottom:1px solid rgba(201,168,76,.18);padding:0;overflow:hidden;position:relative;height:44px;display:flex;align-items:center}
+.ticker-wrap::before{content:'LIVE';position:absolute;left:0;top:0;bottom:0;z-index:3;background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.75rem;letter-spacing:.14em;padding:0 16px;display:flex;align-items:center;white-space:nowrap}
+.ticker-wrap::after{content:'';position:absolute;left:68px;top:0;bottom:0;width:40px;background:linear-gradient(90deg,rgba(8,18,46,.99),transparent);z-index:2}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 55s linear infinite;padding-left:80px}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;border-right:1px solid rgba(201,168,76,.12);height:44px}
+.ticker-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ticker-val{font-family:var(--font-display);font-size:1rem;letter-spacing:.04em}
+.ticker-val.gold{color:var(--gold)}
+.ticker-val.neg{color:#E08080}
+.ticker-val.pos{color:#7DC49E}
+.ticker-val.blue{color:#8aaee0}
+.ticker-delta{font-family:var(--font-mono);font-size:.6rem;background:rgba(201,168,76,.1);color:var(--gold);padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+.ticker-delta.neg{background:rgba(224,128,128,.1);color:#E08080}
+
+/* ── PAGE MERCI / PARTAGE ── */
+.merci-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
+.merci-card{background:linear-gradient(145deg,rgba(14,38,80,.98),rgba(18,48,100,.95));border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:3rem 2.5rem;max-width:600px;width:100%;text-align:center;position:relative;overflow:hidden}
+.merci-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.7),transparent)}
+.merci-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);padding:.5rem 1.2rem;border-radius:20px;margin-bottom:1.5rem;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.merci-title{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.8rem);letter-spacing:.03em;color:var(--text-high);line-height:.97;margin-bottom:.6rem}
+.merci-title .gold{color:var(--gold)}
+.merci-sub{font-size:.95rem;color:var(--text-med);line-height:1.75;margin-bottom:2rem;font-weight:400}
+.share-card-preview{background:linear-gradient(135deg,rgba(8,18,46,.99),rgba(12,32,68,.98));border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:2rem;margin-bottom:2rem;position:relative}
+.scp-logo{font-family:var(--font-display);font-size:1.4rem;letter-spacing:.12em;color:var(--text-high);margin-bottom:.3rem}
+.scp-logo .e2{color:var(--gold)}
+.scp-tag{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:1.5rem}
+.scp-stat{font-family:var(--font-display);font-size:4.5rem;color:var(--gold);line-height:1;margin-bottom:.2rem}
+.scp-stat-lbl{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.scp-bar{height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;margin:.3rem 0 1.2rem}
+.scp-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.scp-footer{font-family:var(--font-mono);font-size:.6rem;color:rgba(240,237,230,.25);letter-spacing:.06em;border-top:1px solid rgba(255,255,255,.06);padding-top:.8rem;margin-top:.5rem}
+.merci-share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:1.8rem}
+.merci-share-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:.9rem;letter-spacing:.06em;padding:.8rem 1.6rem;border-radius:var(--r);border:none;cursor:pointer;transition:all .2s}
+.msb-li{background:rgba(138,174,224,.15);color:#8aaee0;border:1px solid rgba(138,174,224,.3)}.msb-li:hover{background:rgba(138,174,224,.25)}
+.msb-x{background:rgba(240,237,230,.08);color:var(--offwhite);border:1px solid rgba(240,237,230,.2)}.msb-x:hover{background:rgba(240,237,230,.12)}
+.merci-next{font-size:.88rem;color:var(--text-low);line-height:1.6;font-weight:400}
+.merci-next a,.merci-next button{color:var(--gold);text-decoration:underline;background:none;border:none;cursor:pointer;font-size:.88rem;font-family:var(--font-body)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .indice-hero-grid,.two-col,.method-two-col{grid-template-columns:1fr}
+  .big-score-num,.big-score-pending,.score-lbl,.score-bar-w{text-align:left;margin-left:0}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .hub-grid{grid-template-columns:1fr 1fr}
+  .indice-body{grid-template-columns:1fr;padding:0 20px}
+  .delta-inner{grid-template-columns:1fr;gap:1rem}
+  .delta-op{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .method-nav-list{display:none}
+  .gap-grid,.limits-grid{grid-template-columns:1fr}
+  .container,.container--n{padding:0 20px}
+  .score-impact{flex-direction:column;align-items:flex-start;gap:10px}
+  .si-divider{display:none}
+}
+@media(max-width:560px){
+  .kpi-grid{grid-template-columns:1fr}
+  .hub-grid{grid-template-columns:1fr}
+  .indices-preview{grid-template-columns:1fr}
+  .merci-share-btns{flex-direction:column}
+  .merci-share-btn{justify-content:center}
+  .share-block{flex-direction:column}
 }
 </style>
 </head>
 <body>
 
 <!-- ══ NAV ══ -->
-<nav>
+<nav id="main-nav">
   <div class="container nav-inner">
-    <a class="nav-logo" onclick="goTo('home')" href="#">
+    <a class="nav-logo" onclick="goTo('home')" href="/">
       <span class="nav-logo-name">RESS<span class="e2">E</span>NTO</span>
       <span class="nav-logo-tag">Ce que vous ressentez, enfin chiffré</span>
     </a>
@@ -428,19 +466,32 @@ h1.hh .gold{color:var(--gold)}
       <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
       <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 14px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
-    <button class="btn btn--gold" style="padding:9px 16px;font-size:.78rem;white-space:nowrap" onclick="goTo('ivi')">Participer →</button>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="btn btn--gold" style="padding:9px 16px;font-size:.78rem;white-space:nowrap" onclick="goTo('ivi')">Participer →</button>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
+
+<!-- ══ MOBILE DRAWER ══ -->
+<div class="mobile-drawer" id="mobile-drawer">
+  <button class="mobile-drawer-link" onclick="goTo('home');toggleDrawer()">Accueil</button>
+  <button class="mobile-drawer-link" onclick="goTo('approche');toggleDrawer()">Notre approche</button>
+  <button class="mobile-drawer-link" onclick="goTo('indices');toggleDrawer()">Indices</button>
+  <button class="mobile-drawer-link" onclick="goTo('methodologie');toggleDrawer()">Méthode</button>
+  <a href="/carburant" class="mobile-drawer-link" style="text-decoration:none;font-family:var(--font-display);font-size:2rem;letter-spacing:.06em;color:rgba(93,202,165,.7);padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.06);display:block">⛽ Carburant</a>
+  <button class="btn btn--gold mobile-drawer-cta" onclick="goTo('ivi');toggleDrawer()">Participer à l'IVI →</button>
+</div>
 
 <!-- ══════════════════════════════════════
      HOME
 ══════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <!-- ── TICKER ── -->
   <div class="ticker-wrap" id="ticker-wrap">
     <div class="ticker-track" id="ticker-track">
-      <!-- Bloc 1 -->
       <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
       <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
       <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
@@ -450,11 +501,8 @@ h1.hh .gold{color:var(--gold)}
       <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
       <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
       <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
-      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
-      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
-      <!-- Bloc 2 — dupliqué pour boucle infinie -->
       <div class="ticker-item"><span class="ticker-label">RI-IBM</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ −8 pts</span></div>
       <div class="ticker-item"><span class="ticker-label">Bilan municipal</span><span class="ticker-val neg">67%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">auraient voté autre candidat</span></div>
       <div class="ticker-item"><span class="ticker-label">IVI</span><span class="ticker-val blue">En cours</span><span style="font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.5)">Résultats mai 2026</span></div>
@@ -464,10 +512,8 @@ h1.hh .gold{color:var(--gold)}
       <div class="ticker-item"><span class="ticker-label">Confiance mairie</span><span class="ticker-val gold">60%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">CEVIPOF 2026</span></div>
       <div class="ticker-item"><span class="ticker-label">Confiance gouvernement</span><span class="ticker-val neg">34%</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">OCDE Trust 2023</span></div>
       <div class="ticker-item"><span class="ticker-label">Rééliraient leur maire</span><span class="ticker-val neg">33%</span><span class="ticker-delta neg">Δ RI-IBM</span></div>
-      <div class="ticker-item"><span class="ticker-label">Gazole France</span><span class="ticker-val gold">2,163 €/L</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">+50 cts depuis fév.</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Culture</span><span class="ticker-val pos">↑ Positif</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">seul domaine en positif</span></div>
       <div class="ticker-item"><span class="ticker-label">Score mairie · Sécu</span><span class="ticker-val neg">↓ Critique</span><span style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted)">domaine le moins perçu</span></div>
-      <div class="ticker-item"><span class="ticker-label">Perception gap national</span><span class="ticker-val gold">46/100</span><span class="ticker-delta neg">Δ actif</span></div>
     </div>
   </div>
 
@@ -476,6 +522,18 @@ h1.hh .gold{color:var(--gold)}
     <div class="hero-glow"></div>
     <div class="container" style="position:relative;z-index:1">
       <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Observatoire indépendant · France · 2026</span></div>
+
+      <!-- SCORE IMPACT — above fold, proof immédiate -->
+      <div class="score-impact">
+        <div class="si-score">46<span style="font-size:1.4rem;color:rgba(201,168,76,.5)">/100</span></div>
+        <div class="si-divider"></div>
+        <div class="si-text">
+          <strong>RI-IBM publié — Score national du Bilan Municipal.</strong><br>
+          67% des Français auraient voté pour un autre candidat. Delta officiel : −8 pts.
+          <span style="margin-left:10px;font-family:var(--font-mono);font-size:.6rem;color:rgba(201,168,76,.6);cursor:pointer;text-decoration:underline" onclick="goTo('ibm')">Voir l'analyse →</span>
+        </div>
+      </div>
+
       <h1 class="hh">CE QUE LES<br>CITOYENS<br><span class="gold">RESSENTENT</span><br>VRAIMENT</h1>
       <p class="hero-sub">Ressento mesure l'écart entre ce que les données officielles disent et ce que les citoyens ressentent. Cet écart a un nom : le <strong style="color:var(--gold);font-style:normal">perception gap</strong>.<br>Personne ne le mesurait. Nous le faisons.</p>
       <div class="hero-cta-block">
@@ -506,6 +564,7 @@ h1.hh .gold{color:var(--gold)}
               <div class="ivi-label">RI-IVI · Collecte en cours · Avril 2026</div>
               <div class="ivi-title">Indice de Valeur de l'Impôt</div>
               <div class="ivi-sub">12 questions · 60 secondes · anonyme</div>
+              <div style="font-family:var(--font-mono);font-size:.6rem;color:rgba(201,168,76,.6);margin-top:4px;letter-spacing:.06em">Résultats publiés dès 200 participants</div>
             </div>
           </div>
           <button class="ivi-btn" onclick="goTo('ivi')">Participer →</button>
@@ -532,9 +591,7 @@ h1.hh .gold{color:var(--gold)}
     </div>
   </section>
 
-
-
-  <!-- ── COMPTEURS LIVE ── -->
+  <!-- COMPTEURS LIVE -->
   <div class="counters-section">
     <div class="counters-inner">
       <div style="margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
@@ -545,31 +602,27 @@ h1.hh .gold{color:var(--gold)}
         <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--muted);letter-spacing:.06em;text-align:right">Sources officielles<br>Cliquez sur ⛽ Carburant pour personnaliser</div>
       </div>
       <div class="counters-grid">
-
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Coût des grèves transport · France 2026</div>
           <div class="counter-val" id="cnt-greve">1,50 Md €</div>
-          <div class="counter-unit">€ de manque à gagner cumulé<br>depuis le 1er jan. 2026</div>
-          <div class="counter-src">Base : 500 M€/jour (Institut Montaigne · Banque de France) · 3 jours de grève nationale comptabilisés</div>
+          <div class="counter-unit">€ de manque à gagner estimé<br>3 journées de grève nationale en 2026</div>
+          <div class="counter-src">Base : 500 M€/jour · Institut Montaigne · Banque de France</div>
         </div>
-
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Surcoût carburant · Ménages français 2026</div>
-          <div class="counter-val" id="cnt-carbu">1,29 Md €</div>
+          <div class="counter-val" id="cnt-carbu">1,38 Md €</div>
           <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
-          <div class="counter-src">Base : +50 cts/L · 38M véhicules · consommation moy. nationale · INSEE 2024</div>
+          <div class="counter-src">Base : +50 cts/L · 38M véhicules · conso moy. nationale · INSEE 2024</div>
         </div>
-
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">306,05 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">316,89 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
-
       </div>
     </div>
   </div>
@@ -615,8 +668,6 @@ h1.hh .gold{color:var(--gold)}
 
   <section style="padding:0 0 5rem">
     <div class="container">
-
-      <!-- Bloc 1 : Le concept -->
       <div class="two-col reveal">
         <div class="prose">
           <div class="slabel" style="margin-top:2rem">01 — Le concept</div>
@@ -642,7 +693,6 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Bloc 2 : Pourquoi personne -->
       <div class="reveal" style="margin-bottom:4rem">
         <div class="slabel">02 — Le vide</div>
         <h2 class="stitle" style="margin-bottom:1rem">Pourquoi personne ne le mesurait</h2>
@@ -665,7 +715,6 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Bloc 3 : Delta -->
       <div class="reveal" style="background:linear-gradient(145deg,rgba(14,38,80,.7),rgba(18,48,90,.65));border:1px solid rgba(201,168,76,.15);padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden">
         <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)"></div>
         <div class="slabel">03 — Le concept Ressento</div>
@@ -680,7 +729,6 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Bloc 4 : Gaps -->
       <div class="reveal" style="margin-bottom:4rem">
         <div class="slabel">04 — Ce que ça change</div>
         <h2 class="stitle" style="margin-bottom:1rem">Les 4 espaces que personne n'occupait</h2>
@@ -692,7 +740,6 @@ h1.hh .gold{color:var(--gold)}
           <div class="gap-card"><div class="gap-n">GAP 04</div><div class="gap-ttl">Le rendez-vous citoyen événementiel</div><div class="gap-desc">L'IVI calé sur la déclaration fiscale. Les sondages institutionnels n'ont pas de calendrier citoyen. Ressento crée des indices synchronisés avec les moments où les Français vivent le sujet.</div></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -723,10 +770,10 @@ h1.hh .gold{color:var(--gold)}
 
   <div class="container" style="padding-bottom:4rem">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.55)">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"></path></svg>
-        Cliquez sur un indice pour explorer les données
-      </div>
-      <div class="hub-grid">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"></path></svg>
+      Cliquez sur un indice pour explorer les données
+    </div>
+    <div class="hub-grid">
       <div class="hub-card" onclick="goTo('ibm')">
         <div class="hub-card-arrow">Explorer →</div>
         <div class="hub-card-meta">Indice #01 · Mars 2026 · Publié</div>
@@ -757,33 +804,12 @@ h1.hh .gold{color:var(--gold)}
         <div class="hub-card-delta" style="color:rgba(93,202,165,.5)">Prix live · <span style="color:#5DCAA5">prix-carburants.gouv.fr</span><br>Benchmark : <span style="color:#5DCAA5">6 pays européens</span></div>
         <div class="hub-card-cta" style="color:rgba(93,202,165,.5);border-top-color:rgba(93,202,165,.15)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>Calculer mon surcoût</div>
       </div>
-      <div class="hub-card disabled">
-        <div class="hub-card-meta">Indice #03 · Juin 2026</div>
-        <div class="hub-card-name">RI-MOB</div>
-        <div class="hub-card-full">Indice de Mobilité Citoyenne</div>
-        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
-      </div>
-      <div class="hub-card disabled">
-        <div class="hub-card-meta">Indice #04 · Sept. 2026</div>
-        <div class="hub-card-name">RI-TRP</div>
-        <div class="hub-card-full">Transparence des Rémunérations Politiques</div>
-        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
-      </div>
-      <div class="hub-card disabled">
-        <div class="hub-card-meta">Indice #05 · Oct. 2026</div>
-        <div class="hub-card-name">RI-DPA</div>
-        <div class="hub-card-full">Déclaration Pouvoir d'Achat</div>
-        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
-      </div>
-      <div class="hub-card disabled">
-        <div class="hub-card-meta">Indice #06 · Déc. 2026</div>
-        <div class="hub-card-name">RI-LOG</div>
-        <div class="hub-card-full">Indice du Logement Citoyen</div>
-        <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div>
-      </div>
+      <div class="hub-card disabled"><div class="hub-card-meta">Indice #03 · Juin 2026</div><div class="hub-card-name">RI-MOB</div><div class="hub-card-full">Indice de Mobilité Citoyenne</div><div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div></div>
+      <div class="hub-card disabled"><div class="hub-card-meta">Indice #04 · Sept. 2026</div><div class="hub-card-name">RI-TRP</div><div class="hub-card-full">Transparence des Rémunérations Politiques</div><div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div></div>
+      <div class="hub-card disabled"><div class="hub-card-meta">Indice #05 · Oct. 2026</div><div class="hub-card-name">RI-DPA</div><div class="hub-card-full">Déclaration Pouvoir d'Achat</div><div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div></div>
+      <div class="hub-card disabled"><div class="hub-card-meta">Indice #06 · Déc. 2026</div><div class="hub-card-name">RI-LOG</div><div class="hub-card-full">Indice du Logement Citoyen</div><div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(136,153,180,.08);color:var(--muted);border:1px solid rgba(136,153,180,.17);display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;margin-top:1rem"><div class="sdot"></div>Bientôt</div></div>
     </div>
 
-    <!-- Timeline -->
     <div class="reveal" style="margin-top:3rem">
       <div class="slabel">Calendrier de publication</div>
       <h2 class="stitle">Les prochains indices</h2>
@@ -832,7 +858,6 @@ h1.hh .gold{color:var(--gold)}
     </div>
   </section>
 
-  <!-- DELTA BANNER -->
   <div class="delta-banner">
     <div class="delta-inner">
       <div class="delta-item">
@@ -867,8 +892,27 @@ h1.hh .gold{color:var(--gold)}
         <div class="kpi-box"><div class="kpi-val">33%</div><div class="kpi-lbl">Rééliraient leur maire actuel</div><div class="kpi-src">Ressento RI-IBM</div></div>
       </div>
 
-      <!-- Contexte données publiques — ordre : participation d'abord, confiance ensuite près de EU -->
-      <div class="chart-block">
+      <!-- SHARE BLOCK -->
+      <div class="share-block">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;width:100%">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg>
+          Partager ces résultats
+        </div>
+        <button class="share-btn share-btn--linkedin" onclick="shareLinkedIn('ibm')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </button>
+        <button class="share-btn share-btn--x" onclick="shareX('ibm')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          X / Twitter
+        </button>
+        <button class="share-btn share-btn--copy" onclick="copyLink('ibm')" id="copy-ibm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+          Copier le lien
+        </button>
+      </div>
+
+      <div class="chart-block" style="margin-top:2.5rem">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Participation aux élections municipales — France</div>
         <div class="chart-container">
           <div class="chart-lbl" style="color:rgba(240,237,230,.7)">Taux de participation (%) — Élections municipales 1977–2020</div>
@@ -877,7 +921,6 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Comparaison EU -->
       <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Confiance gouvernements locaux — Europe</h3>
       <div id="eu-ibm" style="margin-bottom:1rem"></div>
       <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurobaromètre Standard — Confiance dans les autorités locales et régionales, 2024</div>
@@ -890,7 +933,6 @@ h1.hh .gold{color:var(--gold)}
           <div class="chart-src">Source : CEVIPOF — Baromètre de la confiance politique, vagues 2020–2026</div>
         </div>
       </div>
-
     </main>
     <aside>
       <div class="sb-block">
@@ -910,9 +952,17 @@ h1.hh .gold{color:var(--gold)}
         <div class="sb-title">Méthodologie</div>
         <div id="method-ibm"></div>
       </div>
+      <!-- EMAIL CAPTURE SIDEBAR -->
       <div class="cta-sb">
-        <div class="cta-sb-txt">Recevoir les prochains indices Ressento à leur publication.</div>
-        <button class="cta-sb-btn">Recevoir les résultats</button>
+        <div class="cta-sb-txt">Recevoir le score IVI dès sa publication en mai 2026 — et les prochains indices Ressento.</div>
+        <div id="email-form-ibm">
+          <div class="email-capture">
+            <input type="email" id="email-input-ibm" placeholder="votre@email.com" autocomplete="email">
+            <button onclick="submitEmail('ibm')">OK →</button>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.6rem;line-height:1.5">Aucune publicité. Désabonnement en 1 clic.</div>
+        </div>
+        <div class="email-success" id="email-success-ibm">✓ Vous serez notifié à la publication.</div>
       </div>
     </aside>
   </div>
@@ -940,6 +990,13 @@ h1.hh .gold{color:var(--gold)}
         <div class="indice-hero-eyebrow" style="color:#8aaee0">Indice #02 · Lancé le 9 avril 2026 · Collecte en cours</div>
         <div class="indice-hero-name">IVI</div>
         <div class="indice-hero-full" style="color:rgba(138,174,224,.5)">Indice de Valeur de l'Impôt</div>
+
+        <!-- SOCIAL PROOF -->
+        <div class="social-proof" style="margin-bottom:1.2rem">
+          <div class="sp-dot"></div>
+          <span class="sp-text">Collecte active · Résultats publiés dès 200 participants</span>
+        </div>
+
         <div class="indice-hero-desc">La France est le pays le plus prélevé d'Europe — 45,3% du PIB. Mais ce que les citoyens perçoivent en retour, personne ne le mesurait. L'IVI mesure cet écart : entre ce que vous payez et ce que vous estimez recevoir.</div>
         <div style="margin-top:1.8rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
           <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" class="btn btn--gold" style="font-size:.9rem;padding:11px 24px">Participer à l'IVI →</a>
@@ -959,7 +1016,6 @@ h1.hh .gold{color:var(--gold)}
     </div>
   </section>
 
-  <!-- DELTA BANNER IVI -->
   <div class="delta-banner">
     <div class="delta-inner">
       <div class="delta-item">
@@ -984,24 +1040,20 @@ h1.hh .gold{color:var(--gold)}
 
   <div class="indice-body">
     <main>
-
-      <!-- Accroche éditoriale -->
       <div style="background:rgba(90,130,210,.06);border:1px solid rgba(90,130,210,.15);padding:1.6rem 1.8rem;margin-bottom:2.5rem;border-left:3px solid #8aaee0">
         <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#8aaee0;margin-bottom:.7rem">Contexte de lancement</div>
         <p style="font-size:.95rem;line-height:1.82;color:var(--text-med);font-weight:400;margin:0">La France est le pays d'Europe où le taux de prélèvements obligatoires est le plus élevé — <strong style="color:var(--text-high)">45,3% du PIB</strong>. Pourtant <strong style="color:var(--text-high)">58% des Français</strong> estiment payer trop au regard des services reçus, et seulement <strong style="color:var(--text-high)">38%</strong> font confiance à l'État pour utiliser l'impôt efficacement. L'IVI mesure cet écart avec précision.</p>
       </div>
 
-      <!-- Formule -->
       <div class="fbox" style="margin-bottom:2.5rem">
         <div class="fbox-title">Formule de calcul IVI</div>
         <div class="fbox-main"><span class="var">IVI</span> = <span class="var">Q2</span><span class="coef">×0,45</span> + <span class="var">Q1</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,25</span></div>
         <div class="frow2"><span class="frow2-lbl">Q1 · Valeur perçue des services publics reçus</span><span class="frow2-w">×0,30</span></div>
         <div class="frow2"><span class="frow2-lbl">Q2 · Équité fiscale ressentie (poids dominant)</span><span class="frow2-w">×0,45</span></div>
         <div class="frow2"><span class="frow2-lbl">Q3 · Lisibilité de l'utilisation des fonds publics</span><span class="frow2-w">×0,25</span></div>
-        <div style="margin-top:14px;font-size:.72rem;color:var(--muted);line-height:1.65">Formule documentée avant la collecte. Non modifiable a posteriori. Score de 0 (valeur nulle perçue) à 100 (valeur maximale perçue).</div>
+        <div style="margin-top:14px;font-size:.72rem;color:var(--muted);line-height:1.65">Formule documentée avant la collecte. Non modifiable a posteriori. Score de 0 à 100.</div>
       </div>
 
-      <!-- KPIs -->
       <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Chiffres clés — Données officielles</h3>
       <div class="kpi-grid">
         <div class="kpi-box"><div class="kpi-val">45,3%</div><div class="kpi-lbl">Taux de prélèvements obligatoires / PIB</div><div class="kpi-src">INSEE, 2024</div></div>
@@ -1012,7 +1064,6 @@ h1.hh .gold{color:var(--gold)}
         <div class="kpi-box"><div class="kpi-val">34%</div><div class="kpi-lbl">Confiance envers le gouvernement national</div><div class="kpi-src">OCDE Trust Survey, 2023</div></div>
       </div>
 
-      <!-- Chart 1 : évolution prélèvements -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Évolution des prélèvements obligatoires — France</div>
         <div class="chart-container">
@@ -1022,12 +1073,10 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Comparaison EU — juste après le graph prélèvements pour cohérence -->
       <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:.8rem">Prélèvements obligatoires — Comparaison européenne</h3>
       <div id="eu-ivi" style="margin-bottom:.8rem"></div>
       <div style="font-size:.65rem;color:rgba(136,153,180,.4);margin-bottom:2.5rem;font-style:italic">Source : Eurostat — Tax revenue statistics 2024 (% PIB)</div>
 
-      <!-- Chart 2 : IR par tranche -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Contribution à l'IR par tranche d'imposition</div>
         <div class="chart-container">
@@ -1037,7 +1086,6 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Chart 3 : confiance dans les institutions fiscales -->
       <div class="chart-block">
         <div class="chart-ttl" style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;color:var(--text-high);margin-bottom:1rem">Confiance dans la gestion de l'impôt — évolution</div>
         <div class="chart-container">
@@ -1047,50 +1095,28 @@ h1.hh .gold{color:var(--gold)}
         </div>
       </div>
 
-      <!-- Ce que le score mesurera -->
       <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.15);padding:1.8rem;margin-bottom:2.5rem">
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Ce que le score IVI mesurera</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.1)">
-          <div style="background:var(--navy);padding:1.1rem">
-            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score élevé · 65–100</div>
-            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Les citoyens estiment recevoir une valeur significative en échange de leurs prélèvements. Confiance dans la gestion publique.</div>
-          </div>
-          <div style="background:var(--navy);padding:1.1rem">
-            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score faible · 0–35</div>
-            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Sentiment de déconnexion entre contribution et retour perçu. Indicateur de perception gap fiscal élevé.</div>
-          </div>
-          <div style="background:var(--navy);padding:1.1rem">
-            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Seuil neutre · 50</div>
-            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Ni satisfaction ni insatisfaction dominante. Point d'équilibre entre perception positive et négative.</div>
-          </div>
-          <div style="background:var(--navy);padding:1.1rem">
-            <div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Δ Delta · à paraître</div>
-            <div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Écart entre le taux officiel (45,3% PIB) et la valeur perçue déclarée. C'est la donnée exclusive Ressento.</div>
-          </div>
+          <div style="background:var(--navy);padding:1.1rem"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score élevé · 65–100</div><div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Les citoyens estiment recevoir une valeur significative en échange de leurs prélèvements.</div></div>
+          <div style="background:var(--navy);padding:1.1rem"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Score faible · 0–35</div><div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Sentiment de déconnexion entre contribution et retour perçu.</div></div>
+          <div style="background:var(--navy);padding:1.1rem"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Seuil neutre · 50</div><div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Ni satisfaction ni insatisfaction dominante.</div></div>
+          <div style="background:var(--navy);padding:1.1rem"><div style="font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.4rem">Δ Delta · à paraître</div><div style="font-size:.82rem;color:var(--text-med);line-height:1.6;font-weight:400">Écart entre le taux officiel (45,3% PIB) et la valeur perçue déclarée.</div></div>
         </div>
       </div>
-
     </main>
 
     <aside>
       <div class="sb-block">
-        <div class="sb-title">Score IVI — À paraître</div>
-        <div style="text-align:center;padding:1.5rem 0">
-          <div style="font-family:var(--font-display);font-size:4rem;color:rgba(138,174,224,.2);letter-spacing:.02em;line-height:1">—</div>
-          <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(138,174,224,.4);margin-top:.6rem">Publication mai 2026</div>
-          <div style="display:flex;gap:3px;margin:1rem auto;justify-content:center">
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
-            <div style="flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:1px"></div>
+        <div class="sb-title">Statut de la collecte</div>
+        <div style="text-align:center;padding:1.2rem 0 .8rem">
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(90,130,210,.1);color:#8aaee0;border:1px solid rgba(90,130,210,.22);padding:.5rem 1rem;border-radius:20px;margin-bottom:1rem">
+            <div class="sdot pulse" style="background:#8aaee0"></div>Collecte active
           </div>
-          <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(138,174,224,.35)">0 · Faible → Fort · 100</div>
+          <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--text-med);line-height:1.8;letter-spacing:.04em">
+            Résultats publiés<br>dès <span style="color:var(--gold);font-family:var(--font-display);font-size:1.1rem">200</span> participants
+          </div>
+          <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.6rem;color:rgba(138,174,224,.4);letter-spacing:.06em">Publication prévue · Mai 2026</div>
         </div>
       </div>
       <div class="sb-block">
@@ -1105,9 +1131,20 @@ h1.hh .gold{color:var(--gold)}
         <div class="sb-title">Méthodologie IVI</div>
         <div id="method-ivi"></div>
       </div>
+      <!-- EMAIL CAPTURE IVI -->
       <div class="cta-sb">
-        <div class="cta-sb-txt">Participer à la collecte IVI — 12 questions, 60 secondes, anonyme. Résultats publiés en accès libre.</div>
-        <button class="cta-sb-btn" onclick="window.open('https://tally.so/r/vGLAdQ','_blank')">Répondre maintenant →</button>
+        <div class="cta-sb-txt">Recevoir les résultats IVI à publication en mai 2026 — et les prochains indices.</div>
+        <div id="email-form-ivi">
+          <div class="email-capture">
+            <input type="email" id="email-input-ivi" placeholder="votre@email.com" autocomplete="email">
+            <button onclick="submitEmail('ivi')">OK →</button>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.6rem;line-height:1.5">Aucune publicité. Désabonnement en 1 clic.</div>
+        </div>
+        <div class="email-success" id="email-success-ivi">✓ Vous serez notifié à la publication.</div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)">
+          <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="display:block;width:100%;text-align:center;font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;padding:.75rem;background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);transition:all .2s" onmouseover="this.style.background='rgba(201,168,76,.08)'" onmouseout="this.style.background='transparent'">Répondre au questionnaire →</a>
+        </div>
       </div>
     </aside>
   </div>
@@ -1227,75 +1264,276 @@ h1.hh .gold{color:var(--gold)}
   </footer>
 </div>
 
-<script>
-// ── ROUTING ──────────────────────────────────────────────────
-window._nativeScrollTo = window.scrollTo.bind(window);
-const PAGES=['home','approche','indices','ibm','ivi','methodologie'];
-let activeCharts=[];
-let counterInterval=null;
+<!-- ══════════════════════════════════════
+     PAGE MERCI / PARTAGE (post-IVI)
+══════════════════════════════════════ -->
+<div id="page-merci" class="page">
+  <div class="merci-hero">
+    <div class="hero-grid-bg" style="position:fixed"></div>
+    <div style="position:fixed;top:-15%;left:-8%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(201,168,76,.05) 0%,transparent 68%);pointer-events:none"></div>
+    <div class="merci-card" style="position:relative;z-index:1">
+      <div class="merci-badge">
+        <div class="sdot pulse" style="background:var(--gold)"></div>
+        IVI · Collecte en cours
+      </div>
+      <div class="merci-title">MERCI<br>D'AVOIR<br><span class="gold">PARTICIPÉ</span></div>
+      <p class="merci-sub">Votre réponse contribue à mesurer l'écart entre ce que les Français paient et ce qu'ils perçoivent recevoir. Résultats publiés en mai 2026, en accès libre.</p>
 
-function goTo(id){
-  PAGES.forEach(p=>{document.getElementById('page-'+p)?.classList.remove('active');});
+      <div class="share-card-preview">
+        <div class="scp-logo">RESS<span class="e2">E</span>NTO</div>
+        <div class="scp-tag">Observatoire indépendant · France · 2026</div>
+        <div class="scp-stat">45,3%</div>
+        <div class="scp-stat-lbl">du PIB prélevé — rang 1er en Europe</div>
+        <div class="scp-bar"><div class="scp-bar-fill" style="width:45%"></div></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.6rem;color:var(--muted);margin-bottom:1rem">
+          <span>38% font confiance à l'État</span>
+          <span>IVI — résultats mai 2026</span>
+        </div>
+        <div class="scp-footer">ressento.com · J'ai participé à l'IVI · Percevez-vous la valeur de vos impôts ?</div>
+      </div>
+
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Partagez &amp; faites participer votre réseau</div>
+      <div class="merci-share-btns">
+        <button class="merci-share-btn msb-li" onclick="shareMerciLinkedIn()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+          Partager sur LinkedIn
+        </button>
+        <button class="merci-share-btn msb-x" onclick="shareMerciX()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          Partager sur X
+        </button>
+      </div>
+
+      <!-- EMAIL CAPTURE MERCI -->
+      <div style="background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:1.2rem;margin-bottom:1.5rem">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Recevoir les résultats IVI en mai 2026</div>
+        <div id="email-form-merci">
+          <div class="email-capture">
+            <input type="email" id="email-input-merci" placeholder="votre@email.com" autocomplete="email">
+            <button onclick="submitEmail('merci')">OK →</button>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.5rem">Aucune publicité. Désabonnement en 1 clic.</div>
+        </div>
+        <div class="email-success" id="email-success-merci">✓ Vous serez notifié à la publication.</div>
+      </div>
+
+      <p class="merci-next">
+        Voir les <button onclick="goTo('ibm')">données officielles sur l'impôt →</button>
+        &nbsp;·&nbsp;
+        <button onclick="goTo('home')">Accueil Ressento</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── URL ROUTING + SEO META ─────────────────────────────────────
+const PAGE_META = {
+  home: {
+    title: 'Ressento — Ce que vous ressentez, enfin chiffré',
+    desc: 'Ressento mesure l\'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.',
+    url: '/'
+  },
+  approche: {
+    title: 'Notre approche — Le perception gap, enfin mesuré | Ressento',
+    desc: 'Comprendre le concept du perception gap : pourquoi l\'écart entre réalité statistique et ressenti citoyen est systématique, documenté et jamais mesuré en France.',
+    url: '/approche'
+  },
+  indices: {
+    title: 'Tous les indices — RI-IBM, IVI, RI-MOB | Ressento',
+    desc: 'Découvrez les indices Ressento : Bilan Municipal (46/100), Indice de Valeur de l\'Impôt (en cours), et le calendrier des prochains indices 2026.',
+    url: '/indices'
+  },
+  ibm: {
+    title: 'RI-IBM · Indice du Bilan Municipal — Score 46/100 | Ressento',
+    desc: 'Le RI-IBM mesure la satisfaction des citoyens vis-à-vis de leur mairie. Score national : 46/100. Delta officiel : −8 pts. 67% auraient voté pour un autre candidat.',
+    url: '/indices/ibm'
+  },
+  ivi: {
+    title: 'IVI · Indice de Valeur de l\'Impôt — Collecte en cours | Ressento',
+    desc: 'La France prélève 45,3% du PIB — rang 1er en Europe. Seulement 38% des Français font confiance à l\'État pour gérer l\'impôt. Participez à l\'IVI, résultats mai 2026.',
+    url: '/indices/ivi'
+  },
+  methodologie: {
+    title: 'Méthode & Transparence — Formules, sources, biais | Ressento',
+    desc: 'La méthodologie Ressento : formules publiées avant collecte, sources officielles vérifiables (INSEE, DGFiP, Eurostat), biais documentés, neutralité totale.',
+    url: '/methode'
+  },
+  merci: {
+    title: 'Merci d\'avoir participé à l\'IVI | Ressento',
+    desc: 'Votre réponse contribue à mesurer le perception gap fiscal. Résultats publiés en mai 2026. Partagez l\'IVI avec votre réseau.',
+    url: '/merci'
+  }
+};
+
+function updateMeta(id) {
+  const m = PAGE_META[id] || PAGE_META.home;
+  document.getElementById('meta-title').textContent = m.title;
+  document.getElementById('meta-desc').content = m.desc;
+  document.getElementById('meta-og-title').content = m.title;
+  document.getElementById('meta-og-desc').content = m.desc;
+  document.getElementById('meta-og-url').content = 'https://ressento.com' + m.url;
+  document.getElementById('meta-tw-title').content = m.title;
+  document.getElementById('meta-tw-desc').content = m.desc;
+  document.getElementById('meta-canonical').href = 'https://ressento.com' + m.url;
+  try { history.pushState({ page: id }, m.title, m.url); } catch(e) {}
+}
+
+// ── ROUTING ────────────────────────────────────────────────────
+window._nativeScrollTo = window.scrollTo.bind(window);
+const PAGES = ['home','approche','indices','ibm','ivi','methodologie','merci'];
+let activeCharts = [];
+let counterInterval = null;
+
+function goTo(id) {
+  PAGES.forEach(p => { document.getElementById('page-'+p)?.classList.remove('active'); });
   document.getElementById('page-'+id)?.classList.add('active');
   window._nativeScrollTo(0,0);
-  ['home','approche','indices','methodologie'].forEach(n=>{
-    const el=document.getElementById('nl-'+n);
+  updateMeta(id);
+  ['home','approche','indices','methodologie'].forEach(n => {
+    const el = document.getElementById('nl-'+n);
     if(el) el.classList.remove('active');
   });
-  const map={home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie'};
-  const nl=document.getElementById('nl-'+(map[id]||id));
+  const navMap = {home:'home',approche:'approche',indices:'indices',ibm:'indices',ivi:'indices',methodologie:'methodologie'};
+  const nl = document.getElementById('nl-'+(navMap[id]||id));
   if(nl) nl.classList.add('active');
-  activeCharts.forEach(c=>{try{c.destroy();}catch(e){}});
-  activeCharts=[];
-  if(id==='ibm') setTimeout(initIBM,100);
-  if(id==='ivi') setTimeout(initIVI,100);
-  if(id==='home'){
+  activeCharts.forEach(c => { try{c.destroy();}catch(e){} });
+  activeCharts = [];
+  if(id === 'ibm') setTimeout(initIBM, 100);
+  if(id === 'ivi') setTimeout(initIVI, 100);
+  if(id === 'home') {
     if(counterInterval) clearInterval(counterInterval);
     initCounters();
+    updateRespondentsDisplay();
   } else {
-    // Stopper les compteurs quand on quitte la home (perf)
     if(counterInterval) clearInterval(counterInterval);
   }
   setupReveal();
+  // Close mobile drawer if open
+  if(document.getElementById('mobile-drawer').classList.contains('open')) toggleDrawer();
 }
 
-function scrollToSection(id){
+// Handle browser back/forward
+window.addEventListener('popstate', (e) => {
+  if(e.state?.page) {
+    PAGES.forEach(p => { document.getElementById('page-'+p)?.classList.remove('active'); });
+    document.getElementById('page-'+e.state.page)?.classList.add('active');
+  }
+});
+
+function scrollToSection(id) {
   const el = document.getElementById(id);
   if(!el) return;
-  const offset = 86;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - 86;
   window._nativeScrollTo({top, behavior:'smooth'});
   document.querySelectorAll('.method-nav-btn').forEach(b => b.classList.remove('active'));
-  const btns = document.querySelectorAll('.method-nav-btn');
-  btns.forEach(b => { if(b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) b.classList.add('active'); });
+  document.querySelectorAll('.method-nav-btn').forEach(b => {
+    if(b.getAttribute('onclick')?.includes(id)) b.classList.add('active');
+  });
 }
 
-function setupReveal(){
-  const els=document.querySelectorAll('.page.active .reveal');
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach((e,i)=>{
-      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*65);obs.unobserve(e.target);}
-    });
-  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(el=>obs.observe(el));
+// ── HAMBURGER MOBILE ───────────────────────────────────────────
+function toggleDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  const btn = document.getElementById('hamburger');
+  drawer.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
 }
 
-// ── SIDEBAR HELPERS ───────────────────────────────────────────
-function buildDistrib(id,rows){
-  const el=document.getElementById(id);if(!el)return;
-  el.innerHTML=rows.map(r=>`<div class="distrib-row"><div class="distrib-lbl">${r.l}</div><div class="distrib-track"><div class="distrib-fill" style="width:${r.p}%"></div></div><div class="distrib-pct">${r.p}%</div></div>`).join('');
+// ── SOCIAL PROOF — statut honnête ─────────────────────────────
+function updateRespondentsDisplay() {
+  // Chiffre réel à brancher via API Tally quand disponible
+  // En attendant : aucun chiffre affiché, message honnête uniquement
 }
-function buildPress(id,items){
-  const el=document.getElementById(id);if(!el)return;
-  el.innerHTML=items.map(p=>`<a class="press-item" href="${p.url}" target="_blank" rel="noopener"><div class="press-src">${p.src}</div><div class="press-ttl">${p.ttl}</div><div class="press-date">${p.date}</div></a>`).join('');
+
+// ── EMAIL CAPTURE ──────────────────────────────────────────────
+function submitEmail(context) {
+  const input = document.getElementById('email-input-' + context);
+  const form = document.getElementById('email-form-' + context);
+  const success = document.getElementById('email-success-' + context);
+  if(!input) return;
+  const email = input.value.trim();
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.style.borderColor = '#E08080';
+    input.focus();
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+    return;
+  }
+  // Ici tu branches ton endpoint Brevo
+  // fetch('https://api.brevo.com/...', { method:'POST', body: JSON.stringify({email}) })
+  // Pour l'instant : simulation
+  console.log('[Ressento] Email capture:', email, 'context:', context);
+  if(form) form.style.display = 'none';
+  if(success) success.style.display = 'block';
+  // Store locally to avoid re-showing
+  try { localStorage.setItem('ressento_email_captured', '1'); } catch(e) {}
 }
-function buildMethod(id,steps){
-  const el=document.getElementById(id);if(!el)return;
-  el.innerHTML=steps.map((s,i)=>`<div class="method-item"><div class="method-n">0${i+1}</div><div class="method-t"><strong>${s.t}</strong>${s.d}</div></div>`).join('');
+
+// Handle Enter key on email inputs
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter' && e.target.type === 'email') {
+    const id = e.target.id.replace('email-input-', '');
+    submitEmail(id);
+  }
+});
+
+// ── SHARE FUNCTIONS ────────────────────────────────────────────
+function shareLinkedIn(page) {
+  const urls = {
+    ibm: 'https://ressento.com/indices/ibm',
+    ivi: 'https://ressento.com/indices/ivi'
+  };
+  const texts = {
+    ibm: 'Score 46/100 pour le Bilan Municipal des maires français. 67% auraient voté pour un autre candidat. Résento mesure le perception gap citoyen. @ressento',
+    ivi: 'La France prélève 45,3% du PIB — rang 1er en Europe. Seulement 38% font confiance à l\'État pour gérer l\'impôt. J\'ai participé à l\'IVI de @Ressento'
+  };
+  const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urls[page]||'https://ressento.com')}&summary=${encodeURIComponent(texts[page]||'')}`;
+  window.open(url, '_blank', 'width=600,height=600');
 }
-function buildMeter(id,score){
-  const el=document.getElementById(id);if(!el)return;
-  let h='';
+
+function shareX(page) {
+  const texts = {
+    ibm: '🗳️ Score 46/100 pour le bilan municipal français. 67% auraient voté autrement. @Ressento mesure l\'écart entre données officielles et ressenti citoyen. ressento.com/indices/ibm',
+    ivi: '🇫🇷 France : 45,3% du PIB prélevé, rang 1er en Europe. 38% font confiance à l\'État. J\'ai répondu à l\'IVI de @Ressento — résultats mai 2026. ressento.com/indices/ivi'
+  };
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(texts[page]||'')}`, '_blank', 'width=600,height=400');
+}
+
+function copyLink(page) {
+  const urls = {ibm: 'https://ressento.com/indices/ibm', ivi: 'https://ressento.com/indices/ivi'};
+  const btn = document.getElementById('copy-' + page);
+  navigator.clipboard.writeText(urls[page]||'https://ressento.com').then(() => {
+    if(btn) { const orig = btn.innerHTML; btn.innerHTML = btn.innerHTML.replace('Copier le lien','Copié ✓'); setTimeout(() => {btn.innerHTML = orig;}, 2000); }
+  });
+}
+
+function shareMerciLinkedIn() {
+  const text = 'J\'ai participé à l\'IVI (Indice de Valeur de l\'Impôt) de Ressento. La France prélève 45,3% du PIB — mais que percevons-nous en retour ? Résultats en mai 2026. Vous pouvez participer : ressento.com/indices/ivi';
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://ressento.com/indices/ivi')}&summary=${encodeURIComponent(text)}`, '_blank', 'width=600,height=600');
+}
+
+function shareMerciX() {
+  const text = '🇫🇷 J\'ai répondu à l\'IVI de @Ressento — l\'indice qui mesure ce que les Français perçoivent de leurs impôts. 45,3% du PIB prélevé, rang 1er en Europe. Résultats mai 2026 👉 ressento.com/indices/ivi';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'width=600,height=400');
+}
+
+// ── SIDEBAR BUILDERS ───────────────────────────────────────────
+function buildDistrib(id, rows) {
+  const el = document.getElementById(id); if(!el) return;
+  el.innerHTML = rows.map(r => `<div class="distrib-row"><div class="distrib-lbl">${r.l}</div><div class="distrib-track"><div class="distrib-fill" style="width:${r.p}%"></div></div><div class="distrib-pct">${r.p}%</div></div>`).join('');
+}
+function buildPress(id, items) {
+  const el = document.getElementById(id); if(!el) return;
+  el.innerHTML = items.map(p => `<a class="press-item" href="${p.url}" target="_blank" rel="noopener"><div class="press-src">${p.src}</div><div class="press-ttl">${p.ttl}</div><div class="press-date">${p.date}</div></a>`).join('');
+}
+function buildMethod(id, steps) {
+  const el = document.getElementById(id); if(!el) return;
+  el.innerHTML = steps.map((s,i) => `<div class="method-item"><div class="method-n">0${i+1}</div><div class="method-t"><strong>${s.t}</strong>${s.d}</div></div>`).join('');
+}
+function buildMeter(id, score) {
+  const el = document.getElementById(id); if(!el) return;
+  let h = '';
   for(let i=0;i<10;i++){
     const p=(i+1)*10;
     let cls='';
@@ -1306,177 +1544,113 @@ function buildMeter(id,score){
     }
     h+=`<div class="meter-seg ${cls}"></div>`;
   }
-  el.innerHTML=h;
+  el.innerHTML = h;
 }
-function buildEU(id,rows){
-  const el=document.getElementById(id);if(!el)return;
-  const max=Math.max(...rows.map(r=>r.v));
-  el.innerHTML=rows.map(r=>`<div class="eu-row ${r.fr?'fr':''}"><div class="eu-flag">${r.f}</div><div class="eu-country">${r.c}</div><div class="eu-bar-w"><div class="eu-bar-f" style="width:${(r.v/max*100).toFixed(1)}%"></div></div><div class="eu-val">${r.v}${r.u||'%'}</div></div>`).join('');
+function buildEU(id, rows) {
+  const el = document.getElementById(id); if(!el) return;
+  const max = Math.max(...rows.map(r=>r.v));
+  el.innerHTML = rows.map(r => `<div class="eu-row ${r.fr?'fr':''}"><div class="eu-flag">${r.f}</div><div class="eu-country">${r.c}</div><div class="eu-bar-w"><div class="eu-bar-f" style="width:${(r.v/max*100).toFixed(1)}%"></div></div><div class="eu-val">${r.v}${r.u||'%'}</div></div>`).join('');
 }
-function mkChart(id,type,labels,datasets,opts){
-  const ctx=document.getElementById(id);if(!ctx)return;
-  const c=new Chart(ctx,{type,data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.8)'}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.55)'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'rgba(240,237,230,.55)'},...(opts||{})}}}});
+function mkChart(id, type, labels, datasets, opts) {
+  const ctx = document.getElementById(id); if(!ctx) return;
+  const c = new Chart(ctx, {type, data:{labels, datasets}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{labels:{font:{family:"'DM Mono',monospace",size:10}, color:'rgba(240,237,230,.8)'}}}, scales:{x:{grid:{color:'rgba(255,255,255,.04)'}, ticks:{font:{family:"'DM Mono',monospace",size:10}, color:'rgba(240,237,230,.55)'}}, y:{grid:{color:'rgba(255,255,255,.04)'}, ticks:{font:{family:"'DM Mono',monospace",size:10}, color:'rgba(240,237,230,.55)'},...(opts||{})}}}});
   activeCharts.push(c);
 }
 
-// ── IBM ───────────────────────────────────────────────────────
-function initIBM(){
-  const b=document.getElementById('bar-ibm');if(b) b.style.width='46%';
-  buildMeter('meter-ibm',46);
-  buildDistrib('distrib-ibm',[
-    {l:'Sécurité',p:28},{l:'Transports',p:42},{l:'Ecoles',p:55},{l:'Voirie',p:38},{l:'Culture',p:62},
-  ]);
-  buildPress('press-ibm',[
+// ── IBM ────────────────────────────────────────────────────────
+function initIBM() {
+  const b = document.getElementById('bar-ibm'); if(b) b.style.width='46%';
+  buildMeter('meter-ibm', 46);
+  buildDistrib('distrib-ibm', [{l:'Sécurité',p:28},{l:'Transports',p:42},{l:'Ecoles',p:55},{l:'Voirie',p:38},{l:'Culture',p:62}]);
+  buildPress('press-ibm', [
     {src:'CEVIPOF 2026',ttl:'Baromètre confiance politique — La proximité fait refuge',date:'Janv. 2026',url:'https://www.sciencespo.fr/cevipof'},
     {src:'Ministère Intérieur',ttl:'Résultats élections municipales 2020',date:'2020',url:'https://www.interieur.gouv.fr'},
     {src:'Eurobaromètre',ttl:'Trust in local/regional authorities — Standard 2024',date:'Déc. 2024',url:'https://ec.europa.eu/eurostat'},
     {src:'Cour des Comptes',ttl:'Les finances des communes — Rapport 2024',date:'2024',url:'https://www.ccomptes.fr'},
   ]);
-  buildMethod('method-ibm',[
+  buildMethod('method-ibm', [
     {t:'Questionnaire',d:'Diffusé sur LinkedIn, Facebook groupes citoyens, Instagram et Brevo.'},
     {t:'Formule',d:'4 axes pondérés : satisfaction globale (35%), services (30%), maire (20%), démocratie (15%).'},
     {t:'Croisement',d:'Confronté aux données CEVIPOF, participation électorale et Eurobaromètre.'},
     {t:'Volume',d:'Volume de répondants non communiqué — voir note méthodologique.'},
   ]);
-  buildEU('eu-ibm',[
+  buildEU('eu-ibm', [
     {f:'🇩🇰',c:'Danemark',v:76},{f:'🇫🇮',c:'Finlande',v:74},{f:'🇸🇪',c:'Suède',v:70},
     {f:'🇳🇱',c:'Pays-Bas',v:67},{f:'🇩🇪',c:'Allemagne',v:62},
     {f:'🇫🇷',c:'France',v:52,fr:true},
     {f:'🇪🇸',c:'Espagne',v:48},{f:'🇮🇹',c:'Italie',v:40},{f:'🇬🇷',c:'Grèce',v:32},
   ]);
-  mkChart('chart-ibm-1','line',
-    ['2020','2021','2022','2023','2024','2026'],
-    [{label:'Confiance maire (%)',data:[60,58,55,52,57,60],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'},
-     {label:'Confiance gouvernement (%)',data:[33,31,28,27,30,34],borderColor:'rgba(136,153,180,.6)',backgroundColor:'rgba(136,153,180,.04)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:'rgba(136,153,180,.6)'}],
-    {min:20,max:75}
-  );
-  mkChart('chart-ibm-2','bar',
-    ['1977','1983','1989','1995','2001','2008','2014','2020'],
-    [{label:'Participation (%)',data:[72.8,78.4,73.5,70.3,67.3,66.5,63.9,60.1],backgroundColor:'rgba(201,168,76,.55)'}],
-    {min:50,max:85}
-  );
+  mkChart('chart-ibm-1','line',['2020','2021','2022','2023','2024','2026'],[
+    {label:'Confiance maire (%)',data:[60,58,55,52,57,60],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'},
+    {label:'Confiance gouvernement (%)',data:[33,31,28,27,30,34],borderColor:'rgba(136,153,180,.6)',backgroundColor:'rgba(136,153,180,.04)',fill:true,tension:.4,pointRadius:3,pointBackgroundColor:'rgba(136,153,180,.6)'}
+  ],{min:20,max:75});
+  mkChart('chart-ibm-2','bar',['1977','1983','1989','1995','2001','2008','2014','2020'],[
+    {label:'Participation (%)',data:[72.8,78.4,73.5,70.3,67.3,66.5,63.9,60.1],backgroundColor:'rgba(201,168,76,.55)'}
+  ],{min:50,max:85});
 }
 
-// ── IVI ───────────────────────────────────────────────────────
-function initIVI(){
-  buildDistrib('distrib-ivi',[
-    {l:'LinkedIn',p:45},{l:'Facebook',p:30},{l:'Instagram',p:15},{l:'Email',p:10},
-  ]);
-  buildPress('press-ivi',[
-    {src:'Les Échos',ttl:'INSEE : la redistribution fiscale en données 2024',date:'17 avr. 2026',url:'#'},
+// ── IVI ────────────────────────────────────────────────────────
+function initIVI() {
+  updateRespondentsDisplay();
+  buildDistrib('distrib-ivi', [{l:'LinkedIn',p:45},{l:'Facebook',p:30},{l:'Instagram',p:15},{l:'Email',p:10}]);
+  buildPress('press-ivi', [
     {src:'INSEE',ttl:'Les prélèvements obligatoires en 2023',date:'Fév. 2025',url:'https://www.insee.fr'},
     {src:'DGFiP',ttl:'Statistiques des déclarations de revenus 2023',date:'2024',url:'https://www.impots.gouv.fr'},
     {src:'Eurostat',ttl:'Tax revenue statistics — EU comparison 2024',date:'2024',url:'https://ec.europa.eu/eurostat'},
     {src:'OCDE',ttl:'Revenue Statistics 2024 — France',date:'Nov. 2024',url:'https://www.oecd.org'},
+    {src:'Kantar',ttl:'Baromètre de confiance envers l\'État fiscal',date:'2024',url:'https://www.kantar.com'},
   ]);
-  buildMethod('method-ivi',[
+  buildMethod('method-ivi', [
     {t:'Lancement',d:'9 avril 2026 — calé sur l\'ouverture des déclarations fiscales.'},
     {t:'Formule',d:'Q2 (équité 45%) + Q1 (valeur services 30%) + Q3 (lisibilité 25%).'},
     {t:'Canaux',d:'LinkedIn, Facebook groupes, Instagram, email Brevo.'},
     {t:'Publication',d:'Résultats consolidés prévus mai 2026, avec Delta officiel/ressenti.'},
   ]);
-  buildEU('eu-ivi',[
+  buildEU('eu-ivi', [
     {f:'🇮🇪',c:'Irlande',v:22.9,u:'%'},{f:'🇷🇴',c:'Roumanie',v:27.8,u:'%'},
     {f:'🇪🇪',c:'Estonie',v:34.2,u:'%'},{f:'🇩🇪',c:'Allemagne',v:39.8,u:'%'},
     {f:'🇪🇸',c:'Espagne',v:38.7,u:'%'},{f:'🇸🇪',c:'Suède',v:41.6,u:'%'},
     {f:'🇦🇹',c:'Autriche',v:42.5,u:'%'},{f:'🇧🇪',c:'Belgique',v:43.8,u:'%'},
-    {f:'🇩🇰',c:'Danemark',v:44.0,u:'%'},
-    {f:'🇫🇷',c:'France',v:45.3,u:'%',fr:true},
+    {f:'🇩🇰',c:'Danemark',v:44.0,u:'%'},{f:'🇫🇷',c:'France',v:45.3,u:'%',fr:true},
   ]);
-  mkChart('chart-ivi-1','line',
-    ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],
-    [{label:'Prélèvements obligatoires (% PIB)',data:[44.5,44.6,45.3,45.0,44.1,45.4,44.6,45.4,45.1,45.3],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'}],
-    {min:42,max:47}
-  );
-  mkChart('chart-ivi-2','bar',
-    ['Tranche 11%','Tranche 30%','Tranche 41%','Tranche 45%'],
-    [{label:'Contribution IR (Mds €)',data:[11.2,38.4,42.1,31.7],backgroundColor:['rgba(201,168,76,.35)','rgba(201,168,76,.5)','rgba(201,168,76,.7)','rgba(201,168,76,.9)']}],
-    {}
-  );
-  mkChart('chart-ivi-3','line',
-    ['2021','2022','2023','2024'],
-    [
-      {label:'Confiance gouvernement pour gérer l\'impôt (%)',data:[42,40,38,38],borderColor:'#8aaee0',backgroundColor:'rgba(138,174,224,.06)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#8aaee0'},
-      {label:'Confiance institutions fiscales — DGFiP (%)',data:[48,46,44,45],borderColor:'rgba(201,168,76,.7)',backgroundColor:'rgba(201,168,76,.04)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'rgba(201,168,76,.7)'}
-    ],
-    {min:30,max:60}
-  );
+  mkChart('chart-ivi-1','line',['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],[
+    {label:'Prélèvements obligatoires (% PIB)',data:[44.5,44.6,45.3,45.0,44.1,45.4,44.6,45.4,45.1,45.3],borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.07)',fill:true,tension:.4,pointRadius:4,pointBackgroundColor:'#C9A84C'}
+  ],{min:42,max:47});
+  mkChart('chart-ivi-2','bar',['Tranche 11%','Tranche 30%','Tranche 41%','Tranche 45%'],[
+    {label:'Contribution IR (Mds €)',data:[11.2,38.4,42.1,31.7],backgroundColor:['rgba(201,168,76,.35)','rgba(201,168,76,.5)','rgba(201,168,76,.7)','rgba(201,168,76,.9)']}
+  ],{});
+  mkChart('chart-ivi-3','line',['2021','2022','2023','2024'],[
+    {label:'Confiance gouvernement pour gérer l\'impôt (%)',data:[42,40,38,38],borderColor:'#8aaee0',backgroundColor:'rgba(138,174,224,.06)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'#8aaee0'},
+    {label:'Confiance institutions fiscales — DGFiP (%)',data:[48,46,44,45],borderColor:'rgba(201,168,76,.7)',backgroundColor:'rgba(201,168,76,.04)',fill:true,tension:.4,pointRadius:5,pointBackgroundColor:'rgba(201,168,76,.7)'}
+  ],{min:30,max:60});
 }
 
-// ── INIT ──────────────────────────────────────────────────────
-// ── GAUGE ──────────────────────────────────────────────────────
-function initGauge(score){
-  const needle = document.getElementById('gauge-needle');
-  const dot = document.getElementById('gauge-dot');
-  const arc = document.getElementById('gauge-arc');
-  const numEl = document.getElementById('gauge-num');
-  if(!needle) return;
-
-  // Angle : -90° (gauche = 0) à +90° (droite = 100)
-  const angle = -90 + (score / 100) * 180;
-  const circumference = Math.PI * 110; // demi-cercle
-
-  needle.style.opacity = '0';
-  arc.style.opacity = '0';
-  dot.style.opacity = '0';
-  numEl.textContent = '0';
-
-  setTimeout(()=>{
-    needle.style.opacity = '1';
-    dot.style.opacity = '1';
-    arc.style.opacity = '1';
-    needle.style.transition = 'transform 1.8s cubic-bezier(.16,1,.3,1)';
-    needle.style.transform = `rotate(${angle}deg)`;
-
-    const dashLen = (score / 100) * circumference;
-    arc.style.transition = 'stroke-dasharray 1.8s cubic-bezier(.16,1,.3,1)';
-    arc.style.strokeDasharray = `${dashLen} ${circumference}`;
-
-    // Compteur numérique
-    let cur = 0;
-    const step = score / 60;
-    const timer = setInterval(()=>{
-      cur = Math.min(cur + step, score);
-      numEl.textContent = Math.round(cur);
-      if(cur >= score) clearInterval(timer);
-    }, 30);
-  }, 400);
-}
-
-// ── COMPTEURS LIVE ──────────────────────────────────────────────
-function formatBig(n){
+// ── COMPTEURS LIVE (corrigés) ──────────────────────────────────
+function formatBig(n) {
   if(n >= 1e9) return (n/1e9).toFixed(2).replace('.',',') + ' Md';
-  if(n >= 1e6) return (n/1e6).toFixed(1).replace('.',',') + ' M';
-  if(n >= 1e3) return Math.round(n/1e3).toLocaleString('fr-FR') + ' k';
+  if(n >= 1e6) return (n/1e6).toFixed(2).replace('.',',') + ' M';
+  if(n >= 1e3) return (n/1e3).toFixed(1).replace('.',',') + ' k';
   return Math.round(n).toLocaleString('fr-FR');
 }
 
-function initCounters(){
-  const now = new Date();
-
-  // Grèves : 3 jours de grève nationale en 2026, coût 500M€/jour
-  // On simule que les grèves ont eu lieu et le compteur monte depuis le 1er jan
+function initCounters() {
   const jan1 = new Date('2026-01-01T00:00:00');
-  const secsSinceJan = Math.max(0, (now - jan1) / 1000);
-  const totalGreve = 3 * 500e6; // 1.5 Md€ total
-  // Le compteur monte pendant les 3 premiers mois puis reste stable
-  const rateGreve = totalGreve / (90 * 86400); // réparti sur 90 jours
-
-  // Carburant : depuis 27 fév, ~38M véhicules, 50cts/L, conso moy 1.2L/jour
   const fev27 = new Date('2026-02-27T00:00:00');
-  const secsSinceFev = Math.max(0, (now - fev27) / 1000);
-  // 38M véhicules × 1.2L/jour × 0.50€/L = 22.8M€/jour
-  const rateCarbu = 22.8e6 / 86400;
 
-  // Fiscal : 984 Md€/an = 31.2k€/seconde
+  // Grèves : coût TOTAL fixe (3 jours × 500M€), pas croissant
+  const totalGreve = 3 * 500e6;
+
+  // Carburant : monte depuis le 27 fév — 38M véhicules × 1.2L/j × 0.50€/L
+  const rateCarbu = (38e6 * 1.2 * 0.50) / 86400; // ~263 €/seconde
+
+  // Fiscal : 984 Md€ / an
   const rateFiscal = 984e9 / (365.25 * 86400);
 
-  function updateCounters(){
+  function update() {
     const t = new Date();
-    const sJan = Math.max(0,(t - jan1)/1000);
-    const sFev = Math.max(0,(t - fev27)/1000);
+    const sJan = Math.max(0, (t - jan1) / 1000);
+    const sFev = Math.max(0, (t - fev27) / 1000);
 
-    const greve = Math.min(totalGreve, sJan * rateGreve);
     const carbu = sFev * rateCarbu;
     const fiscal = sJan * rateFiscal;
 
@@ -1484,25 +1658,49 @@ function initCounters(){
     const c = document.getElementById('cnt-carbu');
     const f = document.getElementById('cnt-fiscal');
 
-    if(g) g.textContent = formatBig(greve) + ' €';
+    if(g) g.textContent = formatBig(totalGreve) + ' €';
     if(c) c.textContent = formatBig(carbu) + ' €';
     if(f) f.textContent = formatBig(fiscal) + ' €';
   }
 
-  updateCounters();
-  counterInterval = setInterval(updateCounters, 1000);
+  update();
+  counterInterval = setInterval(update, 1000);
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  // page-home est déjà active dans le HTML — pas besoin de goTo
-  // On initialise directement les compteurs
+// ── REVEAL ─────────────────────────────────────────────────────
+function setupReveal() {
+  const els = document.querySelectorAll('.page.active .reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => {
+      if(e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i*65); obs.unobserve(e.target); }
+    });
+  }, {threshold:.08, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el => obs.observe(el));
+}
+
+// ── INIT ───────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
   initCounters();
+  updateRespondentsDisplay();
   setupReveal();
-  window.addEventListener('scroll',()=>{
-    document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 4px 32px rgba(0,0,0,.42)':'none';
-  },{passive:true});
+  updateMeta('home');
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow = window.scrollY>40 ? '0 4px 32px rgba(0,0,0,.42)' : 'none';
+  }, {passive:true});
+  // Restore email capture state
+  try {
+    if(localStorage.getItem('ressento_email_captured')) {
+      ['ibm','ivi','merci'].forEach(ctx => {
+        const f = document.getElementById('email-form-'+ctx);
+        const s = document.getElementById('email-success-'+ctx);
+        if(f) f.style.display='none';
+        if(s) s.style.display='block';
+      });
+    }
+  } catch(e) {}
 });
 </script>
+
 
 
 </body></html>
