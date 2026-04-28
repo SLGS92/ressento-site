@@ -610,19 +610,19 @@ h1.hh .gold{color:var(--gold)}
 
 
 <!-- ══ NEWSLETTER STICKY BANNER ══ -->
-<div class="nl-banner visible" id="nl-banner">
+<div class="nl-banner" id="nl-banner">
   <div class="nl-banner-left">
     <div class="nl-banner-dot"></div>
     <div class="nl-banner-text">
       <strong>IVI · Résultats mai 2026</strong><br>
-      Recevoir les résultats à publication — accès libre, aucune publicité.
+      Recevoir les résultats IVI dès leur publication — accès libre, sans publicité.
     </div>
   </div>
   <div id="nl-banner-form-wrap" class="nl-banner-form">
     <input type="email" id="nl-email" placeholder="votre@email.com" autocomplete="email">
     <button onclick="submitNLBanner()">Recevoir →</button>
   </div>
-  <div class="nl-banner-success" id="nl-banner-success">✓ Vous serez notifié à la publication.</div>
+  <div class="nl-banner-success" id="nl-banner-success">✓ Vous recevrez les résultats dès leur publication.</div>
   <button class="nl-banner-close" onclick="closeNLBanner()" aria-label="Fermer">×</button>
 </div>
 
@@ -760,7 +760,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">316,93 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">317,00 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -1106,7 +1106,7 @@ h1.hh .gold{color:var(--gold)}
           </div>
           <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.6rem;line-height:1.5">Aucune publicité. Désabonnement en 1 clic.</div>
         </div>
-        <div class="email-success" id="email-success-ibm">✓ Vous serez notifié à la publication.</div>
+        <div class="email-success" id="email-success-ibm">✓ Vous recevrez les résultats dès leur publication.</div>
       </div>
     </aside>
   </div>
@@ -1277,7 +1277,7 @@ h1.hh .gold{color:var(--gold)}
       </div>
       <!-- EMAIL CAPTURE IVI -->
       <div class="cta-sb">
-        <div class="cta-sb-txt">Recevoir les résultats IVI à publication en mai 2026 — et les prochains indices.</div>
+        <div class="cta-sb-txt">Recevoir les résultats IVI en mai 2026 — et les prochains indices Ressento.</div>
         <div id="email-form-ivi">
           <div class="email-capture">
             <input type="email" id="email-input-ivi" placeholder="votre@email.com" autocomplete="email">
@@ -1285,7 +1285,7 @@ h1.hh .gold{color:var(--gold)}
           </div>
           <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.6rem;line-height:1.5">Aucune publicité. Désabonnement en 1 clic.</div>
         </div>
-        <div class="email-success" id="email-success-ivi">✓ Vous serez notifié à la publication.</div>
+        <div class="email-success" id="email-success-ivi">✓ Vous recevrez les résultats dès leur publication.</div>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)">
           <a href="https://tally.so/r/vGLAdQ" target="_blank" rel="noopener" style="display:block;width:100%;text-align:center;font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;padding:.75rem;background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);transition:all .2s" onmouseover="this.style.background='rgba(201,168,76,.08)'" onmouseout="this.style.background='transparent'">Répondre au questionnaire →</a>
         </div>
@@ -1458,7 +1458,7 @@ h1.hh .gold{color:var(--gold)}
           </div>
           <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.5rem">Aucune publicité. Désabonnement en 1 clic.</div>
         </div>
-        <div class="email-success" id="email-success-merci">✓ Vous serez notifié à la publication.</div>
+        <div class="email-success" id="email-success-merci">✓ Vous recevrez les résultats dès leur publication.</div>
       </div>
 
       <p class="merci-next">
@@ -1598,10 +1598,11 @@ function updateRespondentsDisplay() {
 }
 
 // ── EMAIL CAPTURE ──────────────────────────────────────────────
-function submitEmail(context) {
+async function submitEmail(context) {
   const input = document.getElementById('email-input-' + context);
   const form = document.getElementById('email-form-' + context);
   const success = document.getElementById('email-success-' + context);
+  const btn = form ? form.querySelector('button') : null;
   if(!input) return;
   const email = input.value.trim();
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -1610,14 +1611,25 @@ function submitEmail(context) {
     setTimeout(() => { input.style.borderColor = ''; }, 2000);
     return;
   }
-  // Ici tu branches ton endpoint Brevo
-  // fetch('https://api.brevo.com/...', { method:'POST', body: JSON.stringify({email}) })
-  // Pour l'instant : simulation
-  console.log('[Ressento] Email capture:', email, 'context:', context);
-  if(form) form.style.display = 'none';
-  if(success) success.style.display = 'block';
-  // Store locally to avoid re-showing
-  try { localStorage.setItem('ressento_email_captured', '1'); } catch(e) {}
+  // Loading state
+  if(btn) { btn.textContent = '...'; btn.disabled = true; }
+  try {
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'form-' + context })
+    });
+    const data = await res.json();
+    if(data.success) {
+      if(form) form.style.display = 'none';
+      if(success) success.style.display = 'block';
+      try { localStorage.setItem('ressento_email_captured', '1'); } catch(e) {}
+    } else {
+      if(btn) { btn.textContent = 'Erreur — réessayer'; btn.disabled = false; }
+    }
+  } catch(e) {
+    if(btn) { btn.textContent = 'Erreur — réessayer'; btn.disabled = false; }
+  }
 }
 
 // Handle Enter key on email inputs
@@ -1869,7 +1881,7 @@ function closeNLBanner() {
   try { localStorage.setItem('ressento_nl_dismissed', '1'); } catch(e) {}
 }
 
-function submitNLBanner() {
+async function submitNLBanner() {
   const input = document.getElementById('nl-email');
   const wrap = document.getElementById('nl-banner-form-wrap');
   const success = document.getElementById('nl-banner-success');
@@ -1881,14 +1893,29 @@ function submitNLBanner() {
     setTimeout(() => { input.style.borderColor = ''; }, 2000);
     return;
   }
-  console.log('[Ressento NL Banner] Email:', email);
-  if(wrap) wrap.style.display = 'none';
-  if(success) success.style.display = 'block';
+  const btn = wrap ? wrap.querySelector('button') : null;
+  if(btn) { btn.textContent = '...'; btn.disabled = true; }
   try {
-    localStorage.setItem('ressento_email_captured', '1');
-    localStorage.setItem('ressento_nl_dismissed', '1');
-  } catch(e) {}
-  setTimeout(closeNLBanner, 3000);
+    const res = await fetch('/.netlify/functions/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'banner-nl' })
+    });
+    const data = await res.json();
+    if(data.success) {
+      if(wrap) wrap.style.display = 'none';
+      if(success) success.style.display = 'block';
+      try {
+        localStorage.setItem('ressento_email_captured', '1');
+        localStorage.setItem('ressento_nl_dismissed', '1');
+      } catch(e) {}
+      setTimeout(closeNLBanner, 3000);
+    } else {
+      if(btn) { btn.textContent = 'Erreur'; btn.disabled = false; }
+    }
+  } catch(e) {
+    if(btn) { btn.textContent = 'Erreur'; btn.disabled = false; }
+  }
 }
 
 document.addEventListener('keydown', (e) => {
