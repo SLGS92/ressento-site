@@ -952,7 +952,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">317,60 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">317,63 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -1327,8 +1327,18 @@ h1.hh .gold{color:var(--gold)}
 
         <!-- Note méthodologique -->
         <div class="analysis-note reveal">
-          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Note méthodologique</div>
-          <p style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400;margin:0">Ces résultats sont issus d'un panel auto-sélectionné, non représentatif au sens statistique. Ils ne sont pas extrapolables à l'ensemble de la population française. La valeur de l'indice réside dans la tendance et la répétabilité, non dans la précision d'une vague isolée. La satisfaction mesurée par la DGCL (54% · services communaux) est une donnée complémentaire de contexte, non directement comparable au score agrégé IBM.</p>
+          <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem">Note méthodologique · RI-IBM · Mars 2026</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.04);margin-bottom:.9rem">
+            <div style="padding:.9rem 1rem;background:rgba(15,33,73,.6)">
+              <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Profil des répondants</div>
+              <div style="font-size:.78rem;color:rgba(240,237,230,.5);line-height:1.7;font-weight:400">Profil majoritairement urbain, actif sur LinkedIn et réseaux sociaux, sensible aux questions civiques et locales. Sur-représentation probable des 25-55 ans et des catégories socio-professionnelles supérieures. Volume de répondants non communiqué — voir politique méthodologique.</div>
+            </div>
+            <div style="padding:.9rem 1rem;background:rgba(15,33,73,.6)">
+              <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Données officielles de référence</div>
+              <div style="font-size:.78rem;color:rgba(240,237,230,.5);line-height:1.7;font-weight:400">Les données officielles citées sont les plus récentes disponibles à date de publication (mars 2026). Les millésimes varient selon les sources : CEVIPOF 2026, Eurobaromètre 2024, Ministère de l'Intérieur 2020. Cette hétérogénéité est inhérente aux cycles de publication institutionnels.</div>
+            </div>
+          </div>
+          <p style="font-size:.78rem;color:var(--text-faint);line-height:1.7;font-weight:400;margin:0">Ces résultats sont issus d'un panel auto-sélectionné, non représentatif au sens statistique de l'INSEE. Ils ne sont pas extrapolables à l'ensemble de la population française. La valeur de l'indice réside dans la tendance et la répétabilité, non dans la précision d'une vague isolée. La satisfaction mesurée par la DGCL (54% · services communaux) est une donnée complémentaire de contexte, non directement comparable au score agrégé IBM.</p>
         </div>
 
       </div>
@@ -1638,6 +1648,10 @@ h1.hh .gold{color:var(--gold)}
             <p>Les questionnaires sont diffusés sur <strong>LinkedIn, Facebook, Instagram et email Brevo</strong>. Aucun panel payant. Aucune rémunération.</p>
             <p>Ressento <strong>ne prétend pas à la représentativité statistique</strong> au sens de l'INSEE. Les répondants sont auto-sélectionnés — ce biais est documenté, pas caché. La valeur réside dans la répétition et la tendance, pas la précision d'une vague isolée.</p>
             <p>Note méthodologique : le volume de répondants n'est pas communiqué pour préserver la crédibilité du protocole de collecte.</p>
+            <div style="background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1rem 1.2rem;border-radius:var(--r);margin-top:1rem">
+              <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Profil type des répondants</div>
+              <div style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400">Les canaux de diffusion (LinkedIn, Facebook, Instagram, email) génèrent une sur-représentation probable des profils urbains, actifs numériquement, sensibles aux questions civiques, dans les tranches 25-55 ans et les catégories socio-professionnelles supérieures. Ce biais de sélection est assumé et documenté — il ne disqualifie pas les résultats mais en définit le périmètre d'interprétation. Les données de profil détaillées (âge, CSP, région) seront communiquées à partir de l'IVI (mai 2026), premier indice disposant d'un volume suffisant pour des analyses sous-groupes.</div>
+            </div>
           </div>
           <div class="method-section" id="ms-formules">
             <div class="slabel">03</div>
@@ -1658,6 +1672,19 @@ h1.hh .gold{color:var(--gold)}
               <div class="frow2"><span class="frow2-lbl">Q3 · Lisibilité utilisation fonds publics</span><span class="frow2-w">×0,25</span></div>
             </div>
             <p style="margin-top:1.2rem">Chaque question est scorée sur 100 via une échelle de Likert à 5 niveaux. La pondération est <strong>fixée avant la collecte</strong> et ne peut être modifiée a posteriori.</p>
+
+            <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.12);padding:1.3rem 1.5rem;border-radius:var(--r);margin-top:1.2rem">
+              <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem">Justification des pondérations</div>
+              <div style="display:flex;flex-direction:column;gap:.6rem">
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">RI-IBM · Q1 × 0,35</strong> — La satisfaction globale reçoit le poids dominant car elle est le signal synthétique le plus direct du ressenti municipal. C'est la question la plus corrélée aux comportements électoraux déclarés.</div>
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">RI-IBM · Q2 × 0,30</strong> — La performance des services locaux est le second facteur : c'est le domaine sur lequel le maire a la prise la plus directe et la plus visible au quotidien.</div>
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">RI-IBM · Q3 × 0,20</strong> — La note du maire est pondérée en deuxième poids secondaire : elle capte la personnalisation du jugement, distincte du bilan institutionnel.</div>
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">RI-IBM · Q4 × 0,15</strong> — L'alignement démocratique perçu reçoit le poids le plus faible : signal important mais plus abstrait, moins directement lié à l'expérience quotidienne.</div>
+                <div style="margin-top:.4rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.05);font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">IVI · Q2 × 0,45</strong> — L'équité fiscale ressentie reçoit le poids dominant car c'est la dimension la plus structurante du rapport des citoyens à l'impôt, documentée par la littérature comportementale.</div>
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">IVI · Q1 × 0,30</strong> — La valeur perçue des services reçus est le contrepoint objectif de l'équité : ce que le citoyen estime recevoir en échange de sa contribution.</div>
+                <div style="font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400"><strong style="color:var(--text-high);font-family:var(--font-mono);font-size:.75rem">IVI · Q3 × 0,25</strong> — La lisibilité de l'utilisation des fonds capte la dimension de transparence perçue, distincte de la valeur reçue.</div>
+              </div>
+            </div>
           </div>
           <div class="method-section" id="ms-sources">
             <div class="slabel">04</div>
@@ -1668,6 +1695,10 @@ h1.hh .gold{color:var(--gold)}
               <div style="background:var(--navy);padding:1rem"><div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Europe &amp; international</div><div style="font-size:.8rem;color:rgba(240,237,230,.5);line-height:1.8;font-weight:300">Eurostat · Eurobaromètre · OCDE<br>BCE · FMI · Transparency International</div></div>
             </div>
             <p>Toutes les données sont citées avec source exacte, année de publication et URL. <strong>Aucune donnée non sourçable n'est utilisée.</strong></p>
+            <div style="background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1rem 1.2rem;border-radius:var(--r);margin-top:1rem">
+              <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Note sur les millésimes</div>
+              <div style="font-size:.8rem;color:var(--text-faint);line-height:1.7;font-weight:400">Les sources institutionnelles publient à des rythmes différents — annuel pour l'INSEE, biennal pour l'Eurobaromètre, pluriannuel pour certaines enquêtes OCDE. Ressento cite systématiquement les données les plus récentes disponibles à la date de publication de chaque indice. L'hétérogénéité des millésimes est inhérente à l'écosystème statistique public et documentée indice par indice.</div>
+            </div>
           </div>
           <div class="method-section" id="ms-biais">
             <div class="slabel">05</div>
