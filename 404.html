@@ -1,0 +1,183 @@
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable | Ressento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0F2149;
+  --gold:#C9A84C;
+  --gold-light:#E2C278;
+  --offwhite:#F0EDE6;
+  --text-med:rgba(240,237,230,.78);
+  --text-faint:rgba(240,237,230,.3);
+  --muted:#8899B4;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Fraunces',Georgia,serif;
+  --font-mono:'DM Mono',monospace;
+}
+html,body{height:100%}
+body{
+  background:var(--navy);
+  color:var(--offwhite);
+  font-family:var(--font-body);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+  opacity:.5;
+}
+body::after{
+  content:'';
+  position:fixed;
+  top:-20%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.card{
+  text-align:center;
+  max-width:560px;
+  width:100%;
+  position:relative;
+  z-index:1;
+}
+.logo{
+  font-family:var(--font-display);
+  font-size:1.6rem;
+  letter-spacing:.14em;
+  color:var(--offwhite);
+  margin-bottom:3rem;
+  display:block;
+  text-decoration:none;
+}
+.logo .e2{color:var(--gold)}
+.num{
+  font-family:var(--font-display);
+  font-size:clamp(6rem,20vw,10rem);
+  color:var(--gold);
+  line-height:1;
+  letter-spacing:.04em;
+  text-shadow:0 0 80px rgba(201,168,76,.2);
+  margin-bottom:.5rem;
+}
+.label{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+  display:block;
+}
+.title{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  letter-spacing:.04em;
+  color:var(--offwhite);
+  margin-bottom:.8rem;
+}
+.desc{
+  font-size:.92rem;
+  color:var(--text-med);
+  line-height:1.75;
+  font-weight:400;
+  margin-bottom:2rem;
+  font-style:italic;
+}
+.links{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:2.5rem;
+}
+.btn-gold{
+  font-family:var(--font-display);
+  font-size:.95rem;
+  letter-spacing:.07em;
+  padding:.75rem 1.8rem;
+  background:var(--gold);
+  color:var(--navy);
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:background .2s,transform .15s;
+  display:inline-block;
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{
+  font-family:var(--font-display);
+  font-size:.95rem;
+  letter-spacing:.07em;
+  padding:.75rem 1.8rem;
+  background:transparent;
+  color:var(--offwhite);
+  border:1.5px solid rgba(240,237,230,.25);
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:border-color .2s,color .2s;
+  display:inline-block;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.quick-links{
+  display:flex;
+  gap:1.5rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.quick-link{
+  font-family:var(--font-mono);
+  font-size:.62rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s;
+}
+.quick-link:hover{color:var(--gold)}
+.divider{
+  width:32px;height:2px;
+  background:var(--gold);
+  margin:.8rem auto 1.5rem;
+  opacity:.4;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <a href="/" class="logo">RESS<span class="e2">E</span>NTO</a>
+  <div class="num">404</div>
+  <span class="label">Page introuvable</span>
+  <div class="divider"></div>
+  <h1 class="title">Cette page n'existe pas</h1>
+  <p class="desc">L'URL que vous cherchez n'est pas accessible.<br>Le perception gap entre où vous vouliez aller<br>et où vous êtes est de 100%.</p>
+  <div class="links">
+    <a href="/" class="btn-gold">Retour à l'accueil →</a>
+    <a href="/indices/ibm" class="btn-outline">Voir RI-IBM · 46/100</a>
+  </div>
+  <div class="quick-links">
+    <a href="/barometre" class="quick-link">Baromètre</a>
+    <a href="/indices/ivi" class="quick-link">IVI</a>
+    <a href="/approche" class="quick-link">Notre approche</a>
+    <a href="/methode" class="quick-link">Méthode</a>
+    <a href="/presse" class="quick-link">Presse</a>
+  </div>
+</div>
+
+
+</body></html>
