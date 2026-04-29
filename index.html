@@ -784,6 +784,166 @@ h1.hh .gold{color:var(--gold)}
 @media(max-width:560px){
   .baro-grid{grid-template-columns:1fr}
 }
+
+/* ── MOBILE FIXES ── */
+@media(max-width:480px){
+
+  /* Compteurs — label lisible */
+  .counter-eyebrow{
+    font-size:.55rem;
+    letter-spacing:.04em;
+    text-transform:none;
+    line-height:1.4;
+    margin-bottom:.8rem;
+  }
+  .counter-val{
+    font-size:2rem;
+    margin-bottom:.4rem;
+  }
+  .counter-unit{
+    font-size:.6rem;
+    line-height:1.5;
+  }
+  .counter-src{
+    font-size:.58rem;
+    line-height:1.4;
+  }
+  .counters-grid{
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+  .counter-box{
+    padding:1.2rem 1rem;
+  }
+
+  /* Drawer mobile — padding et taille */
+  .mobile-drawer{
+    padding:1.5rem 20px;
+  }
+  .mobile-drawer-link{
+    font-size:1.5rem;
+    padding:.9rem 0;
+  }
+
+  /* Ticker — éviter coupures */
+  .ticker-item{
+    padding:0 16px;
+    gap:6px;
+  }
+  .ticker-label{
+    font-size:.55rem;
+  }
+  .ticker-val{
+    font-size:.9rem;
+  }
+
+  /* Score impact banner */
+  .score-impact{
+    padding:10px 14px;
+    gap:8px;
+  }
+  .si-score{
+    font-size:2.2rem;
+  }
+  .si-text{
+    font-size:.8rem;
+  }
+
+  /* Nav logo tag */
+  .nav-logo-tag{
+    display:none;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb{
+    padding:.6rem 16px;
+  }
+
+  /* Indice body padding */
+  .indice-body{
+    padding:0 16px;
+  }
+
+  /* KPI grid */
+  .kpi-grid{
+    grid-template-columns:1fr;
+  }
+  .kpi-val{
+    font-size:2rem;
+  }
+
+  /* Analysis blocks */
+  .analysis-delta-block{
+    padding:1.2rem 1rem;
+  }
+  .adb-bar-label{
+    width:70px;
+    font-size:.52rem;
+  }
+
+  /* Footer */
+  .footer-inner{
+    gap:28px;
+  }
+  .fbot{
+    flex-direction:column;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .fnote{
+    text-align:left;
+    max-width:100%;
+  }
+
+  /* Presse stats */
+  .presse-stats{
+    grid-template-columns:1fr;
+  }
+
+  /* Manifeste valeurs grid */
+  .valeurs-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* Baro grid */
+  .baro-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* Radar section */
+  .radar-section{
+    grid-template-columns:1fr;
+  }
+  .radar-wrap svg{
+    max-width:320px;
+  }
+
+  /* perception gap examples */
+  .example-split{
+    grid-template-columns:1fr;
+  }
+
+  /* Delta banner mobile */
+  .delta-banner{
+    padding:1.5rem 16px;
+  }
+  .delta-val{
+    font-size:2rem;
+  }
+  .delta-result .delta-val{
+    font-size:2.2rem;
+  }
+
+  /* Container padding */
+  .container,.container--n{
+    padding:0 16px;
+  }
+
+  /* Hub grid */
+  .hub-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -977,7 +1137,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">318,82 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">318,84 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
