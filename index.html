@@ -52,6 +52,7 @@
       "datePublished": "2026-05-01",
       "temporalCoverage": "2026",
       "spatialCoverage": "France",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
       "variableMeasured": ["valeur perçue impôt", "équité fiscale", "confiance gestion publique"]
     },
     {
@@ -63,7 +64,8 @@
       "creator": {"@id": "https://ressento.com/#organization"},
       "datePublished": "2026-04-28",
       "temporalCoverage": "2026",
-      "spatialCoverage": "France"
+      "spatialCoverage": "France",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
       "@type": "Article",
@@ -318,12 +320,12 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px;opacity:0;animation:fadeUp .7s ease .1s forwards}
 .hero-eyebrow-line{width:32px;height:1px;background:var(--gold)}
 .hero-eyebrow-text{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.85)}
-h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--text-high);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards}
+h1.hh{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:.02em;color:var(--text-high);margin-bottom:12px;opacity:0;animation:fadeUp .8s ease .2s forwards;max-width:680px}
 h1.hh .gold{color:var(--gold)}
 .hero-sub{font-size:clamp(1rem,1.8vw,1.18rem);font-weight:500;font-style:italic;color:var(--text-med);max-width:580px;margin:18px 0 24px;line-height:1.72;opacity:0;animation:fadeUp .8s ease .35s forwards}
 
 /* ── SCORE IMPACT BANNER (above fold) ── */
-.score-impact{display:flex;align-items:center;gap:16px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:14px 20px;margin-bottom:22px;opacity:0;animation:fadeUp .8s ease .28s forwards}
+.score-impact{display:flex;align-items:center;gap:16px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:var(--r);padding:14px 20px;margin-bottom:22px;opacity:0;animation:fadeUp .8s ease .28s forwards;max-width:680px;width:100%}
 .si-score{font-family:var(--font-display);font-size:2.8rem;color:var(--gold);letter-spacing:.02em;line-height:1;flex-shrink:0}
 .si-divider{width:1px;height:44px;background:rgba(201,168,76,.2);flex-shrink:0}
 .si-text{font-size:.85rem;color:var(--text-med);line-height:1.6;font-weight:400;min-width:0}
@@ -1198,7 +1200,7 @@ img, svg, canvas { max-width: 100%; }
 <body>
 
 <!-- ══ NAV ══ -->
-<nav id="main-nav">
+<nav id="main-nav" style="box-shadow: rgba(0, 0, 0, 0.42) 0px 4px 32px;">
   <div class="container nav-inner">
     <a class="nav-logo" onclick="goTo('home')" href="/">
       <span class="nav-logo-name">RESS<span class="e2">E</span>NTO</span>
@@ -1386,7 +1388,7 @@ img, svg, canvas { max-width: 100%; }
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">319,38 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">319,54 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
