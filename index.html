@@ -7,8 +7,9 @@
 <meta id="meta-og-desc" property="og:description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
 <meta property="og:type" content="website">
 <meta id="meta-og-url" property="og:url" content="https://ressento.com/">
-<meta property="og:image" content="https://ressento.com/og-image.png">
+<meta id="meta-og-img" property="og:image" content="https://ressento.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta id="meta-tw-img" name="twitter:image" content="https://ressento.com/og-image.png">
 <meta id="meta-tw-title" name="twitter:title" content="Ressento — Ce que vous ressentez, enfin chiffré">
 <meta id="meta-tw-desc" name="twitter:description" content="Ressento mesure l'écart entre données officielles et perception citoyenne en France. Indices apolitiques, sources ouvertes, accès libre.">
 <link rel="canonical" id="meta-canonical" href="https://ressento.com/">
@@ -54,6 +55,27 @@
       "variableMeasured": ["valeur perçue impôt", "équité fiscale", "confiance gestion publique"]
     },
     {
+      "@type": "Dataset",
+      "@id": "https://ressento.com/barometre#dataset",
+      "name": "Baromètre de Confiance Citoyenne — France 2026",
+      "description": "Cartographie multidimensionnelle du perception gap citoyen français. 6 domaines : municipal, fiscal, mobilité, transparence, pouvoir d\'achat, logement.",
+      "url": "https://ressento.com/barometre",
+      "creator": {"@id": "https://ressento.com/#organization"},
+      "datePublished": "2026-04-28",
+      "temporalCoverage": "2026",
+      "spatialCoverage": "France"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://ressento.com/perception-gap#article",
+      "headline": "Le Perception Gap — Qu\'est-ce que c\'est ?",
+      "description": "Le perception gap désigne l\'écart entre la réalité statistique et ce que les citoyens ressentent. Documenté par la recherche internationale, mesuré par Ressento en France.",
+      "url": "https://ressento.com/perception-gap",
+      "author": {"@id": "https://ressento.com/#organization"},
+      "datePublished": "2026-04-28",
+      "inLanguage": "fr-FR"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://ressento.com/#website",
       "url": "https://ressento.com",
@@ -66,9 +88,12 @@
 }
 </script>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"></noscript>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer=""></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -420,7 +445,7 @@ h1.hh .gold{color:var(--gold)}
 .counters-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0;display:flex;align-items:center;gap:12px}
 .counters-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;flex-shrink:0;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
 .counters-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.15)}
-.counter-box{background:rgba(11,24,56,.95);border:1px solid rgba(201,168,76,.1);padding:1.8rem 1.6rem;position:relative;overflow:hidden;transition:background .3s,border-color .2s}
+.counter-box{background:rgba(11,24,56,.95);border:1px solid rgba(201,168,76,.1);padding:1.8rem 1.6rem;position:relative;overflow:hidden;transition:background .3s,border-color .2s;contain:layout}
 .counter-box:hover{background:rgba(14,30,68,.98);border-color:rgba(201,168,76,.22)}
 .counter-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent);opacity:.6}
 .counter-eyebrow{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,.5);margin-bottom:1.2rem;line-height:1.5}
@@ -473,7 +498,7 @@ h1.hh .gold{color:var(--gold)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;will-change:opacity,transform}
 .reveal.visible{opacity:1;transform:none}
 
 /* ── RESPONSIVE ── */
@@ -801,7 +826,7 @@ h1.hh .gold{color:var(--gold)}
 
 
 <!-- ══ NEWSLETTER STICKY BANNER ══ -->
-<div class="nl-banner visible" id="nl-banner">
+<div class="nl-banner" id="nl-banner">
   <div class="nl-banner-left">
     <div class="nl-banner-dot"></div>
     <div class="nl-banner-text">
@@ -861,7 +886,7 @@ h1.hh .gold{color:var(--gold)}
         <div class="si-divider"></div>
         <div class="si-text">
           <strong>RI-IBM publié — Score national du Bilan Municipal.</strong><br>
-          67% auraient voté autrement. Delta perception : −14 pts entre note brute et bilan agrégé.
+          67% auraient voté pour un autre candidat. Seulement 33% rééliraient leur maire.
           <span style="margin-left:10px;font-family:var(--font-mono);font-size:.6rem;color:rgba(201,168,76,.6);cursor:pointer;text-decoration:underline" onclick="goTo('ibm')">Voir l'analyse →</span>
         </div>
       </div>
@@ -945,14 +970,14 @@ h1.hh .gold{color:var(--gold)}
         <div class="counter-box">
           <div class="counter-dot"></div>
           <div class="counter-eyebrow">Surcoût carburant · Ménages français 2026</div>
-          <div class="counter-val" id="cnt-carbu">1,39 Md €</div>
+          <div class="counter-val" id="cnt-carbu">1,40 Md €</div>
           <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
           <div class="counter-src">Base : +50 cts/L · 38M véhicules · conso moy. nationale · INSEE 2024</div>
         </div>
         <div class="counter-box">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none"></div>
           <div class="counter-eyebrow">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal">317,63 Md €</div>
+          <div class="counter-val" id="cnt-fiscal">318,82 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -981,7 +1006,7 @@ h1.hh .gold{color:var(--gold)}
         <div><div class="fcol-t">Les indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM · Bilan Municipal ✓</button></li><li><button onclick="goTo('ivi')">IVI · Valeur de l'impôt ↗</button></li><li><a href="/carburant" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">⛽ Calculateur Carburant</a></li><li><button onclick="goTo('indices')">Tous les indices →</button></li></ul></div>
         <div><div class="fcol-t">La plateforme</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode &amp; transparence</button></li><li><button onclick="goTo('indices')">Calendrier des indices</button></li></ul></div>
       </div>
-      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés · <button onclick="goTo('presse')" style="color:var(--text-faint);background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-decoration:underline">Espace presse</button></div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
+      <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés · <a href="/cgu.html" style="color:var(--text-faint);font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-decoration:underline">CGU</a> · <button onclick="goTo('presse')" style="color:var(--text-faint);background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.07em;text-decoration:underline">Espace presse</button></div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
     </div>
   </footer>
 </div>
@@ -1349,15 +1374,15 @@ h1.hh .gold{color:var(--gold)}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg>
           Partager ces résultats
         </div>
-        <button class="share-btn share-btn--linkedin" onclick="shareLinkedIn('ibm')">
+        <button class="share-btn share-btn--linkedin" onclick="shareLinkedIn('ibm')" aria-label="Partager sur LinkedIn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
           LinkedIn
         </button>
-        <button class="share-btn share-btn--x" onclick="shareX('ibm')">
+        <button class="share-btn share-btn--x" onclick="shareX('ibm')" aria-label="Partager sur X / Twitter">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
           X / Twitter
         </button>
-        <button class="share-btn share-btn--copy" onclick="copyLink('ibm')" id="copy-ibm">
+        <button class="share-btn share-btn--copy" onclick="copyLink('ibm')" id="copy-ibm" aria-label="Copier le lien">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
           Copier le lien
         </button>
@@ -1766,11 +1791,11 @@ h1.hh .gold{color:var(--gold)}
 
       <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Partagez &amp; faites participer votre réseau</div>
       <div class="merci-share-btns">
-        <button class="merci-share-btn msb-li" onclick="shareMerciLinkedIn()">
+        <button class="merci-share-btn msb-li" onclick="shareMerciLinkedIn()" aria-label="Partager sur LinkedIn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
           Partager sur LinkedIn
         </button>
-        <button class="merci-share-btn msb-x" onclick="shareMerciX()">
+        <button class="merci-share-btn msb-x" onclick="shareMerciX()" aria-label="Partager sur X">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
           Partager sur X
         </button>
@@ -1818,13 +1843,15 @@ const PAGE_META = {
   },
   ibm: {
     title: 'RI-IBM · Indice du Bilan Municipal — Score 46/100 | Ressento',
-    desc: 'Le RI-IBM mesure la satisfaction des citoyens vis-à-vis de leur mairie. Score national : 46/100. Delta officiel : −8 pts. 67% auraient voté pour un autre candidat.',
-    url: '/indices/ibm'
+    desc: '46/100 — Score national du Bilan Municipal. Delta −14 pts entre note brute du maire et bilan agrégé. 67% auraient voté pour un autre candidat. Sécurité : 28/100.',
+    url: '/indices/ibm',
+    img: 'https://ressento.com/og-ibm.png'
   },
   ivi: {
-    title: 'IVI · Indice de Valeur de l\'Impôt — Collecte en cours | Ressento',
-    desc: 'La France prélève 45,3% du PIB — rang 1er en Europe. Seulement 38% des Français font confiance à l\'État pour gérer l\'impôt. Participez à l\'IVI, résultats mai 2026.',
-    url: '/indices/ivi'
+    title: 'IVI · Indice de Valeur de l\'Impôt — Résultats mai 2026 | Ressento',
+    desc: 'France : 45,3% du PIB prélevé, rang 1er en Europe. 38% font confiance à l\'État. L\'IVI mesure ce que vous percevez en retour. Participez — résultats publiés en mai 2026.',
+    url: '/indices/ivi',
+    img: 'https://ressento.com/og-ivi.png'
   },
   methodologie: {
     title: 'Méthode & Transparence — Formules, sources, biais | Ressento',
@@ -1839,7 +1866,8 @@ const PAGE_META = {
   barometre: {
     title: 'Baromètre de Confiance Citoyenne 2026 — Tous les indices | Ressento',
     desc: 'La première cartographie multidimensionnelle du perception gap citoyen français. 6 domaines mesurés : municipalité, fiscalité, mobilité, transparence, pouvoir d\'achat, logement.',
-    url: '/barometre'
+    url: '/barometre',
+    img: 'https://ressento.com/og-barometre.png'
   },
   perceptiongap: {
     title: 'Le Perception Gap — Qu\'est-ce que c\'est ? | Ressento',
@@ -1870,10 +1898,29 @@ function updateMeta(id) {
   document.getElementById('meta-og-title').content = m.title;
   document.getElementById('meta-og-desc').content = m.desc;
   document.getElementById('meta-og-url').content = 'https://ressento.com' + m.url;
+  document.getElementById('meta-og-img').content = m.img || 'https://ressento.com/og-image.png';
   document.getElementById('meta-tw-title').content = m.title;
   document.getElementById('meta-tw-desc').content = m.desc;
+  document.getElementById('meta-tw-img').content = m.img || 'https://ressento.com/og-image.png';
   document.getElementById('meta-canonical').href = 'https://ressento.com' + m.url;
   try { history.pushState({ page: id }, m.title, m.url); } catch(e) {}
+}
+
+// ── RADAR ANIMATION ───────────────────────────────────────────
+function animateRadar() {
+  const fill = document.getElementById('radar-fill');
+  const pt = document.getElementById('radar-pt-ibm');
+  if(!fill) return;
+  // Start collapsed at center
+  fill.setAttribute('points', '210,210 210,210 210,210 210,210 210,210 210,210');
+  fill.style.transition = 'none';
+  pt.style.opacity = '0';
+  setTimeout(() => {
+    fill.style.transition = 'all 1.8s cubic-bezier(.16,1,.3,1)';
+    fill.setAttribute('points', '210,141 210,210 210,210 210,210 210,210 210,210');
+    pt.style.transition = 'opacity .5s ease 1.5s';
+    pt.style.opacity = '1';
+  }, 400);
 }
 
 // ── ROUTING ────────────────────────────────────────────────────
@@ -1898,6 +1945,7 @@ function goTo(id) {
   activeCharts = [];
   if(id === 'ibm') setTimeout(initIBM, 100);
   if(id === 'ivi') setTimeout(initIVI, 100);
+  if(id === 'barometre') setTimeout(animateRadar, 300);
   if(id === 'home') {
     if(counterInterval) clearInterval(counterInterval);
     initCounters();
@@ -2217,10 +2265,28 @@ function initNLBanner() {
   try {
     if(localStorage.getItem('ressento_nl_dismissed') || localStorage.getItem('ressento_email_captured')) return;
   } catch(e) {}
-  setTimeout(() => {
-    const banner = document.getElementById('nl-banner');
-    if(banner) banner.classList.add('visible');
-  }, 8000);
+  // Only show on home, after 15s AND after some scroll
+  let scrolled = false;
+  let timer = null;
+  const onScroll = () => {
+    if(window.scrollY > 300) {
+      scrolled = true;
+      window.removeEventListener('scroll', onScroll);
+      if(timer) { // timer already fired, show now
+        const banner = document.getElementById('nl-banner');
+        if(banner) banner.classList.add('visible');
+      }
+    }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  timer = setTimeout(() => {
+    if(scrolled) {
+      const banner = document.getElementById('nl-banner');
+      if(banner) banner.classList.add('visible');
+    }
+    // If not scrolled yet, wait for scroll event to trigger
+    timer = true;
+  }, 15000);
 }
 
 function closeNLBanner() {
