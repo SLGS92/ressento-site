@@ -66,9 +66,9 @@ nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--bo
 .nav-logo{display:flex;flex-direction:column;line-height:1;gap:3px;cursor:pointer;text-decoration:none}
 .nav-logo-name{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.14em;color:var(--text-high)}
 .nav-logo-name .e2{color:var(--gold)}
-.nav-logo-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-low)}
-.nav-links{display:flex;gap:2px;list-style:none;align-items:center}
-.nav-links button{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:8px 14px;transition:color .2s;border-bottom:2px solid transparent}
+.nav-logo-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-low);display:none}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center}
+.nav-links button{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:8px 10px;transition:color .2s;border-bottom:2px solid transparent}
 .nav-links button:hover{color:var(--text-high)}
 .nav-links button.active{color:var(--text-high);border-bottom-color:var(--gold)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:200}
@@ -720,10 +720,11 @@ img,svg,canvas{max-width:100%}
       <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
       <li><button id="nl-manifeste" onclick="goTo('manifeste')">À propos</button></li>
       <li><button id="nl-barometre" onclick="goTo('barometre')" style="color:rgba(201,168,76,.7)">Baromètre</button></li>
-      <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 14px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
+      <li><a href="/analyses" style="font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); background: none; border-width: medium medium 2px; border-style: none none solid; border-color: currentcolor currentcolor transparent; border-image: initial; cursor: pointer; padding: 8px 10px; transition: color 0.2s; text-decoration: none; display: inline-block;" onmouseover="this.style.color='var(--text-high)'" onmouseout="this.style.color='var(--muted)'">Analyses</a></li>
+      <li><a href="/carburant" style="font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 6px 10px; border: 1px solid rgba(93, 202, 165, 0.25); border-radius: 3px; background: transparent; transition: 0.2s; text-decoration: none; white-space: nowrap;" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
-      <button class="btn btn--gold" style="padding:9px 16px;font-size:.78rem;white-space:nowrap" onclick="goTo('ivi')">Participer à l'IVI →</button>
+      <button class="btn btn--gold" style="padding:8px 14px;font-size:.72rem;white-space:nowrap" onclick="goTo('ivi')">Participer à l'IVI →</button>
       <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Menu principal"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -737,6 +738,7 @@ img,svg,canvas{max-width:100%}
   <button class="mobile-drawer-link" onclick="goTo('methodologie');toggleDrawer()">Méthode</button>
   <button class="mobile-drawer-link" onclick="goTo('manifeste');toggleDrawer()">À propos</button>
   <button class="mobile-drawer-link" onclick="goTo('barometre');toggleDrawer()" style="color:rgba(201,168,76,.7)">Baromètre</button>
+  <a href="/analyses" class="mobile-drawer-link" style="text-decoration:none;color:rgba(240,237,230,.6)">Analyses</a>
   <a href="/carburant" class="mobile-drawer-link" style="text-decoration:none;color:rgba(93,202,165,.7)">⛽ Carburant</a>
   <button class="btn btn--gold mobile-drawer-cta" onclick="goTo('ivi');toggleDrawer()">Participer à l'IVI →</button>
 </div>
@@ -891,7 +893,7 @@ img,svg,canvas{max-width:100%}
         <div class="counter-box" role="region" aria-labelledby="lbl-fiscal">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none" aria-hidden="true"></div>
           <div class="counter-eyebrow" id="lbl-fiscal">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal" aria-live="polite">327,03 Md €</div>
+          <div class="counter-val" id="cnt-fiscal" aria-live="polite">327,13 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
@@ -917,7 +919,7 @@ img,svg,canvas{max-width:100%}
       <div class="footer-inner">
         <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><p class="ftag2">Un observatoire indépendant qui mesure l'écart entre données officielles et perception citoyenne.</p><a href="mailto:contact@ressento.com" class="fmail">contact@ressento.com</a></div>
         <div><div class="fcol-t">Les indices</div><ul class="flinks"><li><button onclick="goTo('ibm')">RI-IBM · Bilan Municipal ✓</button></li><li><button onclick="goTo('ivi')">IVI · Valeur de l'impôt ↗</button></li><li><a href="/carburant" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">⛽ Calculateur Carburant</a></li><li><button onclick="goTo('indices')">Tous les indices →</button></li></ul></div>
-        <div><div class="fcol-t">La plateforme</div><ul class="flinks"><li><button onclick="goTo('approche')">Notre approche</button></li><li><button onclick="goTo('methodologie')">Méthode &amp; transparence</button></li><li><button onclick="goTo('barometre')">Baromètre citoyen</button></li><li><button onclick="goTo('indices')">Calendrier des indices</button></li></ul></div>
+        <div><div class="fcol-t">Analyses</div><ul class="flinks"><li><a href="/analyses/prelevements-obligatoires-france-europe" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">Prélèvements obligatoires France-Europe</a></li><li><a href="/analyses/securite-municipale-28-sur-100" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">Sécurité municipale : 28/100</a></li><li><a href="/analyses/paradoxe-democratique-maire-france" style="font-size:.88rem;color:rgba(240,237,230,.62);text-decoration:none;font-family:var(--font-body)">Le paradoxe démocratique français</a></li><li><a href="/analyses" style="font-size:.88rem;color:rgba(201,168,76,.7);text-decoration:none;font-family:var(--font-body)">Toutes les analyses →</a></li></ul></div>
       </div>
       <div class="fbot"><div class="fcopy">© 2026 Ressento — Tous droits réservés · <a href="/cgu.html" style="color:var(--text-faint);font-family:var(--font-mono);font-size:.66rem;text-decoration:underline">CGU</a> · <button onclick="goTo('presse')" style="color:var(--text-faint);background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:.66rem;text-decoration:underline">Espace presse</button></div><div class="fnote">Les indices produits ne constituent pas des sondages au sens de la loi du 19 juillet 1977. Initiative citoyenne indépendante.</div></div>
     </div>
