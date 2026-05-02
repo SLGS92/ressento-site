@@ -1,0 +1,123 @@
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ressento Analyses — Données vérifiées, sources primaires</title>
+<meta name="description" content="Les analyses Ressento : prélèvements obligatoires France-Europe, sécurité municipale 28/100, paradoxe démocratique. Données vérifiées, sources primaires, charte apolitique.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ressento.com/analyses">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Mono:wght@0,300;0,400&display=swap');
+:root{--navy:#0B1F3C;--navy-card:#0f2444;--gold:#C9A84C;--gold-light:#E2C278;--offwhite:#F0EDE6;--text-high:rgba(240,237,230,1);--text-med:rgba(240,237,230,.78);--text-low:rgba(240,237,230,.62);--text-faint:rgba(240,237,230,.42);--muted:#8899B4;--border-gold:rgba(201,168,76,.18);--border-subtle:rgba(255,255,255,.07);--font-display:'Bebas Neue',sans-serif;--font-body:'Fraunces',Georgia,serif;--font-mono:'DM Mono',monospace;--r:4px}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
+a{color:var(--gold);text-decoration:none}
+nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--border-gold);backdrop-filter:blur(20px);background:rgba(11,31,60,.92)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.14em;color:var(--text-high);text-decoration:none}.nav-logo .e2{color:var(--gold)}
+.nav-back{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .2s}.nav-back:hover{color:var(--text-high)}
+.wrap{max-width:1100px;margin:0 auto;padding:110px 40px 80px;position:relative;z-index:1}
+.page-tag{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.page-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);display:block}
+h1{font-family:var(--font-display);font-size:clamp(3rem,6vw,5rem);letter-spacing:.03em;color:var(--text-high);line-height:.96;margin-bottom:1rem}
+h1 .gold{color:var(--gold)}
+.page-lead{font-size:1rem;font-style:italic;color:var(--text-med);max-width:600px;margin-bottom:.8rem;line-height:1.75;font-weight:400}
+.charte-note{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;color:rgba(136,153,180,.6);margin-bottom:3rem;display:flex;align-items:center;gap:8px}
+.charte-note::before{content:'';width:24px;height:1px;background:rgba(136,153,180,.3);display:block}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1)}
+.article-card{background:var(--navy-card);padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:background .2s,transform .2s;text-decoration:none;border-bottom:2px solid transparent}
+.article-card:hover{background:#122347;transform:translateY(-3px);border-bottom-color:var(--gold)}
+.card-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.card-title{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.04em;color:var(--text-high);line-height:1.08}
+.card-excerpt{font-size:.82rem;color:var(--text-med);line-height:1.65;font-weight:400;flex:1}
+.card-stats{display:flex;gap:1rem;flex-wrap:wrap;padding-top:.8rem;border-top:1px solid var(--border-subtle)}
+.card-stat{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);letter-spacing:.02em}
+.card-stat-lbl{font-family:var(--font-mono);font-size:.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
+.card-cta{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(201,168,76,.6);display:flex;align-items:center;gap:5px;margin-top:.5rem}
+.article-card:hover .card-cta{color:var(--gold)}
+.coming-soon{margin-top:3rem;padding:2rem;border:1px dashed rgba(136,153,180,.2);text-align:center}
+.cs-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;display:block}
+.cs-title{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.06em;color:rgba(240,237,230,.35)}
+footer{border-top:1px solid var(--border-gold);padding:2rem 0;position:relative;z-index:1}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fbrand{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.14em;color:var(--text-high)}.fbrand .e2{color:var(--gold)}
+.fnote{font-family:var(--font-mono);font-size:.6rem;color:var(--text-faint);line-height:1.6}
+@media(max-width:768px){.articles-grid{grid-template-columns:1fr}.wrap,.nav-inner,.footer-inner{padding-left:20px;padding-right:20px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="https://ressento.com" class="nav-logo" style="font-family:'Bebas Neue',var(--font-display)">RESS<span class="e2">E</span>NTO</a>
+    <a href="https://ressento.com" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>
+      Retour au site
+    </a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-tag">Ressento Analyses</div>
+  <h1>CE QUE LES DONNÉES<br><span class="gold">RÉVÈLENT VRAIMENT</span></h1>
+  <p class="page-lead">Des analyses fondées sur des données officielles vérifiées. Zéro opinion. Zéro jugement. Sources primaires citées, méthodologie ouverte.</p>
+  <div class="charte-note">INSEE · DGFiP · Eurostat · OCDE · CEVIPOF · Ipsos — toutes les données sont sourcées et vérifiables</div>
+
+  <div class="articles-grid">
+    <a href="/analyses/prelevements-obligatoires-france-europe" class="article-card">
+      <div class="card-tag">Fiscalité · Mai 2026</div>
+      <div class="card-title">Pourquoi les Français paient le plus d'impôts en Europe</div>
+      <div class="card-excerpt">45,3% du PIB selon Eurostat — rang 1er de la zone euro. Seulement 34% des Français font confiance à leur gouvernement national. Analyse des données INSEE, DGFiP, OCDE.</div>
+      <div class="card-stats">
+        <div><div class="card-stat">45,3%</div><div class="card-stat-lbl">PIB prélevé<br>Zone euro rang 1</div></div>
+        <div><div class="card-stat">34%</div><div class="card-stat-lbl">Confiance gouv.<br>OCDE 2023</div></div>
+      </div>
+      <div class="card-cta">Lire l'analyse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+    </a>
+
+    <a href="/analyses/securite-municipale-28-sur-100" class="article-card">
+      <div class="card-tag">RI-IBM · Mai 2026</div>
+      <div class="card-title">Sécurité municipale : 28/100, le domaine le moins bien perçu</div>
+      <div class="card-excerpt">Le score sécurité du RI-IBM est le plus bas de tous les domaines évalués. 34 points d'écart avec la culture (62/100). Analyse des données Ressento, Ipsos/CEVIPOF 2026.</div>
+      <div class="card-stats">
+        <div><div class="card-stat" style="color:#E08080">28/100</div><div class="card-stat-lbl">Score sécurité<br>RI-IBM 2026</div></div>
+        <div><div class="card-stat">45%</div><div class="card-stat-lbl">Priorité N°1<br>Ipsos fév. 2026</div></div>
+      </div>
+      <div class="card-cta">Lire l'analyse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+    </a>
+
+    <a href="/analyses/paradoxe-democratique-maire-france" class="article-card">
+      <div class="card-tag">Démocratie locale · Mai 2026</div>
+      <div class="card-title">Le paradoxe démocratique français : élu mais pas plébiscité</div>
+      <div class="card-excerpt">67% des répondants au RI-IBM auraient voté pour un autre candidat. Seulement 33% rééliraient leur maire actuel. Analyse avec données CEVIPOF, Ipsos et Ministère Intérieur.</div>
+      <div class="card-stats">
+        <div><div class="card-stat">67%</div><div class="card-stat-lbl">Auraient voté<br>différemment</div></div>
+        <div><div class="card-stat">33%</div><div class="card-stat-lbl">Rééliraient<br>leur maire</div></div>
+      </div>
+      <div class="card-cta">Lire l'analyse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+    </a>
+  </div>
+
+  <div class="coming-soon" style="font-family:var(--font-display)">
+    <span class="cs-label">Prochaines analyses · 2026</span>
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:.5rem">
+      <div class="cs-title">Confiance institutions France — les chiffres</div>
+      <div style="color:rgba(136,153,180,.2);font-family:var(--font-mono);font-size:.6rem">·</div>
+      <div class="cs-title">Résultats IVI 2026</div>
+      <div style="color:rgba(136,153,180,.2);font-family:var(--font-mono);font-size:.6rem">·</div>
+      <div class="cs-title">Pouvoir d'achat ressenti vs INSEE</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="fbrand" style="font-family:'Bebas Neue',var(--font-display)">RESS<span class="e2">E</span>NTO</div></div>
+    <div class="fnote">Données vérifiées · Sources primaires · Apolitique · © 2026 Ressento · <a href="https://ressento.com" style="color:rgba(201,168,76,.5)">ressento.com</a></div>
+  </div>
+</footer>
+
+
+</body></html>
