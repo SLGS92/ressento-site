@@ -1,0 +1,489 @@
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultats IVI 2026 — Indice de Valeur de l'Impôt | Ressento</title>
+<meta name="description" content="Résultats IVI 2026 : score national de l'Indice de Valeur de l'Impôt. Delta entre 45,3% du PIB prélevé et valeur perçue par les citoyens français. Données sourcées, accès libre.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Résultats IVI 2026 — Indice de Valeur de l'Impôt | Ressento">
+<meta property="og:description" content="Le score IVI 2026 est publié. La France prélève 45,3% du PIB. Voici ce que les citoyens perçoivent en retour.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ressento.com/indices/ivi/resultats">
+<link rel="canonical" href="https://ressento.com/indices/ivi/resultats">
+<script defer="" data-domain="ressento.com" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:wght@0,300;0,400;0,500&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3C;--navy-card:#0f2444;--navy-mid:#122347;
+  --gold:#C9A84C;--gold-light:#E2C278;
+  --offwhite:#F0EDE6;--text-high:rgba(240,237,230,1);--text-med:rgba(240,237,230,.78);--text-low:rgba(240,237,230,.62);--text-faint:rgba(240,237,230,.42);
+  --muted:#8899B4;--border-gold:rgba(201,168,76,.18);--border-subtle:rgba(255,255,255,.07);
+  --font-display:'Bebas Neue',sans-serif;--font-body:'Fraunces',Georgia,serif;--font-mono:'DM Mono',monospace;
+  --r:4px;--col:1100px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--border-gold);backdrop-filter:blur(20px);background:rgba(11,31,60,.92)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.14em;color:var(--text-high);text-decoration:none}.nav-logo .e2{color:var(--gold)}
+.nav-back{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .2s}.nav-back:hover{color:var(--text-high)}
+
+/* HERO */
+.hero{padding:100px 40px 56px;max-width:var(--col);margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
+.hero-h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5.5rem);letter-spacing:.02em;color:var(--text-high);line-height:.95;margin-bottom:1rem}
+.hero-h1 .gold{color:var(--gold)}
+.hero-sub{font-size:1rem;font-style:italic;color:var(--text-med);max-width:600px;line-height:1.75;font-weight:400;margin-bottom:2rem}
+.hero-date{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-date span{color:var(--text-low)}
+
+/* SCORE PRINCIPAL */
+.score-section{background:linear-gradient(145deg,rgba(12,32,68,.98),rgba(16,44,92,.95));border-top:2px solid rgba(201,168,76,.3);border-bottom:1px solid rgba(201,168,76,.15);padding:3.5rem 40px;position:relative;overflow:hidden}
+.score-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 5%,rgba(201,168,76,.6) 40%,rgba(201,168,76,.6) 60%,transparent 95%)}
+.score-inner{max-width:var(--col);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:rgba(201,168,76,.1)}
+.score-box{background:var(--navy-card);padding:2.5rem;text-align:center}
+.score-box.main{background:linear-gradient(145deg,rgba(14,38,80,.95),rgba(18,48,100,.9));border:1px solid rgba(201,168,76,.3);position:relative;overflow:hidden}
+.score-box.main::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent)}
+.score-lbl{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;display:block}
+.score-num{font-family:var(--font-display);font-size:5.5rem;letter-spacing:.02em;line-height:1;color:var(--gold);margin-bottom:.4rem}
+/* REMPLACER ICI avec le score réel */
+.score-num.pending{font-size:2.2rem;color:rgba(240,237,230,.2);font-family:var(--font-body);font-style:italic}
+.score-sub{font-family:var(--font-mono);font-size:.65rem;color:var(--text-low);line-height:1.6}
+.score-bar-w{width:180px;height:5px;background:rgba(255,255,255,.07);margin:1rem auto 0;border-radius:3px;overflow:hidden}
+.score-bar-f{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+/* DELTA */
+.delta-section{max-width:var(--col);margin:3rem auto;padding:0 40px}
+.delta-box{background:linear-gradient(145deg,rgba(12,32,68,.7),rgba(14,36,76,.6));border:1px solid var(--border-gold);padding:2.5rem;position:relative;overflow:hidden;margin-bottom:2rem}
+.delta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.35),transparent)}
+.delta-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.5rem;align-items:center}
+.delta-item{text-align:center;padding:0 1rem}
+.delta-lbl{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;display:block}
+.delta-val{font-family:var(--font-display);font-size:2.8rem;color:var(--text-high);letter-spacing:.02em;line-height:1;margin-bottom:.3rem}
+.delta-sub{font-family:var(--font-mono);font-size:.62rem;color:var(--text-low);line-height:1.6}
+.delta-op{font-family:var(--font-display);font-size:2rem;color:rgba(201,168,76,.2);text-align:center}
+.delta-result{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);padding:1.2rem;border-radius:var(--r)}
+.delta-result .delta-lbl{color:var(--gold)}
+.delta-result .delta-val{color:var(--gold);font-size:3rem}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.1);border:1px solid var(--border-gold);margin-bottom:2.5rem}
+.kpi{background:var(--navy-card);padding:1.6rem}
+.kpi-val{font-family:var(--font-display);font-size:2.4rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.kpi-val.pending{font-size:1.2rem;color:rgba(240,237,230,.2);font-family:var(--font-body);font-style:italic}
+.kpi-lbl{font-size:.8rem;color:var(--text-med);line-height:1.5;font-weight:400}
+.kpi-src{font-family:var(--font-mono);font-size:.62rem;color:var(--text-faint);margin-top:.4rem;font-style:italic}
+
+/* ANALYSE */
+.body{max-width:var(--col);margin:0 auto;padding:0 40px 5rem;display:grid;grid-template-columns:1fr 320px;gap:3.5rem}
+.section-title{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.04em;color:var(--text-high);margin:2.5rem 0 1rem;line-height:1.05}
+.section-title .gold{color:var(--gold)}
+p{font-size:.95rem;line-height:1.88;color:var(--text-med);margin-bottom:1.1rem;font-weight:400;font-style:normal}
+p strong{color:var(--text-high);font-weight:600}
+
+/* FORMULE */
+.fbox{background:linear-gradient(145deg,rgba(12,32,68,.8),rgba(16,42,82,.7));border:1px solid rgba(201,168,76,.22);border-radius:10px;padding:28px;font-family:var(--font-mono);margin:1.8rem 0}
+.fbox-title{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.fbox-main{font-size:.95rem;color:var(--text-high);line-height:2;margin-bottom:14px}
+.fbox-main .var{color:var(--gold-light)}.fbox-main .coef{color:var(--muted);font-size:.82rem}
+.frow{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.06);font-size:.78rem}
+.frow-lbl{color:var(--text-med)}.frow-w{font-size:.9rem;color:var(--gold)}
+
+/* QUOTE */
+.quote{border-left:2px solid var(--gold);padding:1.2rem 1.5rem;background:rgba(201,168,76,.04);margin:1.8rem 0}
+.quote-text{font-size:.95rem;font-style:italic;color:var(--text-high);line-height:1.75;margin-bottom:.5rem;font-weight:400}
+.quote-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* NOTE METHODO */
+.note{background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1.2rem 1.4rem;margin:1.8rem 0;display:flex;gap:1rem}
+.note-icon{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);flex-shrink:0;padding-top:.15rem}
+.note-text{font-size:.78rem;color:var(--text-faint);line-height:1.7;font-weight:400}
+
+/* SIDEBAR */
+.sidebar{}
+.sb-block{margin-bottom:2rem}
+.sb-title{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-subtle);display:block}
+.press-item{display:block;padding:.9rem 1rem;border:1px solid var(--border-gold);text-decoration:none;margin-bottom:.5rem;transition:border-color .2s,background .2s;border-radius:var(--r)}
+.press-item:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.04)}
+.press-src{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem;display:block}
+.press-ttl{font-size:.82rem;color:var(--text-high);line-height:1.5;font-weight:400}
+.press-date{font-family:var(--font-mono);font-size:.58rem;color:var(--muted);margin-top:.3rem;display:block}
+
+/* SHARE */
+.share-block{display:flex;gap:10px;flex-wrap:wrap;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle)}
+.share-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.1rem;border-radius:var(--r);border:1px solid;cursor:pointer;transition:all .2s;background:transparent}
+.share-btn--li{color:#8aaee0;border-color:rgba(138,174,224,.3)}.share-btn--li:hover{background:rgba(138,174,224,.08);border-color:rgba(138,174,224,.6)}
+.share-btn--x{color:var(--text-med);border-color:rgba(240,237,230,.2)}.share-btn--x:hover{background:rgba(240,237,230,.04)}
+.share-btn--copy{color:var(--gold);border-color:rgba(201,168,76,.25)}.share-btn--copy:hover{background:rgba(201,168,76,.06)}
+
+/* CTA */
+.cta-box{background:linear-gradient(145deg,rgba(14,38,80,.9),rgba(18,48,100,.85));border:1px solid rgba(201,168,76,.25);padding:1.8rem;text-align:center;position:relative;overflow:hidden;border-radius:var(--r)}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent)}
+.cta-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.cta-title{font-family:var(--font-display);font-size:1.4rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.5rem}
+.cta-desc{font-size:.82rem;color:var(--text-med);margin-bottom:1.2rem;line-height:1.6;font-weight:400}
+.btn{display:inline-block;font-family:var(--font-display);font-size:.9rem;letter-spacing:.08em;padding:11px 24px;background:var(--gold);color:var(--navy);border-radius:var(--r);transition:all .2s}
+.btn:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px)}
+.btn-outline{display:inline-block;font-family:var(--font-display);font-size:.85rem;letter-spacing:.08em;padding:10px 20px;background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.25);border-radius:var(--r);transition:all .2s;margin-left:8px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SOURCES */
+.sources{padding:1.8rem 0;border-top:1px solid var(--border-subtle);margin-top:1.5rem}
+.sources-t{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.sources ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.sources li{font-family:var(--font-mono);font-size:.63rem;color:var(--text-faint);line-height:1.6;padding-left:1rem;position:relative}
+.sources li::before{content:'→';position:absolute;left:0;color:rgba(201,168,76,.4)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border-gold);padding:2.5rem 0;position:relative;z-index:1}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fbrand{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.14em;color:var(--text-high)}.fbrand .e2{color:var(--gold)}
+.fnote{font-family:var(--font-mono);font-size:.6rem;color:var(--text-faint);line-height:1.6;text-align:right;max-width:400px}
+
+/* ANIMATIONS */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .body{grid-template-columns:1fr}
+  .delta-grid{grid-template-columns:1fr;gap:1rem}
+  .delta-op{display:none}
+  .score-inner{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hero,.score-section,.delta-section,.body{padding-left:20px;padding-right:20px}
+  .nav-inner,.footer-inner{padding-left:20px;padding-right:20px}
+  .kpi-grid{grid-template-columns:1fr}
+  .score-num{font-size:4rem}
+}
+
+/* ══ ÉDITORIAL — zones à remplir en mai ══
+   Chercher les commentaires TODO:REMPLIR
+   pour insérer les vrais résultats
+*/
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://ressento.com" class="nav-logo">RESS<span class="e2">E</span>NTO</a>
+    <a href="https://ressento.com/indices/ivi" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>
+      Page IVI
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════
+     HERO
+═══════════════════════════════ -->
+<div class="hero reveal visible">
+  <div class="hero-eyebrow">IVI · Résultats publiés · Mai 2026</div>
+  <h1 class="hero-h1">INDICE DE VALEUR<br>DE L'<span class="gold">IMPÔT</span><br>FRANCE 2026</h1>
+  <p class="hero-sub">La France prélève 45,3% du PIB — rang 1er de la zone euro. Voici ce que les citoyens déclarent percevoir en retour. Premier indice de ce type publié en France.</p>
+  <div class="hero-date">
+    <span>Publication : <span>Mai 2026</span></span>
+    <span>·</span>
+    <span>Sources : Ressento · INSEE · Eurostat · OCDE</span>
+    <span>·</span>
+    <span>Accès libre</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     SCORE PRINCIPAL
+     TODO:REMPLIR — insérer le score IVI ici
+═══════════════════════════════ -->
+<div class="score-section">
+  <div class="score-inner">
+    <div class="score-box">
+      <span class="score-lbl">Prélèvements obligatoires</span>
+      <div class="score-num">45,3%</div>
+      <div class="score-sub">du PIB · Rang 1er zone euro<br>Source : Eurostat 2024</div>
+    </div>
+    <div class="score-box main">
+      <span class="score-lbl">Score IVI · France 2026</span>
+      <!-- TODO:REMPLIR : remplacer pending par le vrai score -->
+      <div class="score-num pending" id="ivi-score">À paraître</div>
+      <div class="score-sub" id="ivi-score-sub">Score publié dès disponibilité</div>
+      <div class="score-bar-w"><div class="score-bar-f" id="ivi-bar" style="width:0%"></div></div>
+    </div>
+    <div class="score-box">
+      <span class="score-lbl">Confiance gouvernement national</span>
+      <div class="score-num">34%</div>
+      <div class="score-sub">confiance élevée ou modérée<br>Source : OCDE Trust Survey 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     DELTA
+     TODO:REMPLIR — insérer le Delta IVI ici
+═══════════════════════════════ -->
+<div class="delta-section">
+  <div class="delta-box reveal">
+    <div class="delta-grid">
+      <div class="delta-item">
+        <span class="delta-lbl">Taux de prélèvements</span>
+        <div class="delta-val">45,3%</div>
+        <div class="delta-sub">du PIB · Rang 1er zone euro<br>Eurostat 2024</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item">
+        <!-- TODO:REMPLIR : valeur perçue IVI -->
+        <span class="delta-lbl">Valeur perçue déclarée</span>
+        <div class="delta-val" id="ivi-perceived" style="color:rgba(240,237,230,.25);font-size:2rem;font-family:var(--font-body);font-style:italic">À publier</div>
+        <div class="delta-sub">Score IVI · Mai 2026</div>
+      </div>
+      <div class="delta-op">→</div>
+      <div class="delta-item delta-result">
+        <!-- TODO:REMPLIR : Delta IVI -->
+        <span class="delta-lbl">Δ Delta Ressento IVI</span>
+        <div class="delta-val" id="ivi-delta" style="font-size:1.8rem;font-family:var(--font-body);font-style:italic;color:rgba(240,237,230,.25)">À publier</div>
+        <div class="delta-sub" id="ivi-delta-sub">L'écart entre contribution<br>et valeur perçue</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid reveal">
+    <div class="kpi">
+      <!-- TODO:REMPLIR -->
+      <div class="kpi-val pending" id="kpi-score">Score IVI à publier</div>
+      <div class="kpi-lbl">Score national IVI · /100</div>
+      <div class="kpi-src">Ressento · Mai 2026</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">45,3%</div>
+      <div class="kpi-lbl">Taux prélèvements obligatoires / PIB · Rang 1er zone euro</div>
+      <div class="kpi-src">Eurostat 2024</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">34%</div>
+      <div class="kpi-lbl">Confiance dans le gouvernement national</div>
+      <div class="kpi-src">OCDE Trust Survey 2023</div>
+    </div>
+    <div class="kpi">
+      <!-- TODO:REMPLIR -->
+      <div class="kpi-val pending" id="kpi-equite">À publier</div>
+      <div class="kpi-lbl">Score équité fiscale perçue (Q2 · poids 45%)</div>
+      <div class="kpi-src">Ressento IVI · Mai 2026</div>
+    </div>
+    <div class="kpi">
+      <!-- TODO:REMPLIR -->
+      <div class="kpi-val pending" id="kpi-valeur">À publier</div>
+      <div class="kpi-lbl">Score valeur services reçus (Q1 · poids 30%)</div>
+      <div class="kpi-src">Ressento IVI · Mai 2026</div>
+    </div>
+    <div class="kpi">
+      <!-- TODO:REMPLIR -->
+      <div class="kpi-val pending" id="kpi-lisibilite">À publier</div>
+      <div class="kpi-lbl">Score lisibilité utilisation fonds (Q3 · poids 25%)</div>
+      <div class="kpi-src">Ressento IVI · Mai 2026</div>
+    </div>
+  </div>
+
+  <!-- CORPS DE L'ANALYSE -->
+  <div class="body">
+    <main>
+      <!-- TODO:REMPLIR : remplacer ce placeholder par l'analyse réelle une fois les résultats connus -->
+      <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.12);padding:1.6rem;border-left:3px solid var(--gold);margin-bottom:2.5rem">
+        <span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem">Publication en cours</span>
+        <p style="margin:0">Les résultats IVI sont en cours de consolidation. Cette page sera mise à jour dès la publication du score. Inscrivez-vous ci-contre pour recevoir les résultats en priorité.</p>
+      </div>
+
+      <h2 class="section-title reveal">La formule <span class="gold">IVI</span></h2>
+      <div class="fbox reveal">
+        <span class="fbox-title">Formule de calcul — publiée avant collecte</span>
+        <div class="fbox-main"><span class="var">IVI</span> = <span class="var">Q2</span><span class="coef">×0,45</span> + <span class="var">Q1</span><span class="coef">×0,30</span> + <span class="var">Q3</span><span class="coef">×0,25</span></div>
+        <div class="frow"><span class="frow-lbl">Q2 · Équité fiscale ressentie (poids dominant)</span><span class="frow-w">×0,45</span></div>
+        <div class="frow"><span class="frow-lbl">Q1 · Valeur perçue des services publics reçus</span><span class="frow-w">×0,30</span></div>
+        <div class="frow"><span class="frow-lbl">Q3 · Lisibilité de l'utilisation des fonds publics</span><span class="frow-w">×0,25</span></div>
+        <div style="margin-top:12px;font-family:var(--font-mono);font-size:.7rem;color:var(--muted);line-height:1.65">Formule fixée avant la collecte. Non modifiable a posteriori. Score de 0 à 100.</div>
+      </div>
+
+      <h2 class="section-title reveal">Le contexte : <span class="gold">45,3% du PIB prélevé</span></h2>
+      <p class="reveal">La France est le pays de la zone euro où le taux de prélèvements obligatoires est le plus élevé — <strong>45,3% du PIB</strong> selon Eurostat 2024. Ce taux est supérieur de 4,4 points à la moyenne de la zone euro (40,9%) et de 4,4 points à celui de l'Allemagne (40,9%).</p>
+      <p class="reveal">Simultanément, l'OCDE mesure en 2023 que <strong>seulement 34% des Français</strong> déclarent avoir une confiance élevée ou modérément élevée dans leur gouvernement national — soit 5 points sous la moyenne OCDE (39%). L'IVI mesure précisément l'écart entre ces deux réalités.</p>
+
+      <div class="note reveal">
+        <div class="note-icon">Méthode</div>
+        <div class="note-text">L'IVI est issu d'un questionnaire diffusé sur LinkedIn, Facebook, Instagram et Brevo. Panel auto-sélectionné, non représentatif au sens statistique de l'INSEE. Les résultats ne sont pas extrapolables à l'ensemble de la population française. Leur valeur réside dans la mesure de tendance et le croisement avec les données officielles. Volume de répondants non communiqué — voir politique méthodologique.</div>
+      </div>
+
+      <!-- TODO:REMPLIR : ajouter ici l'analyse narrative une fois le score connu -->
+
+      <div class="share-block reveal">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;width:100%">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"></path></svg>
+          Partager ces résultats
+        </div>
+        <button class="share-btn share-btn--li" onclick="shareLinkedIn()" aria-label="Partager sur LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </button>
+        <button class="share-btn share-btn--x" onclick="shareX()" aria-label="Partager sur X">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          X / Twitter
+        </button>
+        <button class="share-btn share-btn--copy" onclick="copyLink()" id="copy-btn" aria-label="Copier le lien">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+          Copier le lien
+        </button>
+      </div>
+
+      <div class="sources reveal">
+        <div class="sources-t">Sources</div>
+        <ul>
+          <li>Ressento — Questionnaire IVI, collecte avril-mai 2026</li>
+          <li>Eurostat — Tax revenue statistics, taux de prélèvements obligatoires 2024</li>
+          <li>INSEE — Taux de prélèvements obligatoires au sein de l'UE 2024 (comparaison Eurostat)</li>
+          <li>DGFiP — Recettes fiscales collectées 2023 : 543 Md€ · Bulletin DGFiP Statistiques n°26</li>
+          <li>OCDE — Enquête sur les déterminants de la confiance · Note pays France · Résultats 2024 (données 2023)</li>
+          <li>FIPECO — Les prélèvements obligatoires en France et dans la zone euro en 2024 · Novembre 2025</li>
+        </ul>
+      </div>
+    </main>
+
+    <aside>
+      <div class="sb-block">
+        <span class="sb-title">Recevoir les résultats</span>
+        <div class="cta-box">
+          <span class="cta-tag">IVI · Publication imminente</span>
+          <div class="cta-title">Résultats en mai 2026</div>
+          <div class="cta-desc">Recevoir le score IVI dès sa publication — accès libre, sans publicité.</div>
+          <div id="email-form">
+            <div style="display:flex;gap:8px;margin-top:.8rem">
+              <input type="email" id="email-input" placeholder="votre@email.com" autocomplete="email" style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:.6rem .9rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-high);outline:none;transition:border-color .2s" aria-label="Votre email">
+              <button onclick="submitEmail()" style="background:var(--gold);color:var(--navy);font-family:var(--font-display);font-size:.85rem;letter-spacing:.06em;padding:.6rem 1rem;border:none;border-radius:var(--r);cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">OK →</button>
+            </div>
+            <div style="font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.5rem">Aucune publicité. Désabonnement en 1 clic.</div>
+          </div>
+          <div id="email-success" style="display:none;font-family:var(--font-mono);font-size:.7rem;color:#7DC49E;letter-spacing:.06em;padding:.5rem;text-align:center;margin-top:.5rem" role="status">✓ Vous recevrez les résultats dès leur publication.</div>
+        </div>
+      </div>
+
+      <div class="sb-block">
+        <span class="sb-title">Données de contexte</span>
+        <div class="press-item">
+          <span class="press-src">Eurostat 2024</span>
+          <div class="press-ttl">Taux de prélèvements obligatoires — comparaison européenne</div>
+          <span class="press-date">France : 45,3% · Danemark : 45,8% · Zone euro : 40,9%</span>
+        </div>
+        <div class="press-item">
+          <span class="press-src">OCDE Trust Survey 2023</span>
+          <div class="press-ttl">Confiance dans le gouvernement national — France</div>
+          <span class="press-date">34% · Moyenne OCDE : 39%</span>
+        </div>
+        <div class="press-item">
+          <span class="press-src">DGFiP · Juillet 2024</span>
+          <div class="press-ttl">Recettes fiscales collectées 2023</div>
+          <span class="press-date">543 Md€ nets · DGFiP Statistiques n°26</span>
+        </div>
+      </div>
+
+      <div class="sb-block">
+        <span class="sb-title">Voir aussi</span>
+        <div style="display:flex;flex-direction:column;gap:.5rem">
+          <a href="https://ressento.com/indices/ibm" style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            RI-IBM · Bilan Municipal 46/100
+          </a>
+          <a href="https://ressento.com/methode" style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            Méthode &amp; transparence
+          </a>
+          <a href="https://ressento.com/analyses" style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            Toutes les analyses →
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="fbrand">RESS<span class="e2">E</span>NTO</div><div style="font-family:var(--font-mono);font-size:.6rem;color:rgba(240,237,230,.3);margin-top:.3rem">Ce que vous ressentez, enfin chiffré.</div></div>
+    <div class="fnote">Observatoire indépendant apolitique · Données vérifiées · Accès libre · © 2026 Ressento · <a href="https://ressento.com" style="color:rgba(201,168,76,.5)">ressento.com</a></div>
+  </div>
+</footer>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// TODO:REMPLIR — fonction à appeler quand les résultats sont prêts
+// Exemple : publishResults({score: 42, perceived: '42/100', delta: '−3,3 pts', equite: 38, valeur: 45, lisibilite: 44})
+function publishResults(data) {
+  const scoreEl = document.getElementById('ivi-score');
+  if (scoreEl) {
+    scoreEl.textContent = data.score + '/100';
+    scoreEl.classList.remove('pending');
+    scoreEl.style.fontSize = '5.5rem';
+    scoreEl.style.color = 'var(--gold)';
+    scoreEl.style.fontFamily = 'var(--font-display)';
+    scoreEl.style.fontStyle = 'normal';
+  }
+  const barEl = document.getElementById('ivi-bar');
+  if (barEl) setTimeout(() => barEl.style.width = data.score + '%', 300);
+  const percEl = document.getElementById('ivi-perceived');
+  if (percEl) { percEl.textContent = data.perceived; percEl.style.color = 'var(--text-high)'; percEl.style.fontSize = '2.8rem'; percEl.style.fontFamily = 'var(--font-display)'; percEl.style.fontStyle = 'normal'; }
+  const deltaEl = document.getElementById('ivi-delta');
+  if (deltaEl) { deltaEl.textContent = data.delta; deltaEl.style.color = 'var(--gold)'; deltaEl.style.fontSize = '3rem'; deltaEl.style.fontFamily = 'var(--font-display)'; deltaEl.style.fontStyle = 'normal'; }
+  ['kpi-score','kpi-equite','kpi-valeur','kpi-lisibilite'].forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('pending'); el.style.color = 'var(--gold)'; el.style.fontSize = '2.4rem'; el.style.fontFamily = 'var(--font-display)'; el.style.fontStyle = 'normal'; }
+  });
+  if(data.score) document.getElementById('kpi-score').textContent = data.score + '/100';
+  if(data.equite) document.getElementById('kpi-equite').textContent = data.equite + '/100';
+  if(data.valeur) document.getElementById('kpi-valeur').textContent = data.valeur + '/100';
+  if(data.lisibilite) document.getElementById('kpi-lisibilite').textContent = data.lisibilite + '/100';
+}
+
+// Email
+async function submitEmail() {
+  const input = document.getElementById('email-input');
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) { input.style.borderColor = '#E08080'; return; }
+  try { await fetch('/.netlify/functions/subscribe', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email, source:'ivi-resultats', indice:'ivi'}) }); } catch(e) {}
+  document.getElementById('email-form').style.display = 'none';
+  document.getElementById('email-success').style.display = 'block';
+  try { localStorage.setItem('ressento_email_captured','1'); } catch(e) {}
+}
+
+// Share
+function shareLinkedIn() {
+  const url = encodeURIComponent('https://ressento.com/indices/ivi/resultats');
+  const text = encodeURIComponent('🔍 Ressento publie les résultats IVI 2026 — Indice de Valeur de l\'Impôt.\n\nLa France prélève 45,3% du PIB (rang 1er zone euro). Voici ce que les citoyens déclarent percevoir en retour.\n\nDonnées libres, accès libre :');
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`,'_blank','width=600,height=600');
+}
+function shareX() {
+  const text = encodeURIComponent('🔍 Résultats IVI @Ressento_fr — Indice de Valeur de l\'Impôt France 2026.\n45,3% du PIB prélevé. Voici ce que les citoyens perçoivent en retour.\nressento.com/indices/ivi/resultats');
+  window.open(`https://twitter.com/intent/tweet?text=${text}`,'_blank','width=600,height=400');
+}
+function copyLink() {
+  navigator.clipboard.writeText('https://ressento.com/indices/ivi/resultats').then(() => {
+    const btn = document.getElementById('copy-btn');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✓ Copié'; btn.style.color = '#7DC49E';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+  });
+}
+</script>
+
+
+</body></html>
