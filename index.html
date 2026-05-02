@@ -704,6 +704,14 @@ img,svg,canvas{max-width:100%}
   ]
 }
 </script>
+<!-- Google Analytics 4 -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F8P695XQ39"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F8P695XQ39');
+</script>
 </head>
 <body>
 <!-- NAV -->
@@ -720,8 +728,8 @@ img,svg,canvas{max-width:100%}
       <li><button id="nl-methodologie" onclick="goTo('methodologie')">Méthode</button></li>
       <li><button id="nl-manifeste" onclick="goTo('manifeste')">À propos</button></li>
       <li><button id="nl-barometre" onclick="goTo('barometre')" style="color:rgba(201,168,76,.7)">Baromètre</button></li>
-      <li><a href="/analyses" style="font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); background: none; border-width: medium medium 2px; border-style: none none solid; border-color: currentcolor currentcolor transparent; border-image: initial; cursor: pointer; padding: 8px 10px; transition: color 0.2s; text-decoration: none; display: inline-block;" onmouseover="this.style.color='var(--text-high)'" onmouseout="this.style.color='var(--muted)'">Analyses</a></li>
-      <li><a href="/carburant" style="font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 6px 10px; border: 1px solid rgba(93, 202, 165, 0.25); border-radius: 3px; background: transparent; transition: 0.2s; text-decoration: none; white-space: nowrap;" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
+      <li><a href="/analyses" style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:8px 10px;transition:color .2s;text-decoration:none;border-bottom:2px solid transparent;display:inline-block" onmouseover="this.style.color='var(--text-high)'" onmouseout="this.style.color='var(--muted)'">Analyses</a></li>
+      <li><a href="/carburant" style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:6px 10px;border:1px solid rgba(93,202,165,.25);border-radius:3px;background:transparent;transition:all .2s;text-decoration:none;white-space:nowrap" onmouseover="this.style.color='#5DCAA5';this.style.borderColor='rgba(93,202,165,.6)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(93,202,165,.25)'">⛽ Carburant</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
       <button class="btn btn--gold" style="padding:8px 14px;font-size:.72rem;white-space:nowrap" onclick="goTo('ivi')">Participer à l'IVI →</button>
@@ -886,14 +894,14 @@ img,svg,canvas{max-width:100%}
         <div class="counter-box" role="region" aria-labelledby="lbl-carbu">
           <div class="counter-dot" aria-hidden="true"></div>
           <div class="counter-eyebrow" id="lbl-carbu">Surcoût carburant · Ménages français 2026</div>
-          <div class="counter-val" id="cnt-carbu" aria-live="polite">5,24 Md €</div>
+          <div class="counter-val" id="cnt-carbu" aria-live="polite">5,26 Md €</div>
           <div class="counter-unit">€ de surcoût cumulé depuis le 27 fév. 2026<br>pour l'ensemble des ménages motorisés</div>
           <div class="counter-src">Base : +50 cts/L · 38M véhicules · INSEE 2024</div>
         </div>
         <div class="counter-box" role="region" aria-labelledby="lbl-fiscal">
           <div class="counter-dot" style="background:#8aaee0;box-shadow:none" aria-hidden="true"></div>
           <div class="counter-eyebrow" id="lbl-fiscal">Recettes fiscales collectées · 2026</div>
-          <div class="counter-val" id="cnt-fiscal" aria-live="polite">327,13 Md €</div>
+          <div class="counter-val" id="cnt-fiscal" aria-live="polite">327,69 Md €</div>
           <div class="counter-unit">€ collectés depuis le 1er jan. 2026<br>au rythme des recettes DGFiP 2023</div>
           <div class="counter-src">Base : 984 Md€ / an · DGFiP 2023 · rythme linéaire</div>
         </div>
