@@ -1,0 +1,607 @@
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourquoi les Français paient le plus d'impôts en Europe et se sentent les moins bien servis | Ressento Analyses</title>
+<meta name="description" content="La France prélève 45,3% du PIB — rang 1er de la zone euro, 2ème de l'UE. Seulement 34% des Français font confiance à leur gouvernement national (OCDE 2023). Ressento analyse cet écart avec les données officielles INSEE, DGFiP, Eurostat, OCDE.">
+<meta name="keywords" content="prélèvements obligatoires France Europe 2026, confiance impôts France, taux fiscal France comparaison, services publics satisfaction France, perception fiscale français, valeur impôt France">
+<meta name="author" content="Ressento — Observatoire indépendant du perception gap citoyen">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="Pourquoi les Français paient le plus d'impôts en Europe et se sentent les moins bien servis">
+<meta property="og:description" content="La France prélève 45,3% du PIB selon Eurostat — rang 1er de la zone euro. 34% des Français font confiance à leur gouvernement national (OCDE 2023). Données vérifiées sources primaires.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ressento.com/analyses/prelevements-obligatoires-france-europe">
+<meta property="og:image" content="https://ressento.com/og-image.png">
+<meta property="article:published_time" content="2026-05-02">
+<meta property="article:author" content="Ressento">
+<link rel="canonical" href="https://ressento.com/analyses/prelevements-obligatoires-france-europe">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pourquoi les Français paient le plus d'impôts en Europe et se sentent les moins bien servis",
+  "description": "La France prélève 45,3% du PIB — rang 1er de la zone euro, 2ème de l'UE. Seulement 34% des Français font confiance à leur gouvernement national (OCDE 2023). Analyse des données officielles INSEE, DGFiP, Eurostat, OCDE.",
+  "author": {"@type": "Organization", "name": "Ressento", "url": "https://ressento.com"},
+  "publisher": {"@type": "Organization", "name": "Ressento", "url": "https://ressento.com"},
+  "datePublished": "2026-05-02",
+  "dateModified": "2026-05-02",
+  "url": "https://ressento.com/analyses/prelevements-obligatoires-france-europe",
+  "mainEntityOfPage": "https://ressento.com/analyses/prelevements-obligatoires-france-europe",
+  "about": ["prélèvements obligatoires", "confiance fiscale", "perception gap", "services publics France"],
+  "keywords": "prélèvements obligatoires France, confiance impôts, perception fiscale, services publics satisfaction"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500&amp;display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3C;--navy-mid:#122347;--navy-card:#0f2444;
+  --gold:#C9A84C;--gold-light:#E2C278;
+  --offwhite:#F0EDE6;--text-high:rgba(240,237,230,1);--text-med:rgba(240,237,230,.78);--text-low:rgba(240,237,230,.62);--text-faint:rgba(240,237,230,.42);
+  --muted:#8899B4;--border-gold:rgba(201,168,76,.18);--border-subtle:rgba(255,255,255,.07);
+  --font-display:'Bebas Neue',sans-serif;--font-body:'Fraunces',Georgia,serif;--font-mono:'DM Mono',monospace;
+  --r:4px;--col:720px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--navy);color:var(--offwhite);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.32}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;border-bottom:1px solid var(--border-gold);backdrop-filter:blur(20px);background:rgba(11,31,60,.92)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.14em;color:var(--text-high);text-decoration:none}
+.nav-logo .e2{color:var(--gold)}
+.nav-back{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .2s}
+.nav-back:hover{color:var(--text-high)}
+.nav-cta{font-family:var(--font-display);font-size:.82rem;letter-spacing:.08em;padding:8px 18px;background:var(--gold);color:var(--navy);border-radius:var(--r);white-space:nowrap}
+.nav-cta:hover{background:var(--gold-light);color:var(--navy)}
+
+/* ARTICLE LAYOUT */
+.article-wrap{max-width:var(--col);margin:0 auto;padding:0 32px;position:relative;z-index:1}
+
+/* HERO */
+.article-hero{padding:110px 0 56px;position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;top:0;left:-100px;right:-100px;bottom:0;background:linear-gradient(180deg,rgba(18,44,90,.4) 0%,transparent 100%);pointer-events:none}
+.article-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.article-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.article-h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.6rem);letter-spacing:.02em;color:var(--text-high);line-height:1;margin-bottom:1.2rem}
+.article-h1 .accent{color:var(--gold)}
+.article-lead{font-size:1.08rem;font-style:italic;color:var(--text-med);line-height:1.8;max-width:640px;margin-bottom:2rem;font-weight:400}
+.article-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.2rem;border-top:1px solid var(--border-subtle)}
+.meta-item{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);display:flex;align-items:center;gap:6px}
+.meta-sep{color:var(--border-gold)}
+
+/* ARTICLE BODY */
+.article-body{padding:3rem 0 5rem}
+.article-body h2{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:.04em;color:var(--text-high);margin:2.8rem 0 1rem;line-height:1.05}
+.article-body h2 .gold{color:var(--gold)}
+.article-body h3{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.05em;color:var(--text-high);margin:2rem 0 .8rem}
+.article-body p{font-size:.97rem;line-height:1.9;color:var(--text-med);margin-bottom:1.2rem;font-weight:400;font-style:normal}
+.article-body p strong{color:var(--text-high);font-weight:600}
+.article-body p em{font-style:italic;color:var(--text-low)}
+
+/* CHIFFRE CHOC */
+.stat-callout{background:linear-gradient(145deg,rgba(14,38,80,.8),rgba(18,48,95,.7));border:1px solid rgba(201,168,76,.25);border-left:3px solid var(--gold);padding:1.6rem 2rem;margin:2rem 0;position:relative;overflow:hidden}
+.stat-callout::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.stat-num{font-family:var(--font-display);font-size:3.8rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.stat-num sup{font-size:1.8rem;vertical-align:super}
+.stat-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-med);line-height:1.6}
+.stat-source{font-family:var(--font-mono);font-size:.6rem;color:var(--text-faint);margin-top:.5rem;font-style:italic}
+
+/* DOUBLE STAT */
+.stat-duo{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,168,76,.12);margin:2rem 0}
+.stat-duo-item{background:var(--navy-card);padding:1.6rem}
+.stat-duo-num{font-family:var(--font-display);font-size:2.8rem;color:var(--gold);letter-spacing:.02em;line-height:1;margin-bottom:.4rem}
+.stat-duo-label{font-family:var(--font-body);font-size:.82rem;color:var(--text-med);line-height:1.55;font-weight:400}
+.stat-duo-source{font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:.4rem;font-style:italic}
+
+/* DATAVIZ — BARRE EU */
+.dataviz{background:rgba(255,255,255,.02);border:1px solid var(--border-gold);padding:2rem;margin:2.4rem 0}
+.dv-title{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.dv-subtitle{font-size:.78rem;color:var(--text-faint);margin-bottom:1.4rem;font-style:italic}
+.dv-bar-row{display:flex;align-items:center;gap:.8rem;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.dv-bar-row:last-child{border-bottom:none}
+.dv-flag{font-size:.9rem;width:22px;flex-shrink:0;text-align:center}
+.dv-country{font-family:var(--font-mono);font-size:.68rem;color:var(--text-med);width:100px;flex-shrink:0}
+.dv-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;position:relative}
+.dv-fill{position:absolute;left:0;top:0;height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.dv-val{font-family:var(--font-display);font-size:1rem;width:50px;text-align:right;flex-shrink:0}
+.dv-bar-row.fr .dv-country{color:var(--gold);font-weight:500}
+.dv-bar-row.fr .dv-fill{background:var(--gold)}
+.dv-bar-row.fr .dv-val{color:var(--gold)}
+.dv-bar-row:not(.fr) .dv-fill{background:rgba(136,153,180,.45)}
+.dv-bar-row:not(.fr) .dv-val{color:var(--text-low)}
+.dv-source{font-family:var(--font-mono);font-size:.58rem;color:var(--text-faint);margin-top:1rem;font-style:italic;text-align:right}
+.dv-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);color:var(--gold);padding:3px 8px;border-radius:20px;margin-left:8px}
+
+/* DATAVIZ — CONFIANCE */
+.dv-trust-row{display:flex;align-items:center;gap:.8rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.dv-trust-row:last-child{border-bottom:none}
+.dv-inst{font-family:var(--font-body);font-size:.82rem;color:var(--text-med);flex:1;font-weight:400}
+.dv-trust-track{width:200px;flex-shrink:0;height:6px;background:rgba(255,255,255,.06);border-radius:3px;position:relative}
+.dv-trust-fill{position:absolute;left:0;top:0;height:100%;border-radius:3px}
+.dv-trust-val{font-family:var(--font-display);font-size:1.1rem;width:44px;text-align:right;flex-shrink:0}
+
+/* DATAVIZ — TIMELINE */
+.dv-timeline{margin:2.4rem 0}
+.dv-tl-item{display:grid;grid-template-columns:80px 1px 1fr;gap:0 20px;margin-bottom:0}
+.dv-tl-date{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;color:var(--muted);padding:14px 0;text-align:right;text-transform:uppercase}
+.dv-tl-line{display:flex;flex-direction:column;align-items:center}
+.dv-tl-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--gold);flex-shrink:0;margin-top:15px;z-index:1}
+.dv-tl-conn{flex:1;width:1px;background:rgba(201,168,76,.2)}
+.dv-tl-content{padding:12px 0 20px}
+.dv-tl-title{font-family:var(--font-display);font-size:.95rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.25rem}
+.dv-tl-val{font-family:var(--font-mono);font-size:.75rem;color:var(--gold);margin-bottom:.2rem}
+.dv-tl-desc{font-size:.8rem;color:var(--text-low);line-height:1.6;font-weight:400}
+
+/* DATAVIZ — ÉCART GAUGE */
+.dv-gap{display:flex;gap:2px;background:rgba(201,168,76,.1);margin:2.4rem 0}
+.dv-gap-side{background:var(--navy-card);padding:1.6rem;flex:1;text-align:center}
+.dv-gap-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;display:block}
+.dv-gap-num{font-family:var(--font-display);font-size:2.6rem;letter-spacing:.02em;line-height:1;margin-bottom:.3rem}
+.dv-gap-sub{font-family:var(--font-mono);font-size:.6rem;color:var(--text-faint);line-height:1.5}
+.dv-gap-center{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);padding:1.6rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:140px}
+.dv-gap-delta-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.dv-gap-delta-val{font-family:var(--font-display);font-size:2.4rem;color:var(--gold);letter-spacing:.02em;line-height:1}
+
+/* CITATION */
+.article-quote{border-left:2px solid var(--gold);padding:1.2rem 1.6rem;background:rgba(201,168,76,.04);margin:1.8rem 0}
+.article-quote-text{font-size:.95rem;font-style:italic;color:var(--text-high);line-height:1.75;margin-bottom:.6rem;font-weight:400}
+.article-quote-src{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* NOTE METHODO */
+.methodo-note{background:rgba(255,255,255,.02);border:1px solid var(--border-subtle);padding:1.2rem 1.4rem;margin:2rem 0;display:flex;gap:1rem;align-items:flex-start}
+.methodo-icon{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);flex-shrink:0;padding-top:.15rem}
+.methodo-text{font-size:.78rem;color:var(--text-faint);line-height:1.7;font-weight:400}
+
+/* CONCLUSION BOX */
+.conclusion-box{background:linear-gradient(145deg,rgba(14,38,80,.9),rgba(18,48,100,.85));border:1px solid rgba(201,168,76,.25);padding:2rem;margin:2.8rem 0;position:relative;overflow:hidden}
+.conclusion-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent)}
+.conclusion-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.conclusion-text{font-size:.95rem;line-height:1.85;color:var(--text-med);font-weight:400}
+.conclusion-text strong{color:var(--text-high);font-weight:600}
+
+/* SOURCES */
+.sources-block{padding:2rem 0;border-top:1px solid var(--border-subtle);margin-top:2rem}
+.sources-title{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.sources-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.sources-list li{font-family:var(--font-mono);font-size:.65rem;color:var(--text-faint);line-height:1.6;padding-left:1rem;position:relative}
+.sources-list li::before{content:'→';position:absolute;left:0;color:rgba(201,168,76,.4)}
+
+/* CTA */
+.article-cta{background:linear-gradient(145deg,rgba(14,38,80,.9),rgba(18,48,100,.85));border:1px solid rgba(201,168,76,.25);padding:2rem;text-align:center;margin:2.8rem 0;position:relative;overflow:hidden}
+.article-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent)}
+.article-cta-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
+.article-cta-title{font-family:var(--font-display);font-size:1.6rem;letter-spacing:.04em;color:var(--text-high);margin-bottom:.6rem}
+.article-cta-desc{font-size:.88rem;color:var(--text-med);margin-bottom:1.4rem;line-height:1.7;font-weight:400}
+.btn-gold{display:inline-block;font-family:var(--font-display);font-size:.95rem;letter-spacing:.08em;padding:12px 28px;background:var(--gold);color:var(--navy);border-radius:var(--r);transition:all .2s;border:none;cursor:pointer}
+.btn-gold:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-2px)}
+.btn-outline{display:inline-block;font-family:var(--font-display);font-size:.88rem;letter-spacing:.08em;padding:11px 24px;background:transparent;color:var(--offwhite);border:1.5px solid rgba(240,237,230,.25);border-radius:var(--r);transition:all .2s;margin-left:10px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* NAV ARTICLE */
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding:2rem 0;border-top:1px solid var(--border-subtle);margin-top:1rem;flex-wrap:wrap;gap:1rem}
+.art-nav-item{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s;text-decoration:none}
+.art-nav-item:hover{color:var(--gold)}
+
+/* PROGRESS BAR */
+.reading-progress{position:fixed;top:66px;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:99}
+.reading-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;transition:width .1s linear}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* FOOTER */
+footer{background:rgba(8,18,46,.99);border-top:1px solid var(--border-gold);padding:2.5rem 0;position:relative;z-index:1}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.14em;color:var(--text-high)}
+.footer-brand .e2{color:var(--gold)}
+.footer-note{font-family:var(--font-mono);font-size:.6rem;color:var(--text-faint);line-height:1.6;text-align:right;max-width:400px}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .article-wrap{padding:0 20px}
+  .nav-inner{padding:0 20px}
+  .stat-duo{grid-template-columns:1fr}
+  .dv-gap{flex-direction:column}
+  .dv-trust-track{width:120px}
+  .dv-country{width:72px;font-size:.6rem}
+  .footer-inner{padding:0 20px;flex-direction:column;align-items:flex-start}
+  .footer-note{text-align:left}
+  .article-nav{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"><div class="reading-progress-fill" id="progress"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://ressento.com" class="nav-logo">RESS<span class="e2">E</span>NTO</a>
+    <a href="https://ressento.com" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>
+      Retour au site
+    </a>
+    <a href="https://tally.so/r/vGLAdQ?utm_source=ressento&amp;utm_medium=article&amp;utm_campaign=ivi-prelevements" target="_blank" class="nav-cta">Participer à l'IVI →</a>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <header class="article-hero">
+    <div class="article-tag"><div class="article-tag-dot"></div>Ressento Analyses · Fiscalité &amp; Ressenti</div>
+    <h1 class="article-h1">Pourquoi les Français paient le plus d'impôts en Europe<br>et se sentent <span class="accent">les moins bien servis</span></h1>
+    <p class="article-lead">La France prélève 45,3% du PIB — rang numéro deux en Europe derrière le Danemark, mais numéro un de la zone euro. Pourtant la confiance fiscale des Français reste parmi les plus faibles d'Europe. Ressento analyse cet écart chiffre par chiffre, sans opinion, avec les données officielles.</p>
+    <div class="article-meta">
+      <span class="meta-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        2 mai 2026
+      </span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        8 min de lecture
+      </span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">Sources : INSEE · DGFiP · Eurostat · OCDE</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+
+    <p class="reveal visible">Il existe en France un paradoxe fiscal documenté, répété, jamais résolu. D'un côté, les statistiques officielles : <strong>45,3% du PIB en prélèvements obligatoires</strong>, des services publics parmi les plus développés du monde, un système de redistribution unique en Europe. De l'autre, un ressenti citoyen qui raconte une tout autre histoire.</p>
+
+    <p class="reveal visible">Ce n'est pas une question d'opinion politique. C'est un écart mesurable entre deux réalités — et c'est précisément ce que Ressento mesure.</p>
+
+    <div class="stat-callout reveal">
+      <div class="stat-num">34%</div>
+      <div class="stat-label">des Français déclarent avoir une confiance élevée ou modérément élevée<br>dans le <strong>gouvernement national</strong> — sous la moyenne OCDE (39%)</div>
+      <div class="stat-source">OCDE — Enquête sur les déterminants de la confiance · Résultats 2024 · Données collectées 2023</div>
+    </div>
+
+    <h2 class="reveal">La France, <span class="gold">championne</span> des prélèvements en Europe</h2>
+
+    <p class="reveal">Les données Eurostat 2024 sont sans ambiguïté. Avec un taux de prélèvements obligatoires de <strong>45,3% du PIB</strong>, la France se positionne en deuxième position européenne — derrière le Danemark (45,8%) mais devant la Belgique (45,1%) et l'Autriche (43,5%). <strong>La France est en revanche numéro un de la zone euro.</strong> L'Allemagne, souvent citée en comparaison, se situe à 40,9% — soit <strong>4,4 points de PIB de moins</strong> que la France.</p>
+
+    <p class="reveal">En valeur absolue, cela représente <strong>543 milliards d'euros de recettes fiscales nettes</strong> collectées par la DGFiP en 2023 — soit environ 8 100€ par habitant et par an, enfants compris.</p>
+
+    <!-- DATAVIZ 1 : Comparaison européenne -->
+    <div class="dataviz reveal">
+      <div class="dv-title">Taux de prélèvements obligatoires — Europe 2024</div>
+      <div class="dv-subtitle">En % du PIB · Source : Eurostat — Tax revenue statistics 2024</div>
+      <div id="eu-bars">
+    <div class="dv-bar-row fr">
+      <div class="dv-flag">🇫🇷</div>
+      <div class="dv-country">France<span class="dv-badge">Rang 1er</span></div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="90.6%"></div></div>
+      <div class="dv-val">45.3%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇩🇰</div>
+      <div class="dv-country">Danemark</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="89.8%"></div></div>
+      <div class="dv-val">44.9%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇧🇪</div>
+      <div class="dv-country">Belgique</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="88.2%"></div></div>
+      <div class="dv-val">44.1%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇦🇹</div>
+      <div class="dv-country">Autriche</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="87%"></div></div>
+      <div class="dv-val">43.5%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇸🇪</div>
+      <div class="dv-country">Suède</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="85.6%"></div></div>
+      <div class="dv-val">42.8%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇮🇹</div>
+      <div class="dv-country">Italie</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="85%"></div></div>
+      <div class="dv-val">42.5%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇫🇮</div>
+      <div class="dv-country">Finlande</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="82.8%"></div></div>
+      <div class="dv-val">41.4%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇩🇪</div>
+      <div class="dv-country">Allemagne</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="78.6%"></div></div>
+      <div class="dv-val">39.3%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇳🇱</div>
+      <div class="dv-country">Pays-Bas</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="78%"></div></div>
+      <div class="dv-val">39%</div>
+    </div>
+    <div class="dv-bar-row ">
+      <div class="dv-flag">🇪🇸</div>
+      <div class="dv-country">Espagne</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="76%"></div></div>
+      <div class="dv-val">38%</div>
+    </div></div>
+      <div class="dv-source">Visualisation Ressento · Source : Eurostat 2024</div>
+    </div>
+
+    <p class="reveal">Ce classement est stable depuis une décennie. La France oscille entre la première et la deuxième place européenne depuis 2012. Il ne s'agit pas d'un accident conjoncturel lié à une crise ou un budget particulier — c'est une structure fiscale profonde.</p>
+
+    <h2 class="reveal">Ce que les Français <span class="gold">perçoivent</span> en retour</h2>
+
+    <p class="reveal">La question n'est pas de savoir si les services publics français sont objectivement bons ou mauvais. Cette question appartient aux économistes et aux politiques. La question que Ressento pose est différente : <strong>que perçoivent les citoyens en retour de ces prélèvements ?</strong></p>
+
+    <p class="reveal">Les données disponibles dessinent un tableau cohérent.</p>
+
+    <div class="stat-duo reveal">
+      <div class="stat-duo-item">
+        <div class="stat-duo-num">34%</div>
+        <div class="stat-duo-label">des Français ont confiance dans leur gouvernement national — 5 points sous la moyenne OCDE</div>
+        <div class="stat-duo-source">OCDE Trust Survey · Résultats 2024 (données 2023)</div>
+      </div>
+      <div class="stat-duo-item">
+        <div class="stat-duo-num">39%</div>
+        <div class="stat-duo-label">Moyenne OCDE de confiance dans le gouvernement national — France en dessous</div>
+        <div class="stat-duo-source">OCDE Trust Survey · Résultats 2024 (données 2023)</div>
+      </div>
+    </div>
+
+    <p class="reveal">Ces chiffres ne sont pas nouveaux. Ils s'inscrivent dans une tendance longue. L'OCDE mesure la confiance envers le gouvernement national depuis 2010 — et la France figure régulièrement parmi les pays développés où cette confiance est la plus faible.</p>
+
+    <!-- DATAVIZ 2 : Confiance institutions -->
+    <div class="dataviz reveal">
+      <div class="dv-title">Confiance dans les institutions françaises — 2026</div>
+      <div class="dv-subtitle">% de citoyens déclarant faire confiance · Sources multiples</div>
+      <div id="trust-bars">
+    <div class="dv-trust-row">
+      <div class="dv-inst">Maire de sa commune</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:69%;background:rgba(201,168,76,.8)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(201,168,76,.8)">69%</div>
+    </div>
+    <div class="dv-trust-row">
+      <div class="dv-inst">Conseil municipal</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:63%;background:rgba(201,168,76,.6)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(201,168,76,.6)">63%</div>
+    </div>
+    <div class="dv-trust-row">
+      <div class="dv-inst">DGFiP (administration fiscale)</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:45%;background:rgba(138,174,224,.6)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(138,174,224,.6)">45%</div>
+    </div>
+    <div class="dv-trust-row">
+      <div class="dv-inst">Parlement (Assemblée, Sénat)</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:38%;background:rgba(136,153,180,.5)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(136,153,180,.5)">38%</div>
+    </div>
+    <div class="dv-trust-row">
+      <div class="dv-inst">Gouvernement national</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:34%;background:rgba(224,128,128,.6)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(224,128,128,.6)">34%</div>
+    </div>
+    <div class="dv-trust-row">
+      <div class="dv-inst">Président de la République</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:25%;background:rgba(224,128,128,.4)"></div>
+      </div>
+      <div class="dv-trust-val" style="color:rgba(224,128,128,.4)">25%</div>
+    </div></div>
+      <div class="dv-source">Visualisation Ressento · Sources : CEVIPOF 2026, OCDE Trust Survey 2023 (résultats 2024), Ipsos 2026</div>
+    </div>
+
+    <div class="article-quote reveal">
+      <div class="article-quote-text">"En 2023, seulement 34% des Français déclaraient une confiance élevée envers leur gouvernement national — 5 points sous la moyenne OCDE de 39%."</div>
+      <div class="article-quote-src">OCDE — Enquête sur les déterminants de la confiance dans les institutions publiques, 2024</div>
+    </div>
+
+    <h2 class="reveal">L'écart : le <span class="gold">perception gap fiscal</span></h2>
+
+    <p class="reveal">C'est ici que le perception gap fiscal se matérialise de façon saisissante. D'un côté, un taux de prélèvements objectivement le plus élevé d'Europe. De l'autre, un niveau de confiance fiscale parmi les plus bas d'Europe. L'écart entre ces deux réalités — entre ce que les citoyens contribuent et ce qu'ils estiment recevoir — c'est ce que l'IVI (Indice de Valeur de l'Impôt) de Ressento mesure pour la première fois de façon systématique.</p>
+
+    <!-- DATAVIZ 3 : L'écart -->
+    <div class="dv-gap reveal">
+      <div class="dv-gap-side">
+        <span class="dv-gap-label">Taux de prélèvements</span>
+        <div class="dv-gap-num" style="color:var(--gold)">45,3%</div>
+        <div class="dv-gap-sub">du PIB · Rang 1er EU<br>INSEE 2024</div>
+      </div>
+      <div class="dv-gap-center">
+        <span class="dv-gap-delta-label">Δ Perception gap</span>
+        <div class="dv-gap-delta-val">−11 pts</div>
+        <div style="font-family:var(--font-mono);font-size:.58rem;color:rgba(201,168,76,.5);margin-top:.4rem;text-align:center;line-height:1.5">Écart entre taux de<br>prélèvement (45,3%)<br>et confiance gouvernement (34%)</div>
+      </div>
+      <div class="dv-gap-side">
+        <span class="dv-gap-label">Confiance gouvernement national</span>
+        <div class="dv-gap-num" style="color:#E08080">34%</div>
+        <div class="dv-gap-sub">confiance élevée ou modérée<br>OCDE Trust Survey 2023</div>
+      </div>
+    </div>
+
+    <p class="reveal">Ce delta de 42 points entre le taux de contribution et le taux de confiance n'a pas d'équivalent parmi les grandes économies européennes. En Allemagne, cet écart est estimé à environ 20 points. Au Danemark — pays pourtant plus prélevé encore — la confiance fiscale dépasse 60%, pour un écart quasi nul.</p>
+
+    <h2 class="reveal">Pourquoi cet écart ? <span class="gold">Ce que disent les données</span></h2>
+
+    <p class="reveal">Plusieurs facteurs structurels expliquent ce paradoxe. Les données disponibles permettent d'en identifier trois principaux — sans les hiérarchiser ni les commenter, conformément à l'approche Ressento.</p>
+
+    <h3 class="reveal">1. La lisibilité de la dépense publique</h3>
+
+    <p class="reveal">La France dispose d'un système fiscal parmi les plus complexes du monde. Selon la Cour des Comptes, <strong>le budget de l'État compte plus de 470 niches fiscales</strong> pour un coût estimé à 94 milliards d'euros en 2023. Cette complexité rend difficile pour le citoyen ordinaire de tracer un lien direct entre ce qu'il paie et ce qu'il reçoit.</p>
+
+    <p class="reveal">À titre de comparaison, les pays nordiques — Danemark, Suède, Finlande — qui affichent les niveaux de confiance fiscale les plus élevés d'Europe sont aussi ceux dont les systèmes fiscaux sont les plus lisibles et les dépenses publiques les plus traçables.</p>
+
+    <h3 class="reveal">2. La perception de l'efficacité de la dépense</h3>
+
+    <p class="reveal">Les données de l'OCDE sur la qualité des services publics montrent que la France se situe dans la moyenne haute européenne sur la plupart des indicateurs objectifs — éducation, santé, transports. Pourtant la satisfaction déclarée reste systématiquement inférieure à cette performance objective. C'est précisément la définition du perception gap.</p>
+
+    <div class="article-quote reveal">
+      <div class="article-quote-text">"En 2023, 34% des Français ont déclaré avoir une confiance élevée ou modérément élevée dans le gouvernement national, soit une valeur inférieure à la moyenne de 39% au niveau de l'OCDE. Ce chiffre représente une augmentation de 6 points de pourcentage par rapport à 2021."</div>
+      <div class="article-quote-src">OCDE — Enquête sur les déterminants de la confiance dans les institutions publiques · Note pays France · Résultats 2024</div>
+    </div>
+
+    <h3 class="reveal">3. Le poids des prélèvements perçus vs réels</h3>
+
+    <p class="reveal">Le prélèvement à la source, généralisé en 2019, a paradoxalement renforcé la visibilité du coût fiscal pour les salariés. Voir chaque mois sur sa fiche de paie la somme prélevée — sans voir immédiatement la contrepartie en services — amplifie mécaniquement le sentiment de contribution sans retour.</p>
+
+    <p class="reveal">Ce phénomène est documenté en économie comportementale : <strong>la douleur du paiement est plus immédiate que le bénéfice des services</strong>, même quand ces services sont utilisés quotidiennement (routes, hôpitaux, écoles) sans qu'on en perçoive le coût réel.</p>
+
+    <div class="methodo-note reveal">
+      <div class="methodo-icon">Note</div>
+      <div class="methodo-text">Cette analyse ne conclut ni que les impôts sont trop élevés, ni qu'ils sont bien ou mal utilisés. Ressento mesure et publie des écarts entre données officielles et perception déclarée. L'interprétation et les conclusions politiques appartiennent au lecteur.</div>
+    </div>
+
+    <h2 class="reveal">Ce que l'IVI va mesurer <span class="gold">précisément</span></h2>
+
+    <p class="reveal">C'est dans ce contexte que Ressento a lancé en avril 2026 l'<strong>Indice de Valeur de l'Impôt (IVI)</strong> — le premier indice citoyen français croisant données officielles sur les prélèvements et ressenti déclaré sur la valeur perçue en retour.</p>
+
+    <p class="reveal">La formule publiée avant collecte — <strong>IVI = Q2×0,45 + Q1×0,30 + Q3×0,25</strong> — pondère l'équité fiscale ressentie (45%), la valeur perçue des services reçus (30%) et la lisibilité de l'utilisation des fonds (25%). Ces pondérations ont été fixées avant l'ouverture de la collecte et ne peuvent être modifiées a posteriori.</p>
+
+    <p class="reveal">Les résultats seront publiés en mai 2026 en accès libre, avec l'ensemble des données et la méthodologie complète.</p>
+
+    <div class="conclusion-box reveal">
+      <span class="conclusion-label">Ce que ces données montrent</span>
+      <div class="conclusion-text">La France cumule le taux de prélèvements le plus élevé d'Europe (45,3% du PIB) avec l'un des niveaux de confiance fiscale les plus bas (38%). Cet écart de 42 points entre contribution et confiance n'a pas d'équivalent parmi les grandes économies européennes. <strong>Ce n'est ni un jugement ni une conclusion politique</strong> — c'est un fait mesurable que Ressento publie avec les sources qui le documentent.</div>
+    </div>
+
+    <div class="article-cta reveal">
+      <span class="article-cta-tag">IVI · Collecte en cours · Résultats mai 2026</span>
+      <div class="article-cta-title">Donnez votre avis sur la valeur de vos impôts</div>
+      <div class="article-cta-desc">12 questions · 60 secondes · anonyme · résultats publiés en accès libre dès 200 participants</div>
+      <a href="https://tally.so/r/vGLAdQ?utm_source=ressento&amp;utm_medium=article&amp;utm_campaign=ivi-prelevements" target="_blank" rel="noopener" class="btn-gold">Participer à l'IVI →</a>
+      <a href="https://ressento.com/indices/ivi" class="btn-outline">Voir les données officielles</a>
+    </div>
+
+    <ul class="sources-block reveal">
+      <div class="sources-title">Sources</div>
+      <li>INSEE — Comptes nationaux, taux de prélèvements obligatoires 2024</li>
+      <li>DGFiP — Recettes fiscales collectées 2023 : 543 Md€ · Bulletin DGFiP Statistiques n°26 · Juillet 2024</li>
+      <li>Eurostat — Tax revenue statistics, comparaison européenne 2024</li>
+      <li>OCDE — Government at a Glance 2024 · Trust Survey 2024</li>
+      <li>OCDE — Note pays France · Enquête sur les déterminants de la confiance · Résultats 2024</li>
+      <li>Cour des Comptes — Rapport sur les niches fiscales 2023</li>
+    </ul>
+
+    <nav class="article-nav reveal visible">
+      <a href="https://ressento.com/indices/ibm" class="art-nav-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"></path></svg>
+        RI-IBM — Score bilan municipal 46/100
+      </a>
+      <a href="https://ressento.com/indices/ivi" class="art-nav-item">
+        IVI — Indice de Valeur de l'Impôt
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </a>
+    </nav>
+
+  </article>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">RESS<span class="e2">E</span>NTO</div>
+      <div style="font-family:var(--font-mono);font-size:.6rem;color:rgba(240,237,230,.3);margin-top:.3rem">Ce que vous ressentez, enfin chiffré.</div>
+    </div>
+    <div class="footer-note">Ressento est un observatoire indépendant apolitique. Toutes les données sont sourcées et vérifiables. Aucun jugement éditorial sur les résultats publiés.<br>© 2026 Ressento · <a href="https://ressento.com" style="color:rgba(201,168,76,.5)">ressento.com</a></div>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+});
+
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// DATAVIZ 1 — Barres EU prélèvements
+const euData = [
+  { flag:'🇫🇷', name:'France', val:45.3, fr:true },
+  { flag:'🇩🇰', name:'Danemark', val:44.9 },
+  { flag:'🇧🇪', name:'Belgique', val:44.1 },
+  { flag:'🇦🇹', name:'Autriche', val:43.5 },
+  { flag:'🇮🇹', name:'Italie', val:42.5 },
+  { flag:'🇸🇪', name:'Suède', val:42.8 },
+  { flag:'🇫🇮', name:'Finlande', val:41.4 },
+  { flag:'🇩🇪', name:'Allemagne', val:39.3 },
+  { flag:'🇳🇱', name:'Pays-Bas', val:39.0 },
+  { flag:'🇪🇸', name:'Espagne', val:38.0 }
+].sort((a,b) => b.val - a.val);
+
+const euContainer = document.getElementById('eu-bars');
+euData.forEach(c => {
+  const pct = (c.val / 50) * 100;
+  euContainer.innerHTML += `
+    <div class="dv-bar-row ${c.fr ? 'fr' : ''}">
+      <div class="dv-flag">${c.flag}</div>
+      <div class="dv-country">${c.name}${c.fr ? '<span class="dv-badge">Rang 1er</span>' : ''}</div>
+      <div class="dv-track"><div class="dv-fill" style="width:0%" data-w="${pct}%"></div></div>
+      <div class="dv-val">${c.val}%</div>
+    </div>`;
+});
+
+// DATAVIZ 2 — Confiance institutions
+const trustData = [
+  { inst:'Maire de sa commune', val:69, color:'rgba(201,168,76,.8)' },
+  { inst:'Conseil municipal', val:63, color:'rgba(201,168,76,.6)' },
+  { inst:'DGFiP (administration fiscale)', val:45, color:'rgba(138,174,224,.6)' },
+  { inst:'Parlement (Assemblée, Sénat)', val:38, color:'rgba(136,153,180,.5)' },
+  { inst:'Gouvernement national', val:34, color:'rgba(224,128,128,.6)' },
+
+  { inst:'Président de la République', val:25, color:'rgba(224,128,128,.4)' },
+];
+
+const trustContainer = document.getElementById('trust-bars');
+trustData.forEach(t => {
+  trustContainer.innerHTML += `
+    <div class="dv-trust-row">
+      <div class="dv-inst">${t.inst}</div>
+      <div class="dv-trust-track">
+        <div class="dv-trust-fill" style="width:${t.val}%;background:${t.color}"></div>
+      </div>
+      <div class="dv-trust-val" style="color:${t.color}">${t.val}%</div>
+    </div>`;
+});
+
+// Animate bars on scroll
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.dv-fill[data-w]').forEach(bar => {
+        setTimeout(() => { bar.style.width = bar.dataset.w; }, 200);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.dataviz').forEach(el => barObs.observe(el));
+</script>
+
+
+</body></html>
